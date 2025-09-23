@@ -1,0 +1,62 @@
+User-agent: *
+Allow: /
+
+# Sitemap principal
+Sitemap: https://almakids.cl/sitemap.xml
+
+# Permitir acceso a recursos importantes
+Allow: /styles.css
+Allow: /script.js
+Allow: /imagenes/
+Allow: /animations.css
+Allow: /visual-fixes.css
+Allow: /layout-fixes.css
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.webp$
+Allow: /manifest.json
+
+# Optimización para buscadores específicos
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
+# Bloquear bots maliciosos comunes
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# Permitir bots de redes sociales
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# Bloquear directorios sensibles (si existieran)
+Disallow: /admin/
+Disallow: /config/
+Disallow: /logs/
+Disallow: /*.log$
+
+# Información adicional
+# Sitio: ALMA Kids Entretenciones Infantiles
+# Ubicación: Machalí, Región de O'Higgins, Chile
+# Servicios: Juegos inflables, plaza blanda, globos metalizados
+# Contacto: +56 9 6907 3306
+
+

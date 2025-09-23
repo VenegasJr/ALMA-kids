@@ -1,0 +1,1614 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Globos Metalizados Premium - ALMA Kids Entretenciones Infantiles</title>
+    <meta name="description" content="Catálogo premium con 68 globos metalizados únicos. Nombres profesionales y presentación elegante para fiestas infantiles en Machalí">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="animations.css">
+    <link rel="stylesheet" href="visual-fixes.css">
+    <link rel="stylesheet" href="layout-fixes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="imagenes/ALMA kids Logo web.png">
+    <link rel="apple-touch-icon" href="imagenes/ALMA kids Logo web.png">
+    <link rel="shortcut icon" type="image/png" href="imagenes/ALMA kids Logo web.png">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+        <div class="header-content">
+            <!-- Logo -->
+            <a class='logo' href='index.html'>
+                <div class="logo-text">
+                        <h1>ALMA Kids</h1>
+                        <span>Entretenciones Infantiles</span>
+                </div>
+            </a>
+            
+                <!-- Navigation -->
+        <nav class="nav">
+                    <a class='nav-link' href='index.html#inicio'>Inicio</a>
+                    <a class='nav-link' href='index.html#nosotros'>Nosotros</a>
+                    <a class='nav-link' href='eventos.html'>Eventos</a>
+                    <a class='nav-link active' href='globos-metalizados.html'>Globos Metalizados</a>
+                    <a class='nav-link' href='faq.html'>FAQ</a>
+                    <a class='nav-link' href='index.html#contacto'>Contacto</a>
+            </nav>
+            
+                <!-- Search and Contact Buttons -->
+                <div class="header-buttons">
+                    <!-- Search Button -->
+                    <button class="btn btn-search" onclick="toggleSearch()">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    
+                    <!-- Search Input (hidden by default) -->
+                    <div class="search-container" id="searchContainer">
+                        <input type="text" id="searchInput" placeholder="Buscar en ALMA Kids..." onkeyup="performSearch()">
+                        <div class="search-results" id="searchResults"></div>
+                    </div>
+                </div>
+            
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <nav class="mobile-nav">
+                <a class='mobile-link' href='index.html#inicio' onclick='closeMobileMenu()'>Inicio</a>
+                <a class='mobile-link' href='index.html#nosotros' onclick='closeMobileMenu()'>Nosotros</a>
+                <a class='mobile-link' href='eventos.html' onclick='closeMobileMenu()'>Eventos</a>
+                <a class='mobile-link active' href='globos-metalizados.html' onclick='closeMobileMenu()'>Globos Metalizados</a>
+                <a class='mobile-link' href='faq.html' onclick='closeMobileMenu()'>FAQ</a>
+                <a class='mobile-link' href='index.html#contacto' onclick='closeMobileMenu()'>Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Floating Navigation Buttons (Mobile) -->
+    <div class="floating-nav-buttons" style="pointer-events:none;">
+        <button class="btn btn-search" onclick="toggleSearch()" title="Buscar" style="pointer-events:auto;">
+            <i class="fas fa-search"></i>
+        </button>
+        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" title="Menú" style="pointer-events:auto;">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero hero-globos">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>🎈 Catálogo Globos Metalizados de Alta Calidad</h1>
+                    <p>Descubre nuestro catálogo exclusivo con más de 68 diseños únicos. Cada globo metálico ha sido cuidadosamente seleccionado para hacer de tu evento algo extraordinario.</p>
+                    
+                    
+                    <div class="hero-buttons">
+                        <a href="#globos-categories" class="btn btn-primary">
+                            <i class="fas fa-eye"></i> Ver Catálogo Completo
+                        </a>
+                        <a class='btn btn-secondary' href='index.html#contacto'>
+                            <i class="fas fa-envelope"></i> Cotizar Ahora
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="balloon-particles"></div>
+                    <h3>🎈 Variedad Increíble</h3>
+                    <p>Todos los temas que tu pequeño ama</p>
+                    <p class="optimization-badge">✨ Calidad Superior</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Globos Categories Section -->
+    <section class="globos-metalizados" id="globos-categories">
+        <div class="container">
+            <div class="section-header">
+                <h2>🎯 Nuestro Catálogo Exclusivo</h2>
+                <p>Cada producto con nombre profesional y presentación elegante</p>
+            </div>
+
+            <div class="globos-categories">
+
+                <!-- Princesas y Fantasía -->
+                <div class="globos-category">
+                    <h3><i class="fas fa-crown"></i> Princesas y Fantasía</h3>
+                    <p>Magia y fantasía para princesas</p>
+                    <div class="products-count">
+                        <span>5 productos disponibles</span>
+                    </div>
+                    <div class="globos-grid">
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalico-corona-azul-76x75cm.png', 'Globo Metálico Corona Azul', 'GM-PF-009', 'Princesas y Fantasía')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalico-corona-azul-76x75cm.png" alt="Globo Metálico Corona Azul" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Corona Azul</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-PF-009</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> 76×75cm</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-PF-009', 'Globo Metálico Corona Azul', 'Princesas y Fantasía')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalico-corona-dorado-76x75cm.png', 'Globo Metálico Corona Dorado', 'GM-PF-010', 'Princesas y Fantasía')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalico-corona-dorado-76x75cm.png" alt="Globo Metálico Corona Dorado" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Corona Dorado</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-PF-010</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> 76×75cm</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-PF-010', 'Globo Metálico Corona Dorado', 'Princesas y Fantasía')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalico-corona-princesa-rosa-76x75cm.png', 'Globo Metálico Corona Princesa Rosa', 'GM-PF-011', 'Princesas y Fantasía')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalico-corona-princesa-rosa-76x75cm.png" alt="Globo Metálico Corona Princesa Rosa" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Corona Princesa Rosa</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-PF-011</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> 76×75cm</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-PF-011', 'Globo Metálico Corona Princesa Rosa', 'Princesas y Fantasía')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalico-hada-92x60cm.png', 'Globo Metálico Hada', 'GM-PF-013', 'Princesas y Fantasía')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalico-hada-92x60cm.png" alt="Globo Metálico Hada" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Hada</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-PF-013</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> 92×60cm</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-PF-013', 'Globo Metálico Hada', 'Princesas y Fantasía')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalizado-lazo-rosa-58x92cm.png', 'Globo Metálico Lazo Rosa', 'GM-PF-014', 'Princesas y Fantasía')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalizado-lazo-rosa-58x92cm.png" alt="Globo Metálico Lazo Rosa" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Lazo Rosa</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-PF-014</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> 58×92cm</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-PF-014', 'Globo Metálico Lazo Rosa', 'Princesas y Fantasía')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Autos y Vehículos -->
+                <div class="globos-category">
+                    <h3><i class="fas fa-car"></i> Autos y Vehículos</h3>
+                    <p>Autos, motos, aviones y más</p>
+                    <div class="products-count">
+                        <span>7 productos disponibles</span>
+                    </div>
+                    <div class="globos-grid">
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalico-auto-carreras-3d-49x110cm.png', 'Globo Metálico Auto de Carreras 3d', 'GM-AV-008', 'Autos y Vehículos')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalico-auto-carreras-3d-49x110cm.png" alt="Globo Metálico Auto de Carreras 3d" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Auto de Carreras 3d</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-AV-008</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> 49×110cm</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-AV-008', 'Globo Metálico Auto de Carreras 3d', 'Autos y Vehículos')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalico-avion-80x59cm.png', 'Globo Metálico Avión', 'GM-AV-009', 'Autos y Vehículos')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalico-avion-80x59cm.png" alt="Globo Metálico Avión" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Avión</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-AV-009</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> 80×59cm</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-AV-009', 'Globo Metálico Avión', 'Autos y Vehículos')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalico-casco-motor-55x52cm.png', 'Globo Metálico Casco de Motor', 'GM-AV-010', 'Autos y Vehículos')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalico-casco-motor-55x52cm.png" alt="Globo Metálico Casco de Motor" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Casco de Motor</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-AV-010</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> 55×52cm</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-AV-010', 'Globo Metálico Casco de Motor', 'Autos y Vehículos')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalico-motocicleta-azul-66x53cm.png', 'Globo Metálico Motocicleta Azul', 'GM-AV-011', 'Autos y Vehículos')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalico-motocicleta-azul-66x53cm.png" alt="Globo Metálico Motocicleta Azul" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Motocicleta Azul</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-AV-011</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> 66×53cm</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-AV-011', 'Globo Metálico Motocicleta Azul', 'Autos y Vehículos')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalico-motocicleta-roja-66x53cm.png', 'Globo Metálico Motocicleta Roja', 'GM-AV-012', 'Autos y Vehículos')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalico-motocicleta-roja-66x53cm.png" alt="Globo Metálico Motocicleta Roja" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Motocicleta Roja</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-AV-012</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> 66×53cm</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-AV-012', 'Globo Metálico Motocicleta Roja', 'Autos y Vehículos')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalizado-camion-bomberos-80x74cm.png', 'Globo Metálico Camión de Bomberos', 'GM-AV-013', 'Autos y Vehículos')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalizado-camion-bomberos-80x74cm.png" alt="Globo Metálico Camión de Bomberos" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Camión de Bomberos</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-AV-013</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> 80×74cm</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-AV-013', 'Globo Metálico Camión de Bomberos', 'Autos y Vehículos')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalizado-coche-carreras-extrema-52x110cm.png', 'Globo Metálico Coche de Carreras Extrema', 'GM-AV-014', 'Autos y Vehículos')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalizado-coche-carreras-extrema-52x110cm.png" alt="Globo Metálico Coche de Carreras Extrema" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Coche de Carreras Extrema</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-AV-014</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> 52×110cm</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-AV-014', 'Globo Metálico Coche de Carreras Extrema', 'Autos y Vehículos')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Animales -->
+                <div class="globos-category">
+                    <h3><i class="fas fa-paw"></i> Animales</h3>
+                    <p>Adorables animales de la granja y selva</p>
+                    <div class="products-count">
+                        <span>12 productos disponibles</span>
+                    </div>
+                    <div class="globos-grid">
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalico-caballo-mar-86x51cm.png', 'Globo Metálico Caballo de Mar', 'GM-AN-021', 'Animales')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalico-caballo-mar-86x51cm.png" alt="Globo Metálico Caballo de Mar" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Caballo de Mar</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-AN-021</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> 86×51cm</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-AN-021', 'Globo Metálico Caballo de Mar', 'Animales')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalico-conejo-34x60cm.png', 'Globo Metálico Conejo', 'GM-AN-022', 'Animales')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalico-conejo-34x60cm.png" alt="Globo Metálico Conejo" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Conejo</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-AN-022</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> 34×60cm</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-AN-022', 'Globo Metálico Conejo', 'Animales')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalico-elefante-43x58cm.png', 'Globo Metálico Elefante', 'GM-AN-023', 'Animales')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalico-elefante-43x58cm.png" alt="Globo Metálico Elefante" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Elefante</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-AN-023</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> 43×58cm</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-AN-023', 'Globo Metálico Elefante', 'Animales')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalico-gato-35x60cm.png', 'Globo Metálico Gato', 'GM-AN-024', 'Animales')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalico-gato-35x60cm.png" alt="Globo Metálico Gato" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Gato</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-AN-024</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> 35×60cm</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-AN-024', 'Globo Metálico Gato', 'Animales')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalico-gorila-40x60cm.png', 'Globo Metálico Gorila', 'GM-AN-025', 'Animales')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalico-gorila-40x60cm.png" alt="Globo Metálico Gorila" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Gorila</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-AN-025</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> 40×60cm</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-AN-025', 'Globo Metálico Gorila', 'Animales')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalico-jirafa-sombrero-80x56cm.png', 'Globo Metálico Jirafa con Sombrero', 'GM-AN-026', 'Animales')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalico-jirafa-sombrero-80x56cm.png" alt="Globo Metálico Jirafa con Sombrero" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Jirafa con Sombrero</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-AN-026</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> 80×56cm</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-AN-026', 'Globo Metálico Jirafa con Sombrero', 'Animales')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalico-leon-sombrero-76x49cm.png', 'Globo Metálico León con Sombrero', 'GM-AN-027', 'Animales')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalico-leon-sombrero-76x49cm.png" alt="Globo Metálico León con Sombrero" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico León con Sombrero</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-AN-027</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> 76×49cm</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-AN-027', 'Globo Metálico León con Sombrero', 'Animales')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalico-mono-59x41cm.png', 'Globo Metálico Mono', 'GM-AN-028', 'Animales')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalico-mono-59x41cm.png" alt="Globo Metálico Mono" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Mono</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-AN-028</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> 59×41cm</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-AN-028', 'Globo Metálico Mono', 'Animales')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalico-osito-sombrero-76x48cm.png', 'Globo Metálico Osito con Sombrero', 'GM-AN-029', 'Animales')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalico-osito-sombrero-76x48cm.png" alt="Globo Metálico Osito con Sombrero" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Osito con Sombrero</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-AN-029</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> 76×48cm</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-AN-029', 'Globo Metálico Osito con Sombrero', 'Animales')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalico-panda-43x59cm.png', 'Globo Metálico Panda', 'GM-AN-030', 'Animales')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalico-panda-43x59cm.png" alt="Globo Metálico Panda" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Panda</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-AN-030</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> 43×59cm</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-AN-030', 'Globo Metálico Panda', 'Animales')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalico-panda-52x56cm.png', 'Globo Metálico Panda', 'GM-AN-031', 'Animales')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalico-panda-52x56cm.png" alt="Globo Metálico Panda" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Panda</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-AN-031</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> 52×56cm</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-AN-031', 'Globo Metálico Panda', 'Animales')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalico-tigre-59x38cm.png', 'Globo Metálico Tigre', 'GM-AN-032', 'Animales')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalico-tigre-59x38cm.png" alt="Globo Metálico Tigre" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Tigre</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-AN-032</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> 59×38cm</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-AN-032', 'Globo Metálico Tigre', 'Animales')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pokémon -->
+                <div class="globos-category">
+                    <h3><i class="fas fa-bolt"></i> Pokémon</h3>
+                    <p>Los pokémon más populares</p>
+                    <div class="products-count">
+                        <span>3 productos disponibles</span>
+                    </div>
+                    <div class="globos-grid">
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalico-pokemon-bulbasaur-35x50cm.png', 'Globo Metálico Pokémon Bulbasaur', 'GM-PK-004', 'Pokémon')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalico-pokemon-bulbasaur-35x50cm.png" alt="Globo Metálico Pokémon Bulbasaur" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Pokémon Bulbasaur</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-PK-004</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> 35×50cm</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-PK-004', 'Globo Metálico Pokémon Bulbasaur', 'Pokémon')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalico-pokemon-charmander-37x58cm.png', 'Globo Metálico Pokémon Charmander', 'GM-PK-005', 'Pokémon')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalico-pokemon-charmander-37x58cm.png" alt="Globo Metálico Pokémon Charmander" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Pokémon Charmander</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-PK-005</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> 37×58cm</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-PK-005', 'Globo Metálico Pokémon Charmander', 'Pokémon')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalico-pokemon-squirtle-40x55cm.png', 'Globo Metálico Pokémon Squirtle', 'GM-PK-006', 'Pokémon')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalico-pokemon-squirtle-40x55cm.png" alt="Globo Metálico Pokémon Squirtle" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Pokémon Squirtle</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-PK-006</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> 40×55cm</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-PK-006', 'Globo Metálico Pokémon Squirtle', 'Pokémon')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Deportes -->
+                <div class="globos-category">
+                    <h3><i class="fas fa-futbol"></i> Deportes</h3>
+                    <p>Para los pequeños deportistas</p>
+                    <div class="products-count">
+                        <span>6 productos disponibles</span>
+                    </div>
+                    <div class="globos-grid">
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalico-balon-futbol-azul-dorado-45cm.png', 'Globo Metálico Balón de Fútbol Azul Dorado 45cm', 'GM-DP-007', 'Deportes')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalico-balon-futbol-azul-dorado-45cm.png" alt="Globo Metálico Balón de Fútbol Azul Dorado 45cm" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Balón de Fútbol Azul Dorado 45cm</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-DP-007</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> Consultar medidas</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-DP-007', 'Globo Metálico Balón de Fútbol Azul Dorado 45cm', 'Deportes')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalico-balon-futbol-blanco-rojo-45cm.png', 'Globo Metálico Balón de Fútbol y Blanco y Rojo 45cm', 'GM-DP-008', 'Deportes')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalico-balon-futbol-blanco-rojo-45cm.png" alt="Globo Metálico Balón de Fútbol y Blanco y Rojo 45cm" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Balón de Fútbol y Blanco y Rojo 45cm</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-DP-008</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> Consultar medidas</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-DP-008', 'Globo Metálico Balón de Fútbol y Blanco y Rojo 45cm', 'Deportes')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalico-balon-futbol-blanco-verde-45cm.png', 'Globo Metálico Balón de Fútbol y Blanco y Verde 45cm', 'GM-DP-009', 'Deportes')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalico-balon-futbol-blanco-verde-45cm.png" alt="Globo Metálico Balón de Fútbol y Blanco y Verde 45cm" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Balón de Fútbol y Blanco y Verde 45cm</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-DP-009</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> Consultar medidas</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-DP-009', 'Globo Metálico Balón de Fútbol y Blanco y Verde 45cm', 'Deportes')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalico-baloncesto-45cm.png', 'Globo Metálico de Baloncesto 45cm', 'GM-DP-010', 'Deportes')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalico-baloncesto-45cm.png" alt="Globo Metálico de Baloncesto 45cm" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico de Baloncesto 45cm</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-DP-010</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> Consultar medidas</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-DP-010', 'Globo Metálico de Baloncesto 45cm', 'Deportes')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalizado-4d-futbol-negro-blanco-45cm.png', 'Globo Metálico 4d de Fútbol Negro y Blanco 45cm', 'GM-DP-012', 'Deportes')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalizado-4d-futbol-negro-blanco-45cm.png" alt="Globo Metálico 4d de Fútbol Negro y Blanco 45cm" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico 4d de Fútbol Negro y Blanco 45cm</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-DP-012</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> Consultar medidas</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-DP-012', 'Globo Metálico 4d de Fútbol Negro y Blanco 45cm', 'Deportes')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Espacio -->
+                <div class="globos-category">
+                    <h3><i class="fas fa-rocket"></i> Espacio</h3>
+                    <p>Astronautas, cohetes y planetas</p>
+                    <div class="products-count">
+                        <span>2 productos disponibles</span>
+                    </div>
+                    <div class="globos-grid">
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalico-astronauta-espacio-69x49cm.png', 'Globo Metálico Astronauta Espacial', 'GM-ES-011', 'Espacio')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalico-astronauta-espacio-69x49cm.png" alt="Globo Metálico Astronauta Espacial" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Astronauta Espacial</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-ES-011</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> 69×49cm</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-ES-011', 'Globo Metálico Astronauta Espacial', 'Espacio')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalico-cohete-espacio-61x31cm.png', 'Globo Metálico Cohete Espacial', 'GM-ES-012', 'Espacio')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalico-cohete-espacio-61x31cm.png" alt="Globo Metálico Cohete Espacial" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Cohete Espacial</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-ES-012</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> 61×31cm</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-ES-012', 'Globo Metálico Cohete Espacial', 'Espacio')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                            </div>
+                                </div>
+
+                <!-- Flores y Estrellas -->
+                <div class="globos-category">
+                    <h3><i class="fas fa-star"></i> Flores y Estrellas</h3>
+                    <p>Flores, estrellas de mar y decorativas</p>
+                    <div class="products-count">
+                        <span>7 productos disponibles</span>
+                            </div>
+                    <div class="globos-grid">
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalizado-estrella-explosiva-blanco-perla-48cm.png', 'Globo Metálico Estrella Explosiva y Blanco Perla 48cm', 'GM-FL-018', 'Flores')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalizado-estrella-explosiva-blanco-perla-48cm.png" alt="Globo Metálico Estrella Explosiva y Blanco Perla 48cm" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Estrella Explosiva y Blanco Perla 48cm</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-FL-018</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> Consultar medidas</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-FL-018', 'Globo Metálico Estrella Explosiva y Blanco Perla 48cm', 'Flores')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalizado-estrella-explosiva-dorado-48cm.png', 'Globo Metálico Estrella Explosiva Dorado 48cm', 'GM-FL-019', 'Flores')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalizado-estrella-explosiva-dorado-48cm.png" alt="Globo Metálico Estrella Explosiva Dorado 48cm" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Estrella Explosiva Dorado 48cm</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-FL-019</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> Consultar medidas</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-FL-019', 'Globo Metálico Estrella Explosiva Dorado 48cm', 'Flores')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dinosaurios -->
+                <div class="globos-category">
+                    <h3><i class="fas fa-dragon"></i> Dinosaurios</h3>
+                    <p>Era jurásica para los pequeños</p>
+                    <div class="products-count">
+                        <span>7 productos disponibles</span>
+                    </div>
+                    <div class="globos-grid">
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/cadena-globos-metalicos-dinosaurios-100x36cm.png', 'Globo Metálico Dinosaurios', 'GM-DN-010', 'Dinosaurios')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/cadena-globos-metalicos-dinosaurios-100x36cm.png" alt="Globo Metálico Dinosaurios" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Dinosaurios</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-DN-010</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> 100×36cm</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-DN-010', 'Globo Metálico Dinosaurios', 'Dinosaurios')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalico-dinosaurio-117x60cm.png', 'Globo Metálico Dinosaurio Grande', 'GM-DN-011', 'Dinosaurios')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalico-dinosaurio-117x60cm.png" alt="Globo Metálico Dinosaurio" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Dinosaurio Grande</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-DN-011</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> 117×60cm</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-DN-011', 'Globo Metálico Dinosaurio Grande', 'Dinosaurios')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalico-dinosaurio-35x60cm.png', 'Globo Metálico Dinosaurio', 'GM-DN-012', 'Dinosaurios')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalico-dinosaurio-35x60cm.png" alt="Globo Metálico Dinosaurio" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Dinosaurio</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-DN-012</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> 35×60cm</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-DN-012', 'Globo Metálico Dinosaurio', 'Dinosaurios')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalico-dinosaurio-37x58cm.png', 'Globo Metálico Dinosaurio', 'GM-DN-013', 'Dinosaurios')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalico-dinosaurio-37x58cm.png" alt="Globo Metálico Dinosaurio" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Dinosaurio</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-DN-013</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> 37×58cm</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-DN-013', 'Globo Metálico Dinosaurio', 'Dinosaurios')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalico-dinosaurio-38x60cm.png', 'Globo Metálico Dinosaurio', 'GM-DN-014', 'Dinosaurios')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalico-dinosaurio-38x60cm.png" alt="Globo Metálico Dinosaurio" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Dinosaurio</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-DN-014</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> 38×60cm</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-DN-014', 'Globo Metálico Dinosaurio', 'Dinosaurios')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalico-dinosaurio-triceratops-91x56cm.png', 'Globo Metálico Dinosaurio Triceratops', 'GM-DN-015', 'Dinosaurios')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalico-dinosaurio-triceratops-91x56cm.png" alt="Globo Metálico Dinosaurio Triceratops" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Dinosaurio Triceratops</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-DN-015</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> 91×56cm</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-DN-015', 'Globo Metálico Dinosaurio Triceratops', 'Dinosaurios')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalico-dinosaurio-verde-corona-65x79cm.png', 'Globo Metálico Dinosaurio Verde Corona', 'GM-DN-016', 'Dinosaurios')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalico-dinosaurio-verde-corona-65x79cm.png" alt="Globo Metálico Dinosaurio Verde Corona" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Dinosaurio Verde Corona</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-DN-016</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> 65×79cm</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-DN-016', 'Globo Metálico Dinosaurio Verde Corona', 'Dinosaurios')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mundo Marino -->
+                <div class="globos-category">
+                    <h3><i class="fas fa-fish"></i> Mundo Marino</h3>
+                    <p>Peces, delfines y vida marina</p>
+                    <div class="products-count">
+                        <span>9 productos disponibles</span>
+                    </div>
+                    <div class="globos-grid">
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalico-caballito-mar-36x63cm.png', 'Globo Metálico Caballito de Mar', 'GM-MM-021', 'Mundo Marino')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalico-caballito-mar-36x63cm.png" alt="Globo Metálico Caballito de Mar" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Caballito de Mar</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-MM-021</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> 36×63cm</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-MM-021', 'Globo Metálico Caballito de Mar', 'Mundo Marino')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalico-concha-51x54cm.png', 'Globo Metálico Concha', 'GM-MM-022', 'Mundo Marino')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalico-concha-51x54cm.png" alt="Globo Metálico Concha" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Concha</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-MM-022</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> 51×54cm</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-MM-022', 'Globo Metálico Concha', 'Mundo Marino')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalico-delfin-rosa-72x44cm.png', 'Globo Metálico Delfín Rosa', 'GM-MM-023', 'Mundo Marino')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalico-delfin-rosa-72x44cm.png" alt="Globo Metálico Delfín Rosa" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Delfín Rosa</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-MM-023</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> 72×44cm</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-MM-023', 'Globo Metálico Delfín Rosa', 'Mundo Marino')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalico-mariposa-48x76cm.png', 'Globo Metálico Mariposa', 'GM-MM-025', 'Mundo Marino')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalico-mariposa-48x76cm.png" alt="Globo Metálico Mariposa" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Mariposa</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-MM-025</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> 48×76cm</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-MM-025', 'Globo Metálico Mariposa', 'Mundo Marino')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalico-pescado-53x59cm.png', 'Globo Metálico Pescado', 'GM-MM-026', 'Mundo Marino')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalico-pescado-53x59cm.png" alt="Globo Metálico Pescado" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Pescado</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-MM-026</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> 53×59cm</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-MM-026', 'Globo Metálico Pescado', 'Mundo Marino')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalico-redondo-mariposas-degradada-45cm.png', 'Globo Metálico Redondo Mariposas Degradada 45cm', 'GM-MM-027', 'Mundo Marino')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalico-redondo-mariposas-degradada-45cm.png" alt="Globo Metálico Redondo Mariposas Degradada 45cm" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Redondo Mariposas Degradada 45cm</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-MM-027</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> Consultar medidas</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-MM-027', 'Globo Metálico Redondo Mariposas Degradada 45cm', 'Mundo Marino')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalico-sirena-63x105cm.png', 'Globo Metálico Sirena', 'GM-MM-028', 'Mundo Marino')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalico-sirena-63x105cm.png" alt="Globo Metálico Sirena" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Sirena</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-MM-028</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> 63×105cm</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-MM-028', 'Globo Metálico Sirena', 'Mundo Marino')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalico-tiburon-79x49cm.png', 'Globo Metálico Tiburón', 'GM-MM-029', 'Mundo Marino')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalico-tiburon-79x49cm.png" alt="Globo Metálico Tiburón" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Tiburón</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-MM-029</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> 79×49cm</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-MM-029', 'Globo Metálico Tiburón', 'Mundo Marino')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalico-tilapia-59x60cm.png', 'Globo Metálico Tilapia', 'GM-MM-030', 'Mundo Marino')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalico-tilapia-59x60cm.png" alt="Globo Metálico Tilapia" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Tilapia</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-MM-030</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> 59×60cm</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-MM-030', 'Globo Metálico Tilapia', 'Mundo Marino')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Unicornios -->
+                <div class="globos-category">
+                    <h3><i class="fas fa-magic"></i> Unicornios</h3>
+                    <p>Magia y arcoíris</p>
+                    <div class="products-count">
+                        <span>3 productos disponibles</span>
+                    </div>
+                    <div class="globos-grid">
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/cadena-globos-metalicos-unicornio-105x26cm.png', 'Globo Metálico Unicornio', 'GM-UN-004', 'Unicornios')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/cadena-globos-metalicos-unicornio-105x26cm.png" alt="Globo Metálico Unicornio" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Unicornio</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-UN-004</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> 105×26cm</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-UN-004', 'Globo Metálico Unicornio', 'Unicornios')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalico-unicornio-estilo-65x78cm.png', 'Globo Metálico Unicornio Estilo', 'GM-UN-005', 'Unicornios')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalico-unicornio-estilo-65x78cm.png" alt="Globo Metálico Unicornio Estilo" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Unicornio Estilo</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-UN-005</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> 65×78cm</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-UN-005', 'Globo Metálico Unicornio Estilo', 'Unicornios')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalizado-arcoiris-53x82cm.png', 'Globo Metálico Arcoíris', 'GM-UN-006', 'Unicornios')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalizado-arcoiris-53x82cm.png" alt="Globo Metálico Arcoíris" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Arcoíris</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-UN-006</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> 53×82cm</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-UN-006', 'Globo Metálico Arcoíris', 'Unicornios')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Varios -->
+                <div class="globos-category">
+                    <h3><i class="fas fa-star"></i> Varios</h3>
+                    <p>Diseños únicos y especiales</p>
+                    <div class="products-count">
+                        <span>7 productos disponibles</span>
+                    </div>
+                    <div class="globos-grid">
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalico-iron-man-31x58cm.png', 'Globo Metálico Iron Man', 'GM-VA-022', 'Varios')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalico-iron-man-31x58cm.png" alt="Globo Metálico Iron Man" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Iron Man</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-VA-022</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> 31×58cm</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-VA-022', 'Globo Metálico Iron Man', 'Varios')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalico-Cono-helado-23x47cm.png', 'Globo Metálico Cono de Helado', 'GM-VA-025', 'Varios')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalico-Cono-helado-23x47cm.png" alt="Globo Metálico Cono de Helado" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Cono de Helado</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-VA-025</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> 23×47cm</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-VA-025', 'Globo Metálico Cono de Helado', 'Varios')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                        <div class="globo-item" onclick="openImageModal('imagenes globos decoracion/globo-metalico-margarita-azul-66x77cm.png', 'Globo Metálico Margarita Azul', 'GM-MM-024', 'Varios')">
+                            <div class="globo-image-container">
+                                <img src="imagenes globos decoracion/globo-metalico-margarita-azul-66x77cm.png" alt="Globo Metálico Margarita Azul" class="globo-img" loading="lazy">
+                            </div>
+                            <div class="globo-info">
+                                <h4>Globo Metálico Margarita Azul</h4>
+                                <div class="product-details">
+                                    <p><i class="fas fa-barcode"></i> <strong>Código:</strong> GM-MM-024</p>
+                                    <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> 66×77cm</p>
+                                    <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-MM-024', 'Globo Metálico Margarita Azul', 'Varios')">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- CTA Personalizado -->
+            <div class="globos-cta">
+                <div class="personalized-cta">
+                    <h3>🎯 ¿No encuentras tu tema ideal?</h3>
+                    <p>¡Creamos temáticas personalizadas! Solo cuéntanos qué le gusta a tu pequeño y haremos magia.</p>
+                    <button class="btn btn-primary" onclick="showCustomThemesModal()">
+                        <i class="fas fa-magic"></i> Solicitar Tema Personalizado
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                            <h3>ALMA Kids</h3>
+                      <p>Entretenciones Infantiles Ltda.</p>
+                      <p class="footer-slogan">¡Donde los sueños se inflan y la diversión nunca termina!</p>
+                    
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/alma.kidscl" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61580273574247" target="_blank"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href='index.html#inicio'>Inicio</a></li>
+                        <li><a href='index.html#nosotros'>Sobre Nosotros</a></li>
+                        <li><a href='index.html#servicios'>Servicios</a></li>
+                        <li><a href='index.html#plaza-blanda'>Plaza Blanda</a></li>
+                        <li><a href='eventos.html'>Eventos</a></li>
+                        <li><a href='globos-metalizados.html'>Globos Metalizados</a></li>
+                        <li><a href='faq.html'>Preguntas Frecuentes</a></li>
+                        <li><a href='index.html#contacto'>Contacto</a></li>
+                    </ul>
+            </div>
+            
+                <div class="footer-contact">
+                    <h4>Contacto</h4>
+                    <div class="contact-number">
+                        <span class="contact-icons">
+                            <i class="fas fa-phone" style="color: #4CAF50;"></i>
+                            <i class="fab fa-whatsapp" style="color: #25D366;"></i>
+                        </span>
+                        <a href="https://wa.me/56969073306?text=Hola%20ALMA%20Kids,%20me%20interesa%20cotizar%20sus%20servicios" target="_blank">+56 9 6907 3306</a>
+                    </div>
+                    <div class="contact-number">
+                        <span class="contact-icons">
+                            <i class="fas fa-phone" style="color: #4CAF50;"></i>
+                            <i class="fab fa-whatsapp" style="color: #25D366;"></i>
+                        </span>
+                        <a href="tel:+56920609796">+56 9 2060 9796</a>
+                    </div>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:info.almakids@gmail.com">info.almakids@gmail.com</a></p>
+                    <p><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/alma.kidscl" target="_blank">@alma.kidscl</a></p>
+                    <p><i class="fab fa-facebook"></i> <a href="https://www.facebook.com/profile.php?id=61580273574247" target="_blank">ALMA Kids</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ALMA Kids Entretenciones Infantiles Ltda. Todos los derechos reservados.</p>
+                <p class="footer-seo">Juegos inflables Machalí | Plaza blanda Rancagua | Fiestas infantiles | Castillos inflables | Eventos escolares | Cumpleaños niños</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Buttons Stack -->
+
+    <!-- WhatsApp Float Button -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/56969073306?text=Hola%20ALMA%20Kids,%20me%20interesa%20cotizar%20globos%20metalizados" target="_blank" class="whatsapp-btn" title="WhatsApp: +56 9 6907 3306">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Cart Float Button -->
+    <div class="cart-float">
+        <button class="cart-btn" onclick="showNewCart()" title="Ver Carrito de Globos">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count" id="cartCount">0</span>
+        </button>
+    </div>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Producto</h3>
+                <span class="close" onclick="closeImageModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <img id="modalImage" src="" alt="" class="modal-image">
+                <div id="modalInfo" class="modal-info">
+                    <p id="modalCode"><strong>Código:</strong> </p>
+                    <p id="modalCategory"><strong>Categoría:</strong> </p>
+                    <p id="modalStock"><strong>Stock disponible:</strong> 3 unidades</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="previousImage()">
+                    <i class="fas fa-chevron-left"></i> Anterior
+                </button>
+                <button class="btn btn-primary" onclick="addToCartFromModal()">
+                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                </button>
+                <button class="btn btn-secondary" onclick="nextImage()">
+                    Siguiente <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content cart-modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-shopping-cart"></i> Tu Carrito</h3>
+                <button class="close-modal" onclick="closeCartModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="cartItems" class="cart-items"></div>
+                <div class="cart-buttons">
+                    <button class="btn btn-secondary" onclick="clearCart()">
+                        <i class="fas fa-trash"></i> Limpiar Carrito
+                    </button>
+                    <button class="btn btn-primary" onclick="requestQuote()">
+                    <i class="fas fa-paper-plane"></i> Solicitar Cotización
+                    </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="emergency-functions.js"></script>
+    <script src="script.js"></script>
+    <script src="image-optimizer.js"></script>
+    <script src="form-enhancer.js"></script>
+    <script src="accessibility-enhancer.js"></script>
+    <script src="custom-themes-modal.js"></script>
+    <script src="mobile-fix.js"></script>
+    <script src="fix-definitivo.js"></script>
+    <script src="performance-optimizer.js"></script>
+    <script src="notifications.js"></script>
+    <script src="favorites-system.js"></script>
+    <script src="price-calculator.js"></script>
+    
+    <!-- Modal de Imágenes con Liquid Glass -->
+    <script>
+        // ========================================
+        // SISTEMA DE MODAL DE IMÁGENES LIQUID GLASS
+        // ========================================
+        
+        // Función para abrir modal de imágenes
+        window.openImageModal = function(imageSrc, title, code, category) {
+            console.log('🖼️ Abriendo modal de imagen:', title);
+            const modal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            const modalCaption = document.getElementById('modalCaption');
+            
+            if (modal && modalImage && modalCaption) {
+                modalImage.src = imageSrc;
+                modalImage.alt = title;
+                
+                modalCaption.innerHTML = `
+                    <h3>${title}</h3>
+                    <p><strong>Código:</strong> ${code}</p>
+                    <p><strong>Categoría:</strong> ${category}</p>
+                    <div class="modal-actions">
+                        <button class="btn btn-primary" onclick="addToNewCart({
+                            id: '${code}',
+                            name: '${title}',
+                            code: '${code}',
+                            category: '${category}',
+                            image: '${imageSrc}'
+                        })">
+                            <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                        </button>
+                    </div>
+                `;
+                
+                modal.style.display = 'flex';
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                console.log('✅ Modal de imagen abierto');
+            } else {
+                console.error('❌ Elementos del modal no encontrados');
+            }
+        };
+        
+        // Función para cerrar modal de imágenes
+        window.closeImageModal = function() {
+            console.log('🖼️ Cerrando modal de imagen...');
+            const modal = document.getElementById('imageModal');
+            if (modal) {
+                modal.style.display = 'none';
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+                console.log('✅ Modal de imagen cerrado');
+            }
+        };
+        
+        // Cerrar modal haciendo clic fuera de él
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target === modal) {
+                closeImageModal();
+            }
+        });
+        
+        // Funciones básicas del carrito para esta página
+        window.cartItems = window.cartItems || [];
+        window.cartCount = window.cartCount || 0;
+        
+        window.addToNewCart = function(item) {
+            console.log('➕ Agregando item al carrito:', item);
+            
+            const existingItem = window.cartItems.find(cartItem => cartItem.id === item.id);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                window.cartItems.push({
+                    ...item,
+                    quantity: 1
+                });
+            }
+            
+            window.cartCount += 1;
+            
+            // Mostrar notificación
+            const notification = document.createElement('div');
+            notification.innerHTML = '✅ Globo agregado al carrito';
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: #4CAF50;
+                color: white;
+                padding: 15px 20px;
+                border-radius: 10px;
+                z-index: 10000;
+                animation: slideInRight 0.3s ease;
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 2000);
+            
+            console.log('✅ Item agregado. Total items:', window.cartItems.length);
+        };
+    </script>
+    
+    <!-- CSS Específico para Modal Liquid Glass en Globos -->
+    <style>
+        /* Asegurar que el modal funcione con liquid glass */
+        #imageModal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.1),
+                rgba(255, 255, 255, 0.05),
+                rgba(0, 0, 0, 0.3),
+                rgba(0, 0, 0, 0.5)
+            );
+            z-index: 10000;
+            backdrop-filter: blur(25px) saturate(1.8);
+            -webkit-backdrop-filter: blur(25px) saturate(1.8);
+            animation: fadeIn 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        #imageModal.active {
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #imageModal .modal-content {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.25),
+                rgba(255, 255, 255, 0.15),
+                rgba(255, 255, 255, 0.1)
+            );
+            border-radius: 20px;
+            padding: 1.5rem;
+            max-width: 90vw;
+            max-height: 90vh;
+            width: auto;
+            height: auto;
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.25),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3),
+                0 0 0 1px rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px) saturate(1.5);
+            -webkit-backdrop-filter: blur(20px) saturate(1.5);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        #imageModal .modal-image {
+            width: auto;
+            height: auto;
+            max-width: 85vw;
+            max-height: 75vh;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            object-fit: contain;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        #imageModal .modal-caption {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.2),
+                rgba(255, 255, 255, 0.1)
+            );
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+            color: white;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            text-align: center;
+        }
+
+        #imageModal .modal-caption h3 {
+            margin: 0 0 0.5rem 0;
+            color: white;
+            font-size: 1.4rem;
+            font-weight: 600;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        #imageModal .modal-caption p {
+            margin: 0.5rem 0;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            line-height: 1.5;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.3),
+                rgba(255, 255, 255, 0.1)
+            );
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .close-modal:hover {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.4),
+                rgba(255, 255, 255, 0.2)
+            );
+            transform: scale(1.1);
+            box-shadow: 
+                0 12px 40px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .modal-actions {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .modal-actions .btn {
+            background: linear-gradient(135deg, var(--accent-color), #FF6B9D);
+            border: none;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(78, 205, 196, 0.3);
+        }
+
+        .modal-actions .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(78, 205, 196, 0.4);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</body>
+</html>

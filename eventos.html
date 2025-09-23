@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios para Eventos - ALMA Kids Entretenciones Infantiles</title>
+    <meta name="description" content="Servicios especializados para todo tipo de eventos infantiles: cumpleaños, graduaciones, baby showers, eventos escolares y corporativos en Machalí y Rancagua">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="animations.css">
+    <link rel="stylesheet" href="visual-fixes.css">
+    <link rel="stylesheet" href="layout-fixes.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="imagenes/ALMA kids Logo web.png">
+    <link rel="apple-touch-icon" href="imagenes/ALMA kids Logo web.png">
+    <link rel="shortcut icon" type="image/png" href="imagenes/ALMA kids Logo web.png">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+        <div class="header-content">
+            <!-- Logo -->
+            <a class='logo' href='index.html'>
+                <div class="logo-text">
+                        <h1>ALMA Kids</h1>
+                        <span>Entretenciones Infantiles</span>
+                </div>
+            </a>
+            
+                <!-- Navigation -->
+        <nav class="nav">
+                    <a class='nav-link' href='index.html#inicio'>Inicio</a>
+                    <a class='nav-link' href='index.html#nosotros'>Nosotros</a>
+                    <a class='nav-link active' href='eventos.html'>Eventos</a>
+                    <a class='nav-link' href='globos-metalizados.html'>Globos Metalizados</a>
+                    <a class='nav-link' href='faq.html'>FAQ</a>
+                    <a class='nav-link' href='index.html#contacto'>Contacto</a>
+            </nav>
+            
+                <!-- Search and Contact Buttons -->
+                <div class="header-buttons">
+                    <!-- Search Button -->
+                    <button class="btn btn-search" onclick="toggleSearch()">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    
+                    <!-- Search Input (hidden by default) -->
+                    <div class="search-container" id="searchContainer">
+                        <input type="text" id="searchInput" placeholder="Buscar en ALMA Kids..." onkeyup="performSearch()">
+                        <div class="search-results" id="searchResults"></div>
+                    </div>
+            </div>
+            
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <nav class="mobile-nav">
+                <a class='mobile-link' href='index.html#inicio' onclick='closeMobileMenu()'>Inicio</a>
+                <a class='mobile-link' href='index.html#nosotros' onclick='closeMobileMenu()'>Nosotros</a>
+                <a class='mobile-link active' href='eventos.html' onclick='closeMobileMenu()'>Eventos</a>
+                <a class='mobile-link' href='globos-metalizados.html' onclick='closeMobileMenu()'>Globos Metalizados</a>
+                <a class='mobile-link' href='faq.html' onclick='closeMobileMenu()'>FAQ</a>
+                <a class='mobile-link' href='index.html#contacto' onclick='closeMobileMenu()'>Contacto</a>
+            </nav>
+                    </div>
+</header>
+
+    <!-- Floating Navigation Buttons (Mobile) -->
+    <div class="floating-nav-buttons" style="pointer-events:none;">
+        <button class="btn btn-search" onclick="toggleSearch()" title="Buscar" style="pointer-events:auto;">
+            <i class="fas fa-search"></i>
+        </button>
+        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" title="Menú" style="pointer-events:auto;">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+
+    <!-- Eventos Hero Section -->
+    <section class="eventos-hero">
+        <div class="particles-bg">
+            <div class="particle event-particle"></div>
+            <div class="particle event-particle"></div>
+            <div class="particle event-particle"></div>
+            <div class="particle event-particle"></div>
+            <div class="particle event-particle"></div>
+        </div>
+        <div class="container">
+            <div class="eventos-hero-content">
+                <div class="hero-icon">
+                    <i class="fas fa-calendar-star"></i>
+                </div>
+                <h1>🎉 Servicios para Eventos</h1>
+                <p class="hero-subtitle">Celebra con nosotros: soluciones completas y personalizadas para cada tipo de evento infantil</p>
+                
+                <div class="hero-features">
+                    <div class="hero-feature">
+                        <i class="fas fa-magic"></i>
+                        <span>Experiencias Únicas</span>
+                    </div>
+                    <div class="hero-feature">
+                        <i class="fas fa-heart"></i>
+                        <span>Momentos Memorables</span>
+                    </div>
+                    <div class="hero-feature">
+                        <i class="fas fa-star"></i>
+                        <span>Calidad Premium</span>
+                    </div>
+                </div>
+                
+                
+                <div class="hero-actions">
+                    <a href="#eventos-grid" class="btn btn-primary btn-hero">
+                        <i class="fas fa-sparkles"></i>
+                        Explorar Servicios
+                    </a>
+                    <a class='btn btn-secondary btn-hero' href='index.html#contacto'>
+                        <i class="fas fa-phone"></i>
+                        Cotizar Mi Evento
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hero-wave">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="white"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Información Profesional de Facturación -->
+    <section class="professional-info">
+        <div class="container">
+            <div class="professional-banner">
+                <div class="professional-content">
+                    <div class="professional-icon">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                    </div>
+                    <div class="professional-text">
+                        <h3>📄 Empresa Formal y Confiable</h3>
+                        <p>En ALMA Kids, cada detalle importa. Por eso emitimos Facturas y Boletas, asegurando un servicio transparente, serio y con el respaldo legal que tu evento merece.</p>
+                        <div class="professional-features">
+                            <span><i class="fas fa-check-circle"></i> Documentación oficial</span>
+                            <span><i class="fas fa-shield-alt"></i> Empresa registrada</span>
+                            <span><i class="fas fa-handshake"></i> Garantía de servicio</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Eventos Grid Section -->
+    <section id="eventos-grid" class="events">
+        <div class="container">
+            <div class="events-grid">
+                <div class="event-card">
+                    <div class="event-icon">
+                        <i class="fas fa-birthday-cake"></i>
+                    </div>
+                    <h3>Fiestas de Cumpleaños</h3>
+                    <p>Celebra el cumpleaños de tu pequeño con nuestros juegos inflables temáticos</p>
+                    <ul>
+                        <li>Castillos inflables</li>
+                        <li>Plaza blanda</li>
+                        <li>Decoración temática <strong>+ Costo Adicional</strong></li>
+                        <li>Supervisión <strong>+ Costo Adicional</strong></li>
+                    </ul>
+                    <a class='btn btn-primary' href='index.html#contacto'>Solicitar Presupuesto</a>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-icon">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <h3>Eventos Escolares</h3>
+                    <p>Diversión educativa para colegios y jardines infantiles</p>
+                    <ul>
+                        <li>Juegos seguros</li>
+                        <li>Actividades grupales</li>
+                        <li>Programas educativos</li>
+                        <li>Supervisión <strong>+ Costo Adicional</strong></li>
+                    </ul>
+                    <a class='btn btn-primary' href='index.html#contacto'>Solicitar Presupuesto</a>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Eventos Corporativos</h3>
+                    <p>Entretenimiento para eventos empresariales familiares</p>
+                    <ul>
+                        <li>Zona Blanda infantil</li>
+                        <li>Inflables para nuestros pequeños</li>
+                        <li>Logística completa</li>
+                        <li>Personal capacitado</li>
+                    </ul>
+                    <a class='btn btn-primary' href='index.html#contacto'>Solicitar Presupuesto</a>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-icon">
+                        <i class="fas fa-church"></i>
+                    </div>
+                    <h3>Eventos Religiosos</h3>
+                    <p>Diversión para celebraciones y eventos de la comunidad</p>
+                    <ul>
+                        <li>Juegos temáticos</li>
+                        <li>Actividades para niños</li>
+                        <li>Momentos memorables</li>
+                        <li>Decoración temática <strong>+ Costo Adicional</strong></li>
+                    </ul>
+                    <a class='btn btn-primary' href='index.html#contacto'>Solicitar Presupuesto</a>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Graduaciones</h3>
+                    <p>Celebra los logros académicos con diversión inflable</p>
+                    <ul>
+                        <li>Fiestas de graduación</li>
+                        <li>Celebraciones de fin de año</li>
+                        <li>Eventos de promoción</li>
+                        <li>Actividades especiales</li>
+                    </ul>
+                    <a class='btn btn-primary' href='index.html#contacto'>Solicitar Presupuesto</a>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Baby Showers</h3>
+                    <p>Diversión para los hermanitos en baby showers</p>
+                    <ul>
+                        <li>Zona de juegos infantil</li>
+                        <li>Actividades para niños</li>
+                        <li>Entretenimiento familiar</li>
+                        <li>Juegos seguros</li>
+                    </ul>
+                    <a class='btn btn-primary' href='index.html#contacto'>Solicitar Presupuesto</a>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Eventos Especiales</h3>
+                    <p>Celebraciones únicas y momentos memorables</p>
+                    <ul>
+                        <li>Aniversarios familiares</li>
+                        <li>Fiestas temáticas</li>
+                        <li>Celebraciones de logros</li>
+                        <li>Eventos personalizados</li>
+                    </ul>
+                    <a class='btn btn-primary' href='index.html#contacto'>Solicitar Presupuesto</a>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3>Revelaciones de Género</h3>
+                    <p>Celebra la revelación del género de tu bebé con diversión inflable</p>
+                    <ul>
+                        <li>Juegos temáticos</li>
+                        <li>Decoración especial</li>
+                        <li>Actividades para niños</li>
+                        <li>Momentos memorables</li>
+                    </ul>
+                    <a class='btn btn-primary' href='index.html#contacto'>Solicitar Presupuesto</a>
+                </div>
+            </div>
+            
+            <!-- Servicios Adicionales -->
+            <div class="additional-services">
+                <h2 class="section-title">🌟 Servicios Adicionales</h2>
+                <div class="services-grid">
+                    <div class="service-addon">
+                        <i class="fas fa-palette"></i>
+                        <h4>Decoración Temática</h4>
+                        <p>Globos metalizados, arcos, centros de mesa</p>
+                    </div>
+                    <div class="service-addon">
+                        <i class="fas fa-eye"></i>
+                        <h4>Supervisión Profesional</h4>
+                        <p>Personal capacitado durante todo el evento</p>
+                    </div>
+                    <div class="service-addon">
+                        <i class="fas fa-truck"></i>
+                        <h4>Traslado</h4>
+                        <p>Instalación y retiro fuera del área base</p>
+                    </div>
+                    <div class="service-addon">
+                        <i class="fas fa-clock"></i>
+                        <h4>Tiempo Extendido</h4>
+                        <p>Extensión de horas adicionales</p>
+                        <div class="time-options">
+                            <button class="time-option" onclick="selectTimeExtension(1)">
+                                <span class="time-number">+1</span>
+                                <span class="time-label">hora</span>
+                            </button>
+                            <button class="time-option" onclick="selectTimeExtension(2)">
+                                <span class="time-number">+2</span>
+                                <span class="time-label">horas</span>
+                            </button>
+                            <button class="time-option" onclick="selectTimeExtension(3)">
+                                <span class="time-number">+3</span>
+                                <span class="time-label">horas</span>
+                            </button>
+                            <button class="time-option" onclick="selectTimeExtension(4)">
+                                <span class="time-number">+4</span>
+                                <span class="time-label">horas</span>
+                            </button>
+                        </div>
+                        <div class="selected-time" id="selectedTime" style="display: none;">
+                            <i class="fas fa-check-circle"></i>
+                            <span id="selectedTimeText">Seleccionado: +2 horas</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Botón Solicitar Presupuesto para Servicios Adicionales -->
+                <div class="additional-services-cta" style="text-align: center; margin-top: 2rem;">
+                    <a class='btn btn-primary btn-large' href='index.html#contacto' style="
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 0.5rem;
+                        padding: 1rem 2rem;
+                        font-size: 1.1rem;
+                        text-decoration: none;
+                        border-radius: 8px;
+                        transition: all 0.3s ease;
+                    ">
+                        <i class="fas fa-calculator"></i>
+                        Solicitar Presupuesto
+                    </a>
+                </div>
+            </div>
+            
+            <!-- CTA Final -->
+            <div class="eventos-cta">
+                <h3>🎪 ¿Listo para crear recuerdos mágicos?</h3>
+                <p>Nuestro equipo está preparado para hacer de tu evento una experiencia inolvidable</p>
+                <div class="cta-buttons">
+                    <a href="https://wa.me/56969073306?text=Hola%20ALMA%20Kids,%20quiero%20cotizar%20un%20evento" target="_blank" class="btn btn-primary btn-large">
+                        <i class="fab fa-whatsapp"></i>
+                        WhatsApp Inmediato
+                    </a>
+                    <a class='btn btn-secondary btn-large' href='index.html#contacto'>
+                        <i class="fas fa-form"></i>
+                        Formulario Detallado
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>ALMA Kids</h3>
+                    <p>Entretenciones Infantiles Ltda.</p>
+                    <p class="footer-slogan">¡Donde los sueños se inflan y la diversión nunca termina!</p>
+                    
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/alma.kidscl" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61580273574247" target="_blank"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href='index.html#inicio'>Inicio</a></li>
+                        <li><a href='index.html#nosotros'>Sobre Nosotros</a></li>
+                        <li><a href='index.html#servicios'>Servicios</a></li>
+                        <li><a href='index.html#plaza-blanda'>Plaza Blanda</a></li>
+                        <li><a href='eventos.html'>Eventos</a></li>
+                        <li><a href='globos-metalizados.html'>Globos Metalizados</a></li>
+                        <li><a href='faq.html'>Preguntas Frecuentes</a></li>
+                        <li><a href='index.html#contacto'>Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Contacto</h4>
+                    <div class="contact-number">
+                        <span class="contact-icons">
+                            <i class="fas fa-phone" style="color: #4CAF50;"></i>
+                            <i class="fab fa-whatsapp" style="color: #25D366;"></i>
+                        </span>
+                        <a href="https://wa.me/56969073306?text=Hola%20ALMA%20Kids,%20me%20interesa%20cotizar%20sus%20servicios" target="_blank">+56 9 6907 3306</a>
+                    </div>
+                    <div class="contact-number">
+                        <span class="contact-icons">
+                            <i class="fas fa-phone" style="color: #4CAF50;"></i>
+                            <i class="fab fa-whatsapp" style="color: #25D366;"></i>
+                        </span>
+                        <a href="tel:+56920609796">+56 9 2060 9796</a>
+                    </div>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:info.almakids@gmail.com">info.almakids@gmail.com</a></p>
+                    <p><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/alma.kidscl" target="_blank">@alma.kidscl</a></p>
+                    <p><i class="fab fa-facebook"></i> <a href="https://www.facebook.com/profile.php?id=61580273574247" target="_blank">ALMA Kids</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ALMA Kids Entretenciones Infantiles Ltda. Todos los derechos reservados.</p>
+                <p class="footer-seo">Juegos inflables Machalí | Plaza blanda Rancagua | Fiestas infantiles | Castillos inflables | Eventos escolares | Cumpleaños niños</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Buttons Stack -->
+
+    <!-- WhatsApp Float Button -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/56969073306?text=Hola%20ALMA%20Kids,%20quiero%20cotizar%20un%20evento" target="_blank" class="whatsapp-btn" title="WhatsApp: +56 9 6907 3306">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Cart Float Button -->
+    <div class="cart-float">
+        <button class="cart-btn" onclick="showNewCart()" title="Ver Carrito">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="cartCount" class="cart-count">0</span>
+        </button>
+    </div>
+
+
+    <script src="emergency-functions.js"></script>
+    <script src="script.js"></script>
+    <script src="image-optimizer.js"></script>
+    <script src="form-enhancer.js"></script>
+    <script src="mobile-fix.js"></script>
+    <script src="fix-definitivo.js"></script>
+</body>
+</html>

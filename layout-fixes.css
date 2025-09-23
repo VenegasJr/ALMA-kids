@@ -1,0 +1,368 @@
+/* 🎯 CORRECCIONES DE LAYOUT Y SUPERPOSICIONES - ALMA KIDS */
+
+/* ==================== ORGANIZACIÓN DE ELEMENTOS FLOTANTES ==================== */
+
+/* Reorganizar todos los elementos flotantes para evitar superposiciones */
+
+/* WhatsApp Buttons - Esquina inferior derecha */
+.whatsapp-float {
+    position: fixed !important;
+    bottom: 20px !important;
+    right: 20px !important;
+    z-index: 1000 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+}
+
+/* Cart Button - Esquina inferior izquierda */
+.cart-float {
+    position: fixed !important;
+    bottom: 20px !important;
+    left: 20px !important;
+    z-index: 1000 !important;
+}
+
+/* Favorites Button - Segundo nivel (más cerca del WhatsApp) */
+.favorites-float {
+    position: fixed !important;
+    bottom: 90px !important;
+    right: 20px !important;
+    z-index: 999 !important;
+}
+
+/* Comparison Button - Tercer nivel */
+.comparison-float {
+    position: fixed !important;
+    bottom: 160px !important;
+    right: 20px !important;
+    z-index: 999 !important;
+}
+
+/* Price Calculator - Cuarto nivel (más arriba) */
+.price-calculator-float {
+    position: fixed !important;
+    bottom: 230px !important;
+    right: 20px !important;
+    z-index: 999 !important;
+}
+
+/* ==================== ESTILOS UNIFICADOS PARA BOTONES FLOTANTES ==================== */
+
+.float-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.float-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Colores específicos por función */
+.price-btn {
+    background: linear-gradient(135deg, #FF6B6B, #FF8E8E);
+}
+
+.comparison-btn {
+    background: linear-gradient(135deg, #4ECDC4, #44A08D);
+}
+
+.favorites-btn {
+    background: linear-gradient(135deg, #FF6B9D, #FF8E8E);
+}
+
+/* Contadores para botones flotantes */
+.float-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #FF4444;
+    color: white;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    font-size: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    min-width: 18px;
+}
+
+/* ==================== ELIMINAR ELEMENTOS PROBLEMÁTICOS ==================== */
+
+/* Ocultar tags de precio "Desde" que causan confusión */
+.service-price-tag {
+    display: none !important;
+}
+
+.price-from {
+    display: none !important;
+}
+
+/* ==================== AJUSTES DE SPACING ==================== */
+
+/* Asegurar que los botones no se superpongan */
+.whatsapp-btn,
+.cart-btn,
+.favorites-btn,
+.comparison-btn,
+.calculator-toggle {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15) !important;
+    border: 2px solid white !important;
+}
+
+/* ==================== RESPONSIVE LAYOUT ==================== */
+
+@media (max-width: 768px) {
+    /* En móvil, reorganizar elementos flotantes */
+    
+    .whatsapp-float {
+        bottom: 15px !important;
+        right: 15px !important;
+        gap: 10px !important;
+    }
+    
+    .cart-float {
+        bottom: 15px !important;
+        left: 15px !important;
+    }
+    
+    .favorites-float {
+        bottom: 140px !important;
+        right: 15px !important;
+    }
+    
+    .comparison-float {
+        bottom: 200px !important;
+        right: 15px !important;
+    }
+    
+    .price-calculator-float {
+        bottom: 260px !important;
+        right: 15px !important;
+    }
+    
+    /* Reducir tamaño de botones en móvil */
+    .whatsapp-btn,
+    .cart-btn,
+    .favorites-btn,
+    .comparison-btn {
+        width: 50px !important;
+        height: 50px !important;
+        font-size: 1.2rem !important;
+    }
+    
+    .calculator-toggle {
+        padding: 0.75rem 1rem !important;
+        font-size: 0.8rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    /* En pantallas muy pequeñas, minimizar elementos flotantes */
+    
+    .whatsapp-float {
+        bottom: 10px !important;
+        right: 10px !important;
+    }
+    
+    .cart-float {
+        bottom: 10px !important;
+        left: 10px !important;
+    }
+    
+    .favorites-float {
+        bottom: 120px !important;
+        right: 10px !important;
+    }
+    
+    .comparison-float {
+        bottom: 170px !important;
+        right: 10px !important;
+    }
+    
+    .price-calculator-float {
+        bottom: 220px !important;
+        right: 10px !important;
+    }
+    
+    /* Botones aún más pequeños */
+    .whatsapp-btn,
+    .cart-btn,
+    .favorites-btn,
+    .comparison-btn {
+        width: 45px !important;
+        height: 45px !important;
+        font-size: 1rem !important;
+    }
+    
+    .whatsapp-number,
+    .cart-count,
+    .favorites-count,
+    .comparison-count {
+        width: 18px !important;
+        height: 18px !important;
+        font-size: 0.7rem !important;
+        top: -3px !important;
+        right: -3px !important;
+    }
+}
+
+/* ==================== ELIMINACIÓN DE ELEMENTOS CONFUSOS ==================== */
+
+/* Ocultar cualquier elemento con "desde" que no tenga contexto claro */
+.price-from:not(.calculator-widget .price-from) {
+    display: none !important;
+}
+
+/* Mejorar visibility de elementos importantes */
+.service-card {
+    position: relative !important;
+    overflow: visible !important;
+}
+
+/* ==================== Z-INDEX HIERARCHY ==================== */
+
+/* Establecer jerarquía clara de z-index */
+.header {
+    z-index: 1100 !important;
+}
+
+.modal {
+    z-index: 10000 !important;
+}
+
+.notification-container {
+    z-index: 10001 !important;
+}
+
+.favorites-panel,
+.comparison-panel {
+    z-index: 10002 !important;
+}
+
+.search-container {
+    z-index: 1101 !important;
+}
+
+.mobile-menu {
+    z-index: 1050 !important;
+}
+
+/* ==================== MEJORAS DE ACCESIBILIDAD ==================== */
+
+/* Asegurar que todos los elementos interactivos sean accesibles */
+.whatsapp-btn,
+.cart-btn,
+.favorites-btn,
+.comparison-btn,
+.calculator-toggle {
+    outline: none !important;
+    transition: all 0.3s ease !important;
+}
+
+.whatsapp-btn:focus,
+.cart-btn:focus,
+.favorites-btn:focus,
+.comparison-btn:focus,
+.calculator-toggle:focus {
+    outline: 3px solid rgba(233, 30, 99, 0.5) !important;
+    outline-offset: 2px !important;
+}
+
+/* ==================== CORRECCIÓN DE OVERLAYS ==================== */
+
+/* Asegurar que los overlays no interfieran */
+.modal-overlay,
+.search-overlay {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.5) !important;
+    z-index: 9999 !important;
+}
+
+/* ==================== LIMPIEZA DE ELEMENTOS DUPLICADOS ==================== */
+
+/* Ocultar elementos duplicados o innecesarios */
+.service-card .price-amount:not(.calc-total .price-amount) {
+    display: none !important;
+}
+
+/* Asegurar que solo aparezcan los elementos necesarios */
+.hero-description,
+.section-subtitle,
+.service-content p {
+    line-height: 1.6 !important;
+    margin-bottom: 1rem !important;
+}
+
+/* ==================== CORRECCIÓN DE LAYOUT ESPECÍFICO ==================== */
+
+/* Asegurar que las tarjetas de servicios no tengan elementos superpuestos */
+.service-card {
+    position: relative !important;
+    overflow: hidden !important;
+    background: white !important;
+    border-radius: var(--border-radius) !important;
+    box-shadow: var(--shadow) !important;
+    transition: all 0.3s ease !important;
+}
+
+.service-image {
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.image-badge {
+    position: absolute !important;
+    bottom: 10px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    background: rgba(0, 0, 0, 0.7) !important;
+    color: white !important;
+    padding: 0.25rem 0.75rem !important;
+    border-radius: 15px !important;
+    font-size: 0.8rem !important;
+    z-index: 2 !important;
+}
+
+/* ==================== CORRECCIÓN DE NAVEGACIÓN ==================== */
+
+/* Asegurar que la navegación no se superponga */
+.header-content {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 2rem !important;
+    padding: 0.75rem 0 !important;
+}
+
+.nav {
+    display: flex !important;
+    align-items: center !important;
+    gap: 1.5rem !important;
+    flex-wrap: wrap !important;
+}
+
+.header-buttons {
+    display: flex !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    flex-shrink: 0 !important;
+}

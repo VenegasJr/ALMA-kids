@@ -1,0 +1,563 @@
+/* 🎨 ALMA Kids - Animaciones y Efectos Visuales Avanzados */
+
+/* ==================== ANIMACIONES GLOBALES ==================== */
+
+/* Animación de entrada suave para elementos */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Animación de flotación para elementos decorativos */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Animación de pulso para elementos importantes */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Animación de brillo para botones */
+@keyframes shine {
+    0% {
+        background-position: -200px 0;
+    }
+    100% {
+        background-position: 200px 0;
+    }
+}
+
+/* Animación de rotación suave */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ==================== EFECTOS DE SCROLL ==================== */
+
+/* Elementos que aparecen al hacer scroll - Acelerados */
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scroll-animate.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==================== EFECTOS PARA SECCIONES ==================== */
+
+/* Hero Section - Efectos especiales */
+.hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+    animation: shine 3s infinite;
+    pointer-events: none;
+}
+
+.hero-content {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.hero-image {
+    animation: fadeInRight 0.6s ease-out 0.1s both;
+}
+
+.hero-img {
+    transition: transform 0.3s ease;
+}
+
+.hero-img:hover {
+    transform: scale(1.05) rotate(2deg);
+}
+
+/* ==================== EFECTOS PARA TARJETAS ==================== */
+
+/* Efecto hover mejorado para tarjetas */
+.service-card,
+.event-card,
+.gallery-item,
+.globo-item,
+.faq-highlight-item {
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card::before,
+.event-card::before,
+.gallery-item::before,
+.globo-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+    z-index: 1;
+}
+
+.service-card:hover::before,
+.event-card:hover::before,
+.gallery-item:hover::before,
+.globo-item:hover::before {
+    left: 100%;
+}
+
+.service-card:hover,
+.event-card:hover,
+.gallery-item:hover,
+.globo-item:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* ==================== EFECTOS PARA BOTONES ==================== */
+
+/* Botones con efectos avanzados */
+.btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* Botón primario con efecto especial */
+.btn-primary {
+    background: linear-gradient(45deg, #E91E63, #FF6B9D, #E91E63);
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* ==================== EFECTOS PARA IMÁGENES ==================== */
+
+/* Efecto parallax suave para imágenes de fondo */
+.parallax-element {
+    transform: translateZ(0);
+    transition: transform 0.3s ease-out;
+}
+
+/* Efecto zoom en imágenes */
+.image-zoom {
+    overflow: hidden;
+    border-radius: var(--border-radius);
+}
+
+.image-zoom img {
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.image-zoom:hover img {
+    transform: scale(1.1);
+}
+
+/* ==================== EFECTOS PARA MODALES ==================== */
+
+/* Animación de entrada del modal */
+.modal {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.8);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.modal.active {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+.modal-content {
+    transform: translateY(50px);
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s;
+}
+
+.modal.active .modal-content {
+    transform: translateY(0);
+}
+
+/* ==================== EFECTOS PARA NAVEGACIÓN ==================== */
+
+/* Header con efecto glassmorphism */
+.header {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95);
+    transition: all 0.3s ease;
+}
+
+.header.scrolled {
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+/* Efecto hover en enlaces de navegación */
+.nav-menu a {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::after,
+.nav-menu a.active::after {
+    width: 100%;
+}
+
+/* ==================== EFECTOS PARA FAQ ==================== */
+
+/* Animación de acordeón */
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.faq-item.active .faq-answer {
+    max-height: 200px;
+}
+
+.faq-question i.fa-chevron-down {
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-question i.fa-chevron-down {
+    transform: rotate(180deg);
+}
+
+/* ==================== EFECTOS PARA CARRITO ==================== */
+
+/* Animación del carrito flotante */
+.cart-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+.cart-btn {
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.cart-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255,255,255,0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+.cart-btn:hover::after {
+    width: 100%;
+    height: 100%;
+}
+
+/* ==================== EFECTOS PARA WHATSAPP ==================== */
+
+/* WhatsApp buttons con animación especial */
+.whatsapp-btn {
+    animation: pulse 2s infinite;
+    position: relative;
+}
+
+.whatsapp-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    background: inherit;
+    opacity: 0.3;
+    transform: scale(1);
+    animation: ripple 2s infinite;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+    100% {
+        transform: scale(1.3);
+        opacity: 0;
+    }
+}
+
+/* ==================== EFECTOS PARA FORMULARIOS ==================== */
+
+/* Efectos de focus en inputs */
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(233, 30, 99, 0.15);
+}
+
+/* Animación de carga en botón de envío */
+.btn-loading {
+    position: relative;
+    color: transparent;
+}
+
+.btn-loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid transparent;
+    border-top-color: currentColor;
+    border-radius: 50%;
+    animation: rotate 1s linear infinite;
+}
+
+/* ==================== EFECTOS RESPONSIVOS ==================== */
+
+/* Reducir animaciones en dispositivos móviles para mejor rendimiento */
+@media (max-width: 768px) {
+    .scroll-animate {
+        animation-duration: 0.5s;
+    }
+    
+    .service-card:hover,
+    .event-card:hover,
+    .gallery-item:hover,
+    .globo-item:hover {
+        transform: translateY(-5px) scale(1.01);
+    }
+    
+    /* Desactivar animaciones complejas en móviles */
+    .hero::before,
+    .btn::before,
+    .service-card::before,
+    .event-card::before {
+        display: none;
+    }
+}
+
+/* ==================== EFECTOS PARA NOTIFICACIONES ==================== */
+
+/* Animaciones para notificaciones */
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+.notification {
+    animation: slideInRight 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.notification.removing {
+    animation: slideOutRight 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ==================== EFECTOS DE PARTÍCULAS ==================== */
+
+/* Efecto de partículas flotantes en el fondo */
+.particles-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    background: radial-gradient(circle, rgba(233,30,99,0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: floatParticle 8s infinite linear;
+}
+
+@keyframes floatParticle {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* ==================== UTILIDADES DE ANIMACIÓN ==================== */
+
+/* Clases utilitarias para aplicar animaciones */
+.animate-fade-in {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.animate-fade-in-left {
+    animation: fadeInLeft 0.8s ease-out;
+}
+
+.animate-fade-in-right {
+    animation: fadeInRight 0.8s ease-out;
+}
+
+.animate-scale-in {
+    animation: scaleIn 0.5s ease-out;
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse {
+    animation: pulse 2s infinite;
+}
+
+/* Delays para animaciones escalonadas - Acelerados */
+.delay-100 { animation-delay: 0.05s; }
+.delay-200 { animation-delay: 0.1s; }
+.delay-300 { animation-delay: 0.15s; }
+.delay-400 { animation-delay: 0.2s; }
+.delay-500 { animation-delay: 0.25s; }
+

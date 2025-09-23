@@ -1,0 +1,850 @@
+/* 🎨 CORRECCIONES VISUALES PARA ALMA KIDS WEB */
+
+/* ==================== MEJORAS GENERALES ==================== */
+
+/* Asegurar que todas las páginas tengan padding-top suficiente */
+body {
+    padding-top: 80px;
+}
+
+/* Mejorar la visibilidad del logo */
+.logo-text h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #E91E63, #9C27B0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.logo-text span {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--text-light);
+    text-transform: none;
+    letter-spacing: 0.5px;
+    margin: 0;
+    line-height: 1;
+}
+
+/* ==================== HEADER FIXES ==================== */
+
+.header {
+    min-height: 70px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(233, 30, 99, 0.1);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    gap: 2rem;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.nav-link {
+    font-weight: 500;
+    color: var(--text-dark);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+    background: rgba(233, 30, 99, 0.1);
+}
+
+.nav-link.active {
+    color: var(--primary-color);
+    background: rgba(233, 30, 99, 0.15);
+    font-weight: 600;
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 2px;
+    background: var(--primary-color);
+    border-radius: 1px;
+}
+
+/* ==================== HERO SECTIONS FIXES ==================== */
+
+.eventos-hero,
+.globos-hero,
+.faq-hero {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #F5F0FF, #FFF0F5, #F0F8FF);
+    margin-top: 70px;
+}
+
+.eventos-hero h1,
+.globos-hero h1,
+.faq-hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #E91E63, #9C27B0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+    text-shadow: none;
+}
+
+.eventos-hero p,
+.globos-hero p,
+.faq-hero p {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+}
+
+/* ==================== PARTICLES ANIMATION ==================== */
+
+.particles-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.particle {
+    position: absolute;
+    background: rgba(233, 30, 99, 0.1);
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+}
+
+.particle:nth-child(1) {
+    width: 80px;
+    height: 80px;
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.particle:nth-child(2) {
+    width: 60px;
+    height: 60px;
+    top: 60%;
+    left: 80%;
+    animation-delay: 2s;
+}
+
+.particle:nth-child(3) {
+    width: 100px;
+    height: 100px;
+    top: 80%;
+    left: 20%;
+    animation-delay: 4s;
+}
+
+.particle:nth-child(4) {
+    width: 40px;
+    height: 40px;
+    top: 30%;
+    left: 70%;
+    animation-delay: 1s;
+}
+
+.particle:nth-child(5) {
+    width: 120px;
+    height: 120px;
+    top: 10%;
+    left: 60%;
+    animation-delay: 3s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+        opacity: 0.8;
+    }
+}
+
+/* ==================== CONTENT SECTIONS ==================== */
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 2rem;
+}
+
+/* ==================== MOBILE RESPONSIVENESS ==================== */
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    
+    .nav {
+        display: none;
+    }
+    
+    .mobile-menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
+        flex-direction: column;
+        gap: 4px;
+        padding: 0.5rem;
+    }
+    
+    .mobile-menu-toggle span {
+        width: 25px;
+        height: 3px;
+        background: var(--primary-color);
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+    
+    .eventos-hero h1,
+    .globos-hero h1,
+    .faq-hero h1 {
+        font-size: 2rem;
+    }
+    
+    .eventos-hero p,
+    .globos-hero p,
+    .faq-hero p {
+        font-size: 1rem;
+    }
+    
+    body {
+        padding-top: 70px;
+    }
+}
+
+@media (max-width: 480px) {
+    .eventos-hero h1,
+    .globos-hero h1,
+    .faq-hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .logo-text h1 {
+        font-size: 1.5rem;
+    }
+    
+    .logo-text span {
+        font-size: 0.7rem;
+    }
+    
+    body {
+        padding-top: 65px;
+    }
+}
+
+/* ==================== SEARCH IMPROVEMENTS ==================== */
+
+.search-container {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+    min-width: 300px;
+    z-index: 1001;
+    display: none;
+}
+
+.search-container.active {
+    display: block;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    outline: none;
+}
+
+.search-results {
+    max-height: 300px;
+    overflow-y: auto;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.search-result-item {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.search-result-item:hover {
+    background: rgba(233, 30, 99, 0.05);
+}
+
+.search-result-item:last-child {
+    border-bottom: none;
+}
+
+/* ==================== WHATSAPP BUTTONS IMPROVEMENTS ==================== */
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.whatsapp-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: white;
+    transition: all 0.3s ease;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.whatsapp-btn:first-child {
+    background: #25D366;
+}
+
+.whatsapp-btn-2 {
+    background: #128C7E;
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.whatsapp-number {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #FF4444;
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* ==================== CART BUTTON IMPROVEMENTS ==================== */
+
+.cart-float {
+    position: fixed !important;
+    bottom: 20px !important;
+    left: 20px !important;
+    z-index: 1000 !important;
+    transform: none !important;
+}
+
+.cart-btn {
+    width: 60px !important;
+    height: 60px !important;
+    border-radius: 50% !important;
+    background: var(--primary-color) !important;
+    color: white !important;
+    border: none !important;
+    font-size: 1.5rem !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease !important;
+    position: relative !important;
+    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transform: none !important;
+}
+
+.cart-btn:hover {
+    background: var(--primary-dark) !important;
+    box-shadow: 0 6px 20px rgba(233, 30, 99, 0.4) !important;
+    transform: none !important;
+}
+
+.cart-count {
+    position: absolute !important;
+    top: -5px !important;
+    right: -5px !important;
+    background: #FF4444 !important;
+    color: white !important;
+    width: 20px !important;
+    height: 20px !important;
+    border-radius: 50% !important;
+    font-size: 0.8rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-weight: bold !important;
+    transform: none !important;
+    z-index: 1001 !important;
+}
+
+/* ==================== LOADING STATES ==================== */
+
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    color: var(--text-light);
+}
+
+.loading::after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--primary-color);
+    border-top: 2px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-left: 0.5rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ==================== SMOOTH TRANSITIONS ==================== */
+
+* {
+    transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* ==================== ACCESSIBILITY IMPROVEMENTS ==================== */
+
+.btn:focus,
+.nav-link:focus,
+.whatsapp-btn:focus,
+.cart-btn:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* ==================== GLOBOS METALIZADOS ESPECÍFICOS ==================== */
+
+.globos-cta-main {
+    background: linear-gradient(135deg, #FFF0F5, #E1F5FE) !important;
+    padding: 3rem !important;
+    border-radius: var(--border-radius) !important;
+    box-shadow: var(--shadow) !important;
+    text-align: center !important;
+    margin: 3rem 0 !important;
+}
+
+.globos-cta-main h3 {
+    color: var(--primary-color) !important;
+    margin-bottom: 1rem !important;
+    font-size: 1.8rem !important;
+    font-weight: 700 !important;
+}
+
+.globos-cta-main > p {
+    color: var(--text-light) !important;
+    margin-bottom: 2rem !important;
+    font-size: 1.1rem !important;
+}
+
+.personalized-cta {
+    background: rgba(255, 255, 255, 0.9) !important;
+    padding: 2rem !important;
+    border-radius: var(--border-radius) !important;
+    margin-top: 2rem !important;
+    border: 2px solid rgba(233, 30, 99, 0.1) !important;
+}
+
+.personalized-cta h4 {
+    color: var(--primary-color) !important;
+    margin-bottom: 1rem !important;
+    font-size: 1.4rem !important;
+    font-weight: 600 !important;
+}
+
+.personalized-cta p {
+    margin-bottom: 1.5rem !important;
+    color: var(--text-dark) !important;
+}
+
+.custom-themes {
+    background: #F8F9FA !important;
+    padding: 1.5rem !important;
+    border-radius: var(--border-radius) !important;
+    margin: 1.5rem 0 !important;
+    border-left: 4px solid var(--primary-color) !important;
+    text-align: left !important;
+}
+
+.custom-themes strong {
+    color: var(--primary-color) !important;
+    font-size: 1.1rem !important;
+    display: block !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.theme-tags {
+    color: var(--text-dark) !important;
+    line-height: 1.8 !important;
+    font-size: 1rem !important;
+    font-weight: 500 !important;
+}
+
+/* Responsive para globos metalizados */
+@media (max-width: 768px) {
+    .globos-cta-main {
+        padding: 2rem !important;
+        margin: 2rem 0 !important;
+    }
+    
+    .globos-cta-main h3 {
+        font-size: 1.5rem !important;
+    }
+    
+    .personalized-cta {
+        padding: 1.5rem !important;
+    }
+    
+    .personalized-cta h4 {
+        font-size: 1.2rem !important;
+    }
+    
+    .custom-themes {
+        padding: 1rem !important;
+        margin: 1rem 0 !important;
+    }
+    
+    .theme-tags {
+        font-size: 0.9rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .globos-cta-main {
+        padding: 1.5rem !important;
+    }
+    
+    .globos-cta-main h3 {
+        font-size: 1.3rem !important;
+    }
+    
+    .globos-cta-main > p {
+        font-size: 1rem !important;
+    }
+    
+    .personalized-cta h4 {
+        font-size: 1.1rem !important;
+    }
+}
+
+/* ==================== NOTAS DE SERVICIO ELEGANTES ==================== */
+
+.service-note-elegant {
+    background: linear-gradient(135deg, #FFF8E1, #E8F5E8);
+    border: 2px solid #FFD54F;
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    margin: 2rem 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    box-shadow: 0 4px 15px rgba(255, 213, 79, 0.2);
+}
+
+.note-icon {
+    background: #FFD54F;
+    color: #F57F17;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    box-shadow: 0 2px 10px rgba(255, 213, 79, 0.3);
+}
+
+.note-content h4 {
+    color: #F57F17;
+    margin: 0 0 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.note-content p {
+    color: var(--text-dark);
+    margin: 0;
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+/* Versión para hero section */
+.service-note-hero-elegant {
+    background: rgba(255, 255, 255, 0.95);
+    border: 2px solid rgba(255, 213, 79, 0.8);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    margin: 2rem auto;
+    max-width: 600px;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.note-icon-hero {
+    background: linear-gradient(135deg, #FFD54F, #FFC107);
+    color: #F57F17;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);
+}
+
+.note-content-hero h4 {
+    color: #F57F17;
+    margin: 0 0 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.note-content-hero p {
+    color: var(--text-dark);
+    margin: 0;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* Responsive para notas */
+@media (max-width: 768px) {
+    .service-note-elegant,
+    .service-note-hero-elegant {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.25rem;
+    }
+    
+    .note-icon,
+    .note-icon-hero {
+        align-self: center;
+        margin-bottom: 0.5rem;
+    }
+    
+    .note-content h4,
+    .note-content-hero h4 {
+        font-size: 1rem;
+    }
+    
+    .note-content p,
+    .note-content-hero p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .service-note-elegant,
+    .service-note-hero-elegant {
+        padding: 1rem;
+        margin: 1.5rem 0;
+    }
+    
+    .note-icon,
+    .note-icon-hero {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+}
+
+/* ==================== ESTILOS PARA CARGA DE GLOBOS ==================== */
+
+.loading-indicator {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-light);
+}
+
+.loader-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(233, 30, 99, 0.1);
+    border-top: 4px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem;
+}
+
+.globo-image-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    background: #f8f9fa;
+}
+
+.globo-img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    background: white;
+    transition: transform 0.3s ease;
+}
+
+.globo-item:hover .globo-img {
+    transform: scale(1.05);
+}
+
+.product-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin: 0.75rem 0;
+}
+
+.product-details p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.product-details i {
+    color: var(--primary-color);
+    width: 12px;
+    text-align: center;
+}
+
+.products-count {
+    background: rgba(233, 30, 99, 0.1);
+    color: var(--primary-color);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.error-message {
+    text-align: center;
+    padding: 3rem;
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: var(--border-radius);
+    color: #721c24;
+}
+
+.error-message h3 {
+    color: #dc3545;
+    margin-bottom: 1rem;
+}
+
+.error-message ul {
+    text-align: left;
+    max-width: 400px;
+    margin: 1rem auto;
+}
+
+/* Responsive para globos */
+@media (max-width: 768px) {
+    .globo-img {
+        height: 180px;
+    }
+    
+    .loading-indicator {
+        padding: 2rem;
+    }
+    
+    .error-message {
+        padding: 2rem;
+    }
+    
+    .product-details p {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .globo-img {
+        height: 160px;
+    }
+    
+    .loading-indicator {
+        padding: 1.5rem;
+    }
+    
+    .loading-indicator h3 {
+        font-size: 1.2rem;
+    }
+    
+    .loading-indicator p {
+        font-size: 0.9rem;
+    }
+}
+
+/* ==================== PRINT STYLES ==================== */
+
+@media print {
+    .header,
+    .whatsapp-float,
+    .cart-float,
+    .particles-bg {
+        display: none !important;
+    }
+    
+    body {
+        padding-top: 0;
+    }
+}
