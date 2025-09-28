@@ -1,0 +1,102 @@
+# Archivos del sistema
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Archivos temporales
+*.tmp
+*.temp
+*~
+*.swp
+*.swo
+*.bak
+*.backup
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependencias de Node.js (si se usan en el futuro)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Archivos de configuración local
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Archivos de IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Archivos de build (si se usan)
+dist/
+build/
+out/
+
+# Archivos de cache
+.cache/
+.parcel-cache/
+.next/
+.nuxt/
+
+# Archivos de testing
+coverage/
+.nyc_output/
+
+# Archivos de configuración específicos del proyecto
+# Mantener estos archivos ya que son parte del proyecto:
+# - emailjs-config.js (sin claves sensibles)
+# - manifest.json
+# - robots.txt
+# - sitemap.xml
+
+# Archivos de respaldo
+*.backup
+*.old
+*_backup.*
+*_old.*
+
+# Archivos de configuración de servidor
+.htaccess.backup
+web.config.backup
+
+# Archivos de configuración de desarrollo
+config.local.js
+settings.local.json
+
+# Archivos de analytics y tracking (mantener solo los necesarios)
+# Comentar si necesitas incluir archivos específicos de analytics
+# analytics-*.js
+
+# Archivos de documentación temporal
+docs/temp/
+*.md.bak
+
+# Archivos de imágenes temporales
+temp-images/
+*.tmp.png
+*.tmp.jpg
+*.tmp.jpeg
+
+# Archivos de configuración de Netlify local
+.netlify/
+netlify.toml.backup
+
+# Archivos de configuración de Git
+.git/config.backup
