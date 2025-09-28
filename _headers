@@ -1,0 +1,95 @@
+# ALMA Kids - Headers de Seguridad y Performance
+
+# Headers globales para todas las rutas
+/*
+  X-Frame-Options: DENY
+  X-XSS-Protection: 1; mode=block
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+# Headers para archivos HTML
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://www.googletagmanager.com https://www.google-analytics.com https://cdn.emailjs.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https://api.emailjs.com https://www.google-analytics.com; frame-src https://www.google.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none';
+
+# Headers para página principal
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+  X-Robots-Tag: index, follow, max-snippet:-1, max-image-preview:large
+
+# Headers para archivos CSS
+/*.css
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Type: text/css
+
+# Headers para archivos JavaScript
+/*.js
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Type: application/javascript
+
+# Headers para imágenes
+/*.png
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Type: image/png
+
+/*.jpg
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Type: image/jpeg
+
+/*.jpeg
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Type: image/jpeg
+
+/*.webp
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Type: image/webp
+
+/*.svg
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Type: image/svg+xml
+
+/*.ico
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Type: image/x-icon
+
+# Headers para fuentes
+/*.woff
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Type: font/woff
+
+/*.woff2
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Type: font/woff2
+
+/*.ttf
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Type: font/ttf
+
+# Headers para manifest y service worker
+/manifest.json
+  Cache-Control: public, max-age=0, must-revalidate
+  Content-Type: application/manifest+json
+
+/sw.js
+  Cache-Control: public, max-age=0, must-revalidate
+  Content-Type: application/javascript
+
+# Headers para robots.txt y sitemap
+/robots.txt
+  Cache-Control: public, max-age=86400
+  Content-Type: text/plain
+
+/sitemap.xml
+  Cache-Control: public, max-age=86400
+  Content-Type: application/xml
+
+# Headers específicos para PWA
+/imagenes/ALMA kids Logo web.png
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Type: image/png
+
+# Headers para formularios (permitir cross-origin para EmailJS)
+/index.html#contacto
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://www.googletagmanager.com https://cdn.emailjs.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.emailjs.com; frame-src https://www.google.com; object-src 'none'; base-uri 'self'; form-action 'self' https://api.emailjs.com; frame-ancestors 'none';

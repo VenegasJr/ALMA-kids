@@ -1,0 +1,35 @@
+# ALMA Kids - Redirects y Rewrites para SEO y Funcionalidad
+
+# Redirects para páginas principales (SEO friendly)
+/eventos /eventos.html 200
+/globos /globos-metalizados.html 200
+/faq /faq.html 200
+/contacto /index.html#contacto 200
+/servicios /index.html#servicios 200
+/nosotros /index.html#nosotros 200
+
+# Redirects para URLs antiguas o alternativas
+/juegos-inflables /index.html#servicios 301
+/plaza-blanda /index.html#plaza-blanda 301
+/castillos-inflables /index.html#servicios 301
+/entretencion-infantil /index.html 301
+
+# Redirects para servicios específicos
+/cumpleanos /eventos.html 301
+/baby-shower /eventos.html 301
+/eventos-escolares /eventos.html 301
+/eventos-corporativos /eventos.html 301
+
+# Redirects para ubicaciones
+/rancagua /index.html#cobertura 301
+/machali /index.html#cobertura 301
+/rengo /index.html#cobertura 301
+/coya /index.html#cobertura 301
+
+# Fallback para SPA (Single Page Application)
+# Esto asegura que todas las rutas funcionen correctamente
+/* /index.html 200
+
+# Redirects de errores comunes
+/404 /index.html 404
+/error /index.html 404

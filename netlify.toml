@@ -1,0 +1,187 @@
+# ALMA Kids - Configuración de Netlify
+# Sitio web de entretenciones infantiles con PWA
+
+[build]
+  # Comando de build (vacío para sitio estático)
+  command = ""
+  
+  # Directorio de publicación (raíz del proyecto)
+  publish = "."
+  
+  # Directorio base (raíz del proyecto)
+  base = "."
+
+[build.environment]
+  # Variables de entorno para el build
+  NODE_VERSION = "18"
+  NPM_VERSION = "9"
+
+# Configuración de funciones (opcional para futuras funciones serverless)
+[functions]
+  directory = "netlify/functions"
+
+# Configuración de redirects
+[[redirects]]
+  from = "/eventos"
+  to = "/eventos.html"
+  status = 200
+
+[[redirects]]
+  from = "/globos"
+  to = "/globos-metalizados.html"
+  status = 200
+
+[[redirects]]
+  from = "/faq"
+  to = "/faq.html"
+  status = 200
+
+[[redirects]]
+  from = "/contacto"
+  to = "/index.html#contacto"
+  status = 200
+
+[[redirects]]
+  from = "/servicios"
+  to = "/index.html#servicios"
+  status = 200
+
+[[redirects]]
+  from = "/nosotros"
+  to = "/index.html#nosotros"
+  status = 200
+
+# Redirects para SEO
+[[redirects]]
+  from = "/juegos-inflables"
+  to = "/index.html#servicios"
+  status = 301
+
+[[redirects]]
+  from = "/plaza-blanda"
+  to = "/index.html#plaza-blanda"
+  status = 301
+
+[[redirects]]
+  from = "/castillos-inflables"
+  to = "/index.html#servicios"
+  status = 301
+
+[[redirects]]
+  from = "/entretencion-infantil"
+  to = "/index.html"
+  status = 301
+
+# Fallback para SPA
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Configuración de headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+
+# Headers específicos para archivos estáticos
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.jpeg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.webp"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Headers para archivos HTML
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Headers para Service Worker y Manifest
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/manifest.json"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Configuración de formularios para Netlify Forms
+[build.processing]
+  skip_processing = false
+
+[build.processing.css]
+  bundle = false
+  minify = true
+
+[build.processing.js]
+  bundle = false
+  minify = true
+
+[build.processing.html]
+  pretty_urls = true
+
+# Configuración de deploy
+[context.production]
+  command = ""
+  publish = "."
+
+[context.deploy-preview]
+  command = ""
+  publish = "."
+
+[context.branch-deploy]
+  command = ""
+  publish = "."
+
+# Configuración de plugins (opcional)
+# [[plugins]]
+#   package = "@netlify/plugin-sitemap"
+
+# Configuración de Edge Functions (opcional)
+# [edge_functions]
+#   directory = "netlify/edge-functions"
+
+# Configuración de Identity (opcional para futuras funcionalidades)
+# [identity]
+#   external = true
+
+# Configuración de Large Media (opcional)
+# [media]
+#   enable_large_media_transforms = true
