@@ -2296,11 +2296,22 @@ p {
     font-weight: 500;
 }
 
-/* Responsive */
+/* Responsive - Mantener efectos y colores consistentes */
 @media (max-width: 1200px) {
     .colores-grid {
         grid-template-columns: repeat(3, 1fr);
         gap: 1.5rem;
+    }
+    
+    /* Mantener todos los efectos hover en tablet */
+    .color-option:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 10px 30px rgba(255, 107, 157, 0.2);
+    }
+    
+    .color-option:hover .color-circle {
+        transform: scale(1.15) rotate(5deg);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
     }
 }
 
@@ -2308,14 +2319,21 @@ p {
     .pelotas-colores-section {
         padding: 2rem 1.5rem;
         margin: 2rem 0;
+        /* Mantener fondo degradado */
+        background: linear-gradient(135deg, #FFF5F7, #F0F8FF);
+        border: 2px solid rgba(255, 107, 157, 0.2);
+        box-shadow: 0 10px 40px rgba(255, 107, 157, 0.15);
     }
     
     .colores-title {
         font-size: 1.6rem;
+        color: var(--primary-color);
+        font-weight: 700;
     }
     
     .colores-subtitle {
         font-size: 1rem;
+        color: var(--text-light);
     }
     
     .colores-grid {
@@ -2323,27 +2341,45 @@ p {
         gap: 1.5rem;
     }
     
+    /* Mantener tamaño de círculos más grande en móvil */
     .color-circle {
-        width: 70px;
-        height: 70px;
+        width: 80px;
+        height: 80px;
+        /* Mantener efectos de sombra */
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s ease;
+    }
+    
+    /* Mantener efectos hover en móvil */
+    .color-option:hover .color-circle {
+        transform: scale(1.15) rotate(5deg);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
     }
     
     .color-name {
         font-size: 1rem;
+        font-weight: 600;
+        color: var(--text-dark);
     }
     
     .colores-note {
         flex-direction: column;
         text-align: center;
         padding: 1.5rem 1rem;
+        /* Mantener fondo y sombras */
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     }
     
     .colores-note i {
         font-size: 1.5rem;
+        color: var(--primary-color);
     }
     
     .colores-note p {
         font-size: 0.95rem;
+        color: var(--text-dark);
+        font-weight: 500;
     }
 }
 
@@ -2357,11 +2393,34 @@ p {
         flex-direction: row;
         padding: 1rem 1.5rem;
         justify-content: flex-start;
+        align-items: center;
+        gap: 1rem;
+        /* Mantener efectos hover */
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
     
+    .color-option:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(255, 107, 157, 0.2);
+    }
+    
+    /* Mantener círculos grandes en móvil pequeño */
     .color-circle {
-        width: 60px;
-        height: 60px;
+        width: 80px;
+        height: 80px;
+        flex-shrink: 0;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    }
+    
+    .color-option:hover .color-circle {
+        transform: scale(1.1) rotate(3deg);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    }
+    
+    .color-name {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--text-dark);
     }
 }
 
