@@ -215,6 +215,19 @@ p {
     text-decoration: none;
 }
 
+.logo-image {
+    height: 60px;
+    width: auto;
+    max-width: 200px;
+    object-fit: contain;
+    transition: all 0.3s ease;
+}
+
+.logo:hover .logo-image {
+    transform: scale(1.05);
+}
+
+/* Mantener estilos del texto por si se necesita en el futuro */
 .logo-text h1 {
     font-size: 1.8rem;
     color: var(--primary-color);
@@ -6569,8 +6582,9 @@ html, body {
     }
     
     
-    .logo {
-        font-size: 1.5rem;
+    .logo-image {
+        height: 50px;
+        max-width: 160px;
     }
     
     .logo-text h1 {
