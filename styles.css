@@ -2182,6 +2182,189 @@ p {
    PISCINA DE PELOTAS Y PLAZA BLANDA
    ======================================== */
 
+/* Opciones de Colores de Pelotas */
+.pelotas-colores-section {
+    background: linear-gradient(135deg, #FFF5F7, #F0F8FF);
+    border-radius: 25px;
+    padding: 3rem 2rem;
+    margin: 3rem 0;
+    box-shadow: 0 10px 40px rgba(255, 107, 157, 0.15);
+    border: 2px solid rgba(255, 107, 157, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.pelotas-colores-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 182, 193, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.colores-title {
+    color: var(--primary-color);
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    position: relative;
+    z-index: 1;
+}
+
+.colores-subtitle {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.colores-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.color-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.color-option:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(255, 107, 157, 0.2);
+}
+
+.color-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.color-option:hover .color-circle {
+    transform: scale(1.15) rotate(5deg);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+.color-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    text-align: center;
+}
+
+.colores-note {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 1.5rem;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    position: relative;
+    z-index: 1;
+}
+
+.colores-note i {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    flex-shrink: 0;
+}
+
+.colores-note p {
+    margin: 0;
+    color: var(--text-dark);
+    font-size: 1.05rem;
+    font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .colores-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .pelotas-colores-section {
+        padding: 2rem 1.5rem;
+        margin: 2rem 0;
+    }
+    
+    .colores-title {
+        font-size: 1.6rem;
+    }
+    
+    .colores-subtitle {
+        font-size: 1rem;
+    }
+    
+    .colores-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .color-circle {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .color-name {
+        font-size: 1rem;
+    }
+    
+    .colores-note {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem 1rem;
+    }
+    
+    .colores-note i {
+        font-size: 1.5rem;
+    }
+    
+    .colores-note p {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .colores-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .color-option {
+        flex-direction: row;
+        padding: 1rem 1.5rem;
+        justify-content: flex-start;
+    }
+    
+    .color-circle {
+        width: 60px;
+        height: 60px;
+    }
+}
+
 /* Piscina de Pelotas - Cuadro Único Compacto */
 .piscina-detailed-info {
     background: white;
