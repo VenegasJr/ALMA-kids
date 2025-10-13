@@ -2457,5 +2457,26 @@
         <textarea name="email_content_admin"></textarea>
         <textarea name="email_content_customer"></textarea>
     </form>
+
+    <!-- Script para asegurar que la página no se quede pegada al cargar -->
+    <script>
+        // Asegurar que el body no tenga overflow hidden al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.style.overflow = 'auto';
+            
+            // Cerrar cualquier modal que esté abierto
+            const modals = document.querySelectorAll('.modal, .cart-overlay, .image-modal');
+            modals.forEach(modal => {
+                if (modal) {
+                    modal.style.display = 'none';
+                }
+            });
+            
+            // Remover clases que puedan bloquear la página
+            document.body.classList.remove('menu-open', 'modal-open');
+            
+            console.log('✅ Página cargada correctamente, sin bloqueos');
+        });
+    </script>
 </body>
 </html>
