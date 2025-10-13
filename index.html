@@ -50,7 +50,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <!-- CSS -->
-    <link rel="stylesheet" href="styles.css?v=20250115-15">
+    <link rel="stylesheet" href="styles.css?v=20250115-18">
     <link rel="stylesheet" href="animations.css">
     <link rel="stylesheet" href="visual-fixes.css">
     <link rel="stylesheet" href="layout-fixes.css">
@@ -1711,7 +1711,13 @@
             <button class="modal-nav modal-next" onclick="nextImage()">
                 <i class="fas fa-chevron-right"></i>
             </button>
-            <img id="modalImage" class="modal-image" src="" alt="">
+            <div id="modalMediaContainer" class="modal-media-container">
+                <img id="modalImage" class="modal-image" src="" alt="" style="display: none;">
+                <video id="modalVideo" class="modal-video" controls style="display: none;">
+                    <source src="" type="video/mp4">
+                    Tu navegador no soporta videos HTML5.
+                </video>
+            </div>
             <div id="modalCaption" class="modal-caption"></div>
         </div>
     </div>
@@ -2190,13 +2196,32 @@
         function displayCurrentImage() {
             const modal = document.getElementById('imageModal');
             const modalImage = document.getElementById('modalImage');
+            const modalVideo = document.getElementById('modalVideo');
             const modalCaption = document.getElementById('modalCaption');
             
-            if (modal && modalImage && modalCaption && window.currentImageGroup.length > 0) {
+            if (modal && modalImage && modalVideo && modalCaption && window.currentImageGroup.length > 0) {
                 const currentImage = window.currentImageGroup[window.currentImageIndex];
                 
-                modalImage.src = currentImage.src;
-                modalImage.alt = currentImage.title;
+                // Detectar si es un video o una imagen
+                const isVideo = currentImage.src.toLowerCase().endsWith('.mp4') || 
+                               currentImage.src.toLowerCase().endsWith('.webm') ||
+                               currentImage.src.toLowerCase().endsWith('.ogg');
+                
+                if (isVideo) {
+                    // Es un video
+                    modalImage.style.display = 'none';
+                    modalVideo.style.display = 'block';
+                    modalVideo.querySelector('source').src = currentImage.src;
+                    modalVideo.load(); // Recargar el video
+                    console.log('🎥 Mostrando video:', currentImage.title);
+                } else {
+                    // Es una imagen
+                    modalVideo.style.display = 'none';
+                    modalImage.style.display = 'block';
+                    modalImage.src = currentImage.src;
+                    modalImage.alt = currentImage.title;
+                    console.log('🖼️ Mostrando imagen:', currentImage.title);
+                }
                 
                 modalCaption.innerHTML = `
                     <h3>${currentImage.title}</h3>
@@ -2209,7 +2234,7 @@
                 // Mostrar/ocultar botones de navegación
                 updateNavigationButtons();
                 
-                console.log(`🖼️ Mostrando imagen ${window.currentImageIndex + 1} de ${window.currentImageGroup.length}: ${currentImage.title}`);
+                console.log(`📊 Mostrando ${isVideo ? 'video' : 'imagen'} ${window.currentImageIndex + 1} de ${window.currentImageGroup.length}: ${currentImage.title}`);
             }
         }
         
