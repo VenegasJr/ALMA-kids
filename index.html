@@ -50,7 +50,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <!-- CSS -->
-    <link rel="stylesheet" href="styles.css?v=20250115-7">
+    <link rel="stylesheet" href="styles.css?v=20250115-8">
     <link rel="stylesheet" href="animations.css">
     <link rel="stylesheet" href="visual-fixes.css">
     <link rel="stylesheet" href="layout-fixes.css">
@@ -512,25 +512,31 @@
             
             <div class="services-grid">
                 <!-- Castillo Inflable -->
-                <div class="service-card service-card-1">
-                    <div class="service-image">
-                        <img src="imagenes/castillo-inflable.png?v=20250115-5" alt="Castillo Inflable" class="service-img" onclick="openImageModal(this.src, 'Castillo Inflable', 'Diversión garantizada con nuestros castillos inflables certificados y seguros')" style="cursor: pointer;">
-                        <div class="image-badge">Imagen referencial</div>
+                <a href="castillos-inflables.html" class="service-card-link">
+                    <div class="service-card service-card-1 clickeable">
+                        <div class="service-image">
+                            <img src="imagenes/castillo-inflable.png?v=20250115-5" alt="Castillo Inflable" class="service-img">
+                            <div class="image-badge">Imagen referencial</div>
+                            <div class="click-overlay">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Ver más Castillos</span>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Castillo Inflable <i class="fas fa-external-link-alt service-link-icon"></i></h3>
+                            <p>Ideal para nuestros niños desde los 6 meses a 7 años de edad</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Divertido</li>
+                                <li><i class="fas fa-check"></i> Colores neutros</li>
+                                <li><i class="fas fa-check"></i> Seguro</li>
+                            </ul>
+                            <p class="supervision-note">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                *En todo momento debe estar la supervisión de un adulto responsable.
+                            </p>
+                        </div>
                     </div>
-                    <div class="service-content">
-                        <h3>Castillo Inflable</h3>
-                        <p>Ideal para nuestros niños desde los 6 meses a 7 años de edad</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Divertido</li>
-                            <li><i class="fas fa-check"></i> Colores neutros</li>
-                            <li><i class="fas fa-check"></i> Seguro</li>
-                        </ul>
-                        <p class="supervision-note">
-                            <i class="fas fa-exclamation-triangle"></i>
-                            *En todo momento debe estar la supervisión de un adulto responsable.
-                        </p>
-                    </div>
-                </div>
+                </a>
 
                 <!-- Plaza Blanda -->
                 <div class="service-card service-card-2">
