@@ -50,15 +50,46 @@
                     <button class="btn btn-search" onclick="toggleSearch()">
                         <i class="fas fa-search"></i>
                     </button>
-                </div>
+                    
+                    <!-- Search Input (hidden by default) -->
+                    <div class="search-container" id="searchContainer">
+                        <input type="text" id="searchInput" placeholder="Buscar en ALMA Kids..." onkeyup="performSearch()">
+                        <div class="search-results" id="searchResults"></div>
+                    </div>
+            </div>
+            
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            </div>
         </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <nav class="mobile-nav">
+                <a class='mobile-link' href='index.html#inicio' onclick='closeMobileMenu()'>Inicio</a>
+                <a class='mobile-link' href='eventos.html' onclick='closeMobileMenu()'>Eventos</a>
+                <a class='mobile-link' href='castillos-inflables.html' onclick='closeMobileMenu()'>Castillos Inflables</a>
+                <a class='mobile-link' href='servicios-adicionales.html' onclick='closeMobileMenu()'>Servicios Adicionales</a>
+                <a class='mobile-link' href='faq.html' onclick='closeMobileMenu()'>FAQ</a>
+                <a class='mobile-link' href='index.html#contacto' onclick='closeMobileMenu()'>Contacto</a>
+            </nav>
         </div>
     </header>
 
-    <!-- Search Input (hidden by default) -->
-    <div class="search-container" id="searchContainer">
-        <input type="text" id="searchInput" placeholder="Buscar en ALMA Kids..." onkeyup="performSearch()">
-        <div class="search-results" id="searchResults"></div>
+    <!-- Floating Navigation Buttons (Mobile) -->
+    <div class="floating-nav-buttons" style="pointer-events:none;">
+        <button class="btn btn-search" onclick="toggleSearch()" title="Buscar" style="pointer-events:auto;">
+            <i class="fas fa-search"></i>
+        </button>
+        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" title="Menú" style="pointer-events:auto;">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </div>
 
     <!-- Hero Section -->
@@ -266,7 +297,7 @@
                     <p class="footer-slogan">¡Donde los sueños se inflan y la diversión nunca termina!</p>
                     
                     <div class="footer-social">
-                        <a href="https://www.instagram.com/almakids.cl" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/alma.kidscl" target="_blank"><i class="fab fa-instagram"></i></a>
                         <a href="https://www.facebook.com/profile.php?id=61580273574247" target="_blank"><i class="fab fa-facebook"></i></a>
                     </div>
                 </div>
@@ -290,23 +321,24 @@
                             <i class="fas fa-phone" style="color: #4CAF50;"></i>
                             <i class="fab fa-whatsapp" style="color: #25D366;"></i>
                         </span>
-                        <a href="https://wa.me/56969073306?text=Hola%20ALMA%20Kids,%20me%20interesa%20cotizar%20castillos%20inflables" target="_blank">+56 9 6907 3306</a>
+                        <a href="https://wa.me/56969073306?text=Hola%20ALMA%20Kids,%20me%20interesa%20cotizar%20sus%20servicios" target="_blank">+56 9 6907 3306</a>
                     </div>
                     <div class="contact-number">
                         <span class="contact-icons">
                             <i class="fas fa-phone" style="color: #4CAF50;"></i>
                             <i class="fab fa-whatsapp" style="color: #25D366;"></i>
                         </span>
-                        <a href="https://wa.me/56920609796?text=Hola%20ALMA%20Kids,%20me%20interesa%20cotizar%20castillos%20inflables" target="_blank">+56 9 2060 9796</a>
+                        <a href="tel:+56920609796">+56 9 2060 9796</a>
                     </div>
                     <p><i class="fas fa-envelope"></i> <a href="mailto:info.almakids@gmail.com">info.almakids@gmail.com</a></p>
-                    <p><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/almakids.cl" target="_blank">@almakids.cl</a></p>
+                    <p><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/alma.kidscl" target="_blank">@alma.kidscl</a></p>
+                    <p><i class="fab fa-facebook"></i> <a href="https://www.facebook.com/profile.php?id=61580273574247" target="_blank">ALMA Kids</a></p>
                 </div>
             </div>
             
             <div class="footer-bottom">
                 <p>&copy; 2025 ALMA Kids Entretenciones Infantiles Ltda. Todos los derechos reservados.</p>
-                <p class="footer-keywords">Juegos inflables Machalí | Plaza blanda Rancagua | Fiestas infantiles | Castillos inflables | Eventos escolares | Cumpleaños niños</p>
+                <p class="footer-seo">Juegos inflables Machalí | Plaza blanda Rancagua | Fiestas infantiles | Castillos inflables | Eventos escolares | Cumpleaños niños</p>
             </div>
         </div>
     </footer>
