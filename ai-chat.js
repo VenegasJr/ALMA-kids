@@ -17,7 +17,7 @@ let chatState = {
 /**
  * Inicializar el chat
  */
-function initAIChat() {
+window.initAIChat = function() {
     console.log('🤖 Chat con IA inicializado');
     
     // Agregar evento de clic fuera para cerrar
@@ -42,7 +42,7 @@ function initAIChat() {
 /**
  * Abrir/cerrar el chat
  */
-function toggleAIChat() {
+window.toggleAIChat = function() {
     if (chatState.isOpen) {
         closeAIChat();
     } else {
@@ -87,7 +87,7 @@ function closeAIChat() {
 /**
  * Enviar mensaje
  */
-async function sendAIMessage() {
+window.sendAIMessage = async function() {
     console.log('🚀 sendAIMessage llamada');
     
     const input = document.getElementById('aiChatInput');
@@ -289,7 +289,7 @@ function showErrorMessage(message) {
 /**
  * Enviar sugerencia rápida
  */
-function sendSuggestion(text) {
+window.sendSuggestion = function(text) {
     const input = document.getElementById('aiChatInput');
     if (input) {
         input.value = text;
@@ -300,7 +300,7 @@ function sendSuggestion(text) {
 /**
  * Manejar tecla Enter
  */
-function handleAIChatKeyPress(event) {
+window.handleAIChatKeyPress = function(event) {
     if (event.key === 'Enter') {
         sendAIMessage();
     }
@@ -309,7 +309,7 @@ function handleAIChatKeyPress(event) {
 /**
  * Abrir WhatsApp
  */
-function openWhatsApp() {
+window.openWhatsApp = function() {
     const message = 'Hola! 👋 Me gustaría obtener más información sobre sus servicios.';
     const whatsappUrl = `https://wa.me/56969073306?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
