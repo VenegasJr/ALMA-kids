@@ -50,10 +50,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <!-- CSS -->
-    <link rel="stylesheet" href="styles.css?v=20250115-18">
-    <link rel="stylesheet" href="animations.css">
-    <link rel="stylesheet" href="visual-fixes.css">
-    <link rel="stylesheet" href="layout-fixes.css">
+    <link rel="stylesheet" href="styles.css?v=20250115-23">
+    <link rel="stylesheet" href="animations.css?v=20250115-1">
+    <link rel="stylesheet" href="visual-fixes.css?v=20250115-1">
+    <link rel="stylesheet" href="layout-fixes.css?v=20250115-1">
+    <link rel="stylesheet" href="ai-chat.css?v=20250115-2">
+    <link rel="stylesheet" href="mobile-fixes.css?v=20250115-2">
+    <link rel="stylesheet" href="image-optimizer.css?v=20250115-2">
     
     <!-- Favicon y PWA -->
     <link rel="icon" type="image/png" href="imagenes/ALMA kids Logo web.png">
@@ -1501,6 +1504,134 @@
                             </div>
                         </div>
                         
+                        <!-- Sección de Servicios y Precios -->
+                        <div class="form-group services-selection-section">
+                            <div class="services-selection-header">
+                                <h3><i class="fas fa-shopping-cart"></i> Selecciona tus Servicios</h3>
+                                <p>Elige los servicios que quieres para tu evento. Puedes agregar varios servicios y personalizar tu celebración.</p>
+                            </div>
+                            
+                            <!-- Castillos Inflables -->
+                            <div class="service-category">
+                                <h4><i class="fas fa-castle"></i> Castillos Inflables - $75,000 cada uno</h4>
+                                <div class="service-options">
+                                    <label class="service-option">
+                                        <input type="checkbox" name="services" value="castillo-piscina-cuadrada" data-price="75000">
+                                        <div class="service-info">
+                                            <span class="service-name">Castillo Piscina Cuadrada</span>
+                                            <span class="service-price">$75,000 IVA incluido</span>
+                                        </div>
+                                    </label>
+                                    <label class="service-option">
+                                        <input type="checkbox" name="services" value="castillo-inflable-portada" data-price="75000">
+                                        <div class="service-info">
+                                            <span class="service-name">Castillo Inflable Portada</span>
+                                            <span class="service-price">$75,000 IVA incluido</span>
+                                        </div>
+                                    </label>
+                                    <label class="service-option">
+                                        <input type="checkbox" name="services" value="castillo-piscina-redonda" data-price="75000">
+                                        <div class="service-info">
+                                            <span class="service-name">Castillo Piscina Redonda</span>
+                                            <span class="service-price">$75,000 IVA incluido</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <!-- Servicios Adicionales -->
+                            <div class="service-category">
+                                <h4><i class="fas fa-plus-circle"></i> Servicios Adicionales</h4>
+                                <div class="service-options">
+                                    <label class="service-option">
+                                        <input type="checkbox" name="services" value="inflable-carestino" data-price="15000">
+                                        <div class="service-info">
+                                            <span class="service-name">Inflable Saltarín Carestino</span>
+                                            <span class="service-price">$15,000 IVA incluido</span>
+                                        </div>
+                                    </label>
+                                    <label class="service-option">
+                                        <input type="checkbox" name="services" value="maquina-burbujas" data-price="15000">
+                                        <div class="service-info">
+                                            <span class="service-name">Máquina de Burbujas + 500ml líquido</span>
+                                            <span class="service-price">$15,000 IVA incluido</span>
+                                        </div>
+                                    </label>
+                                    <label class="service-option">
+                                        <input type="checkbox" name="services" value="piscina-pelotas" data-price="55000">
+                                        <div class="service-info">
+                                            <span class="service-name">Piscina + Pelotas</span>
+                                            <span class="service-price">$55,000 IVA incluido</span>
+                                        </div>
+                                    </label>
+                                    <label class="service-option">
+                                        <input type="checkbox" name="services" value="set-motricidad" data-price="45000">
+                                        <div class="service-info">
+                                            <span class="service-name">Set Motricidad</span>
+                                            <span class="service-price">$45,000 IVA incluido</span>
+                                        </div>
+                                    </label>
+                                    <label class="service-option">
+                                        <input type="checkbox" name="services" value="carpa-tipi" data-price="15000">
+                                        <div class="service-info">
+                                            <span class="service-name">Carpa Tipi + 2 cojines + piso</span>
+                                            <span class="service-price">$15,000 IVA incluido</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <!-- Combos Premium -->
+                            <div class="service-category premium-category">
+                                <h4><i class="fas fa-crown"></i> Combos Premium - ¡Ahorra más!</h4>
+                                <div class="service-options">
+                                    <label class="service-option premium-option">
+                                        <input type="checkbox" name="services" value="set-basico" data-price="100000">
+                                        <div class="service-info">
+                                            <span class="service-name">Set Básico (Castillo + Piscina)</span>
+                                            <span class="service-price">$100,000 IVA incluido</span>
+                                            <span class="service-save">Ahorro: $50,000</span>
+                                        </div>
+                                    </label>
+                                    <label class="service-option premium-option">
+                                        <input type="checkbox" name="services" value="set-medio" data-price="130000">
+                                        <div class="service-info">
+                                            <span class="service-name">Set Medio (Castillo + Motricidad + Piscina)</span>
+                                            <span class="service-price">$130,000 IVA incluido</span>
+                                            <span class="service-save">Ahorro: $90,000</span>
+                                        </div>
+                                    </label>
+                                    <label class="service-option premium-option best-deal-option">
+                                        <input type="checkbox" name="services" value="set-premium" data-price="180000">
+                                        <div class="service-info">
+                                            <span class="service-name">⭐ Set Premium Todo Incluido</span>
+                                            <span class="service-price">$180,000 IVA incluido</span>
+                                            <span class="service-save">Ahorro: $200,000</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <!-- Resumen de selección -->
+                            <div class="selection-summary">
+                                <div class="summary-header">
+                                    <h4><i class="fas fa-calculator"></i> Resumen de tu Selección</h4>
+                                </div>
+                                <div id="selectedServicesList" class="selected-services-list">
+                                    <p class="no-selection">No hay servicios seleccionados</p>
+                                </div>
+                                <div class="total-price">
+                                    <span class="total-label">Total estimado:</span>
+                                    <span id="totalPrice" class="total-amount">$0</span>
+                                    <span class="total-note">IVA incluido</span>
+                                </div>
+                                <div class="price-note">
+                                    <i class="fas fa-info-circle"></i>
+                                    <span>Los precios son estimados. El precio final puede variar según la ubicación y servicios adicionales.</span>
+                                </div>
+                            </div>
+                        </div>
+                        
                         <div class="form-group extra-hours-section">
                             <div class="extra-hours-header">
                                 <div class="checkbox-group">
@@ -1848,6 +1979,160 @@
                                 <p>Tu carrito está vacío</p>
                             </div>
                         </div>
+                        
+                        <!-- Sección de Precios y Servicios Disponibles -->
+                        <div class="services-price-list">
+                            <h3>💰 Servicios y Precios Disponibles</h3>
+                            
+                            <!-- Castillos Inflables -->
+                            <div class="price-category">
+                                <h4>🏰 Castillos Inflables</h4>
+                                <div class="price-items">
+                                    <div class="price-item" onclick="addToNewCart({
+                                        id: 'castillo-piscina-cuadrada',
+                                        name: 'Castillo Piscina Cuadrada',
+                                        code: 'CI-PC-001',
+                                        category: 'Castillos Inflables',
+                                        image: 'imagenes/Castillo, Piscina cuadrada.png',
+                                        price: 75000
+                                    })">
+                                        <span class="price-name">Castillo Piscina Cuadrada</span>
+                                        <span class="price-amount">$75.000</span>
+                                    </div>
+                                    <div class="price-item" onclick="addToNewCart({
+                                        id: 'castillo-inflable-portada',
+                                        name: 'Castillo Inflable Portada',
+                                        code: 'CI-PT-001',
+                                        category: 'Castillos Inflables',
+                                        image: 'imagenes/Castillo-inflable-portadas.png',
+                                        price: 75000
+                                    })">
+                                        <span class="price-name">Castillo Inflable Portada</span>
+                                        <span class="price-amount">$75.000</span>
+                                    </div>
+                                    <div class="price-item" onclick="addToNewCart({
+                                        id: 'castillo-piscina-redonda',
+                                        name: 'Castillo Piscina Redonda',
+                                        code: 'CI-PR-001',
+                                        category: 'Castillos Inflables',
+                                        image: 'imagenes/Castillo-Piscina-redonda.png',
+                                        price: 75000
+                                    })">
+                                        <span class="price-name">Castillo Piscina Redonda</span>
+                                        <span class="price-amount">$75.000</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Servicios Adicionales -->
+                            <div class="price-category">
+                                <h4>🎪 Servicios Adicionales</h4>
+                                <div class="price-items">
+                                    <div class="price-item" onclick="addToNewCart({
+                                        id: 'inflable-carestino',
+                                        name: 'Inflable Saltarín Caballo Carestino',
+                                        code: 'IS-001',
+                                        category: 'Servicios Adicionales',
+                                        image: 'divierte jugando /Inflable-saltarin-de-eluche-carestino-18m.jpg',
+                                        price: 15000
+                                    })">
+                                        <span class="price-name">Inflable Saltarín Carestino</span>
+                                        <span class="price-amount">$15.000</span>
+                                    </div>
+                                    <div class="price-item" onclick="addToNewCart({
+                                        id: 'maquina-burbujas',
+                                        name: 'Máquina de Burbujas',
+                                        code: 'MB-001',
+                                        category: 'Servicios Adicionales',
+                                        image: 'imagenes/Maquina-burbuja-.png',
+                                        price: 15000
+                                    })">
+                                        <span class="price-name">Máquina de Burbujas</span>
+                                        <span class="price-amount">$15.000</span>
+                                    </div>
+                                    <div class="price-item" onclick="addToNewCart({
+                                        id: 'piscina-pelotas',
+                                        name: 'Piscina + Pelotas',
+                                        code: 'PP-001',
+                                        category: 'Servicios Adicionales',
+                                        image: 'imagenes/plaza-blanda.png',
+                                        price: 55000
+                                    })">
+                                        <span class="price-name">Piscina + Pelotas</span>
+                                        <span class="price-amount">$55.000</span>
+                                    </div>
+                                    <div class="price-item" onclick="addToNewCart({
+                                        id: 'set-motricidad',
+                                        name: 'Set Motricidad',
+                                        code: 'SM-001',
+                                        category: 'Servicios Adicionales',
+                                        image: 'imagenes/plaza-blanda.png',
+                                        price: 45000
+                                    })">
+                                        <span class="price-name">Set Motricidad</span>
+                                        <span class="price-amount">$45.000</span>
+                                    </div>
+                                    <div class="price-item" onclick="addToNewCart({
+                                        id: 'carpa-tipi',
+                                        name: 'Carpa Tipi + Accesorios',
+                                        code: 'CT-001',
+                                        category: 'Servicios Adicionales',
+                                        image: 'divierte jugando /carpa-tipi.jpg',
+                                        price: 15000
+                                    })">
+                                        <span class="price-name">Carpa Tipi (2 cojines + piso)</span>
+                                        <span class="price-amount">$15.000</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Combos Premium -->
+                            <div class="price-category premium-category">
+                                <h4>👑 Combos Premium</h4>
+                                <div class="price-items">
+                                    <div class="price-item premium-item" onclick="addToNewCart({
+                                        id: 'set-basico-castillo-piscina',
+                                        name: 'Set Básico Castillo + Piscina',
+                                        code: 'SB-CP-001',
+                                        category: 'Servicios Adicionales',
+                                        image: 'imagenes/Castillo-Piscina-redonda.png',
+                                        price: 100000
+                                    })">
+                                        <span class="price-name">Set Básico (Castillo + Piscina)</span>
+                                        <span class="price-amount">$100.000</span>
+                                        <span class="price-save">Ahorro: $50.000</span>
+                                    </div>
+                                    <div class="price-item premium-item" onclick="addToNewCart({
+                                        id: 'set-medio-castillo-motricidad-piscina',
+                                        name: 'Set Medio Castillo + Motricidad + Piscina',
+                                        code: 'SM-CMP-001',
+                                        category: 'Servicios Adicionales',
+                                        image: 'imagenes/Castillo, Piscina cuadrada.png',
+                                        price: 130000
+                                    })">
+                                        <span class="price-name">Set Medio (Castillo + Motricidad + Piscina)</span>
+                                        <span class="price-amount">$130.000</span>
+                                        <span class="price-save">Ahorro: $90.000</span>
+                                    </div>
+                                    <div class="price-item premium-item best-deal" onclick="addToNewCart({
+                                        id: 'set-premium-todo-incluido',
+                                        name: 'Set Premium Todo Incluido',
+                                        code: 'SP-TI-001',
+                                        category: 'Servicios Adicionales',
+                                        image: 'imagenes/Castillo-inflable-portadas.png',
+                                        price: 180000
+                                    })">
+                                        <span class="price-name">⭐ Set Premium Todo Incluido</span>
+                                        <span class="price-amount">$180.000</span>
+                                        <span class="price-save">Ahorro: $200.000</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="price-note">
+                                <p><i class="fas fa-info-circle"></i> Todos los precios incluyen IVA. Instalación y supervisión incluida.</p>
+                            </div>
+                        </div>
                         <div class="cart-footer">
                             <button class="cart-clear-btn" onclick="clearNewCart()">🗑️ Limpiar Todo</button>
                             <button class="cart-send-btn" onclick="sendCartToWhatsApp()">📱 Enviar por WhatsApp</button>
@@ -1915,8 +2200,17 @@
             const cartItemsContainer = document.getElementById('cartItemsList');
             if (!cartItemsContainer) return;
             
+            // Buscar solo la parte de items del carrito, no toda la lista
+            let itemsContainer = cartItemsContainer.querySelector('.cart-items-only');
+            if (!itemsContainer) {
+                // Si no existe, crear el contenedor solo para items
+                itemsContainer = document.createElement('div');
+                itemsContainer.className = 'cart-items-only';
+                cartItemsContainer.appendChild(itemsContainer);
+            }
+            
             if (window.cartItems.length === 0) {
-                cartItemsContainer.innerHTML = `
+                itemsContainer.innerHTML = `
                     <div class="cart-empty">
                         <p>🛒 Tu carrito está vacío</p>
                         <p>¡Agrega algunos productos para comenzar!</p>
@@ -1936,6 +2230,7 @@
                             <h4>${item.name}</h4>
                             <p>Código: ${item.code || 'N/A'}</p>
                             <p>Categoría: ${item.category || 'N/A'}</p>
+                            <p class="item-price">Precio: $${item.price ? item.price.toLocaleString() : 'N/A'}</p>
                         </div>
                         <div class="item-controls">
                             <button onclick="changeQuantity(${index}, -1)">-</button>
@@ -1947,7 +2242,7 @@
                 `;
             });
             
-            cartItemsContainer.innerHTML = html;
+            itemsContainer.innerHTML = html;
         }
         
         // Cambiar cantidad de un item
@@ -2290,18 +2585,35 @@
         window.closeImageModal = function() {
             console.log('🖼️ Cerrando modal de imagen...');
             const modal = document.getElementById('imageModal');
+            const modalVideo = document.getElementById('modalVideo');
+            
             if (modal) {
+                // Pausar el video si está reproduciéndose
+                if (modalVideo) {
+                    modalVideo.pause();
+                    modalVideo.currentTime = 0; // Reiniciar el video
+                    console.log('⏸️ Video pausado');
+                }
+                
                 modal.style.display = 'none';
                 modal.classList.remove('active');
                 document.body.style.overflow = 'auto';
-                console.log('✅ Modal de imagen cerrado');
+                document.body.classList.remove('modal-open');
+                console.log('✅ Modal de imagen cerrado, body restaurado');
             }
         };
         
         // Cerrar modal haciendo clic fuera de él
         window.addEventListener('click', function(event) {
             const modal = document.getElementById('imageModal');
+            const modalVideo = document.getElementById('modalVideo');
+            
             if (event.target === modal) {
+                // Pausar el video antes de cerrar
+                if (modalVideo) {
+                    modalVideo.pause();
+                    modalVideo.currentTime = 0;
+                }
                 closeImageModal();
             }
         });
@@ -2309,12 +2621,19 @@
         // Navegación con teclado
         document.addEventListener('keydown', function(event) {
             const modal = document.getElementById('imageModal');
+            const modalVideo = document.getElementById('modalVideo');
+            
             if (modal && modal.style.display === 'flex') {
                 if (event.key === 'ArrowLeft') {
                     previousImage();
                 } else if (event.key === 'ArrowRight') {
                     nextImage();
                 } else if (event.key === 'Escape') {
+                    // Pausar el video antes de cerrar
+                    if (modalVideo) {
+                        modalVideo.pause();
+                        modalVideo.currentTime = 0;
+                    }
                     closeImageModal();
                 }
             }
@@ -2364,9 +2683,139 @@
         // Ejecutar inmediatamente
         ensureCartWorks();
         
+        // Funciones para la selección de servicios
+        function updateServiceSelection() {
+            const checkboxes = document.querySelectorAll('input[name="services"]');
+            const selectedServicesList = document.getElementById('selectedServicesList');
+            const totalPriceElement = document.getElementById('totalPrice');
+            
+            let selectedServices = [];
+            let total = 0;
+            
+            checkboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    const price = parseInt(checkbox.dataset.price);
+                    const serviceName = checkbox.parentElement.querySelector('.service-name').textContent;
+                    selectedServices.push({
+                        name: serviceName,
+                        price: price
+                    });
+                    total += price;
+                }
+            });
+            
+            // Actualizar lista de servicios seleccionados
+            if (selectedServices.length === 0) {
+                selectedServicesList.innerHTML = '<p class="no-selection">No hay servicios seleccionados</p>';
+            } else {
+                let html = '';
+                selectedServices.forEach(service => {
+                    html += `
+                        <div class="selected-service">
+                            <span>${service.name}</span>
+                            <span>$${service.price.toLocaleString()}</span>
+                        </div>
+                    `;
+                });
+                selectedServicesList.innerHTML = html;
+            }
+            
+            // Actualizar total
+            totalPriceElement.textContent = `$${total.toLocaleString()}`;
+        }
+        
+        // Agregar event listeners a los checkboxes
+        function initializeServiceSelection() {
+            const checkboxes = document.querySelectorAll('input[name="services"]');
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', updateServiceSelection);
+            });
+        }
+
+        // Optimización de imágenes
+        function optimizeImages() {
+            console.log('🖼️ Optimizando imágenes...');
+            
+            // Lazy loading para imágenes
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                // Asegurar que las imágenes tengan atributos correctos
+                if (!img.alt) {
+                    img.alt = 'Imagen ALMA Kids';
+                }
+                
+                // Agregar clase loaded cuando la imagen cargue
+                if (img.complete) {
+                    img.classList.add('loaded');
+                } else {
+                    img.addEventListener('load', function() {
+                        this.classList.add('loaded');
+                    });
+                    
+                    img.addEventListener('error', function() {
+                        this.style.background = 'linear-gradient(135deg, #ff6b9d, #ff8fab)';
+                        this.style.display = 'flex';
+                        this.style.alignItems = 'center';
+                        this.style.justifyContent = 'center';
+                        this.style.color = 'white';
+                        this.style.fontWeight = '600';
+                        console.warn('⚠️ Error cargando imagen:', this.src);
+                    });
+                }
+            });
+            
+            console.log('✅ Imágenes optimizadas');
+        }
+        
+        // Prevenir problemas de modal
+        function preventModalIssues() {
+            console.log('🔧 Preveniendo problemas de modal...');
+            
+            // Asegurar que los modales se cierren correctamente
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('modal') || e.target.classList.contains('cart-overlay')) {
+                    if (e.target.id === 'imageModal') {
+                        closeImageModal();
+                    } else if (e.target.id === 'newCartModal') {
+                        hideNewCart();
+                    }
+                }
+            });
+            
+            // Prevenir scroll cuando modal está abierto
+            const observer = new MutationObserver(function(mutations) {
+                mutations.forEach(function(mutation) {
+                    if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
+                        const target = mutation.target;
+                        if (target.style.display === 'flex' && target.classList.contains('modal')) {
+                            document.body.style.overflow = 'hidden';
+                        } else if (target.style.display === 'none' && target.classList.contains('modal')) {
+                            document.body.style.overflow = 'auto';
+                        }
+                    }
+                });
+            });
+            
+            const modals = document.querySelectorAll('.modal, .cart-overlay');
+            modals.forEach(modal => {
+                observer.observe(modal, { attributes: true });
+            });
+            
+            console.log('✅ Problemas de modal prevenidos');
+        }
+
         // Inicializar carrito al cargar la página
         document.addEventListener('DOMContentLoaded', function() {
             console.log('🎪 ALMA Kids: Inicializando nuevo carrito...');
+            
+            // Optimizar imágenes
+            optimizeImages();
+            
+            // Prevenir problemas de modal
+            preventModalIssues();
+            
+            // Inicializar selección de servicios
+            initializeServiceSelection();
             
             // Verificar elementos del carrito
             const cartReady = verifyCartElements();
@@ -2502,6 +2951,48 @@
             
             console.log('✅ Página cargada correctamente, sin bloqueos');
         });
+    </script>
+
+    <!-- ============================================
+         CHAT CON IA (GPT-4)
+         ============================================ -->
+    
+    <!-- Scripts del Chat con IA -->
+    <script src="ai-chat-config.js"></script>
+    <script src="ai-chat.js"></script>
+    
+    <!-- Cargar el widget del chat directamente -->
+    <script>
+        // Cargar el widget HTML del chat
+        (function() {
+            console.log('🤖 Iniciando carga del chat con IA...');
+            
+            fetch('ai-chat-widget.html')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Error al cargar el widget HTML');
+                    }
+                    return response.text();
+                })
+                .then(html => {
+                    // Crear contenedor si no existe
+                    let container = document.getElementById('aiChatWidgetContainer');
+                    if (!container) {
+                        container = document.createElement('div');
+                        container.id = 'aiChatWidgetContainer';
+                        document.body.appendChild(container);
+                    }
+                    
+                    container.innerHTML = html;
+                    console.log('✅ Chat con IA cargado correctamente');
+                })
+                .catch(error => {
+                    console.error('❌ Error al cargar el widget del chat:', error);
+                    
+                    // Mostrar mensaje de error en consola
+                    console.error('💡 Verifica que el archivo ai-chat-widget.html existe en la misma carpeta');
+                });
+        })();
     </script>
 </body>
 </html>
