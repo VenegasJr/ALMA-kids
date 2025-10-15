@@ -2497,16 +2497,18 @@
                                currentImage.src.toLowerCase().endsWith('.webm') ||
                                currentImage.src.toLowerCase().endsWith('.ogg');
                 
+                // Ocultar ambos elementos primero para evitar conflictos
+                modalImage.style.display = 'none';
+                modalVideo.style.display = 'none';
+                
                 if (isVideo) {
-                    // Es un video
-                    modalImage.style.display = 'none';
+                    // Es un video - mostrar solo el video
                     modalVideo.style.display = 'block';
                     modalVideo.querySelector('source').src = currentImage.src;
                     modalVideo.load(); // Recargar el video
                     console.log('🎥 Mostrando video:', currentImage.title);
                 } else {
-                    // Es una imagen
-                    modalVideo.style.display = 'none';
+                    // Es una imagen - mostrar solo la imagen
                     modalImage.style.display = 'block';
                     modalImage.src = currentImage.src;
                     modalImage.alt = currentImage.title;
@@ -2531,7 +2533,14 @@
         // Función para mostrar el modal
         function showModal() {
             const modal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            const modalVideo = document.getElementById('modalVideo');
+            
             if (modal) {
+                // Asegurar que ambos elementos estén ocultos inicialmente
+                if (modalImage) modalImage.style.display = 'none';
+                if (modalVideo) modalVideo.style.display = 'none';
+                
                 modal.style.display = 'flex';
                 modal.classList.add('active');
                 document.body.style.overflow = 'hidden';
