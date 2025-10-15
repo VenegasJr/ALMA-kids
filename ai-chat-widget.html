@@ -1,0 +1,107 @@
+<!-- Chat Widget con IA -->
+<div id="aiChatWidget" class="ai-chat-widget">
+    <!-- Botón flotante para abrir el chat -->
+    <button id="aiChatToggle" class="ai-chat-toggle" onclick="toggleAIChat()">
+        <i class="fas fa-robot"></i>
+        <span class="ai-chat-badge">IA</span>
+    </button>
+
+    <!-- Ventana del chat -->
+    <div id="aiChatWindow" class="ai-chat-window">
+        <!-- Header del chat -->
+        <div class="ai-chat-header">
+            <div class="ai-chat-header-info">
+                <div class="ai-chat-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="ai-chat-title">
+                    <h3>Asistente ALMA Kids</h3>
+                    <span class="ai-chat-status">
+                        <i class="fas fa-circle"></i> En línea
+                    </span>
+                </div>
+            </div>
+            <button class="ai-chat-close" onclick="toggleAIChat()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <!-- Mensajes del chat -->
+        <div id="aiChatMessages" class="ai-chat-messages">
+            <!-- Mensaje de bienvenida -->
+            <div class="ai-chat-message ai-message">
+                <div class="ai-message-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="ai-message-content">
+                    <div class="ai-message-bubble">
+                        <p>¡Hola! 👋 Soy el asistente virtual de ALMA Kids. Estoy aquí para ayudarte con:</p>
+                        <ul>
+                            <li>📋 Información sobre nuestros servicios</li>
+                            <li>💰 Cotizaciones y precios</li>
+                            <li>📅 Disponibilidad y reservas</li>
+                            <li>🎈 Globos metalizados</li>
+                            <li>🎪 Juegos inflables</li>
+                        </ul>
+                        <p><strong>¿En qué puedo ayudarte hoy?</strong></p>
+                    </div>
+                    <span class="ai-message-time">Ahora</span>
+                </div>
+            </div>
+
+            <!-- Sugerencias rápidas -->
+            <div class="ai-chat-suggestions">
+                <button class="ai-suggestion-btn" onclick="sendSuggestion('¿Cuánto cuesta un castillo inflable?')">
+                    💰 Precios
+                </button>
+                <button class="ai-suggestion-btn" onclick="sendSuggestion('¿Qué servicios tienen disponibles?')">
+                    🎪 Servicios
+                </button>
+                <button class="ai-suggestion-btn" onclick="sendSuggestion('¿Hacen entregas en Rancagua?')">
+                    📍 Zonas de cobertura
+                </button>
+            </div>
+        </div>
+
+        <!-- Input del chat -->
+        <div class="ai-chat-input-container">
+            <div class="ai-chat-input-wrapper">
+                <input 
+                    type="text" 
+                    id="aiChatInput" 
+                    class="ai-chat-input" 
+                    placeholder="Escribe tu mensaje aquí..." 
+                    onkeypress="handleAIChatKeyPress(event)"
+                >
+                <button class="ai-chat-send" onclick="sendAIMessage()">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+            <div class="ai-chat-footer">
+                <span class="ai-chat-powered">
+                    <i class="fas fa-bolt"></i> Powered by GPT-4
+                </span>
+                <button class="ai-chat-whatsapp" onclick="openWhatsApp()">
+                    <i class="fab fa-whatsapp"></i> Hablar con humano
+                </button>
+            </div>
+        </div>
+
+        <!-- Indicador de escritura -->
+        <div id="aiTypingIndicator" class="ai-typing-indicator" style="display: none;">
+            <div class="ai-message ai-message">
+                <div class="ai-message-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="ai-message-content">
+                    <div class="ai-message-bubble ai-typing-bubble">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

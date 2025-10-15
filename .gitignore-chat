@@ -1,5 +1,5 @@
 # ============================================
-# ALMA Kids - .gitignore
+# ARCHIVOS DE CONFIGURACIÓN DEL CHAT CON IA
 # ============================================
 
 # API Keys - NUNCA subir a repositorios públicos
@@ -20,34 +20,25 @@ NOTAS.txt
 TODO.txt
 PRUEBAS.txt
 
-# Archivos del sistema operativo
-.DS_Store
-Thumbs.db
-desktop.ini
-
-# Archivos de editores
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-
-# Archivos de Node (si se usa en el futuro)
-node_modules/
-package-lock.json
-yarn.lock
-
 # ============================================
 # INSTRUCCIONES
 # ============================================
 # 
-# Este archivo protege tu API key de OpenAI
-# NO subas ai-chat-config.js con tu API key real
+# Si vas a subir tu proyecto a GitHub o GitLab:
 # 
-# Si ya lo subiste por error:
-# 1. Ve a GitHub y elimina el archivo
-# 2. Ve a OpenAI y revoca la API key
-# 3. Crea una nueva API key
-# 4. Actualiza ai-chat-config.js con la nueva key
+# 1. Agrega este contenido a tu archivo .gitignore:
+#    - Copia todo el contenido de este archivo
+#    - Pégalo en tu archivo .gitignore
+# 
+# 2. O renombra este archivo:
+#    mv .gitignore-chat .gitignore
+# 
+# 3. Verifica que ai-chat-config.js no esté en el repositorio:
+#    git status
+# 
+# 4. Si ya lo subiste por error:
+#    git rm --cached ai-chat-config.js
+#    git commit -m "Remove API key from repository"
 # 
 # ============================================
+

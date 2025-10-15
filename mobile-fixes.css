@@ -1,0 +1,298 @@
+/* ============================================
+   ALMA Kids - Mobile Fixes
+   Correcciones específicas para móvil
+   ============================================ */
+
+/* Prevención de scroll horizontal en móvil */
+@media (max-width: 768px) {
+    html, body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    /* Contenedores principales */
+    .container, .section {
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+    
+    /* Header móvil optimizado */
+    .header {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        z-index: 1000 !important;
+        background: white !important;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
+    }
+    
+    /* Modal de imágenes móvil */
+    .modal {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        z-index: 999999 !important;
+        background: rgba(0,0,0,0.9) !important;
+    }
+    
+    .modal-content {
+        width: 100% !important;
+        height: 100% !important;
+        max-width: 100% !important;
+        max-height: 100% !important;
+        margin: 0 !important;
+        border-radius: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        padding: 20px !important;
+    }
+    
+    .modal-content img,
+    .modal-content video {
+        max-width: 100% !important;
+        max-height: 80vh !important;
+        width: auto !important;
+        height: auto !important;
+        object-fit: contain !important;
+    }
+    
+    /* Carrito móvil */
+    .cart-overlay {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        z-index: 999998 !important;
+        background: rgba(0,0,0,0.5) !important;
+    }
+    
+    .cart-container {
+        width: 95% !important;
+        max-width: 100% !important;
+        height: 90vh !important;
+        max-height: 90vh !important;
+        margin: 5vh auto !important;
+        border-radius: 15px !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+    }
+    
+    /* Sección de servicios móvil */
+    .services-selection-section {
+        padding: 20px 15px !important;
+        margin: 20px 0 !important;
+        border-radius: 15px !important;
+    }
+    
+    .service-category {
+        padding: 15px !important;
+        margin-bottom: 15px !important;
+    }
+    
+    .service-option {
+        padding: 12px !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 8px !important;
+    }
+    
+    .service-option input[type="checkbox"] {
+        margin-right: 0 !important;
+        margin-bottom: 8px !important;
+    }
+    
+    .service-info {
+        width: 100% !important;
+    }
+    
+    /* Botones flotantes móvil */
+    .whatsapp-float,
+    .cart-float {
+        position: fixed !important;
+        bottom: 20px !important;
+        z-index: 999997 !important;
+    }
+    
+    .whatsapp-float {
+        right: 20px !important;
+    }
+    
+    .cart-float {
+        left: 20px !important;
+    }
+    
+    /* Chat IA móvil */
+    .ai-chat-widget {
+        position: fixed !important;
+        bottom: 20px !important;
+        right: 20px !important;
+        z-index: 999996 !important;
+    }
+    
+    .ai-chat-window {
+        position: fixed !important;
+        bottom: 80px !important;
+        right: 10px !important;
+        left: 10px !important;
+        width: calc(100vw - 20px) !important;
+        height: calc(100vh - 100px) !important;
+        max-height: calc(100vh - 100px) !important;
+        border-radius: 15px !important;
+        z-index: 999996 !important;
+    }
+    
+    /* Formulario móvil */
+    .form-container {
+        padding: 20px 15px !important;
+        margin: 20px 0 !important;
+    }
+    
+    .form-group {
+        margin-bottom: 20px !important;
+    }
+    
+    /* Texto móvil */
+    h1, h2, h3, h4, h5, h6 {
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+    }
+    
+    /* Imágenes móvil */
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+    
+    /* Prevención de zoom en inputs */
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    input[type="time"],
+    textarea,
+    select {
+        font-size: 16px !important;
+    }
+}
+
+/* Correcciones específicas para pantallas muy pequeñas */
+@media (max-width: 480px) {
+    .services-selection-section {
+        padding: 15px 10px !important;
+    }
+    
+    .service-category {
+        padding: 12px !important;
+    }
+    
+    .service-option {
+        padding: 10px !important;
+    }
+    
+    .cart-container {
+        width: 98% !important;
+        margin: 1vh auto !important;
+        height: 98vh !important;
+        max-height: 98vh !important;
+    }
+    
+    .ai-chat-window {
+        right: 5px !important;
+        left: 5px !important;
+        width: calc(100vw - 10px) !important;
+        bottom: 70px !important;
+        height: calc(100vh - 80px) !important;
+        max-height: calc(100vh - 80px) !important;
+    }
+    
+    .whatsapp-float,
+    .cart-float {
+        bottom: 15px !important;
+    }
+    
+    .whatsapp-float {
+        right: 15px !important;
+    }
+    
+    .cart-float {
+        left: 15px !important;
+    }
+}
+
+/* Corrección para evitar que se pegue la página */
+@media (max-width: 768px) {
+    /* Asegurar que el body no se bloquee */
+    body.modal-open {
+        overflow: hidden !important;
+        position: fixed !important;
+        width: 100% !important;
+        height: 100% !important;
+    }
+    
+    /* Asegurar que los modales se cierren correctamente */
+    .modal.closing {
+        animation: fadeOut 0.3s ease forwards !important;
+    }
+    
+    @keyframes fadeOut {
+        from { opacity: 1; }
+        to { opacity: 0; }
+    }
+    
+    /* Prevención de scroll horizontal en todos los elementos */
+    * {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Contenedores de imágenes */
+    .image-container,
+    .service-image,
+    .plaza-image,
+    .divertete-image {
+        max-width: 100% !important;
+        overflow: hidden !important;
+    }
+    
+    /* Grids responsive */
+    .services-grid,
+    .plaza-gallery,
+    .globos-grid {
+        grid-template-columns: 1fr !important;
+        gap: 15px !important;
+        padding: 0 10px !important;
+    }
+}
+
+/* Correcciones adicionales para performance */
+@media (max-width: 768px) {
+    /* Reducir animaciones en móvil para mejor performance */
+    .service-option,
+    .modal,
+    .cart-container {
+        transition: all 0.2s ease !important;
+    }
+    
+    /* Optimizar sombras para móvil */
+    .service-option:hover,
+    .modal,
+    .cart-container {
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+    }
+    
+    /* Asegurar que los z-index sean correctos */
+    .modal { z-index: 999999 !important; }
+    .cart-overlay { z-index: 999998 !important; }
+    .ai-chat-widget { z-index: 999997 !important; }
+    .whatsapp-float, .cart-float { z-index: 999996 !important; }
+    .header { z-index: 999995 !important; }
+}

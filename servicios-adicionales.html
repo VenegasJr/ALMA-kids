@@ -23,10 +23,12 @@
     
     <!-- CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css?v=20250115-14">
-    <link rel="stylesheet" href="animations.css">
-    <link rel="stylesheet" href="visual-fixes.css">
-    <link rel="stylesheet" href="layout-fixes.css">
+    <link rel="stylesheet" href="styles.css?v=20250115-23">
+    <link rel="stylesheet" href="animations.css?v=20250115-1">
+    <link rel="stylesheet" href="visual-fixes.css?v=20250115-1">
+    <link rel="stylesheet" href="layout-fixes.css?v=20250115-1">
+    <link rel="stylesheet" href="mobile-fixes.css?v=20250115-2">
+    <link rel="stylesheet" href="image-optimizer.css?v=20250115-2">
     
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -211,6 +213,10 @@
                     </div>
                     <div class="divertete-info">
                         <h3>🎈 Inflable Saltarín De Peluche Caballo color Café</h3>
+                        <div class="service-price">
+                            <span class="price-amount">$15.000</span>
+                            <span class="price-note">IVA incluido</span>
+                        </div>
                         <div class="divertete-description">
                             <p><strong>¡Transformando el movimiento en aprendizaje y aventuras!</strong></p>
                             
@@ -253,15 +259,21 @@
                                 *En todo momento debe estar la supervisión de un adulto responsable. Recomendado para niños desde 18 meses en adelante. Capacidad máxima: 20 kg.
                             </p>
                         </div>
-                        <button class="btn btn-primary" onclick="addToNewCart({
-                            id: 'inflable-carestino',
-                            name: 'Inflable Saltarín De Peluche Caballo color Café',
-                            code: 'IS-001',
-                            category: 'Servicios Adicionales',
-                            image: 'divierte jugando /Inflable-saltarin-de-eluche-carestino-18m.jpg'
-                        })">
-                            <i class="fas fa-cart-plus"></i> Agregar al Carrito
-                        </button>
+                        <div class="service-actions">
+                            <button class="btn btn-primary" onclick="addToNewCart({
+                                id: 'inflable-carestino',
+                                name: 'Inflable Saltarín De Peluche Caballo color Café',
+                                code: 'IS-001',
+                                category: 'Servicios Adicionales',
+                                image: 'divierte jugando /Inflable-saltarin-de-eluche-carestino-18m.jpg',
+                                price: 15000
+                            })">
+                                <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                            </button>
+                            <button class="btn btn-secondary" onclick="window.open('https://wa.me/56969073306?text=Hola!%20Me%20interesa%20el%20Inflable%20Saltarín%20por%20$15.000', '_blank')">
+                                <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                            </button>
+                        </div>
                     </div>
                 </div>
                 
@@ -281,6 +293,10 @@
                     </div>
                     <div class="divertete-info">
                         <h3>🫧 Máquina de Burbujas ALMA Kids</h3>
+                        <div class="service-price">
+                            <span class="price-amount">$15.000</span>
+                            <span class="price-note">IVA incluido</span>
+                        </div>
                         <div class="divertete-description">
                             <p><strong>¡La magia flotante que hace de tu evento algo inolvidable!</strong></p>
                             
@@ -296,6 +312,7 @@
                                 <li><i class="fas fa-check"></i> <strong>Marca ALMA Kids:</strong> Personalizada con nuestro logo</li>
                                 <li><i class="fas fa-check"></i> <strong>Facilidad y durabilidad:</strong> Construcción robusta y confiable</li>
                                 <li><i class="fas fa-check"></i> <strong>Versatilidad:</strong> Ideal para interiores y exteriores</li>
+                                <li><i class="fas fa-check"></i> <strong>Líquido incluido:</strong> 500ml de solución de burbujas no tóxica</li>
                             </ul>
                             
                             <h4>🎯 Beneficios para el evento:</h4>
@@ -334,6 +351,434 @@
                         })">
                             <i class="fas fa-cart-plus"></i> Agregar al Carrito
                         </button>
+                    </div>
+                </div>
+
+                <!-- Piscina + Pelotas -->
+                <div class="divertete-item">
+                    <div class="divertete-image-container">
+                        <img src="imagenes/plaza-blanda.png?v=20250115-10" alt="Piscina + Pelotas" onclick="openImageModal(this.src, 'Piscina + Pelotas', 'Diversión acuática con pelotas de colores para máxima entretención', 'piscina-pelotas')" style="cursor: pointer;">
+                        <div class="image-badge">Imagen referencial</div>
+                    </div>
+                    <div class="divertete-info">
+                        <h3>🏊‍♀️ Piscina + Pelotas</h3>
+                        <div class="service-price">
+                            <span class="price-amount">$55.000</span>
+                            <span class="price-note">IVA incluido</span>
+                        </div>
+                        <div class="divertete-description">
+                            <p><strong>¡Diversión acuática garantizada con pelotas de colores!</strong></p>
+                            
+                            <p>Nuestra piscina con pelotas es la combinación perfecta de diversión acuática y entretenimiento. Ideal para eventos de verano, ofrece una experiencia única donde los niños pueden jugar, nadar y disfrutar con cientos de pelotas de colores.</p>
+                            
+                            <h4>✨ Características:</h4>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> <strong>Piscina inflable:</strong> Estructura segura y resistente</li>
+                                <li><i class="fas fa-check"></i> <strong>Pelotas de colores:</strong> Cientos de pelotas multicolores incluidas</li>
+                                <li><i class="fas fa-check"></i> <strong>Capacidad:</strong> Hasta 8 niños simultáneamente</li>
+                                <li><i class="fas fa-check"></i> <strong>Edad recomendada:</strong> 2 a 10 años</li>
+                                <li><i class="fas fa-check"></i> <strong>Materiales seguros:</strong> Vinilo reforzado, no tóxico</li>
+                                <li><i class="fas fa-check"></i> <strong>Sistema de agua:</strong> Incluye bomba y filtro</li>
+                            </ul>
+                            
+                            <h4>🎯 Beneficios:</h4>
+                            <ul class="service-features">
+                                <li><i class="fas fa-swimmer"></i> <strong>Ejercicio acuático:</strong> Natación y juegos en el agua</li>
+                                <li><i class="fas fa-palette"></i> <strong>Estimulación visual:</strong> Colores vibrantes y atractivos</li>
+                                <li><i class="fas fa-users"></i> <strong>Juego grupal:</strong> Diversión compartida</li>
+                                <li><i class="fas fa-sun"></i> <strong>Refrescante:</strong> Ideal para días calurosos</li>
+                            </ul>
+                        </div>
+                        <div class="service-actions">
+                            <button class="btn btn-primary" onclick="addToNewCart({
+                                id: 'piscina-pelotas',
+                                name: 'Piscina + Pelotas',
+                                code: 'PP-001',
+                                category: 'Servicios Adicionales',
+                                image: 'imagenes/plaza-blanda.png',
+                                price: 55000
+                            })">
+                                <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                            </button>
+                            <button class="btn btn-secondary" onclick="window.open('https://wa.me/56969073306?text=Hola!%20Me%20interesa%20la%20Piscina%20+%20Pelotas%20por%20$55.000', '_blank')">
+                                <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Set Motricidad -->
+                <div class="divertete-item">
+                    <div class="divertete-image-container">
+                        <img src="imagenes/plaza-blanda.png?v=20250115-10" alt="Set Motricidad" onclick="openImageModal(this.src, 'Set Motricidad', 'Juegos de motricidad para el desarrollo físico y mental de los niños', 'set-motricidad')" style="cursor: pointer;">
+                        <div class="image-badge">Imagen referencial</div>
+                    </div>
+                    <div class="divertete-info">
+                        <h3>🧩 Set Motricidad</h3>
+                        <div class="service-price">
+                            <span class="price-amount">$45.000</span>
+                            <span class="price-note">IVA incluido</span>
+                        </div>
+                        <div class="divertete-description">
+                            <p><strong>¡Desarrollo motor y cognitivo a través del juego!</strong></p>
+                            
+                            <p>Nuestro Set Motricidad está diseñado para estimular el desarrollo físico y mental de los niños. Incluye una variedad de elementos que promueven la coordinación, equilibrio, fuerza y habilidades cognitivas a través del juego.</p>
+                            
+                            <h4>✨ Características:</h4>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> <strong>Elementos variados:</strong> Conos, aros, escaleras, obstáculos</li>
+                                <li><i class="fas fa-check"></i> <strong>Materiales seguros:</strong> Plástico resistente y no tóxico</li>
+                                <li><i class="fas fa-check"></i> <strong>Capacidad:</strong> Hasta 6 niños simultáneamente</li>
+                                <li><i class="fas fa-check"></i> <strong>Edad recomendada:</strong> 3 a 12 años</li>
+                                <li><i class="fas fa-check"></i> <strong>Supervisión incluida:</strong> Monitor capacitado</li>
+                                <li><i class="fas fa-check"></i> <strong>Actividades guiadas:</strong> Juegos estructurados</li>
+                            </ul>
+                            
+                            <h4>🎯 Beneficios:</h4>
+                            <ul class="service-features">
+                                <li><i class="fas fa-running"></i> <strong>Desarrollo motor:</strong> Mejora coordinación y equilibrio</li>
+                                <li><i class="fas fa-brain"></i> <strong>Desarrollo cognitivo:</strong> Estimula la concentración</li>
+                                <li><i class="fas fa-users"></i> <strong>Socialización:</strong> Trabajo en equipo</li>
+                                <li><i class="fas fa-heart"></i> <strong>Autoestima:</strong> Logros y superación personal</li>
+                            </ul>
+                        </div>
+                        <div class="service-actions">
+                            <button class="btn btn-primary" onclick="addToNewCart({
+                                id: 'set-motricidad',
+                                name: 'Set Motricidad',
+                                code: 'SM-001',
+                                category: 'Servicios Adicionales',
+                                image: 'imagenes/plaza-blanda.png',
+                                price: 45000
+                            })">
+                                <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                            </button>
+                            <button class="btn btn-secondary" onclick="window.open('https://wa.me/56969073306?text=Hola!%20Me%20interesa%20el%20Set%20Motricidad%20por%20$45.000', '_blank')">
+                                <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Set Básico Castillo + Piscina -->
+                <div class="divertete-item">
+                    <div class="divertete-image-container">
+                        <img src="imagenes/Castillo-Piscina-redonda.png?v=20250115-11" alt="Set Básico Castillo + Piscina" onclick="openImageModal(this.src, 'Set Básico Castillo + Piscina', 'Combo perfecto con castillo inflable y piscina para máxima diversión', 'set-basico-castillo-piscina')" style="cursor: pointer;">
+                        <div class="image-badge">Imagen referencial</div>
+                    </div>
+                    <div class="divertete-info">
+                        <h3>🏰 Set Básico Castillo + Piscina</h3>
+                        <div class="service-price">
+                            <span class="price-amount">$100.000</span>
+                            <span class="price-note">IVA incluido</span>
+                        </div>
+                        <div class="divertete-description">
+                            <p><strong>¡El combo perfecto para la diversión acuática!</strong></p>
+                            
+                            <p>Nuestro Set Básico combina lo mejor de ambos mundos: un castillo inflable de alta calidad con una piscina integrada. Perfecto para eventos donde quieres maximizar la diversión de los niños con actividades tanto secas como acuáticas.</p>
+                            
+                            <h4>✨ Incluye:</h4>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> <strong>Castillo inflable:</strong> Estructura resistente y segura</li>
+                                <li><i class="fas fa-check"></i> <strong>Piscina integrada:</strong> Área acuática incorporada</li>
+                                <li><i class="fas fa-check"></i> <strong>Instalación completa:</strong> Montaje y desmontaje incluido</li>
+                                <li><i class="fas fa-check"></i> <strong>Supervisión:</strong> Monitor capacitado durante todo el evento</li>
+                                <li><i class="fas fa-check"></i> <strong>Capacidad:</strong> Hasta 8 niños simultáneamente</li>
+                                <li><i class="fas fa-check"></i> <strong>Edad recomendada:</strong> 3 a 12 años</li>
+                                <li><i class="fas fa-check"></i> <strong>Materiales seguros:</strong> PVC de grado comercial</li>
+                                <li><i class="fas fa-check"></i> <strong>Accesorios:</strong> Escalones de acceso y elementos de seguridad</li>
+                            </ul>
+                            
+                            <h4>🎯 Beneficios del combo:</h4>
+                            <ul class="service-features">
+                                <li><i class="fas fa-swimming-pool"></i> <strong>Diversión acuática:</strong> Refrescante en días calurosos</li>
+                                <li><i class="fas fa-castle"></i> <strong>Juego seco:</strong> Actividades en la parte superior</li>
+                                <li><i class="fas fa-users"></i> <strong>Mayor capacidad:</strong> Más niños pueden jugar</li>
+                                <li><i class="fas fa-clock"></i> <strong>Duración extendida:</strong> Entretenimiento por más tiempo</li>
+                                <li><i class="fas fa-dollar-sign"></i> <strong>Mejor precio:</strong> Ahorro al contratar el combo</li>
+                            </ul>
+                            
+                            <h4>🎪 Ideal para:</h4>
+                            <ul class="service-features">
+                                <li><i class="fas fa-birthday-cake"></i> <strong>Cumpleaños de verano:</strong> Diversión refrescante</li>
+                                <li><i class="fas fa-sun"></i> <strong>Eventos al aire libre:</strong> Días soleados</li>
+                                <li><i class="fas fa-home"></i> <strong>Fiestas en casa:</strong> Con espacio para piscina</li>
+                                <li><i class="fas fa-calendar"></i> <strong>Celebraciones especiales:</strong> Graduaciones, logros</li>
+                            </ul>
+                            
+                            <p class="supervision-note">
+                                <i class="fas fa-shield-alt"></i> <strong>Supervisión incluida:</strong> Nuestro personal capacitado estará presente durante todo el evento para garantizar la seguridad de los niños.
+                            </p>
+                        </div>
+                        <div class="service-actions">
+                            <button class="btn btn-primary" onclick="addToNewCart({
+                                id: 'set-basico-castillo-piscina',
+                                name: 'Set Básico Castillo + Piscina',
+                                code: 'SB-CP-001',
+                                category: 'Servicios Adicionales',
+                                image: 'imagenes/Castillo-Piscina-redonda.png',
+                                price: 100000
+                            })">
+                                <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                            </button>
+                            <button class="btn btn-secondary" onclick="window.open('https://wa.me/56969073306?text=Hola!%20Me%20interesa%20el%20Set%20Básico%20Castillo%20+%20Piscina%20por%20$100.000', '_blank')">
+                                <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Set Medio Castillo + Set Motricidad + Piscina -->
+                <div class="divertete-item">
+                    <div class="divertete-image-container">
+                        <img src="imagenes/Castillo, Piscina cuadrada.png?v=20250115-12" alt="Set Medio Castillo + Set Motricidad + Piscina" onclick="openImageModal(this.src, 'Set Medio Castillo + Set Motricidad + Piscina', 'Combo completo con castillo, motricidad y piscina para máxima diversión', 'set-medio-castillo-motricidad-piscina')" style="cursor: pointer;">
+                        <div class="image-badge">Imagen referencial</div>
+                    </div>
+                    <div class="divertete-info">
+                        <h3>🏰 Set Medio Castillo + Set Motricidad + Piscina</h3>
+                        <div class="service-price">
+                            <span class="price-amount">$130.000</span>
+                            <span class="price-note">IVA incluido</span>
+                        </div>
+                        <div class="divertete-description">
+                            <p><strong>¡El combo definitivo para la diversión completa!</strong></p>
+                            
+                            <p>Nuestro Set Medio es la opción más completa que combina tres elementos fundamentales para el entretenimiento infantil: un castillo inflable, actividades de motricidad y una piscina. Perfecto para eventos grandes donde quieres ofrecer variedad y diversión garantizada para todos los niños.</p>
+                            
+                            <h4>✨ Incluye:</h4>
+                            <ul class="service-features">
+                                <li><i class="fas fa-castle"></i> <strong>Castillo inflable:</strong> Estructura resistente y segura</li>
+                                <li><i class="fas fa-swimming-pool"></i> <strong>Piscina integrada:</strong> Área acuática para refrescarse</li>
+                                <li><i class="fas fa-puzzle-piece"></i> <strong>Set Motricidad completo:</strong> Conos, aros, escaleras, obstáculos</li>
+                                <li><i class="fas fa-tools"></i> <strong>Instalación completa:</strong> Montaje y desmontaje incluido</li>
+                                <li><i class="fas fa-user-shield"></i> <strong>Supervisión profesional:</strong> Monitores capacitados</li>
+                                <li><i class="fas fa-users"></i> <strong>Capacidad total:</strong> Hasta 12 niños simultáneamente</li>
+                                <li><i class="fas fa-child"></i> <strong>Edad recomendada:</strong> 3 a 12 años</li>
+                                <li><i class="fas fa-shield-alt"></i> <strong>Materiales seguros:</strong> PVC comercial y plástico no tóxico</li>
+                            </ul>
+                            
+                            <h4>🎯 Beneficios del combo medio:</h4>
+                            <ul class="service-features">
+                                <li><i class="fas fa-swimming-pool"></i> <strong>Diversión acuática:</strong> Refrescante en días calurosos</li>
+                                <li><i class="fas fa-castle"></i> <strong>Juego en altura:</strong> Actividades en el castillo</li>
+                                <li><i class="fas fa-running"></i> <strong>Desarrollo motor:</strong> Ejercicios de motricidad</li>
+                                <li><i class="fas fa-users"></i> <strong>Mayor capacidad:</strong> Más niños pueden participar</li>
+                                <li><i class="fas fa-clock"></i> <strong>Entretenimiento extendido:</strong> Actividades variadas</li>
+                                <li><i class="fas fa-dollar-sign"></i> <strong>Excelente precio:</strong> Ahorro significativo vs. contratar por separado</li>
+                            </ul>
+                            
+                            <h4>🎪 Actividades incluidas:</h4>
+                            <ul class="service-features">
+                                <li><i class="fas fa-gamepad"></i> <strong>Juegos en el castillo:</strong> Saltar, deslizarse, escalar</li>
+                                <li><i class="fas fa-swimming-pool"></i> <strong>Juegos acuáticos:</strong> Refrescarse en la piscina</li>
+                                <li><i class="fas fa-puzzle-piece"></i> <strong>Circuitos motrices:</strong> Obstáculos y desafíos</li>
+                                <li><i class="fas fa-users"></i> <strong>Juegos grupales:</strong> Actividades de equipo</li>
+                                <li><i class="fas fa-trophy"></i> <strong>Competencias:</strong> Carreras y desafíos</li>
+                            </ul>
+                            
+                            <h4>🌟 Ideal para:</h4>
+                            <ul class="service-features">
+                                <li><i class="fas fa-birthday-cake"></i> <strong>Cumpleaños especiales:</strong> Eventos memorables</li>
+                                <li><i class="fas fa-school"></i> <strong>Eventos escolares:</strong> Días de diversión</li>
+                                <li><i class="fas fa-calendar"></i> <strong>Celebraciones familiares:</strong> Reuniones grandes</li>
+                                <li><i class="fas fa-sun"></i> <strong>Eventos de verano:</strong> Diversión refrescante</li>
+                                <li><i class="fas fa-home"></i> <strong>Fiestas en casa:</strong> Con espacio amplio</li>
+                            </ul>
+                            
+                            <p class="supervision-note">
+                                <i class="fas fa-shield-alt"></i> <strong>Supervisión completa incluida:</strong> Nuestro equipo de monitores capacitados estará presente durante todo el evento para garantizar la seguridad y diversión de todos los niños.
+                            </p>
+                            
+                            <div class="price-comparison">
+                                <h4>💰 Comparación de precios:</h4>
+                                <ul class="service-features">
+                                    <li><i class="fas fa-calculator"></i> <strong>Contratando por separado:</strong> $220,000</li>
+                                    <li><i class="fas fa-percentage"></i> <strong>Ahorro con el combo:</strong> $90,000 (41% de descuento)</li>
+                                    <li><i class="fas fa-star"></i> <strong>Precio del Set Medio:</strong> $130,000</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="service-actions">
+                            <button class="btn btn-primary" onclick="addToNewCart({
+                                id: 'set-medio-castillo-motricidad-piscina',
+                                name: 'Set Medio Castillo + Set Motricidad + Piscina',
+                                code: 'SM-CMP-001',
+                                category: 'Servicios Adicionales',
+                                image: 'imagenes/Castillo, Piscina cuadrada.png',
+                                price: 130000
+                            })">
+                                <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                            </button>
+                            <button class="btn btn-secondary" onclick="window.open('https://wa.me/56969073306?text=Hola!%20Me%20interesa%20el%20Set%20Medio%20Castillo%20+%20Set%20Motricidad%20+%20Piscina%20por%20$130.000', '_blank')">
+                                <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Carpa Tipi -->
+                <div class="divertete-item">
+                    <div class="divertete-image-container">
+                        <img src="divierte jugando /carpa-tipi.jpg?v=20250115-13" alt="Carpa Tipi" onclick="openImageModal(this.src, 'Carpa Tipi', 'Carpa tipi decorativa para crear espacios mágicos en tus eventos', 'carpa-tipi')" style="cursor: pointer;">
+                        <div class="image-badge">Imagen referencial</div>
+                    </div>
+                    <div class="divertete-info">
+                        <h3>🏕️ Carpa Tipi</h3>
+                        <div class="service-price">
+                            <span class="price-amount">$15.000</span>
+                            <span class="price-note">IVA incluido</span>
+                        </div>
+                        <div class="divertete-description">
+                            <p><strong>¡Crea espacios mágicos con nuestra Carpa Tipi!</strong></p>
+                            
+                            <p>Nuestra Carpa Tipi es perfecta para crear rincones especiales en tus eventos. Ideal para fotos temáticas, espacios de lectura, áreas de descanso o simplemente como decoración que encanta a grandes y chicos.</p>
+                            
+                            <h4>✨ Características:</h4>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> <strong>Diseño auténtico:</strong> Estructura tipi tradicional</li>
+                                <li><i class="fas fa-check"></i> <strong>Material resistente:</strong> Tela de alta calidad</li>
+                                <li><i class="fas fa-check"></i> <strong>Fácil montaje:</strong> Instalación rápida y sencilla</li>
+                                <li><i class="fas fa-check"></i> <strong>Decorativa:</strong> Perfecta para fotos y decoración</li>
+                                <li><i class="fas fa-check"></i> <strong>Versátil:</strong> Múltiples usos en eventos</li>
+                                <li><i class="fas fa-check"></i> <strong>Capacidad:</strong> Hasta 4 niños cómodamente</li>
+                                <li><i class="fas fa-check"></i> <strong>Segura:</strong> Estructura estable y segura</li>
+                                <li><i class="fas fa-check"></i> <strong>Portátil:</strong> Fácil transporte y almacenaje</li>
+                            </ul>
+                            
+                            <h4>🎁 Accesorios incluidos:</h4>
+                            <ul class="service-features">
+                                <li><i class="fas fa-couch"></i> <strong>2 cojines decorativos:</strong> Para mayor comodidad y estilo</li>
+                                <li><i class="fas fa-carpet"></i> <strong>Piso acolchado:</strong> Base cómoda y segura para los niños</li>
+                                <li><i class="fas fa-star"></i> <strong>Ambientación completa:</strong> Todo lo necesario para crear el ambiente perfecto</li>
+                            </ul>
+                            
+                            <h4>🎪 Usos ideales:</h4>
+                            <ul class="service-features">
+                                <li><i class="fas fa-camera"></i> <strong>Fotos temáticas:</strong> Sesiones fotográficas especiales</li>
+                                <li><i class="fas fa-book"></i> <strong>Rincón de lectura:</strong> Espacio tranquilo para leer</li>
+                                <li><i class="fas fa-bed"></i> <strong>Área de descanso:</strong> Lugar para relajarse</li>
+                                <li><i class="fas fa-gift"></i> <strong>Área de regalos:</strong> Presentación especial</li>
+                                <li><i class="fas fa-palette"></i> <strong>Decoración:</strong> Ambientación temática</li>
+                                <li><i class="fas fa-users"></i> <strong>Juegos grupales:</strong> Actividades en equipo</li>
+                            </ul>
+                            
+                            <h4>🌟 Perfecta para:</h4>
+                            <ul class="service-features">
+                                <li><i class="fas fa-birthday-cake"></i> <strong>Cumpleaños temáticos:</strong> Aventuras y exploración</li>
+                                <li><i class="fas fa-camera"></i> <strong>Sesiones fotográficas:</strong> Fotos únicas y originales</li>
+                                <li><i class="fas fa-school"></i> <strong>Eventos escolares:</strong> Actividades educativas</li>
+                                <li><i class="fas fa-home"></i> <strong>Fiestas en casa:</strong> Decoración especial</li>
+                                <li><i class="fas fa-calendar"></i> <strong>Celebraciones:</strong> Cualquier evento especial</li>
+                            </ul>
+                            
+                            <p class="supervision-note">
+                                <i class="fas fa-shield-alt"></i> <strong>Instalación incluida:</strong> Nuestro personal se encarga del montaje y desmontaje de la carpa tipi.
+                            </p>
+                        </div>
+                        <div class="service-actions">
+                            <button class="btn btn-primary" onclick="addToNewCart({
+                                id: 'carpa-tipi',
+                                name: 'Carpa Tipi',
+                                code: 'CT-001',
+                                category: 'Servicios Adicionales',
+                                image: 'divierte jugando /carpa-tipi.jpg',
+                                price: 15000
+                            })">
+                                <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                            </button>
+                            <button class="btn btn-secondary" onclick="window.open('https://wa.me/56969073306?text=Hola!%20Me%20interesa%20la%20Carpa%20Tipi%20por%20$15.000', '_blank')">
+                                <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Set Premium Todo Incluido -->
+                <div class="divertete-item premium-combo">
+                    <div class="divertete-image-container">
+                        <img src="imagenes/Castillo-inflable-portadas.png?v=20250115-14" alt="Set Premium Todo Incluido" onclick="openImageModal(this.src, 'Set Premium Todo Incluido', 'El combo más completo con todos nuestros servicios para la diversión total', 'set-premium-todo-incluido')" style="cursor: pointer;">
+                        <div class="image-badge premium-badge">⭐ PREMIUM</div>
+                    </div>
+                    <div class="divertete-info">
+                        <h3>👑 Set Premium Todo Incluido</h3>
+                        <div class="service-price premium-price">
+                            <span class="price-amount">$180.000</span>
+                            <span class="price-note">IVA incluido</span>
+                        </div>
+                        <div class="divertete-description">
+                            <p><strong>¡El combo definitivo para la diversión total! 🎉</strong></p>
+                            
+                            <p>Nuestro Set Premium es la opción más completa que incluye TODOS nuestros servicios en un solo paquete. Perfecto para eventos especiales, cumpleaños memorables y celebraciones donde quieres ofrecer la máxima diversión y entretenimiento para todos los niños.</p>
+                            
+                            <h4>🎁 TODO INCLUIDO:</h4>
+                            <ul class="service-features">
+                                <li><i class="fas fa-castle"></i> <strong>Castillo inflable completo</strong> con piscina integrada</li>
+                                <li><i class="fas fa-puzzle-piece"></i> <strong>Set Motricidad completo</strong> con todos los accesorios</li>
+                                <li><i class="fas fa-swimming-pool"></i> <strong>Piscina + Pelotas</strong> para diversión acuática</li>
+                                <li><i class="fas fa-couch"></i> <strong>Carpa Tipi</strong> con 2 cojines + piso</li>
+                                <li><i class="fas fa-horse"></i> <strong>Inflable Saltarín</strong> Caballo Carestino</li>
+                                <li><i class="fas fa-magic"></i> <strong>Máquina de Burbujas</strong> + 500ml de líquido</li>
+                                <li><i class="fas fa-tools"></i> <strong>Instalación completa</strong> de todos los elementos</li>
+                                <li><i class="fas fa-user-shield"></i> <strong>Supervisión profesional</strong> durante todo el evento</li>
+                            </ul>
+                            
+                            <h4>✨ Beneficios Premium:</h4>
+                            <ul class="service-features">
+                                <li><i class="fas fa-users"></i> <strong>Capacidad total:</strong> Hasta 15 niños simultáneamente</li>
+                                <li><i class="fas fa-clock"></i> <strong>Entretenimiento extendido:</strong> 6+ horas de diversión continua</li>
+                                <li><i class="fas fa-star"></i> <strong>Experiencia completa:</strong> Acuática, seca, motriz y mágica</li>
+                                <li><i class="fas fa-gift"></i> <strong>Valor agregado:</strong> Decoración y ambientación incluida</li>
+                                <li><i class="fas fa-dollar-sign"></i> <strong>Máximo ahorro:</strong> $200,000 menos que contratar por separado</li>
+                                <li><i class="fas fa-crown"></i> <strong>Experiencia VIP:</strong> Servicio premium completo</li>
+                            </ul>
+                            
+                            <h4>🎪 Actividades incluidas:</h4>
+                            <ul class="service-features">
+                                <li><i class="fas fa-gamepad"></i> <strong>Juegos en el castillo:</strong> Saltar, deslizarse, escalar</li>
+                                <li><i class="fas fa-swimming-pool"></i> <strong>Juegos acuáticos:</strong> Piscina y pelotas</li>
+                                <li><i class="fas fa-running"></i> <strong>Circuitos motrices:</strong> Obstáculos y desafíos</li>
+                                <li><i class="fas fa-magic"></i> <strong>Show de burbujas:</strong> Magia flotante</li>
+                                <li><i class="fas fa-camera"></i> <strong>Sesiones fotográficas:</strong> En la carpa tipi</li>
+                                <li><i class="fas fa-horse"></i> <strong>Saltarín:</strong> Diversión en el caballo</li>
+                            </ul>
+                            
+                            <h4>🌟 Perfecto para:</h4>
+                            <ul class="service-features">
+                                <li><i class="fas fa-birthday-cake"></i> <strong>Cumpleaños especiales:</strong> Eventos inolvidables</li>
+                                <li><i class="fas fa-school"></i> <strong>Eventos escolares:</strong> Días de diversión masiva</li>
+                                <li><i class="fas fa-calendar"></i> <strong>Celebraciones familiares:</strong> Reuniones grandes</li>
+                                <li><i class="fas fa-trophy"></i> <strong>Eventos corporativos:</strong> Días familiares de empresa</li>
+                                <li><i class="fas fa-home"></i> <strong>Fiestas en casa:</strong> Con espacio amplio</li>
+                            </ul>
+                            
+                            <div class="price-comparison premium-comparison">
+                                <h4>💰 Comparación de precios:</h4>
+                                <ul class="service-features">
+                                    <li><i class="fas fa-calculator"></i> <strong>Contratando por separado:</strong> $380,000</li>
+                                    <li><i class="fas fa-percentage"></i> <strong>Ahorro con el combo Premium:</strong> $200,000 (53% de descuento)</li>
+                                    <li><i class="fas fa-crown"></i> <strong>Precio del Set Premium:</strong> $180,000</li>
+                                </ul>
+                            </div>
+                            
+                            <p class="supervision-note premium-note">
+                                <i class="fas fa-shield-alt"></i> <strong>Supervisión premium incluida:</strong> Nuestro equipo completo de monitores capacitados estará presente durante todo el evento para garantizar la seguridad, diversión y experiencia premium de todos los niños.
+                            </p>
+                        </div>
+                        <div class="service-actions">
+                            <button class="btn btn-premium" onclick="addToNewCart({
+                                id: 'set-premium-todo-incluido',
+                                name: 'Set Premium Todo Incluido',
+                                code: 'SP-TI-001',
+                                category: 'Servicios Adicionales',
+                                image: 'imagenes/Castillo-inflable-portadas.png',
+                                price: 180000
+                            })">
+                                <i class="fas fa-crown"></i> Agregar al Carrito Premium
+                            </button>
+                            <button class="btn btn-secondary" onclick="window.open('https://wa.me/56969073306?text=Hola!%20Me%20interesa%20el%20Set%20Premium%20Todo%20Incluido%20por%20$180.000', '_blank')">
+                                <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
