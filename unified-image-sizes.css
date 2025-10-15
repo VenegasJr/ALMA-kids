@@ -1,0 +1,297 @@
+/* ALMA Kids - Tamaños Unificados de Imágenes
+   Todas las imágenes tendrán el mismo tamaño de referencia: Castillo Piscina Cuadrada */
+
+/* ============================================
+   LOGO DEL HEADER - TAMAÑO ESPECÍFICO
+   ============================================ */
+
+/* Logo del header - debe ajustarse al tamaño del header */
+.logo-image {
+    height: 50px !important; /* Altura fija para el header */
+    width: auto !important; /* Ancho automático para mantener proporción */
+    max-width: 200px !important; /* Ancho máximo para no exceder */
+    object-fit: contain !important; /* Mantener proporción completa */
+    transition: all 0.3s ease;
+}
+
+/* Logo en hover */
+.logo-image:hover {
+    transform: scale(1.05);
+}
+
+/* Logo en mobile - más pequeño */
+@media (max-width: 768px) {
+    .logo-image {
+        height: 40px !important;
+        max-width: 150px !important;
+    }
+}
+
+/* Logo en mobile pequeño */
+@media (max-width: 480px) {
+    .logo-image {
+        height: 35px !important;
+        max-width: 120px !important;
+    }
+}
+
+/* Contenedor del logo */
+.logo {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    max-height: 60px; /* Altura máxima del contenedor */
+}
+
+/* ============================================
+   CONFIGURACIÓN BASE PARA TODAS LAS IMÁGENES
+   ============================================ */
+
+/* Imágenes principales del sitio - Tamaño de referencia */
+.hero-img,
+.about-img,
+.service-img,
+.plaza-image img,
+.divertete-image img,
+.highlight-img,
+.galeria-img {
+    width: 100%;
+    height: 280px; /* Altura fija para consistencia */
+    object-fit: cover; /* Mantiene proporción y llena el espacio */
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(233, 30, 99, 0.15);
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #fff0f5, #ffe0e6);
+}
+
+/* Hover effect unificado */
+.hero-img:hover,
+.about-img:hover,
+.service-img:hover,
+.plaza-image img:hover,
+.divertete-image img:hover,
+.highlight-img:hover,
+.galeria-img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 12px 35px rgba(233, 30, 99, 0.25);
+}
+
+/* ============================================
+   AJUSTES ESPECÍFICOS POR SECCIÓN
+   ============================================ */
+
+/* Hero Section - Imagen principal */
+.hero-img {
+    height: 320px; /* Ligeramente más grande para destacar */
+    object-fit: cover;
+}
+
+/* About Section - Logo */
+.about-img {
+    height: 280px;
+    object-fit: contain; /* Para el logo, mantener proporción completa */
+    background: white;
+    padding: 20px;
+}
+
+/* Service Cards - Imágenes de servicios */
+.service-img {
+    height: 280px;
+    object-fit: cover;
+}
+
+/* Plaza Blanda - Imágenes de piscina */
+.plaza-image img {
+    height: 280px;
+    object-fit: cover;
+}
+
+/* Servicios Adicionales - Imágenes de servicios extra */
+.divertete-image img {
+    height: 280px;
+    object-fit: cover;
+}
+
+/* Globos Metalizados - Imágenes de globos */
+.highlight-img {
+    height: 200px; /* Más pequeñas para el grid de globos */
+    object-fit: cover;
+}
+
+/* Galería - Imágenes generales */
+.galeria-img {
+    height: 280px;
+    object-fit: cover;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+/* Tablets */
+@media (max-width: 1024px) {
+    .hero-img,
+    .about-img,
+    .service-img,
+    .plaza-image img,
+    .divertete-image img,
+    .galeria-img {
+        height: 250px;
+    }
+    
+    .highlight-img {
+        height: 180px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .hero-img {
+        height: 220px;
+    }
+    
+    .about-img,
+    .service-img,
+    .plaza-image img,
+    .divertete-image img,
+    .galeria-img {
+        height: 200px;
+    }
+    
+    .highlight-img {
+        height: 150px;
+    }
+}
+
+/* Mobile pequeño */
+@media (max-width: 480px) {
+    .hero-img {
+        height: 180px;
+    }
+    
+    .about-img,
+    .service-img,
+    .plaza-image img,
+    .divertete-image img,
+    .galeria-img {
+        height: 160px;
+    }
+    
+    .highlight-img {
+        height: 120px;
+    }
+}
+
+/* ============================================
+   MEJORAS VISUALES
+   ============================================ */
+
+/* Loading state para imágenes */
+img[src] {
+    opacity: 0;
+    animation: fadeInImage 0.5s ease forwards;
+}
+
+img.loaded {
+    opacity: 1;
+}
+
+@keyframes fadeInImage {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Error state para imágenes que no cargan */
+img.error {
+    background: linear-gradient(135deg, #ff6b9d, #ff8fab);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* ============================================
+   CONTENEDORES DE IMÁGENES
+   ============================================ */
+
+/* Asegurar que los contenedores tengan altura fija */
+.service-image,
+.plaza-image,
+.divertete-image,
+.highlight-container {
+    height: 280px;
+    overflow: hidden;
+    border-radius: 12px;
+    position: relative;
+}
+
+/* Badge de imagen unificado */
+.image-badge {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background: rgba(233, 30, 99, 0.9);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+    z-index: 10;
+}
+
+/* ============================================
+   OPTIMIZACIONES DE PERFORMANCE
+   ============================================ */
+
+/* Lazy loading */
+img[loading="lazy"] {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+img[loading="lazy"].loaded {
+    opacity: 1;
+}
+
+/* Preload para imágenes críticas */
+.hero-img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+/* ============================================
+   ACCESIBILIDAD
+   ============================================ */
+
+/* Focus states para accesibilidad */
+img:focus {
+    outline: 3px solid #E91E63;
+    outline-offset: 2px;
+}
+
+/* Alt text styling cuando la imagen falla */
+img::after {
+    content: attr(alt);
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    padding: 10px;
+}
+
+img.error::after {
+    display: block;
+}
