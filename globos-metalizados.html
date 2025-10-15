@@ -1620,5 +1620,47 @@
             }
         }
     </style>
+    
+    <!-- ============================================
+         CHAT CON IA (GPT-4)
+         ============================================ -->
+    
+    <!-- Scripts del Chat con IA -->
+    <script src="ai-chat-config.js"></script>
+    <script src="ai-chat.js"></script>
+    
+    <!-- Cargar el widget del chat directamente -->
+    <script>
+        // Cargar el widget HTML del chat
+        (function() {
+            console.log('🤖 Iniciando carga del chat con IA...');
+            
+            fetch('ai-chat-widget.html')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Error al cargar el widget HTML');
+                    }
+                    return response.text();
+                })
+                .then(html => {
+                    // Crear contenedor si no existe
+                    let container = document.getElementById('aiChatWidgetContainer');
+                    if (!container) {
+                        container = document.createElement('div');
+                        container.id = 'aiChatWidgetContainer';
+                        document.body.appendChild(container);
+                    }
+                    
+                    container.innerHTML = html;
+                    console.log('✅ Chat con IA cargado correctamente');
+                })
+                .catch(error => {
+                    console.error('❌ Error al cargar el widget del chat:', error);
+                    
+                    // Mostrar mensaje de error en consola
+                    console.error('💡 Verifica que el archivo ai-chat-widget.html existe en la misma carpeta');
+                });
+        })();
+    </script>
 </body>
 </html>
