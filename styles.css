@@ -6195,7 +6195,7 @@ html, body {
 /* WhatsApp Float Buttons */
 .whatsapp-float {
     position: fixed;
-    bottom: 30px;
+    bottom: 100px; /* Posicionado arriba del chat IA */
     right: 30px;
     z-index: 1000;
     display: block;
@@ -6478,7 +6478,7 @@ html, body {
         -webkit-tap-highlight-color: transparent;
     }
 
-    .whatsapp-float { bottom: 16px; right: 16px; }
+    .whatsapp-float { bottom: 90px; right: 16px; }
     .cart-float { bottom: 16px; left: 16px; }
 
     .floating-nav-buttons { z-index: 2000; pointer-events: none; }
@@ -6747,7 +6747,7 @@ html, body {
     
     /* Botones flotantes móvil */
     .whatsapp-float {
-        bottom: 20px;
+        bottom: 85px;
         right: 20px;
     }
     
