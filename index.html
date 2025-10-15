@@ -58,6 +58,7 @@
     <link rel="stylesheet" href="mobile-fixes.css?v=20250115-2">
     <link rel="stylesheet" href="image-optimizer.css?v=20250115-2">
     <link rel="stylesheet" href="unified-image-sizes.css?v=20250115-3">
+    <link rel="stylesheet" href="compact-services.css?v=20250115-6">
     
     <!-- Favicon y PWA -->
     <link rel="icon" type="image/png" href="imagenes/ALMA kids Logo web.png">
@@ -2990,6 +2991,46 @@
                     console.error('💡 Verifica que el archivo ai-chat-widget.html existe en la misma carpeta');
                 });
         })();
+    </script>
+    
+    <!-- Funciones para servicios compactos -->
+    <script>
+        // Función para mostrar categoría de servicios
+        function showServiceCategory(category) {
+            console.log('🔄 Cambiando a categoría:', category);
+            
+            // Ocultar todas las categorías
+            const categories = document.querySelectorAll('.service-category');
+            categories.forEach(cat => cat.classList.remove('active'));
+            
+            // Remover clase active de todas las pestañas
+            const tabs = document.querySelectorAll('.category-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Mostrar la categoría seleccionada
+            const targetCategory = document.getElementById(category + '-category');
+            if (targetCategory) {
+                targetCategory.classList.add('active');
+            }
+            
+            // Activar la pestaña correspondiente
+            const activeTab = document.querySelector(`[onclick="showServiceCategory('${category}')"]`);
+            if (activeTab) {
+                activeTab.classList.add('active');
+            }
+            
+            console.log('✅ Categoría activada:', category);
+        }
+        
+        // Inicializar servicios compactos
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 Inicializando servicios compactos...');
+            
+            // Activar la primera categoría por defecto
+            showServiceCategory('castillos');
+            
+            console.log('✅ Servicios compactos inicializados');
+        });
     </script>
 </body>
 </html>

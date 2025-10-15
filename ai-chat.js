@@ -88,16 +88,26 @@ function closeAIChat() {
  * Enviar mensaje
  */
 async function sendAIMessage() {
+    console.log('🚀 sendAIMessage llamada');
+    
     const input = document.getElementById('aiChatInput');
     const message = input.value.trim();
     
-    if (!message) return;
+    console.log('📝 Mensaje:', message);
+    
+    if (!message) {
+        console.log('❌ Mensaje vacío, saliendo');
+        return;
+    }
     
     // Validar API key
-    if (!AI_CHAT_CONFIG.apiKey) {
+    if (!AI_CHAT_CONFIG || !AI_CHAT_CONFIG.apiKey) {
+        console.error('❌ API Key no configurada');
         showErrorMessage('⚠️ Error: API Key no configurada. Por favor configura tu API key en ai-chat-config.js');
         return;
     }
+    
+    console.log('✅ API Key encontrada, continuando...');
     
     // Agregar mensaje del usuario
     addUserMessage(message);
@@ -127,6 +137,8 @@ async function sendAIMessage() {
  * Llamar a la API de OpenAI
  */
 async function callOpenAI(userMessage) {
+    console.log('🤖 callOpenAI iniciada con mensaje:', userMessage);
+    
     // Agregar mensaje a la historia
     chatState.conversationHistory.push({
         role: 'user',
@@ -141,6 +153,8 @@ async function callOpenAI(userMessage) {
         },
         ...chatState.conversationHistory
     ];
+    
+    console.log('📤 Enviando mensajes a OpenAI:', messages.length, 'mensajes');
     
     // Llamar a la API
     const response = await fetch('https://api.openai.com/v1/chat/completions', {
@@ -157,13 +171,19 @@ async function callOpenAI(userMessage) {
         })
     });
     
+    console.log('📥 Respuesta recibida, status:', response.status);
+    
     if (!response.ok) {
         const errorData = await response.json();
+        console.error('❌ Error en la API:', errorData);
         throw new Error(errorData.error?.message || 'Error en la API');
     }
     
     const data = await response.json();
+    console.log('✅ Datos recibidos:', data);
+    
     const aiMessage = data.choices[0].message.content;
+    console.log('💬 Respuesta de IA:', aiMessage);
     
     // Agregar respuesta a la historia
     chatState.conversationHistory.push({

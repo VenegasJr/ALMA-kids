@@ -1,0 +1,223 @@
+/* ============================================
+   SERVICIOS COMPACTOS - DISEÑO MOBILE-FIRST
+   ============================================ */
+
+/* Pestañas de categorías */
+.service-categories-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    overflow-x: auto;
+    padding: 4px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.category-tab {
+    flex: 1;
+    min-width: 100px;
+    padding: 12px 8px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    color: #6c757d;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.category-tab i {
+    font-size: 16px;
+    color: #E91E63;
+}
+
+.category-tab span {
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.category-tab small {
+    font-size: 9px;
+    opacity: 0.7;
+}
+
+.category-tab.active {
+    background: linear-gradient(135deg, #E91E63, #FF6B9D);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
+}
+
+.category-tab.premium {
+    background: linear-gradient(135deg, #ffd700, #ffed4e);
+    color: #333;
+}
+
+.category-tab.premium.active {
+    background: linear-gradient(135deg, #ffd700, #ffed4e);
+    color: #333;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+}
+
+/* Opciones de servicio compactas */
+.service-options.compact {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.service-option.compact {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.service-option.compact:hover {
+    border-color: #E91E63;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(233, 30, 99, 0.15);
+}
+
+.service-option.compact input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-right: 12px;
+    accent-color: #E91E63;
+}
+
+.service-option.compact .service-info {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.service-option.compact .service-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    line-height: 1.2;
+}
+
+.service-option.compact .service-price {
+    font-size: 13px;
+    font-weight: 600;
+    color: #E91E63;
+    margin-left: 8px;
+}
+
+.service-option.compact .service-save {
+    font-size: 10px;
+    background: #28a745;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 6px;
+    margin-left: 8px;
+}
+
+.service-option.compact input[type="checkbox"]:checked + .service-info {
+    background: linear-gradient(135deg, #fff0f5, #ffe0e6);
+}
+
+.service-option.compact input[type="checkbox"]:checked {
+    transform: scale(1.1);
+}
+
+/* Categorías ocultas por defecto */
+.service-category {
+    display: none;
+}
+
+.service-category.active {
+    display: block;
+}
+
+/* Resumen compacto */
+.selection-summary.compact {
+    background: linear-gradient(135deg, #fff0f5, #ffe0e6);
+    border: 2px solid #E91E63;
+    border-radius: 12px;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+.total-price-compact {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.total-price-compact .total-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+.total-price-compact .total-amount {
+    font-size: 20px;
+    font-weight: 700;
+    color: #E91E63;
+}
+
+.total-price-compact .total-note {
+    font-size: 11px;
+    color: #666;
+    margin-left: 8px;
+}
+
+.selected-services-compact {
+    font-size: 12px;
+    color: #666;
+    line-height: 1.4;
+}
+
+.selected-services-compact .no-selection {
+    font-style: italic;
+    opacity: 0.7;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .service-categories-tabs {
+        gap: 6px;
+    }
+    
+    .category-tab {
+        min-width: 80px;
+        padding: 10px 6px;
+    }
+    
+    .category-tab span {
+        font-size: 10px;
+    }
+    
+    .category-tab small {
+        font-size: 8px;
+    }
+    
+    .service-option.compact {
+        padding: 10px;
+    }
+    
+    .service-option.compact .service-name {
+        font-size: 13px;
+    }
+    
+    .service-option.compact .service-price {
+        font-size: 12px;
+    }
+}
