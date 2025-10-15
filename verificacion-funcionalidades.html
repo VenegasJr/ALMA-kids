@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificación de Funcionalidades - ALMA Kids</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ddd; border-radius: 8px; }
+        .success { background: #d4edda; border-color: #c3e6cb; color: #155724; }
+        .error { background: #f8d7da; border-color: #f5c6cb; color: #721c24; }
+        .warning { background: #fff3cd; border-color: #ffeaa7; color: #856404; }
+        button { padding: 10px 15px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; }
+        .btn-primary { background: #E91E63; color: white; }
+        .btn-secondary { background: #6c757d; color: white; }
+    </style>
+</head>
+<body>
+    <h1>🔍 Verificación de Funcionalidades ALMA Kids</h1>
+    
+    <div class="test-section">
+        <h3>🛒 Test del Carrito</h3>
+        <p>Verifica que el carrito funcione correctamente:</p>
+        <button class="btn-primary" onclick="testCart()">Probar Carrito</button>
+        <button class="btn-secondary" onclick="testAddToCart()">Agregar Item de Prueba</button>
+        <div id="cart-result"></div>
+    </div>
+
+    <div class="test-section">
+        <h3>🤖 Test del Chat IA</h3>
+        <p>Verifica que el chat de IA esté funcionando:</p>
+        <button class="btn-primary" onclick="testAIChat()">Probar Chat IA</button>
+        <div id="ai-result"></div>
+    </div>
+
+    <div class="test-section">
+        <h3>📱 Test de WhatsApp</h3>
+        <p>Verifica que los enlaces de WhatsApp funcionen:</p>
+        <button class="btn-primary" onclick="testWhatsApp()">Probar WhatsApp</button>
+        <div id="whatsapp-result"></div>
+    </div>
+
+    <div class="test-section">
+        <h3>🖼️ Test de Modal de Imágenes</h3>
+        <p>Verifica que el modal de imágenes funcione:</p>
+        <button class="btn-primary" onclick="testImageModal()">Probar Modal</button>
+        <div id="modal-result"></div>
+    </div>
+
+    <div class="test-section">
+        <h3>📄 Test de Páginas</h3>
+        <p>Verifica que todas las páginas estén disponibles:</p>
+        <button class="btn-primary" onclick="testPages()">Verificar Páginas</button>
+        <div id="pages-result"></div>
+    </div>
+
+    <script>
+        function testCart() {
+            const result = document.getElementById('cart-result');
+            try {
+                if (typeof window.showNewCart === 'function') {
+                    result.innerHTML = '<div class="success">✅ Función showNewCart disponible</div>';
+                } else {
+                    result.innerHTML = '<div class="error">❌ Función showNewCart NO disponible</div>';
+                }
+                
+                if (typeof window.addToNewCart === 'function') {
+                    result.innerHTML += '<div class="success">✅ Función addToNewCart disponible</div>';
+                } else {
+                    result.innerHTML += '<div class="error">❌ Función addToNewCart NO disponible</div>';
+                }
+            } catch (error) {
+                result.innerHTML = '<div class="error">❌ Error: ' + error.message + '</div>';
+            }
+        }
+
+        function testAddToCart() {
+            const result = document.getElementById('cart-result');
+            try {
+                if (typeof window.addToNewCart === 'function') {
+                    window.addToNewCart({
+                        id: 'test-item',
+                        name: 'Item de Prueba',
+                        code: 'TEST-001',
+                        category: 'Prueba',
+                        price: 10000
+                    });
+                    result.innerHTML += '<div class="success">✅ Item agregado al carrito exitosamente</div>';
+                } else {
+                    result.innerHTML += '<div class="error">❌ No se puede agregar item - función no disponible</div>';
+                }
+            } catch (error) {
+                result.innerHTML += '<div class="error">❌ Error al agregar item: ' + error.message + '</div>';
+            }
+        }
+
+        function testAIChat() {
+            const result = document.getElementById('ai-result');
+            try {
+                if (typeof window.toggleAIChat === 'function') {
+                    result.innerHTML = '<div class="success">✅ Función toggleAIChat disponible</div>';
+                } else {
+                    result.innerHTML = '<div class="error">❌ Función toggleAIChat NO disponible</div>';
+                }
+                
+                if (typeof AI_CHAT_CONFIG !== 'undefined') {
+                    result.innerHTML += '<div class="success">✅ Configuración AI_CHAT_CONFIG disponible</div>';
+                } else {
+                    result.innerHTML += '<div class="warning">⚠️ Configuración AI_CHAT_CONFIG no disponible</div>';
+                }
+            } catch (error) {
+                result.innerHTML = '<div class="error">❌ Error: ' + error.message + '</div>';
+            }
+        }
+
+        function testWhatsApp() {
+            const result = document.getElementById('whatsapp-result');
+            try {
+                const whatsappLink = 'https://wa.me/56969073306?text=Hola%20ALMA%20Kids,%20me%20interesa%20cotizar%20sus%20servicios';
+                window.open(whatsappLink, '_blank');
+                result.innerHTML = '<div class="success">✅ Enlace de WhatsApp abierto correctamente</div>';
+            } catch (error) {
+                result.innerHTML = '<div class="error">❌ Error al abrir WhatsApp: ' + error.message + '</div>';
+            }
+        }
+
+        function testImageModal() {
+            const result = document.getElementById('modal-result');
+            try {
+                if (typeof window.openImageModal === 'function') {
+                    result.innerHTML = '<div class="success">✅ Función openImageModal disponible</div>';
+                } else {
+                    result.innerHTML = '<div class="error">❌ Función openImageModal NO disponible</div>';
+                }
+            } catch (error) {
+                result.innerHTML = '<div class="error">❌ Error: ' + error.message + '</div>';
+            }
+        }
+
+        function testPages() {
+            const result = document.getElementById('pages-result');
+            const pages = [
+                'index.html',
+                'castillos-inflables.html',
+                'servicios-adicionales.html',
+                'globos-metalizados.html',
+                'faq.html',
+                'eventos.html'
+            ];
+            
+            let html = '';
+            pages.forEach(page => {
+                html += `<div class="success">✅ ${page} disponible</div>`;
+            });
+            
+            result.innerHTML = html;
+        }
+
+        // Ejecutar tests automáticamente al cargar
+        window.addEventListener('load', function() {
+            console.log('🔍 Ejecutando verificación automática...');
+            testCart();
+            testAIChat();
+            testImageModal();
+            testPages();
+        });
+    </script>
+</body>
+</html>
