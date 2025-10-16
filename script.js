@@ -644,37 +644,47 @@ function updateComparisonCount() {
 // SISTEMA DE MODALES
 // ========================================
 
-function openImageModal(imageSrc, title, code, category) {
+// Variables globales para el modal de imágenes
+let currentImageIndex = 0;
+let currentImageGroup = [];
+let imageGroups = {};
+
+function openImageModal(imageSrc, title, description, group = 'default') {
     const modal = document.getElementById('imageModal');
-    if (!modal) return;
-    
-    const modalImage = document.getElementById('modalImage');
-    const modalCaption = document.getElementById('modalCaption');
-    
-    if (modalImage && modalCaption) {
-        modalImage.src = imageSrc;
-        modalImage.alt = title;
-        
-        modalCaption.innerHTML = `
-            <h3>${title}</h3>
-            <p>Código: ${code}</p>
-            <p>Categoría: ${category}</p>
-            <div class="modal-actions">
-                <button class="btn btn-primary" onclick="addToCart('${code}', '${title}', '${category}')">
-                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
-                </button>
-                <button class="btn btn-secondary" onclick="addToFavorites('${code}', '${title}', '${category}')">
-                    <i class="fas fa-heart"></i> Favoritos
-                </button>
-                <button class="btn btn-secondary" onclick="addToComparison('${code}', '${title}', '${category}')">
-                    <i class="fas fa-balance-scale"></i> Comparar
-                </button>
-            </div>
-        `;
-        
-        modal.style.display = 'block';
-        document.body.style.overflow = 'hidden';
+    if (!modal) {
+        console.error('Modal de imagen no encontrado');
+        return;
     }
+    
+    // Configurar el grupo de imágenes
+    if (!imageGroups[group]) {
+        imageGroups[group] = [];
+    }
+    
+    // Buscar la imagen en el grupo
+    const imageIndex = imageGroups[group].findIndex(img => img.src === imageSrc);
+    if (imageIndex === -1) {
+        // Agregar la imagen al grupo si no existe
+        imageGroups[group].push({
+            src: imageSrc,
+            title: title,
+            description: description
+        });
+        currentImageIndex = imageGroups[group].length - 1;
+    } else {
+        currentImageIndex = imageIndex;
+    }
+    
+    currentImageGroup = imageGroups[group];
+    
+    // Mostrar la imagen actual
+    displayCurrentImage();
+    
+    // Mostrar el modal
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    
+    console.log('✅ Modal de imagen abierto:', title);
 }
 
 function closeImageModal() {
@@ -682,6 +692,82 @@ function closeImageModal() {
     if (modal) {
         modal.style.display = 'none';
         document.body.style.overflow = 'auto';
+        console.log('✅ Modal de imagen cerrado');
+    }
+}
+
+function displayCurrentImage() {
+    const modalImage = document.getElementById('modalImage');
+    const modalVideo = document.getElementById('modalVideo');
+    const modalCaption = document.getElementById('modalCaption');
+    const modalPrev = document.querySelector('.modal-prev');
+    const modalNext = document.querySelector('.modal-next');
+    
+    if (!currentImageGroup || currentImageGroup.length === 0) {
+        console.error('No hay imágenes en el grupo actual');
+        return;
+    }
+    
+    const currentImage = currentImageGroup[currentImageIndex];
+    if (!currentImage) {
+        console.error('Imagen actual no encontrada');
+        return;
+    }
+    
+    // Determinar si es imagen o video
+    const isVideo = currentImage.src.toLowerCase().includes('.mp4') || 
+                   currentImage.src.toLowerCase().includes('.webm') ||
+                   currentImage.src.toLowerCase().includes('.mov');
+    
+    if (isVideo) {
+        // Mostrar video
+        if (modalImage) modalImage.style.display = 'none';
+        if (modalVideo) {
+            modalVideo.style.display = 'block';
+            modalVideo.src = currentImage.src;
+            modalVideo.load();
+        }
+    } else {
+        // Mostrar imagen
+        if (modalVideo) modalVideo.style.display = 'none';
+        if (modalImage) {
+            modalImage.style.display = 'block';
+            modalImage.src = currentImage.src;
+            modalImage.alt = currentImage.title;
+        }
+    }
+    
+    // Actualizar caption
+    if (modalCaption) {
+        modalCaption.innerHTML = `
+            <h3>${currentImage.title}</h3>
+            <p>${currentImage.description}</p>
+            <div class="modal-image-counter">
+                ${currentImageIndex + 1} de ${currentImageGroup.length}
+            </div>
+        `;
+    }
+    
+    // Mostrar/ocultar botones de navegación
+    if (modalPrev) {
+        modalPrev.style.display = currentImageGroup.length > 1 ? 'flex' : 'none';
+    }
+    if (modalNext) {
+        modalNext.style.display = currentImageGroup.length > 1 ? 'flex' : 'none';
+    }
+}
+
+function previousImage() {
+    if (currentImageGroup && currentImageGroup.length > 1) {
+        currentImageIndex = (currentImageIndex - 1 + currentImageGroup.length) % currentImageGroup.length;
+        displayCurrentImage();
+    }
+}
+
+function nextImage() {
+    if (currentImageGroup && currentImageGroup.length > 1) {
+        currentImageIndex = (currentImageIndex + 1) % currentImageGroup.length;
+        displayCurrentImage();
     }
 }
 
@@ -965,8 +1051,69 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
+    // Configurar grupos de imágenes para el modal
+    setupImageGroups();
+    
+    // Cerrar modal con tecla Escape
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeImageModal();
+        } else if (e.key === 'ArrowLeft') {
+            previousImage();
+        } else if (e.key === 'ArrowRight') {
+            nextImage();
+        }
+    });
+    
     console.log('🎪 ALMA Kids: Sistema funcional principal activado');
 });
+
+function setupImageGroups() {
+    // Configurar grupos de imágenes para el modal
+    imageGroups = {
+        'servicios': [
+            {
+                src: 'imagenes/Castillo-inflable-portadas.png?v=20250115-10',
+                title: 'Castillo Inflable',
+                description: 'Diversión garantizada con nuestros castillos inflables certificados y seguros'
+            },
+            {
+                src: 'imagenes/plaza-blanda.png',
+                title: 'Plaza Blanda',
+                description: 'Zona de juegos segura para nuestros pequeños desde los 6 meses a 7 años'
+            },
+            {
+                src: 'imagenes/Castillo-servicios-adicinales.PNG',
+                title: 'Servicios Adicionales',
+                description: 'Completa tu evento con nuestros servicios extra: Piscina de Pelotas, Set de Motricidad, Juegos de Espuma, Decoración Temática, Carpa Tipi, Inflable Saltarín y Máquina de Burbujas'
+            }
+        ],
+        'plaza-azul': [
+            {
+                src: 'imagenes/Nuestra Plaza blanda/Plaza-Blanda-Pelotas-Azules.png',
+                title: 'Piscina - Pelotas Celestes',
+                description: 'Medidas: 150x150x40cm - Piscina con pelotas celestes, ideal para desarrollo motor y diversión segura'
+            },
+            {
+                src: 'imagenes/Nuestra Plaza blanda/Plaza-Blanda-Pelotas-Azules-fuera.png',
+                title: 'Piscina Celestes Vista Externa',
+                description: 'Medidas: 150x150x40cm - Vista externa de la piscina con pelotas celestes'
+            }
+        ],
+        'plaza-rosa': [
+            {
+                src: 'imagenes/Nuestra Plaza blanda/Plaza-Planda-pelotas-rosadas V.png',
+                title: 'Piscina - Pelotas Rosadas',
+                description: 'Medidas: 150x150x40cm - Piscina con pelotas rosadas, ideal para fiestas temáticas y cumpleaños de niñas'
+            },
+            {
+                src: 'imagenes/Nuestra Plaza blanda/Plaza-Planda-pelotas-rosadas-pieza.png',
+                title: 'Piscina Rosadas Detalle',
+                description: 'Medidas: 150x150x40cm - Vista detallada de la calidad y acabados'
+            }
+        ]
+    };
+}
 
 // ========================================
 // CSS PARA FUNCIONALIDADES
