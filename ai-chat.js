@@ -156,18 +156,14 @@ async function callOpenAI(userMessage) {
     
     console.log('📤 Enviando mensajes a OpenAI:', messages.length, 'mensajes');
     
-    // Llamar a la API
-    const response = await fetch('https://api.openai.com/v1/chat/completions', {
+    // Llamar a la función de Netlify
+    const response = await fetch('/.netlify/functions/ai-chat', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${AI_CHAT_CONFIG.apiKey}`
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            model: AI_CHAT_CONFIG.model,
-            messages: messages,
-            temperature: AI_CHAT_CONFIG.temperature,
-            max_tokens: AI_CHAT_CONFIG.maxTokens
+            messages: messages
         })
     });
     
@@ -182,7 +178,7 @@ async function callOpenAI(userMessage) {
     const data = await response.json();
     console.log('✅ Datos recibidos:', data);
     
-    const aiMessage = data.choices[0].message.content;
+    const aiMessage = data.reply || data.choices?.[0]?.message?.content || 'Lo siento, no pude procesar tu mensaje.';
     console.log('💬 Respuesta de IA:', aiMessage);
     
     // Agregar respuesta a la historia
