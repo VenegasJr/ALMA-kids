@@ -19,8 +19,8 @@ const ALMA_RESPONSES = {
         "¡Hola! 👋 Estoy aquí para ayudarte con entretenimiento infantil."
     ],
     precios: [
-        "💰 **Precios ALMA Kids:**\n\n🏰 **Castillos Inflables:** $75,000 IVA incluido\n🎈 **Servicios Adicionales:** $15,000 - $30,000\n👑 **Combos Premium:** $100,000 - $180,000\n\n*Precios incluyen transporte, montaje y supervisión*",
-        "💵 **Nuestros precios:**\n\n• Castillo básico: $75,000\n• Servicios extra: desde $15,000\n• Combos con descuento: hasta $180,000\n\n¿Te interesa algún servicio específico?"
+        "💰 **Precios ALMA Kids:**\n\n🏰 **Castillos Inflables:** $75,000 IVA incluido\n🎈 **Servicios Adicionales:** $15,000 - $30,000\n👑 **Combos Premium:** $100,000 - $180,000\n\n*Precios incluyen transporte, montaje y desmontaje*",
+        "💵 **Nuestros precios:**\n\n• Castillo básico: $75,000\n• Servicios extra: desde $15,000\n• Combos con descuento: hasta $180,000\n• Supervisión: servicio adicional\n\n¿Te interesa algún servicio específico?"
     ],
     servicios: [
         "🎪 **Nuestros Servicios:**\n\n🏰 **Castillos Inflables** - Diversión garantizada\n🎈 **Servicios Adicionales** - Carpa Tipi, Saltarín, Burbujas\n👑 **Combos Premium** - Ahorra con paquetes completos\n🏊 **Piscina de Pelotas** - Zona de juegos segura\n\n¿Cuál te interesa más?",
@@ -39,8 +39,8 @@ const ALMA_RESPONSES = {
         "🎯 **Proceso de Reserva:**\n\n• Consulta disponibilidad\n• Selecciona servicios\n• Anticipo del 50%\n• Coordinamos detalles\n\n¡Es muy fácil! ¿Cuándo es tu evento?"
     ],
     tiempo: [
-        "⏰ **Tiempo de Servicio:**\n\n🕐 **Estándar:** 4 horas\n➕ **Horas adicionales:** Disponibles con costo extra\n🚚 **Incluye:** Transporte, montaje y supervisión\n\n¿Necesitas más de 4 horas?",
-        "⏱️ **Duración:**\n\n• Tiempo base: 4 horas\n• Horas extra: Consulta precios\n• Todo incluido en el servicio\n\n¿Tu evento es de más de 4 horas?"
+        "⏰ **Tiempo de Servicio:**\n\n🕐 **Estándar:** 4 horas\n➕ **Horas adicionales:** Disponibles con costo extra\n🚚 **Incluye:** Transporte, montaje y desmontaje\n👥 **Supervisión:** Servicio adicional disponible\n\n¿Necesitas más de 4 horas?",
+        "⏱️ **Duración:**\n\n• Tiempo base: 4 horas\n• Horas extra: Consulta precios\n• Incluye: transporte, montaje y desmontaje\n• Supervisión: servicio adicional\n\n¿Tu evento es de más de 4 horas?"
     ]
 };
 
