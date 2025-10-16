@@ -618,9 +618,7 @@ p {
     .hero { padding: 20px 0 30px; min-height: 100vh; }
     .hero-title { font-size: 1.8rem; }
     .hero-description { font-size: 0.9rem; }
-    /* Evitar superposiciones de botones flotantes */
-    .whatsapp-float { bottom: 12px; right: 12px; }
-    .cart-float { bottom: 12px; left: 12px; }
+    /* Evitar superposiciones de botones flotantes - ya definidos en mobile */
 }
 
 /* Responsive para mensaje próximamente */
@@ -4013,40 +4011,7 @@ p {
     .hero-title { font-size: 2.2rem; }
     .hero-description { font-size: 1rem; }
     
-    /* Botones flotantes de navegación */
-    .floating-nav-buttons {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        z-index: 1001;
-        display: flex !important;
-        gap: 10px;
-    }
-    
-    .floating-nav-buttons .mobile-menu-toggle,
-    .floating-nav-buttons .btn-search {
-        display: flex !important;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.2rem;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    }
-    
-    .floating-nav-buttons .btn-search {
-        background: linear-gradient(135deg, #FF6B9D, #E91E63);
-        color: white;
-        border: none;
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
-    
-    .floating-nav-buttons .btn-search:hover {
-        transform: scale(1.1);
-        box-shadow: 0 6px 20px rgba(233, 30, 99, 0.4);
-    }
+    /* Botones flotantes de navegación - ya definidos arriba */
     
     /* Menú móvil flotante */
     .mobile-menu {
@@ -6472,18 +6437,42 @@ html, body {
 @media (max-width: 768px) {
     .whatsapp-btn,
     .cart-btn {
-        width: 100px; /* +~20% */
-        height: 100px;
-        font-size: 2rem;
+        width: 80px; /* Reducido para evitar sobreposición */
+        height: 80px;
+        font-size: 1.6rem;
         -webkit-tap-highlight-color: transparent;
     }
 
-    .whatsapp-float { bottom: 90px; right: 16px; }
-    .cart-float { bottom: 16px; left: 16px; }
+    /* Posiciones organizadas para evitar sobreposición */
+    .whatsapp-float { 
+        bottom: 100px; 
+        right: 20px; 
+        z-index: 1000;
+    }
+    
+    .cart-float { 
+        bottom: 20px; 
+        left: 20px; 
+        z-index: 1000;
+    }
 
-    .floating-nav-buttons { z-index: 2000; pointer-events: none; }
+    /* Botones de navegación flotantes */
+    .floating-nav-buttons { 
+        z-index: 1100; 
+        pointer-events: none; 
+        top: 20px;
+        left: 20px;
+        right: auto;
+        width: auto;
+        gap: 10px;
+    }
+    
     .floating-nav-buttons .mobile-menu-toggle,
-    .floating-nav-buttons .btn-search { pointer-events: auto; }
+    .floating-nav-buttons .btn-search { 
+        pointer-events: auto; 
+        width: 50px;
+        height: 50px;
+    }
 
     .mobile-menu { z-index: 1900; }
     .search-container { z-index: 1900; }
@@ -6745,23 +6734,7 @@ html, body {
         justify-content: center;
     }
     
-    /* Botones flotantes móvil */
-    .whatsapp-float {
-        bottom: 85px;
-        right: 20px;
-    }
-    
-    .whatsapp-btn {
-        width: 72px;
-        height: 72px;
-        font-size: 1.4rem;
-    }
-    
-    .cart-float {
-        bottom: 20px;
-        left: 20px;
-        right: auto;
-    }
+    /* Botones flotantes móvil - ya definidos en mobile */
     
     .cart-btn {
         width: 72px;
