@@ -50,11 +50,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <!-- CSS -->
-    <link rel="stylesheet" href="styles.css?v=20250115-23">
+    <link rel="stylesheet" href="styles.css?v=20250115-24">
     <link rel="stylesheet" href="animations.css?v=20250115-1">
     <link rel="stylesheet" href="visual-fixes.css?v=20250115-1">
     <link rel="stylesheet" href="layout-fixes.css?v=20250115-1">
-    <link rel="stylesheet" href="ai-chat.css?v=20250115-2">
     <link rel="stylesheet" href="mobile-fixes.css?v=20250115-2">
     <link rel="stylesheet" href="image-optimizer.css?v=20250115-2">
     <link rel="stylesheet" href="unified-image-sizes.css?v=20250115-3">
@@ -2977,6 +2976,49 @@
 
     <!-- Script para asegurar que la página no se quede pegada al cargar -->
     <script>
+        // LIMPIAR COMPLETAMENTE EL CACHE Y DATOS DE IA ANTERIOR
+        (function() {
+            console.log('🧹 Limpiando cache y datos de IA anterior...');
+            
+            // Limpiar localStorage
+            try {
+                localStorage.clear();
+                console.log('✅ localStorage limpiado');
+            } catch (e) {
+                console.warn('⚠️ No se pudo limpiar localStorage:', e);
+            }
+            
+            // Limpiar sessionStorage
+            try {
+                sessionStorage.clear();
+                console.log('✅ sessionStorage limpiado');
+            } catch (e) {
+                console.warn('⚠️ No se pudo limpiar sessionStorage:', e);
+            }
+            
+            // Limpiar cookies relacionadas con IA
+            try {
+                document.cookie.split(";").forEach(function(c) { 
+                    document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); 
+                });
+                console.log('✅ Cookies limpiadas');
+            } catch (e) {
+                console.warn('⚠️ No se pudieron limpiar cookies:', e);
+            }
+            
+            // Remover cualquier elemento de IA anterior
+            const aiElements = document.querySelectorAll('[id*="ai"], [class*="ai"], [id*="chat"], [class*="chat"]');
+            aiElements.forEach(element => {
+                if (element.id.includes('ai') || element.className.includes('ai') || 
+                    element.id.includes('chat') || element.className.includes('chat')) {
+                    element.remove();
+                    console.log('🗑️ Elemento de IA removido:', element);
+                }
+            });
+            
+            console.log('✅ Limpieza completa realizada');
+        })();
+        
         // Asegurar que el body no tenga overflow hidden al cargar la página
         document.addEventListener('DOMContentLoaded', function() {
             document.body.style.overflow = 'auto';
@@ -2996,46 +3038,6 @@
         });
     </script>
 
-    <!-- ============================================
-         CHAT BÁSICO GRATUITO (ALMA)
-         ============================================ -->
-    
-    <!-- Script del Chat Básico (GRATUITO) -->
-    <script src="ai-chat-fixed.js?v=20250115-12"></script>
-    
-    <!-- Cargar el widget del chat directamente -->
-    <script>
-        // Cargar el widget HTML del chat
-        (function() {
-            console.log('🤖 Iniciando carga del chat con IA...');
-            
-            fetch('ai-chat-widget.html')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Error al cargar el widget HTML');
-                    }
-                    return response.text();
-                })
-                .then(html => {
-                    // Crear contenedor si no existe
-                    let container = document.getElementById('aiChatWidgetContainer');
-                    if (!container) {
-                        container = document.createElement('div');
-                        container.id = 'aiChatWidgetContainer';
-                        document.body.appendChild(container);
-                    }
-                    
-                    container.innerHTML = html;
-                    console.log('✅ Chat con IA cargado correctamente');
-                })
-                .catch(error => {
-                    console.error('❌ Error al cargar el widget del chat:', error);
-                    
-                    // Mostrar mensaje de error en consola
-                    console.error('💡 Verifica que el archivo ai-chat-widget.html existe en la misma carpeta');
-                });
-        })();
-    </script>
     
     <!-- Funciones para servicios compactos -->
     <script>
