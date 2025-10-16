@@ -1,0 +1,9 @@
+Categoria,Nombre,Codigo,ID Interno,Precio Base (CLP),IVA %,Precio con IVA (CLP),Pack/Plan,Incluye,Capacidad,Edad Recomendada,Duración,Transporte Incluido,Imagen,Notas
+Castillos Inflables,Castillo Rosas,CI-ROS-001,castillo-rosas,,, ,Pack Fiesta Rosa,"Castillo, piscina de pelotas, instalación",4 niños,2 a 7 años,4 horas,Sí,imagenes/Castillo, Piscina cuadrada.png,
+Castillos Inflables,Castillo Inflable,CI-RED-001,castillo-redondo,,, ,Pack Piscina Redonda,"Castillo, piscina circular, instalación",4 niños,2 a 7 años,4 horas,Sí,imagenes/Castillo-Piscina-redonda.png,
+Servicios Adicionales,Carpa Tipi para nuestros pequeños - alto 160 cm,CT-001,carpa-tipi,,, ,Pack Tipi Básico,"Carpa, 4 soportes, ventana lateral",N/A,Para niños,N/A,N/A,Servicios adicionales/carpa-tipi.jpg,
+Servicios Adicionales,Inflable Saltarín De Peluche Carestino,IS-CARE-001,inflable-carestino,,, ,Pack Carestino,"Inflable peluche, funda lavable",20 kg máx,18 meses a 5 años,N/A,N/A,Servicios adicionales/Inflable-saltarin-de-eluche-carestino-18m.jpg,
+Servicios Adicionales,Máquina de Burbujas,MB-001,maquina-burbujas,,, ,Pack Burbujas,"Máquina, solución 0.7L",N/A,Todas las edades,1 hora,N/A,imagenes/Maquina-burbuja-.png,
+Piscina de Pelotas,Piscina - Pelotas Celestes,PP-CEL-001,plaza-azul,,, ,Pack Celeste,"Piscina 150x150x40, pelotas celestes/blancas/transparentes",N/A,6 meses a 7 años,4 horas,Sí,imagenes/Nuestra Plaza blanda/Plaza-Blanda-Pelotas-Azules.png,
+Piscina de Pelotas,Piscina - Pelotas Rosadas,PP-ROS-001,plaza-rosa,,, ,Pack Rosado,"Piscina 150x150x40, pelotas rosadas/blancas/transparentes",N/A,6 meses a 7 años,4 horas,Sí,imagenes/Nuestra Plaza blanda/Plaza-Planda-pelotas-rosadas V.png,
+
