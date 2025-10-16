@@ -2647,6 +2647,24 @@ p {
     color: #27ae60;
 }
 
+/* Precio normal (tachado) y destaque final */
+.oferta-details .precio-normal {
+    margin-top: 0.4rem;
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+.oferta-details .precio-normal .tachado {
+    text-decoration: line-through;
+    color: #b0b7bd;
+    font-weight: 600;
+}
+
+.oferta-details .total-pack {
+    border-left-color: #27ae60;
+    background: rgba(39, 174, 96, 0.1);
+}
+
 /* Responsive para detalles de ofertas */
 @media (max-width: 768px) {
     .oferta-details {
