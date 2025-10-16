@@ -2474,24 +2474,39 @@
                 window.currentImageIndex = 0;
             }
             
-            displayCurrentImage();
             showModal();
         };
         
-        // Función para mostrar la imagen actual
+        // Función para mostrar la imagen actual - VERSIÓN CORREGIDA
         function displayCurrentImage() {
-            const modal = document.getElementById('imageModal');
-            const modalImage = document.getElementById('modalImage');
-            const modalVideo = document.getElementById('modalVideo');
-            const modalCaption = document.getElementById('modalCaption');
-            
-            if (modal && modalImage && modalVideo && modalCaption && window.currentImageGroup.length > 0) {
+            try {
+                const modal = document.getElementById('imageModal');
+                const modalImage = document.getElementById('modalImage');
+                const modalVideo = document.getElementById('modalVideo');
+                const modalCaption = document.getElementById('modalCaption');
+                
+                if (!modal || !modalImage || !modalVideo || !modalCaption) {
+                    console.error('❌ Elementos del modal no encontrados');
+                    return;
+                }
+                
+                if (!window.currentImageGroup || window.currentImageGroup.length === 0) {
+                    console.error('❌ No hay imágenes en el grupo actual');
+                    return;
+                }
+                
                 const currentImage = window.currentImageGroup[window.currentImageIndex];
+                if (!currentImage || !currentImage.src) {
+                    console.error('❌ Imagen actual no válida');
+                    return;
+                }
                 
                 // Detectar si es un video o una imagen
                 const isVideo = currentImage.src.toLowerCase().endsWith('.mp4') || 
                                currentImage.src.toLowerCase().endsWith('.webm') ||
                                currentImage.src.toLowerCase().endsWith('.ogg');
+                
+                console.log('🔍 Procesando:', currentImage.src, '¿Es video?', isVideo);
                 
                 // Ocultar ambos elementos primero para evitar conflictos
                 modalImage.style.display = 'none';
@@ -2500,22 +2515,29 @@
                 if (isVideo) {
                     // Es un video - mostrar solo el video con controles
                     modalVideo.style.display = 'block';
-                    modalVideo.controls = true; // Agregar controles solo para videos
-                    modalVideo.querySelector('source').src = currentImage.src;
-                    modalVideo.load(); // Recargar el video
-                    console.log('🎥 Mostrando video:', currentImage.title);
+                    modalVideo.controls = true;
+                    
+                    const source = modalVideo.querySelector('source');
+                    if (source) {
+                        source.src = currentImage.src;
+                        modalVideo.load();
+                    }
+                    
+                    console.log('🎥 Video mostrado:', currentImage.title);
                 } else {
                     // Es una imagen - mostrar solo la imagen sin controles
                     modalImage.style.display = 'block';
                     modalImage.src = currentImage.src;
-                    modalImage.alt = currentImage.title;
-                    modalVideo.controls = false; // Asegurar que no hay controles de video
-                    console.log('🖼️ Mostrando imagen:', currentImage.title);
+                    modalImage.alt = currentImage.title || 'Imagen';
+                    modalVideo.controls = false;
+                    
+                    console.log('🖼️ Imagen mostrada:', currentImage.title);
                 }
                 
+                // Actualizar caption
                 modalCaption.innerHTML = `
-                    <h3>${currentImage.title}</h3>
-                    <p>${currentImage.description}</p>
+                    <h3>${currentImage.title || 'Imagen'}</h3>
+                    <p>${currentImage.description || ''}</p>
                     <div class="image-counter">
                         ${window.currentImageIndex + 1} de ${window.currentImageGroup.length}
                     </div>
@@ -2524,7 +2546,15 @@
                 // Mostrar/ocultar botones de navegación
                 updateNavigationButtons();
                 
-                console.log(`📊 Mostrando ${isVideo ? 'video' : 'imagen'} ${window.currentImageIndex + 1} de ${window.currentImageGroup.length}: ${currentImage.title}`);
+                console.log(`✅ Modal actualizado correctamente: ${isVideo ? 'video' : 'imagen'} ${window.currentImageIndex + 1} de ${window.currentImageGroup.length}`);
+                
+            } catch (error) {
+                console.error('❌ Error en displayCurrentImage:', error);
+                // Fallback: mostrar mensaje de error
+                const modalCaption = document.getElementById('modalCaption');
+                if (modalCaption) {
+                    modalCaption.innerHTML = '<h3>Error</h3><p>No se pudo cargar la imagen</p>';
+                }
             }
         }
         
@@ -2542,9 +2572,16 @@
                     modalVideo.controls = false; // Limpiar controles al abrir
                 }
                 
+                // Mostrar el modal primero
                 modal.style.display = 'flex';
                 modal.classList.add('active');
                 document.body.style.overflow = 'hidden';
+                
+                // Luego mostrar el contenido con un pequeño delay
+                setTimeout(() => {
+                    displayCurrentImage();
+                }, 100);
+                
                 console.log('✅ Modal de imagen abierto');
             }
         }

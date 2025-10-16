@@ -7,9 +7,9 @@
 
 /* Logo del header - debe ajustarse al tamaño del header */
 .logo-image {
-    height: 50px !important; /* Altura fija para el header */
+    height: 40px !important; /* Altura más pequeña para el header */
     width: auto !important; /* Ancho automático para mantener proporción */
-    max-width: 200px !important; /* Ancho máximo para no exceder */
+    max-width: 160px !important; /* Ancho máximo más pequeño */
     object-fit: contain !important; /* Mantener proporción completa */
     transition: all 0.3s ease;
 }
@@ -22,16 +22,16 @@
 /* Logo en mobile - más pequeño */
 @media (max-width: 768px) {
     .logo-image {
-        height: 40px !important;
-        max-width: 150px !important;
+        height: 32px !important;
+        max-width: 120px !important;
     }
 }
 
 /* Logo en mobile pequeño */
 @media (max-width: 480px) {
     .logo-image {
-        height: 35px !important;
-        max-width: 120px !important;
+        height: 28px !important;
+        max-width: 100px !important;
     }
 }
 
