@@ -1,0 +1,98 @@
+/* ============================================
+   CORRECCIONES DEL MODAL DE VIDEO
+   ============================================ */
+
+/* Ocultar controles de video cuando no son necesarios */
+.modal-video:not([controls]) {
+    pointer-events: none;
+}
+
+.modal-video:not([controls])::-webkit-media-controls {
+    display: none !important;
+}
+
+.modal-video:not([controls])::-webkit-media-controls-panel {
+    display: none !important;
+}
+
+.modal-video:not([controls])::-webkit-media-controls-play-button {
+    display: none !important;
+}
+
+.modal-video:not([controls])::-webkit-media-controls-timeline {
+    display: none !important;
+}
+
+.modal-video:not([controls])::-webkit-media-controls-current-time-display {
+    display: none !important;
+}
+
+.modal-video:not([controls])::-webkit-media-controls-time-remaining-display {
+    display: none !important;
+}
+
+.modal-video:not([controls])::-webkit-media-controls-mute-button {
+    display: none !important;
+}
+
+.modal-video:not([controls])::-webkit-media-controls-volume-slider {
+    display: none !important;
+}
+
+.modal-video:not([controls])::-webkit-media-controls-fullscreen-button {
+    display: none !important;
+}
+
+/* Asegurar que las imágenes no tengan controles de video */
+.modal-image {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    max-height: 70vh;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    object-fit: contain;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para cuando el video tiene controles */
+.modal-video[controls] {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    max-height: 70vh;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    background: #000;
+}
+
+/* Ocultar completamente los controles nativos cuando no se necesitan */
+.modal-video:not([controls]) {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    .modal-image,
+    .modal-video {
+        max-width: 95vw;
+        max-height: 60vh;
+        border-radius: 8px;
+    }
+    
+    .modal-video[controls] {
+        /* En móvil, asegurar que los controles sean visibles y accesibles */
+        min-height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-image,
+    .modal-video {
+        max-width: 98vw;
+        max-height: 50vh;
+        border-radius: 6px;
+    }
+}

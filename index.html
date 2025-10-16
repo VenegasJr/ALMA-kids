@@ -60,6 +60,7 @@
     <link rel="stylesheet" href="unified-image-sizes.css?v=20250115-3">
     <link rel="stylesheet" href="compact-services.css?v=20250115-6">
     <link rel="stylesheet" href="mobile-overlap-fixes.css?v=20250115-7">
+    <link rel="stylesheet" href="modal-video-fixes.css?v=20250115-8">
     
     <!-- Favicon y PWA -->
     <link rel="icon" type="image/png" href="imagenes/ALMA kids Logo web.png">
@@ -1834,7 +1835,7 @@
             </button>
             <div id="modalMediaContainer" class="modal-media-container">
                 <img id="modalImage" class="modal-image" src="" alt="" style="display: none;">
-                <video id="modalVideo" class="modal-video" controls style="display: none;">
+                <video id="modalVideo" class="modal-video" style="display: none;">
                     <source src="" type="video/mp4">
                     Tu navegador no soporta videos HTML5.
                 </video>
@@ -2497,16 +2498,18 @@
                 modalVideo.style.display = 'none';
                 
                 if (isVideo) {
-                    // Es un video - mostrar solo el video
+                    // Es un video - mostrar solo el video con controles
                     modalVideo.style.display = 'block';
+                    modalVideo.controls = true; // Agregar controles solo para videos
                     modalVideo.querySelector('source').src = currentImage.src;
                     modalVideo.load(); // Recargar el video
                     console.log('🎥 Mostrando video:', currentImage.title);
                 } else {
-                    // Es una imagen - mostrar solo la imagen
+                    // Es una imagen - mostrar solo la imagen sin controles
                     modalImage.style.display = 'block';
                     modalImage.src = currentImage.src;
                     modalImage.alt = currentImage.title;
+                    modalVideo.controls = false; // Asegurar que no hay controles de video
                     console.log('🖼️ Mostrando imagen:', currentImage.title);
                 }
                 
@@ -2534,7 +2537,10 @@
             if (modal) {
                 // Asegurar que ambos elementos estén ocultos inicialmente
                 if (modalImage) modalImage.style.display = 'none';
-                if (modalVideo) modalVideo.style.display = 'none';
+                if (modalVideo) {
+                    modalVideo.style.display = 'none';
+                    modalVideo.controls = false; // Limpiar controles al abrir
+                }
                 
                 modal.style.display = 'flex';
                 modal.classList.add('active');

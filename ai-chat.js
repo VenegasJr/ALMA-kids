@@ -156,38 +156,75 @@ async function callOpenAI(userMessage) {
     
     console.log('📤 Enviando mensajes a OpenAI:', messages.length, 'mensajes');
     
-    // Llamar a la función de Netlify
-    const response = await fetch('/.netlify/functions/ai-chat', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            messages: messages
-        })
-    });
-    
-    console.log('📥 Respuesta recibida, status:', response.status);
-    
-    if (!response.ok) {
-        const errorData = await response.json();
-        console.error('❌ Error en la API:', errorData);
-        throw new Error(errorData.error?.message || 'Error en la API');
+    try {
+        // Intentar primero con la función de Netlify (para producción)
+        const response = await fetch('/.netlify/functions/ai-chat', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                messages: messages
+            })
+        });
+        
+        console.log('📥 Respuesta recibida, status:', response.status);
+        
+        if (response.ok) {
+            const data = await response.json();
+            console.log('✅ Datos recibidos:', data);
+            
+            const aiMessage = data.reply || data.choices?.[0]?.message?.content || 'Lo siento, no pude procesar tu mensaje.';
+            console.log('💬 Respuesta de IA:', aiMessage);
+            
+            // Agregar respuesta a la historia
+            chatState.conversationHistory.push({
+                role: 'assistant',
+                content: aiMessage
+            });
+            
+            return aiMessage;
+        } else {
+            throw new Error('Función de Netlify no disponible');
+        }
+    } catch (netlifyError) {
+        console.log('⚠️ Netlify function no disponible, usando API directa:', netlifyError.message);
+        
+        // Fallback: llamada directa a OpenAI (para desarrollo)
+        const response = await fetch('https://api.openai.com/v1/chat/completions', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${AI_CHAT_CONFIG.apiKey}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                model: AI_CHAT_CONFIG.model || 'gpt-4o-mini',
+                temperature: AI_CHAT_CONFIG.temperature || 0.7,
+                max_tokens: AI_CHAT_CONFIG.maxTokens || 500,
+                messages: messages
+            })
+        });
+        
+        if (!response.ok) {
+            const errorData = await response.json();
+            console.error('❌ Error en la API directa:', errorData);
+            throw new Error(errorData.error?.message || 'Error en la API');
+        }
+        
+        const data = await response.json();
+        console.log('✅ Datos recibidos (API directa):', data);
+        
+        const aiMessage = data.choices?.[0]?.message?.content || 'Lo siento, no pude procesar tu mensaje.';
+        console.log('💬 Respuesta de IA:', aiMessage);
+        
+        // Agregar respuesta a la historia
+        chatState.conversationHistory.push({
+            role: 'assistant',
+            content: aiMessage
+        });
+        
+        return aiMessage;
     }
-    
-    const data = await response.json();
-    console.log('✅ Datos recibidos:', data);
-    
-    const aiMessage = data.reply || data.choices?.[0]?.message?.content || 'Lo siento, no pude procesar tu mensaje.';
-    console.log('💬 Respuesta de IA:', aiMessage);
-    
-    // Agregar respuesta a la historia
-    chatState.conversationHistory.push({
-        role: 'assistant',
-        content: aiMessage
-    });
-    
-    return aiMessage;
 }
 
 /**
@@ -241,20 +278,46 @@ function addAIMessage(message) {
  * Mostrar indicador de escritura
  */
 function showTypingIndicator() {
-    const indicator = document.getElementById('aiTypingIndicator');
-    if (indicator) {
-        indicator.style.display = 'block';
-        scrollToBottom();
+    const messagesContainer = document.getElementById('aiChatMessages');
+    if (!messagesContainer) return;
+    
+    // Limpiar indicador anterior si existe
+    const existingIndicator = document.getElementById('typingIndicator');
+    if (existingIndicator) {
+        existingIndicator.remove();
     }
+    
+    const typingDiv = document.createElement('div');
+    typingDiv.className = 'ai-chat-message ai-message typing-indicator';
+    typingDiv.id = 'typingIndicator';
+    
+    typingDiv.innerHTML = `
+        <div class="ai-message-avatar">
+            <i class="fas fa-female"></i>
+        </div>
+        <div class="ai-message-content">
+            <div class="ai-message-bubble typing">
+                <div class="typing-text">ALMA está escribiendo</div>
+                <div class="typing-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    messagesContainer.appendChild(typingDiv);
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
 }
 
 /**
  * Ocultar indicador de escritura
  */
 function hideTypingIndicator() {
-    const indicator = document.getElementById('aiTypingIndicator');
+    const indicator = document.getElementById('typingIndicator');
     if (indicator) {
-        indicator.style.display = 'none';
+        indicator.remove();
     }
 }
 
