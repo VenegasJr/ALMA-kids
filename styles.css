@@ -7671,3 +7671,62 @@ html, body {
         font-size: 1rem;
     }
 }
+
+/* ========== Glassmorphism Global ========== */
+:root {
+    --glass-bg: rgba(255, 255, 255, 0.18);
+    --glass-border: rgba(255, 255, 255, 0.35);
+    --glass-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.glass {
+    background: var(--glass-bg);
+    -webkit-backdrop-filter: saturate(180%) blur(12px);
+    backdrop-filter: saturate(180%) blur(12px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+}
+
+/* Aplicar glass a componentes clave sin cambiar HTML */
+.service-card,
+.divertete-info,
+.castillo-info,
+.cart-overlay .cart-container,
+.modal .modal-content,
+.hero .hero-text,
+.search-container,
+.footer .footer-content,
+.faq-hero-content,
+.faq-item,
+.events-grid .event-card,
+.services-preview .service-card {
+    background: var(--glass-bg);
+    -webkit-backdrop-filter: saturate(180%) blur(12px);
+    backdrop-filter: saturate(180%) blur(12px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+}
+
+/* Botones sobre glass: elevar contraste */
+.btn-primary, .btn-secondary, .btn-whatsapp {
+    backdrop-filter: none;
+}
+
+/* Fallback si no hay soporte de backdrop-filter */
+@supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+    .glass,
+    .service-card,
+    .divertete-info,
+    .castillo-info,
+    .cart-overlay .cart-container,
+    .modal .modal-content,
+    .hero .hero-text,
+    .search-container,
+    .footer .footer-content,
+    .faq-hero-content,
+    .faq-item,
+    .events-grid .event-card,
+    .services-preview .service-card {
+        background: rgba(255, 255, 255, 0.85);
+    }
+}
