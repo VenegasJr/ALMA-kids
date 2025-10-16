@@ -186,14 +186,7 @@
                             </div>
                         </div>
                         <div class="castillo-actions">
-                            <button class="btn btn-primary" onclick="addToNewCart({
-                                id: 'castillo-piscina-cuadrada',
-                                name: 'Castillo Piscina Cuadrada',
-                                code: 'CI-PC-001',
-                                category: 'Castillos Inflables',
-                                image: 'imagenes/Castillo, Piscina cuadrada.png',
-                                price: 75000
-                            })">
+                            <button class="btn btn-primary" onclick="addCastilloToCart('piscina-cuadrada')">
                                 <i class="fas fa-cart-plus"></i> Agregar al Carrito
                             </button>
                             <button class="btn btn-secondary" onclick="window.open('https://wa.me/56969073306?text=Hola!%20Me%20interesa%20el%20Castillo%20Piscina%20Cuadrada%20por%20$75.000', '_blank')">
@@ -397,6 +390,7 @@
 
     <!-- Scripts -->
     <script src="script.js?v=20250115-17"></script>
+    <script src="cart-system.js?v=20250115-1"></script>
     
     <!-- Funciones del Modal de Imágenes -->
     <script>

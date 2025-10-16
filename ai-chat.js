@@ -98,16 +98,25 @@ class ALChat {
     addWelcomeMessage() {
         const welcomeMessage = {
             type: 'ai',
-            content: `¡Hola! 👋 Soy tu asistente de ALMA Kids. 
+            content: `¡Hola! 👋 Soy tu asistente de ALMA Kids Entretenciones Infantiles.
 
-Puedo ayudarte con:
-• 📋 Información sobre nuestros servicios
-• 💰 Precios y cotizaciones
-• 📅 Disponibilidad para eventos
-• 🎪 Recomendaciones para tu fiesta
-• 📞 Datos de contacto
+🎪 <strong>Puedo ayudarte con:</strong>
+• 💰 Precios actualizados (Castillos $75.000, Piscina $55.000)
+• 🎂 Recomendaciones para cumpleaños y Baby Showers
+• 🏰 Información detallada de castillos inflables
+• 🏊‍♀️ Piscina de pelotas y servicios adicionales
+• 🎈 Globos metalizados (+200 diseños)
+• 📅 Disponibilidad y reservas
+• 📞 Contacto y cotizaciones
 
-¿En qué puedo ayudarte hoy?`,
+💡 <strong>Pregúntame sobre:</strong>
+• "precios" - Ver todos los precios actualizados
+• "cumpleaños" - Recomendaciones para fiestas
+• "baby shower" - Servicios para Baby Showers
+• "servicios" - Lista completa de servicios
+• "contacto" - Datos de contacto
+
+¿En qué puedo ayudarte hoy? 😊`,
             timestamp: new Date()
         };
 
@@ -197,16 +206,31 @@ Puedo ayudarte con:
         if (message.includes('precio') || message.includes('costo') || message.includes('cuanto')) {
             return {
                 type: 'ai',
-                content: `💰 <strong>Precios de nuestros servicios:</strong>
+                content: `💰 <strong>Precios actualizados de ALMA Kids:</strong>
 
-🏰 <strong>Castillo Inflable:</strong> $25.000
-🏊‍♀️ <strong>Piscina de Pelotas:</strong> $15.000
+🏰 <strong>Castillos Inflables:</strong> $75.000 IVA incluido
+   • Castillo Piscina Cuadrada
+   • Castillo Inflable Portada  
+   • Castillo Piscina Redonda
+
+🏊‍♀️ <strong>Piscina de Pelotas:</strong> $55.000 IVA incluido
+   • Piscina + Pelotas (celestes, rosadas, blancas, transparentes)
+
+🎪 <strong>Servicios Adicionales:</strong>
+   • Carpa Tipi: $15.000 IVA incluido
+   • Inflable Saltarín Carestino: $15.000 IVA incluido
+   • Máquina de Burbujas: $15.000 IVA incluido
+   • Set Motricidad: $45.000 IVA incluido
+
 🎈 <strong>Globos Metalizados:</strong> Desde $2.000
-🎪 <strong>Servicios Adicionales:</strong> Desde $10.000
+   • +200 diseños disponibles
 
-💡 <strong>¡Mejores precios en combos!</strong>
+💡 <strong>¡Combos con descuentos!</strong>
+   • Set Básico (Castillo + Piscina): $100.000 (Ahorro: $50.000)
+   • Set Medio: $130.000 (Ahorro: $90.000)
+   • Set Premium Todo Incluido: $180.000 (Ahorro: $200.000)
 
-💬 <strong>Para cotización personalizada:</strong>
+💬 <strong>Cotización personalizada:</strong>
 <a href="https://wa.me/56969073306?text=Hola%20ALMA%20Kids,%20me%20interesa%20cotizar%20sus%20servicios" target="_blank" style="color: #25D366; text-decoration: none; font-weight: bold;">
     📱 WhatsApp: +56 9 6907 3306
 </a>`,
@@ -234,18 +258,40 @@ Puedo ayudarte con:
         if (message.includes('servicio') || message.includes('que ofrecen') || message.includes('que tienen')) {
             return {
                 type: 'ai',
-                content: `🎪 <strong>Nuestros servicios:</strong>
+                content: `🎪 <strong>Servicios completos de ALMA Kids:</strong>
 
-🏰 <strong>Castillos Inflables:</strong> 3D profesionales, seguros
-🏊‍♀️ <strong>Piscina de Pelotas:</strong> Materiales no tóxicos
-🎈 <strong>Globos Metalizados:</strong> +200 diseños disponibles
+🏰 <strong>Castillos Inflables Profesionales:</strong>
+   • Castillo Piscina Cuadrada (2-7 años, hasta 4 niños)
+   • Castillo Inflable Portada (diseño elegante)
+   • Castillo Piscina Redonda (piscina integrada)
+   • Materiales: Vinilo reforzado, no tóxico
+   • Incluye: transporte, montaje y desmontaje
+
+🏊‍♀️ <strong>Piscina de Pelotas - Zona Segura:</strong>
+   • Medidas: 150x150x40cm
+   • Pelotas: celestes, rosadas, blancas, transparentes
+   • Edades: 6 meses a 7 años
+   • Materiales seguros y no tóxicos
+   • Estimulación sensorial y desarrollo motor
+
 🎪 <strong>Servicios Adicionales:</strong>
-   • Carpa Tipi
-   • Inflable Saltarín
-   • Máquina de Burbujas
+   • 🏕️ Carpa Tipi (160cm alto, materiales nobles)
+   • 🎈 Inflable Saltarín Carestino (18 meses+, 20kg)
+   • 🫧 Máquina de Burbujas (2000+ burbujas/min)
+   • 🎯 Set de Motricidad
+   • 🎨 Decoración Temática
 
-👶 <strong>Edades:</strong> 6 meses a 7 años
-🛡️ <strong>Seguridad:</strong> Materiales certificados`,
+🎈 <strong>Globos Metalizados:</strong>
+   • +200 diseños únicos
+   • Animales, princesas, superhéroes, temáticas
+   • Tamaños variados (23x47cm hasta 107x31cm)
+   • Perfectos para decoración de eventos
+
+🛡️ <strong>Seguridad y Calidad:</strong>
+   • Materiales certificados y no tóxicos
+   • Supervisión profesional incluida
+   • Limpieza y desinfección garantizada
+   • Seguro de responsabilidad civil`,
                 timestamp: new Date()
             };
         }
@@ -352,6 +398,122 @@ Estoy aquí para ayudarte con información sobre nuestros servicios de entretenc
 📞 <strong>O llama:</strong> +56 9 6907 3306
 
 ¡Reserva con anticipación para asegurar tu fecha! 🎉`,
+                timestamp: new Date()
+            };
+        }
+        
+        if (message.includes('cumpleaños') || message.includes('cumpleanos') || message.includes('fiesta')) {
+            return {
+                type: 'ai',
+                content: `🎂 <strong>¡Perfecto para cumpleaños!</strong>
+
+🎪 <strong>Recomendaciones para cumpleaños:</strong>
+
+👶 <strong>Para bebés (6 meses - 2 años):</strong>
+   • Piscina de Pelotas (zona segura)
+   • Carpa Tipi (rincón de calma)
+   • Globos metalizados decorativos
+
+🧒 <strong>Para niños (2-7 años):</strong>
+   • Castillo Inflable (diversión garantizada)
+   • Piscina de Pelotas
+   • Inflable Saltarín Carestino
+   • Máquina de Burbujas (magia extra)
+
+🎨 <strong>Combos populares:</strong>
+   • Set Básico: Castillo + Piscina ($100.000)
+   • Set Premium: Todo incluido ($180.000)
+
+💡 <strong>Tips para tu evento:</strong>
+   • Reserva con 1 semana de anticipación
+   • Incluye supervisión de adultos
+   • Considera el espacio disponible
+   • Combina con globos metalizados
+
+💬 <strong>Cotiza tu cumpleaños:</strong>
+<a href="https://wa.me/56969073306?text=Hola%20ALMA%20Kids,%20quiero%20cotizar%20para%20un%20cumpleaños" target="_blank" style="color: #25D366; text-decoration: none; font-weight: bold;">
+    📱 WhatsApp: +56 9 6907 3306
+</a>`,
+                timestamp: new Date()
+            };
+        }
+        
+        if (message.includes('baby shower') || message.includes('babyshower') || message.includes('baby')) {
+            return {
+                type: 'ai',
+                content: `👶 <strong>¡Baby Shower perfecto con ALMA Kids!</strong>
+
+🎪 <strong>Servicios ideales para Baby Shower:</strong>
+
+🏕️ <strong>Carpa Tipi:</strong> Rincón especial para hermanitos mayores
+🏊‍♀️ <strong>Piscina de Pelotas:</strong> Zona segura para niños pequeños
+🫧 <strong>Máquina de Burbujas:</strong> Ambiente mágico para fotos
+🎈 <strong>Globos Metalizados:</strong> Decoración temática perfecta
+
+👶 <strong>Beneficios para Baby Shower:</strong>
+   • Entretenimiento para hermanitos
+   • Zona segura para niños
+   • Fotos espectaculares con burbujas
+   • Decoración temática completa
+   • Supervisión profesional incluida
+
+🎨 <strong>Diseños de globos para Baby Shower:</strong>
+   • Animales bebé
+   • Princesas y príncipes
+   • Temáticas de cuentos
+   • Colores pasteles
+
+💡 <strong>Recomendación especial:</strong>
+   • Carpa Tipi + Piscina de Pelotas + Máquina de Burbujas
+   • Perfecto para hermanitos de 6 meses a 7 años
+
+💬 <strong>Cotiza tu Baby Shower:</strong>
+<a href="https://wa.me/56969073306?text=Hola%20ALMA%20Kids,%20quiero%20cotizar%20para%20un%20Baby%20Shower" target="_blank" style="color: #25D366; text-decoration: none; font-weight: bold;">
+    📱 WhatsApp: +56 9 6907 3306
+</a>`,
+                timestamp: new Date()
+            };
+        }
+        
+        if (message.includes('evento') || message.includes('eventos') || message.includes('celebración')) {
+            return {
+                type: 'ai',
+                content: `🎉 <strong>¡Eventos especiales con ALMA Kids!</strong>
+
+🎪 <strong>Tipos de eventos que atendemos:</strong>
+
+🎂 <strong>Cumpleaños:</strong> Fiestas temáticas inolvidables
+👶 <strong>Baby Showers:</strong> Entretenimiento para hermanitos
+🎓 <strong>Graduaciones:</strong> Celebración de logros académicos
+🏠 <strong>Eventos familiares:</strong> Reuniones y celebraciones
+🏢 <strong>Eventos corporativos:</strong> Actividades empresariales
+🎪 <strong>Ferias y festivales:</strong> Eventos comunitarios
+
+🎨 <strong>Servicios por tipo de evento:</strong>
+
+👶 <strong>Eventos infantiles (0-7 años):</strong>
+   • Piscina de Pelotas (zona segura)
+   • Carpa Tipi (rincón de calma)
+   • Inflable Saltarín Carestino
+   • Globos metalizados decorativos
+
+🧒 <strong>Eventos mixtos (todas las edades):</strong>
+   • Castillo Inflable (2-7 años)
+   • Máquina de Burbujas (ambiente mágico)
+   • Set de Motricidad
+   • Decoración temática completa
+
+💡 <strong>Ventajas de nuestros servicios:</strong>
+   • Materiales seguros y no tóxicos
+   • Supervisión profesional incluida
+   • Transporte, montaje y desmontaje
+   • Limpieza y desinfección garantizada
+   • Seguro de responsabilidad civil
+
+💬 <strong>Cotiza tu evento:</strong>
+<a href="https://wa.me/56969073306?text=Hola%20ALMA%20Kids,%20quiero%20cotizar%20para%20mi%20evento" target="_blank" style="color: #25D366; text-decoration: none; font-weight: bold;">
+    📱 WhatsApp: +56 9 6907 3306
+</a>`,
                 timestamp: new Date()
             };
         }
