@@ -2631,6 +2631,22 @@ p {
     color: #e74c3c;
 }
 
+/* Total del pack */
+.oferta-details .total-pack {
+    margin-top: 0.6rem;
+    padding: 0.6rem 0.8rem;
+    background: rgba(39, 174, 96, 0.08);
+    border-left: 3px solid #27ae60;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    color: #1e8449;
+    font-weight: 700;
+}
+
+.oferta-details .total-pack i {
+    color: #27ae60;
+}
+
 /* Responsive para detalles de ofertas */
 @media (max-width: 768px) {
     .oferta-details {
