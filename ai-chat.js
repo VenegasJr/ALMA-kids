@@ -205,7 +205,11 @@ Puedo ayudarte con:
 🎪 <strong>Servicios Adicionales:</strong> Desde $10.000
 
 💡 <strong>¡Mejores precios en combos!</strong>
-📞 Para cotización personalizada: +56 9 6907 3306`,
+
+💬 <strong>Para cotización personalizada:</strong>
+<a href="https://wa.me/56969073306?text=Hola%20ALMA%20Kids,%20me%20interesa%20cotizar%20sus%20servicios" target="_blank" style="color: #25D366; text-decoration: none; font-weight: bold;">
+    📱 WhatsApp: +56 9 6907 3306
+</a>`,
                 timestamp: new Date()
             };
         }
@@ -294,6 +298,64 @@ Es un placer ayudarte. Si tienes más preguntas, no dudes en consultarme.
             };
         }
         
+        if (message.includes('hola') || message.includes('buenos dias') || message.includes('buenas tardes')) {
+            return {
+                type: 'ai',
+                content: `¡Hola! 👋 ¡Bienvenido a ALMA Kids!
+
+Estoy aquí para ayudarte con información sobre nuestros servicios de entretención infantil.
+
+¿En qué puedo ayudarte hoy? Puedo informarte sobre:
+• 🏰 Castillos inflables
+• 🏊‍♀️ Piscinas de pelotas  
+• 🎈 Globos metalizados
+• 🎪 Servicios adicionales
+• 💰 Precios y cotizaciones
+
+¡Pregúntame lo que necesites! 😊`,
+                timestamp: new Date()
+            };
+        }
+        
+        if (message.includes('ubicacion') || message.includes('donde') || message.includes('machali') || message.includes('rancagua')) {
+            return {
+                type: 'ai',
+                content: `📍 <strong>Nuestra ubicación:</strong>
+
+🏠 <strong>ALMA Kids Entretenciones Infantiles</strong>
+📍 <strong>Ciudad:</strong> Machalí, Región de O'Higgins
+🚗 <strong>Cobertura:</strong> Machalí, Rancagua y alrededores
+
+📞 <strong>Contacto:</strong>
+💬 <a href="https://wa.me/56969073306?text=Hola%20ALMA%20Kids,%20me%20interesa%20cotizar%20sus%20servicios" target="_blank" style="color: #25D366; text-decoration: none; font-weight: bold;">WhatsApp: +56 9 6907 3306</a>
+📱 Teléfono: +56 9 2060 9796
+
+¡Llevamos la diversión hasta tu hogar! 🎉`,
+                timestamp: new Date()
+            };
+        }
+        
+        if (message.includes('reserva') || message.includes('reservar') || message.includes('contratar')) {
+            return {
+                type: 'ai',
+                content: `📅 <strong>¡Perfecto! Para reservar:</strong>
+
+✅ <strong>Disponibilidad:</strong> Todos los días
+🕐 <strong>Horarios:</strong> 9:00 AM - 8:00 PM
+📍 <strong>Cobertura:</strong> Machalí, Rancagua y alrededores
+
+💬 <strong>Reserva por WhatsApp:</strong>
+<a href="https://wa.me/56969073306?text=Hola%20ALMA%20Kids,%20quiero%20reservar%20sus%20servicios%20para%20mi%20evento" target="_blank" style="color: #25D366; text-decoration: none; font-weight: bold;">
+    📱 Reservar ahora
+</a>
+
+📞 <strong>O llama:</strong> +56 9 6907 3306
+
+¡Reserva con anticipación para asegurar tu fecha! 🎉`,
+                timestamp: new Date()
+            };
+        }
+        
         // Respuesta por defecto
         return {
             type: 'ai',
@@ -302,8 +364,12 @@ Es un placer ayudarte. Si tienes más preguntas, no dudes en consultarme.
 Para darte la mejor información, te recomiendo:
 
 📞 <strong>Llamar directamente:</strong> +56 9 6907 3306
-💬 <strong>WhatsApp:</strong> +56 9 6907 3306
 📧 <strong>Email:</strong> info.almakids@gmail.com
+
+💬 <strong>WhatsApp directo:</strong> 
+<a href="https://wa.me/56969073306?text=Hola%20ALMA%20Kids,%20me%20interesa%20cotizar%20sus%20servicios" target="_blank" style="color: #25D366; text-decoration: none; font-weight: bold;">
+    📱 Chatear por WhatsApp
+</a>
 
 Nuestro equipo te ayudará con:
 • Cotizaciones personalizadas
