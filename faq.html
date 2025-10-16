@@ -3,18 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
     <title>Preguntas Frecuentes - ALMA Kids Entretenciones Infantiles</title>
     <meta name="description" content="Encuentra respuestas a las preguntas más frecuentes sobre nuestros servicios de juegos inflables y plaza blanda en Machalí">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css?v=20250115-30">
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="animations.css">
     <link rel="stylesheet" href="visual-fixes.css">
     <link rel="stylesheet" href="layout-fixes.css">
-    <link rel="stylesheet" href="unified-image-sizes.css?v=20250115-5">
-    <link rel="stylesheet" href="mobile-overlap-fixes.css?v=20250115-7">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -31,7 +26,7 @@
         <div class="header-content">
             <!-- Logo -->
             <a class='logo' href='index.html'>
-                <img src="logo-header.png?v=20250115-26" alt="ALMA Kids - Entretenciones Infantiles" class="logo-image">
+                <img src="logo-header.png?v=20250115-4" alt="ALMA Kids - Entretenciones Infantiles" class="logo-image">
             </a>
             
                 <!-- Navigation -->
@@ -538,46 +533,5 @@
             <span id="cartCount" class="cart-count">0</span>
         </button>
     </div>
-    
-    <!-- ============================================
-         CHAT BÁSICO GRATUITO (ALMA)
-         ============================================ -->
-    
-    <!-- Script del Chat Básico (GRATUITO) -->
-    <script src="ai-chat-fixed.js?v=20250115-12"></script>
-    
-    <!-- Cargar el widget del chat directamente -->
-    <script>
-        // Cargar el widget HTML del chat
-        (function() {
-            console.log('🤖 Iniciando carga del chat con IA...');
-            
-            fetch('ai-chat-widget.html')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Error al cargar el widget HTML');
-                    }
-                    return response.text();
-                })
-                .then(html => {
-                    // Crear contenedor si no existe
-                    let container = document.getElementById('aiChatWidgetContainer');
-                    if (!container) {
-                        container = document.createElement('div');
-                        container.id = 'aiChatWidgetContainer';
-                        document.body.appendChild(container);
-                    }
-                    
-                    container.innerHTML = html;
-                    console.log('✅ Chat con IA cargado correctamente');
-                })
-                .catch(error => {
-                    console.error('❌ Error al cargar el widget del chat:', error);
-                    
-                    // Mostrar mensaje de error en consola
-                    console.error('💡 Verifica que el archivo ai-chat-widget.html existe en la misma carpeta');
-                });
-        })();
-    </script>
 </body>
 </html>

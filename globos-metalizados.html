@@ -3,17 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
     <title>Globos Metalizados Premium - ALMA Kids Entretenciones Infantiles</title>
     <meta name="description" content="Catálogo premium con 68 globos metalizados únicos. Nombres profesionales y presentación elegante para fiestas infantiles en Machalí">
-    <link rel="stylesheet" href="styles.css?v=20250115-30">
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="animations.css">
     <link rel="stylesheet" href="visual-fixes.css">
     <link rel="stylesheet" href="layout-fixes.css">
-    <link rel="stylesheet" href="unified-image-sizes.css?v=20250115-5">
-    <link rel="stylesheet" href="mobile-overlap-fixes.css?v=20250115-7">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,7 +26,7 @@
         <div class="header-content">
             <!-- Logo -->
             <a class='logo' href='index.html'>
-                <img src="logo-header.png?v=20250115-26" alt="ALMA Kids - Entretenciones Infantiles" class="logo-image">
+                <img src="logo-header.png?v=20250115-4" alt="ALMA Kids - Entretenciones Infantiles" class="logo-image">
             </a>
             
                 <!-- Navigation -->
@@ -39,7 +34,6 @@
                     <a class='nav-link' href='index.html#inicio'>Inicio</a>
                     <a class='nav-link' href='eventos.html'>Eventos</a>
                     <a class='nav-link' href='castillos-inflables.html'>Castillos Inflables</a>
-                    <a class='nav-link' href='servicios-adicionales.html'>Servicios Adicionales</a>
                     <a class='nav-link active' href='globos-metalizados.html'>Globos Metalizados</a>
                     <a class='nav-link' href='faq.html'>FAQ</a>
                     <a class='nav-link' href='index.html#contacto'>Contacto</a>
@@ -72,9 +66,8 @@
         <div class="mobile-menu" id="mobileMenu">
             <nav class="mobile-nav">
                 <a class='mobile-link' href='index.html#inicio' onclick='closeMobileMenu()'>Inicio</a>
+                <a class='mobile-link' href='index.html#nosotros' onclick='closeMobileMenu()'>Nosotros</a>
                 <a class='mobile-link' href='eventos.html' onclick='closeMobileMenu()'>Eventos</a>
-                <a class='mobile-link' href='castillos-inflables.html' onclick='closeMobileMenu()'>Castillos Inflables</a>
-                <a class='mobile-link' href='servicios-adicionales.html' onclick='closeMobileMenu()'>Servicios Adicionales</a>
                 <a class='mobile-link active' href='globos-metalizados.html' onclick='closeMobileMenu()'>Globos Metalizados</a>
                 <a class='mobile-link' href='faq.html' onclick='closeMobileMenu()'>FAQ</a>
                 <a class='mobile-link' href='index.html#contacto' onclick='closeMobileMenu()'>Contacto</a>
@@ -1626,46 +1619,5 @@
             }
         }
     </style>
-    
-    <!-- ============================================
-         CHAT BÁSICO GRATUITO (ALMA)
-         ============================================ -->
-    
-    <!-- Script del Chat Básico (GRATUITO) -->
-    <script src="ai-chat-fixed.js?v=20250115-12"></script>
-    
-    <!-- Cargar el widget del chat directamente -->
-    <script>
-        // Cargar el widget HTML del chat
-        (function() {
-            console.log('🤖 Iniciando carga del chat con IA...');
-            
-            fetch('ai-chat-widget.html')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Error al cargar el widget HTML');
-                    }
-                    return response.text();
-                })
-                .then(html => {
-                    // Crear contenedor si no existe
-                    let container = document.getElementById('aiChatWidgetContainer');
-                    if (!container) {
-                        container = document.createElement('div');
-                        container.id = 'aiChatWidgetContainer';
-                        document.body.appendChild(container);
-                    }
-                    
-                    container.innerHTML = html;
-                    console.log('✅ Chat con IA cargado correctamente');
-                })
-                .catch(error => {
-                    console.error('❌ Error al cargar el widget del chat:', error);
-                    
-                    // Mostrar mensaje de error en consola
-                    console.error('💡 Verifica que el archivo ai-chat-widget.html existe en la misma carpeta');
-                });
-        })();
-    </script>
 </body>
 </html>
