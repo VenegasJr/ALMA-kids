@@ -455,12 +455,11 @@
     <!-- Scripts -->
     <script src="script.js?v=20250115-19"></script>
     <script>
-        // Precios por artículo (con IVA 19%)
-        const IVA = 0.19;
+        // Precios por artículo (montos FINALES con IVA incluido ya incorporado)
         const PRICES = {
-            'carpa-tipi': 45000,
-            'inflable-carestino': 35000,
-            'maquina-burbujas': 30000
+            'carpa-tipi': 15000,
+            'inflable-carestino': 15000,
+            'maquina-burbujas': 15000
         };
         function formatCLP(n){ try{return n.toLocaleString('es-CL',{style:'currency',currency:'CLP'});}catch(e){return `$${Math.round(n).toLocaleString('es-CL')}`;} }
         document.addEventListener('DOMContentLoaded',()=>{
@@ -468,8 +467,7 @@
                 const id = el.getAttribute('data-price-id');
                 const base = PRICES[id];
                 if(typeof base==='number'){
-                    const total = Math.round(base*(1+IVA));
-                    el.textContent = formatCLP(total);
+                    el.textContent = formatCLP(base);
                 }
             });
         });
