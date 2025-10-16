@@ -1,0 +1,219 @@
+/* ============================================
+   CORRECCIÓN BOTONES FLOTANTES MÓVIL
+   ============================================ */
+
+/* Ocultar navegación flotante en móvil */
+@media (max-width: 768px) {
+    .floating-nav-buttons {
+        display: none !important;
+    }
+    
+    /* Solo mostrar botones esenciales */
+    .whatsapp-float {
+        position: fixed !important;
+        bottom: 20px !important;
+        right: 20px !important;
+        z-index: 1000 !important;
+        width: 60px !important;
+        height: 60px !important;
+    }
+    
+    .cart-float {
+        position: fixed !important;
+        bottom: 20px !important;
+        left: 20px !important;
+        z-index: 1000 !important;
+        width: 60px !important;
+        height: 60px !important;
+    }
+    
+    .ai-chat-toggle {
+        position: fixed !important;
+        bottom: 20px !important;
+        right: 90px !important;
+        z-index: 1000 !important;
+        width: 60px !important;
+        height: 60px !important;
+        background: linear-gradient(135deg, #ff6b9d, #e91e63) !important;
+        border: none !important;
+        border-radius: 50% !important;
+        color: white !important;
+        font-size: 1.5rem !important;
+        cursor: pointer !important;
+        box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3) !important;
+        transition: all 0.3s ease !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    
+    .ai-chat-toggle:hover {
+        transform: scale(1.1) !important;
+        box-shadow: 0 6px 20px rgba(233, 30, 99, 0.4) !important;
+    }
+    
+    /* Ajustar contenedor del chat IA */
+    .ai-chat-container {
+        position: fixed !important;
+        bottom: 90px !important;
+        right: 20px !important;
+        width: calc(100vw - 40px) !important;
+        max-width: 350px !important;
+        height: 400px !important;
+        z-index: 1001 !important;
+    }
+    
+    /* Ajustar footer para botones flotantes */
+    .footer {
+        padding-bottom: 100px !important;
+    }
+}
+
+/* Móvil pequeño (hasta 480px) */
+@media (max-width: 480px) {
+    .whatsapp-float {
+        bottom: 15px !important;
+        right: 15px !important;
+        width: 50px !important;
+        height: 50px !important;
+    }
+    
+    .cart-float {
+        bottom: 15px !important;
+        left: 15px !important;
+        width: 50px !important;
+        height: 50px !important;
+    }
+    
+    .ai-chat-toggle {
+        bottom: 15px !important;
+        right: 75px !important;
+        width: 50px !important;
+        height: 50px !important;
+        font-size: 1.2rem !important;
+    }
+    
+    .ai-chat-container {
+        bottom: 75px !important;
+        right: 15px !important;
+        width: calc(100vw - 30px) !important;
+        height: 350px !important;
+    }
+    
+    .footer {
+        padding-bottom: 80px !important;
+    }
+}
+
+/* Tablet (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .floating-nav-buttons {
+        display: block !important;
+    }
+    
+    .whatsapp-float {
+        bottom: 25px !important;
+        right: 25px !important;
+    }
+    
+    .cart-float {
+        bottom: 25px !important;
+        left: 25px !important;
+    }
+    
+    .ai-chat-toggle {
+        bottom: 25px !important;
+        right: 95px !important;
+    }
+    
+    .ai-chat-container {
+        bottom: 95px !important;
+        right: 25px !important;
+    }
+}
+
+/* Desktop (1025px+) */
+@media (min-width: 1025px) {
+    .floating-nav-buttons {
+        display: block !important;
+    }
+    
+    .whatsapp-float {
+        bottom: 30px !important;
+        right: 30px !important;
+    }
+    
+    .cart-float {
+        bottom: 30px !important;
+        left: 30px !important;
+    }
+    
+    .ai-chat-toggle {
+        bottom: 30px !important;
+        right: 100px !important;
+    }
+    
+    .ai-chat-container {
+        bottom: 100px !important;
+        right: 30px !important;
+    }
+}
+
+/* ============================================
+   ESTILOS BASE PARA BOTONES FLOTANTES
+   ============================================ */
+
+.whatsapp-float {
+    background: #25D366 !important;
+    border: none !important;
+    border-radius: 50% !important;
+    color: white !important;
+    cursor: pointer !important;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3) !important;
+    transition: all 0.3s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-decoration: none !important;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1) !important;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4) !important;
+}
+
+.cart-float .cart-btn {
+    background: linear-gradient(135deg, #ff6b9d, #e91e63) !important;
+    border: none !important;
+    border-radius: 50% !important;
+    color: white !important;
+    cursor: pointer !important;
+    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3) !important;
+    transition: all 0.3s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+}
+
+.cart-float .cart-btn:hover {
+    transform: scale(1.1) !important;
+    box-shadow: 0 6px 20px rgba(233, 30, 99, 0.4) !important;
+}
+
+.cart-count {
+    position: absolute !important;
+    top: -5px !important;
+    right: -5px !important;
+    background: #ff4444 !important;
+    color: white !important;
+    border-radius: 50% !important;
+    width: 20px !important;
+    height: 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 0.7rem !important;
+    font-weight: bold !important;
+    border: 2px solid white !important;
+}
