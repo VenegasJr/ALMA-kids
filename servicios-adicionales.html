@@ -159,6 +159,11 @@
                     </div>
                     <div class="divertete-info">
                         <h3>🏕️ Carpa Tipi para nuestros pequeños - alto 160 cm</h3>
+                        <div class="price-block">
+                            <span class="price-label">Precio:</span>
+                            <span class="price-amount" data-price-id="carpa-tipi"></span>
+                            <span class="price-iva">IVA incluido</span>
+                        </div>
                         <div class="divertete-description">
                             <p><strong>¡El espacio mágico donde la imaginación cobra vida!</strong></p>
                             
@@ -212,7 +217,7 @@
                         </button>
                     </div>
                 </div>
-
+                
                 <!-- Inflable Saltarín -->
                 <div class="divertete-item">
                     <div class="divertete-images-gallery">
@@ -229,6 +234,11 @@
                     </div>
                     <div class="divertete-info">
                         <h3>🎈 Inflable Saltarín De Peluche Caballo color Café</h3>
+                        <div class="price-block">
+                            <span class="price-label">Precio:</span>
+                            <span class="price-amount" data-price-id="inflable-carestino"></span>
+                            <span class="price-iva">IVA incluido</span>
+                        </div>
                         <div class="divertete-description">
                             <p><strong>¡Transformando el movimiento en aprendizaje y aventuras!</strong></p>
                             
@@ -299,6 +309,11 @@
                     </div>
                     <div class="divertete-info">
                         <h3>🫧 Máquina de Burbujas ALMA Kids</h3>
+                        <div class="price-block">
+                            <span class="price-label">Precio:</span>
+                            <span class="price-amount" data-price-id="maquina-burbujas"></span>
+                            <span class="price-iva">IVA incluido</span>
+                        </div>
                         <div class="divertete-description">
                             <p><strong>¡La magia flotante que hace de tu evento algo inolvidable!</strong></p>
                             
@@ -438,7 +453,27 @@
     </div>
 
     <!-- Scripts -->
-    <script src="script.js"></script>
+    <script src="script.js?v=20250115-19"></script>
+    <script>
+        // Precios por artículo (con IVA 19%)
+        const IVA = 0.19;
+        const PRICES = {
+            'carpa-tipi': 45000,
+            'inflable-carestino': 35000,
+            'maquina-burbujas': 30000
+        };
+        function formatCLP(n){ try{return n.toLocaleString('es-CL',{style:'currency',currency:'CLP'});}catch(e){return `$${Math.round(n).toLocaleString('es-CL')}`;} }
+        document.addEventListener('DOMContentLoaded',()=>{
+            document.querySelectorAll('[data-price-id]').forEach(el=>{
+                const id = el.getAttribute('data-price-id');
+                const base = PRICES[id];
+                if(typeof base==='number'){
+                    const total = Math.round(base*(1+IVA));
+                    el.textContent = formatCLP(total);
+                }
+            });
+        });
+    </script>
     <script>
         // Grupos de imágenes para el modal
         window.imageGroups = {

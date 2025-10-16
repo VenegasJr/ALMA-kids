@@ -1,3 +1,17 @@
+/* Bloque de precio uniforme */
+.price-block {
+    margin: 10px 0 16px;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.6);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+}
+.price-label { color:#6c7a89; font-weight:600; }
+.price-amount { color:#e91e63; font-weight:800; font-size:1.15rem; }
+.price-iva { color:#7f8c8d; font-size:.9rem; }
 /* Glass effect aplicado solo a contenedores de imágenes */
 .service-image,
 .plaza-image,
