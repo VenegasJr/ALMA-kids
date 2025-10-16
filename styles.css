@@ -2375,6 +2375,109 @@ p {
     font-weight: 500;
 }
 
+/* Sistema de Precios por Colores */
+.precios-colores-info {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-radius: 15px;
+    border: 2px solid #dee2e6;
+}
+
+.precio-info-card {
+    text-align: center;
+}
+
+.precio-info-card h4 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.precio-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.precio-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.5rem;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 8px;
+    font-size: 0.95rem;
+}
+
+.precio-item i {
+    font-size: 1.1rem;
+    min-width: 20px;
+}
+
+.precio-note {
+    background: rgba(52, 152, 219, 0.1);
+    padding: 0.8rem;
+    border-radius: 8px;
+    border-left: 4px solid #3498db;
+    font-size: 0.9rem;
+    color: #2c3e50;
+    margin: 0;
+}
+
+.precio-note i {
+    color: #3498db;
+    margin-right: 0.5rem;
+}
+
+/* Responsive para precios */
+@media (max-width: 768px) {
+    .precios-colores-info {
+        padding: 1rem;
+        margin-top: 1.5rem;
+    }
+    
+    .precio-info-card h4 {
+        font-size: 1.1rem;
+    }
+    
+    .precio-item {
+        font-size: 0.9rem;
+        padding: 0.4rem;
+    }
+    
+    .precio-note {
+        font-size: 0.85rem;
+        padding: 0.6rem;
+    }
+}
+
+/* Información de precios mini en las tarjetas */
+.precio-info-mini {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0.8rem 0;
+    padding: 0.6rem;
+    background: rgba(52, 152, 219, 0.1);
+    border-radius: 8px;
+    border-left: 3px solid #3498db;
+    font-size: 0.85rem;
+    color: #2c3e50;
+}
+
+.precio-info-mini i {
+    color: #3498db;
+    font-size: 0.9rem;
+    min-width: 16px;
+}
+
+.precio-info-mini span {
+    font-weight: 500;
+}
+
 /* Responsive - Mantener efectos y colores consistentes */
 @media (max-width: 1200px) {
     .colores-grid {
