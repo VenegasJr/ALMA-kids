@@ -41,9 +41,10 @@
     <header class="header">
         <div class="container">
         <div class="header-content">
-                <div class="logo">
-                    <img src="imagenes/logo-header.png?v=20250115-11" alt="ALMA Kids Logo" class="logo-image">
-                </div>
+            <!-- Logo -->
+            <a class='logo' href='index.html'>
+                <img src="logo-header.png?v=20250115-4" alt="ALMA Kids - Entretenciones Infantiles" class="logo-image">
+            </a>
             
                 <!-- Navigation -->
         <nav class="nav">
@@ -55,13 +56,39 @@
                     <a class='nav-link' href='index.html#contacto'>Contacto</a>
             </nav>
             
+                <!-- Search and Contact Buttons -->
                 <div class="header-buttons">
                     <!-- Search Button -->
                     <button class="btn btn-search" onclick="toggleSearch()">
                         <i class="fas fa-search"></i>
                     </button>
-                </div>
-        </div>
+
+    <!-- Search Input (hidden by default) -->
+    <div class="search-container" id="searchContainer">
+        <input type="text" id="searchInput" placeholder="Buscar en ALMA Kids..." onkeyup="performSearch()">
+        <div class="search-results" id="searchResults"></div>
+                    </div>
+            </div>
+            
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            </div>
+    </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <nav class="mobile-nav">
+                <a class='mobile-link' href='index.html#inicio' onclick='closeMobileMenu()'>Inicio</a>
+                <a class='mobile-link' href='eventos.html' onclick='closeMobileMenu()'>Eventos</a>
+                <a class='mobile-link' href='castillos-inflables.html' onclick='closeMobileMenu()'>Castillos Inflables</a>
+                <a class='mobile-link' href='servicios-adicionales.html' onclick='closeMobileMenu()'>Servicios Adicionales</a>
+                <a class='mobile-link' href='faq.html' onclick='closeMobileMenu()'>FAQ</a>
+                <a class='mobile-link' href='index.html#contacto' onclick='closeMobileMenu()'>Contacto</a>
+            </nav>
         </div>
     </header>
 
