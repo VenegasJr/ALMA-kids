@@ -1,4 +1,4 @@
-// Chat IA ALMA Kids - JavaScript
+// Chat IA ALMA Kids - Sistema Inteligente
 // ========================================
 
 class ALChat {
@@ -6,6 +6,7 @@ class ALChat {
         this.isOpen = false;
         this.messages = [];
         this.isTyping = false;
+        this.conversationContext = [];
         this.init();
     }
 
@@ -13,6 +14,7 @@ class ALChat {
         this.createChatHTML();
         this.bindEvents();
         this.addWelcomeMessage();
+        console.log('🤖 IA ALMA Kids inicializada correctamente');
     }
 
     createChatHTML() {
@@ -55,44 +57,35 @@ class ALChat {
         const input = document.getElementById('ai-chat-input');
         const sendButton = document.getElementById('ai-chat-send');
 
-        // Enviar mensaje con Enter
-        input.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter' && !e.shiftKey) {
-                e.preventDefault();
-                this.sendMessage();
-            }
-        });
+        if (input) {
+            input.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    this.sendMessage();
+                }
+            });
+        }
 
-        // Enviar mensaje con botón
-        sendButton.addEventListener('click', () => this.sendMessage());
+        if (sendButton) {
+            sendButton.addEventListener('click', () => this.sendMessage());
+        }
     }
 
     toggle() {
         const container = document.getElementById('ai-chat-container');
-        const toggle = document.getElementById('ai-chat-toggle');
-        
-        this.isOpen = !this.isOpen;
-        
         if (this.isOpen) {
-            container.classList.add('active');
-            toggle.classList.add('active');
-            toggle.innerHTML = '✕';
-            document.getElementById('ai-chat-input').focus();
-        } else {
             container.classList.remove('active');
-            toggle.classList.remove('active');
-            toggle.innerHTML = '💬';
+            this.isOpen = false;
+        } else {
+            container.classList.add('active');
+            this.isOpen = true;
+            document.getElementById('ai-chat-input').focus();
         }
     }
 
     close() {
-        this.isOpen = false;
         const container = document.getElementById('ai-chat-container');
-        const toggle = document.getElementById('ai-chat-toggle');
-        
         container.classList.remove('active');
-        toggle.classList.remove('active');
-        toggle.innerHTML = '💬';
+        this.isOpen = false;
     }
 
     addWelcomeMessage() {
@@ -123,77 +116,28 @@ class ALChat {
         this.addMessage(welcomeMessage);
     }
 
-    addMessage(message) {
-        this.messages.push(message);
-        this.renderMessage(message);
-    }
-
-    renderMessage(message) {
-        const messagesContainer = document.getElementById('ai-chat-messages');
-        const messageElement = document.createElement('div');
-        messageElement.className = `ai-message ${message.type}`;
-        
-        const avatar = message.type === 'ai' ? '🤖' : '👤';
-        const avatarClass = message.type === 'ai' ? 'ai' : 'user';
-        
-        messageElement.innerHTML = `
-            <div class="ai-message-avatar ${avatarClass}">${avatar}</div>
-            <div class="ai-message-content">${message.content}</div>
-        `;
-        
-        messagesContainer.appendChild(messageElement);
-        messagesContainer.scrollTop = messagesContainer.scrollHeight;
-    }
-
-    showTypingIndicator() {
-        const messagesContainer = document.getElementById('ai-chat-messages');
-        const typingElement = document.createElement('div');
-        typingElement.id = 'ai-typing-indicator';
-        typingElement.className = 'ai-typing-indicator active';
-        typingElement.innerHTML = `
-            <div class="ai-message-avatar ai">🤖</div>
-            <div class="ai-typing-dots">
-                <div class="ai-typing-dot"></div>
-                <div class="ai-typing-dot"></div>
-                <div class="ai-typing-dot"></div>
-            </div>
-        `;
-        
-        messagesContainer.appendChild(typingElement);
-        messagesContainer.scrollTop = messagesContainer.scrollHeight;
-        this.isTyping = true;
-    }
-
-    hideTypingIndicator() {
-        const typingElement = document.getElementById('ai-typing-indicator');
-        if (typingElement) {
-            typingElement.remove();
-        }
-        this.isTyping = false;
-    }
-
-    async sendMessage() {
+    sendMessage() {
         const input = document.getElementById('ai-chat-input');
         const message = input.value.trim();
-        
+
         if (!message) return;
-        
+
         // Agregar mensaje del usuario
         const userMessage = {
             type: 'user',
             content: message,
             timestamp: new Date()
         };
-        
+
         this.addMessage(userMessage);
         input.value = '';
-        
-        // Mostrar indicador de escritura
-        this.showTypingIndicator();
-        
-        // Simular respuesta de IA
+
+        // Simular typing
+        this.showTyping();
+
+        // Generar respuesta después de un delay
         setTimeout(() => {
-            this.hideTypingIndicator();
+            this.hideTyping();
             const aiResponse = this.generateResponse(message);
             this.addMessage(aiResponse);
         }, 1000 + Math.random() * 2000); // 1-3 segundos
@@ -217,10 +161,10 @@ class ALChat {
    • Piscina + Pelotas (celestes, rosadas, blancas, transparentes)
 
 🎪 <strong>Servicios Adicionales:</strong>
-   • Carpa Tipi: $15.000 IVA incluido
-   • Inflable Saltarín Carestino: $15.000 IVA incluido
-   • Máquina de Burbujas: $15.000 IVA incluido
-   • Set Motricidad: $45.000 IVA incluido
+   • 🏕️ Carpa Tipi: $15.000 IVA incluido
+   • 🎈 Inflable Saltarín Carestino: $15.000 IVA incluido
+   • 🫧 Máquina de Burbujas: $15.000 IVA incluido
+   • 🎯 Set Motricidad: $45.000 IVA incluido
 
 🎈 <strong>Globos Metalizados:</strong> Desde $2.000
    • +200 diseños disponibles
@@ -237,322 +181,323 @@ class ALChat {
                 timestamp: new Date()
             };
         }
-        
-        if (message.includes('disponibilidad') || message.includes('fecha') || message.includes('cuando')) {
+
+        if (message.includes('cumpleaños') || message.includes('cumple')) {
             return {
                 type: 'ai',
-                content: `📅 <strong>Disponibilidad:</strong>
+                content: `🎂 <strong>¡Perfecto para cumpleaños!</strong>
 
-✅ Disponemos de servicios todos los días
-🕐 Horarios: 9:00 AM - 8:00 PM
-📍 Cobertura: Machalí, Rancagua y alrededores
+🎪 <strong>Recomendaciones según la edad:</strong>
 
-📞 <strong>Para reservar:</strong> +56 9 6907 3306
-💬 <strong>WhatsApp:</strong> +56 9 6907 3306
+👶 <strong>1-3 años:</strong>
+• Piscina de Pelotas (segura y divertida)
+• Carpa Tipi (rincón de calma)
+• Inflable Saltarín Carestino
 
-¡Reserva con anticipación para asegurar tu fecha!`,
+🧒 <strong>4-7 años:</strong>
+• Castillo Inflable (diversión garantizada)
+• Piscina de Pelotas
+• Máquina de Burbujas (magia total)
+
+🎁 <strong>Pack Cumpleaños Completo:</strong>
+• Castillo + Piscina + Servicios Adicionales
+• Decoración con globos metalizados
+• 4 horas de diversión
+
+💡 <strong>¿Necesitas ayuda para elegir?</strong>
+<a href="https://wa.me/56969073306?text=Hola!%20Quiero%20cotizar%20para%20un%20cumpleaños" target="_blank" style="color: #25D366; text-decoration: none; font-weight: bold;">
+    📱 Te ayudo por WhatsApp
+</a>`,
                 timestamp: new Date()
             };
         }
-        
-        if (message.includes('servicio') || message.includes('que ofrecen') || message.includes('que tienen')) {
+
+        if (message.includes('baby shower') || message.includes('baby')) {
+            return {
+                type: 'ai',
+                content: `👶 <strong>¡Baby Shower especial!</strong>
+
+🎪 <strong>Servicios ideales para Baby Showers:</strong>
+
+🏕️ <strong>Carpa Tipi:</strong> Rincón perfecto para hermanitos
+🎈 <strong>Inflable Saltarín:</strong> Diversión para niños pequeños
+🫧 <strong>Máquina de Burbujas:</strong> Ambiente mágico
+🎈 <strong>Globos Metalizados:</strong> Decoración temática
+
+💡 <strong>Pack Baby Shower:</strong>
+• Carpa Tipi + Inflable Saltarín + Decoración
+• Perfecto para hermanitos de 1-5 años
+• Ambiente seguro y controlado
+
+🎨 <strong>Temáticas disponibles:</strong>
+• Rosa/Azul clásico
+• Arcoíris
+• Animales
+• Estrellas
+
+<a href="https://wa.me/56969073306?text=Hola!%20Quiero%20cotizar%20para%20un%20Baby%20Shower" target="_blank" style="color: #25D366; text-decoration: none; font-weight: bold;">
+    📱 Cotiza tu Baby Shower
+</a>`,
+                timestamp: new Date()
+            };
+        }
+
+        if (message.includes('servicios') || message.includes('que ofrecen')) {
             return {
                 type: 'ai',
                 content: `🎪 <strong>Servicios completos de ALMA Kids:</strong>
 
-🏰 <strong>Castillos Inflables Profesionales:</strong>
-   • Castillo Piscina Cuadrada (2-7 años, hasta 4 niños)
-   • Castillo Inflable Portada (diseño elegante)
-   • Castillo Piscina Redonda (piscina integrada)
-   • Materiales: Vinilo reforzado, no tóxico
-   • Incluye: transporte, montaje y desmontaje
+🏰 <strong>Castillos Inflables:</strong>
+• Castillo Piscina Cuadrada
+• Castillo Inflable Portada
+• Castillo Piscina Redonda
 
-🏊‍♀️ <strong>Piscina de Pelotas - Zona Segura:</strong>
-   • Medidas: 150x150x40cm
-   • Pelotas: celestes, rosadas, blancas, transparentes
-   • Edades: 6 meses a 7 años
-   • Materiales seguros y no tóxicos
-   • Estimulación sensorial y desarrollo motor
+🏊‍♀️ <strong>Piscina de Pelotas:</strong>
+• Pelotas celestes, rosadas, blancas
+• Materiales seguros y no tóxicos
+• Estimulación sensorial
 
 🎪 <strong>Servicios Adicionales:</strong>
-   • 🏕️ Carpa Tipi (160cm alto, materiales nobles)
-   • 🎈 Inflable Saltarín Carestino (18 meses+, 20kg)
-   • 🫧 Máquina de Burbujas (2000+ burbujas/min)
-   • 🎯 Set de Motricidad
-   • 🎨 Decoración Temática
+• 🏕️ Carpa Tipi (160cm alto)
+• 🎈 Inflable Saltarín Carestino
+• 🫧 Máquina de Burbujas (2000+ burbujas/min)
+• 🎯 Set Motricidad
 
 🎈 <strong>Globos Metalizados:</strong>
-   • +200 diseños únicos
-   • Animales, princesas, superhéroes, temáticas
-   • Tamaños variados (23x47cm hasta 107x31cm)
-   • Perfectos para decoración de eventos
+• +200 diseños únicos
+• Decoración temática
+• Presentación profesional
 
-🛡️ <strong>Seguridad y Calidad:</strong>
-   • Materiales certificados y no tóxicos
-   • Supervisión profesional incluida
-   • Limpieza y desinfección garantizada
-   • Seguro de responsabilidad civil`,
+📍 <strong>Cobertura:</strong> Machalí, Rancagua y región
+
+<a href="https://wa.me/56969073306?text=Hola!%20Quiero%20conocer%20todos%20los%20servicios" target="_blank" style="color: #25D366; text-decoration: none; font-weight: bold;">
+    📱 Más información por WhatsApp
+</a>`,
                 timestamp: new Date()
             };
         }
-        
+
         if (message.includes('contacto') || message.includes('telefono') || message.includes('whatsapp')) {
             return {
                 type: 'ai',
                 content: `📞 <strong>Contacto ALMA Kids:</strong>
 
-📱 <strong>WhatsApp:</strong> +56 9 6907 3306
-📞 <strong>Teléfono:</strong> +56 9 2060 9796
-📧 <strong>Email:</strong> info.almakids@gmail.com
-📷 <strong>Instagram:</strong> @alma.kidscl
+📱 <strong>WhatsApp:</strong>
+• +56 9 6907 3306
+• +56 9 2060 9796
 
-📍 <strong>Ubicación:</strong> Machalí, Región de O'Higgins
-🌐 <strong>Web:</strong> www.almakids.cl
+📧 <strong>Email:</strong>
+• info.almakids@gmail.com
 
-¡Estamos aquí para ayudarte! 💬`,
+📍 <strong>Ubicación:</strong>
+• Machalí, Región de O'Higgins
+
+🕒 <strong>Horario de Atención:</strong>
+• Lunes a Domingo: 8:00 - 20:00 hrs
+
+💬 <strong>¡Escríbenos ahora!</strong>
+<a href="https://wa.me/56969073306?text=Hola!%20Me%20interesa%20conocer%20sus%20servicios" target="_blank" style="color: #25D366; text-decoration: none; font-weight: bold;">
+    📱 WhatsApp Directo
+</a>`,
                 timestamp: new Date()
             };
         }
-        
-        if (message.includes('edad') || message.includes('niños') || message.includes('bebes')) {
+
+        if (message.includes('edad') || message.includes('años')) {
             return {
                 type: 'ai',
                 content: `👶 <strong>Edades recomendadas:</strong>
 
-🏰 <strong>Castillo Inflable:</strong> 2 a 7 años
-🏊‍♀️ <strong>Piscina de Pelotas:</strong> 6 meses a 7 años
-🎈 <strong>Globos Metalizados:</strong> Todas las edades
-🎪 <strong>Servicios Adicionales:</strong>
-   • Carpa Tipi: Todas las edades
-   • Inflable Saltarín: 18 meses a 5 años
-   • Máquina de Burbujas: Todas las edades
+🏰 <strong>Castillos Inflables:</strong>
+• 6 meses a 7 años
+• Supervisión adulta siempre
 
-🛡️ <strong>Supervisión:</strong> Siempre con adulto responsable`,
+🏊‍♀️ <strong>Piscina de Pelotas:</strong>
+• 6 meses a 7 años
+• Perfecta para desarrollo motor
+
+🎈 <strong>Inflable Saltarín Carestino:</strong>
+• 18 meses a 5 años
+• Capacidad: hasta 20 kg
+
+🏕️ <strong>Carpa Tipi:</strong>
+• Todas las edades
+• Rincón de calma y lectura
+
+🫧 <strong>Máquina de Burbujas:</strong>
+• Todas las edades
+• Operada por adulto
+
+💡 <strong>¿Necesitas recomendaciones específicas?</strong>
+<a href="https://wa.me/56969073306?text=Hola!%20Necesito%20recomendaciones%20para%20niños%20de%20X%20años" target="_blank" style="color: #25D366; text-decoration: none; font-weight: bold;">
+    📱 Te ayudo a elegir
+</a>`,
                 timestamp: new Date()
             };
         }
-        
-        if (message.includes('gracias') || message.includes('muchas gracias')) {
+
+        if (message.includes('hola') || message.includes('buenas') || message.includes('saludos')) {
             return {
                 type: 'ai',
-                content: `¡De nada! 😊 
+                content: `¡Hola! 😊 ¡Qué gusto saludarte!
 
-Es un placer ayudarte. Si tienes más preguntas, no dudes en consultarme.
+🎪 Soy tu asistente de ALMA Kids, especialistas en entretenciones infantiles.
 
-¡Esperamos hacer de tu evento algo inolvidable! 🎉✨`,
-                timestamp: new Date()
-            };
-        }
-        
-        if (message.includes('hola') || message.includes('buenos dias') || message.includes('buenas tardes')) {
-            return {
-                type: 'ai',
-                content: `¡Hola! 👋 ¡Bienvenido a ALMA Kids!
-
-Estoy aquí para ayudarte con información sobre nuestros servicios de entretención infantil.
-
-¿En qué puedo ayudarte hoy? Puedo informarte sobre:
+¿En qué puedo ayudarte hoy? Puedo contarte sobre:
+• 💰 Nuestros precios
+• 🎂 Servicios para cumpleaños
+• 👶 Baby Showers
 • 🏰 Castillos inflables
-• 🏊‍♀️ Piscinas de pelotas  
-• 🎈 Globos metalizados
-• 🎪 Servicios adicionales
-• 💰 Precios y cotizaciones
+• 🏊‍♀️ Piscina de pelotas
+• 📞 Información de contacto
 
-¡Pregúntame lo que necesites! 😊`,
+¡Pregúntame lo que necesites! 😄`,
                 timestamp: new Date()
             };
         }
-        
+
         if (message.includes('ubicacion') || message.includes('donde') || message.includes('machali') || message.includes('rancagua')) {
             return {
                 type: 'ai',
-                content: `📍 <strong>Nuestra ubicación:</strong>
+                content: `📍 <strong>Ubicación y Cobertura:</strong>
 
-🏠 <strong>ALMA Kids Entretenciones Infantiles</strong>
-📍 <strong>Ciudad:</strong> Machalí, Región de O'Higgins
-🚗 <strong>Cobertura:</strong> Machalí, Rancagua y alrededores
+🏠 <strong>Base:</strong> Machalí, Región de O'Higgins
 
-📞 <strong>Contacto:</strong>
-💬 <a href="https://wa.me/56969073306?text=Hola%20ALMA%20Kids,%20me%20interesa%20cotizar%20sus%20servicios" target="_blank" style="color: #25D366; text-decoration: none; font-weight: bold;">WhatsApp: +56 9 6907 3306</a>
-📱 Teléfono: +56 9 2060 9796
+🚚 <strong>Cobertura Regional:</strong>
+• Machalí (base)
+• Rancagua
+• Rengo
+• Coya
+• Codegua
+• Olivar
+• Gultro
+• Los Lirios
+• Graneros
 
-¡Llevamos la diversión hasta tu hogar! 🎉`,
-                timestamp: new Date()
-            };
-        }
-        
-        if (message.includes('reserva') || message.includes('reservar') || message.includes('contratar')) {
-            return {
-                type: 'ai',
-                content: `📅 <strong>¡Perfecto! Para reservar:</strong>
+💡 <strong>¿Estás fuera de nuestra área?</strong>
+Consulta disponibilidad para otras ubicaciones.
 
-✅ <strong>Disponibilidad:</strong> Todos los días
-🕐 <strong>Horarios:</strong> 9:00 AM - 8:00 PM
-📍 <strong>Cobertura:</strong> Machalí, Rancagua y alrededores
-
-💬 <strong>Reserva por WhatsApp:</strong>
-<a href="https://wa.me/56969073306?text=Hola%20ALMA%20Kids,%20quiero%20reservar%20sus%20servicios%20para%20mi%20evento" target="_blank" style="color: #25D366; text-decoration: none; font-weight: bold;">
-    📱 Reservar ahora
-</a>
-
-📞 <strong>O llama:</strong> +56 9 6907 3306
-
-¡Reserva con anticipación para asegurar tu fecha! 🎉`,
-                timestamp: new Date()
-            };
-        }
-        
-        if (message.includes('cumpleaños') || message.includes('cumpleanos') || message.includes('fiesta')) {
-            return {
-                type: 'ai',
-                content: `🎂 <strong>¡Perfecto para cumpleaños!</strong>
-
-🎪 <strong>Recomendaciones para cumpleaños:</strong>
-
-👶 <strong>Para bebés (6 meses - 2 años):</strong>
-   • Piscina de Pelotas (zona segura)
-   • Carpa Tipi (rincón de calma)
-   • Globos metalizados decorativos
-
-🧒 <strong>Para niños (2-7 años):</strong>
-   • Castillo Inflable (diversión garantizada)
-   • Piscina de Pelotas
-   • Inflable Saltarín Carestino
-   • Máquina de Burbujas (magia extra)
-
-🎨 <strong>Combos populares:</strong>
-   • Set Básico: Castillo + Piscina ($100.000)
-   • Set Premium: Todo incluido ($180.000)
-
-💡 <strong>Tips para tu evento:</strong>
-   • Reserva con 1 semana de anticipación
-   • Incluye supervisión de adultos
-   • Considera el espacio disponible
-   • Combina con globos metalizados
-
-💬 <strong>Cotiza tu cumpleaños:</strong>
-<a href="https://wa.me/56969073306?text=Hola%20ALMA%20Kids,%20quiero%20cotizar%20para%20un%20cumpleaños" target="_blank" style="color: #25D366; text-decoration: none; font-weight: bold;">
-    📱 WhatsApp: +56 9 6907 3306
+<a href="https://wa.me/56969073306?text=Hola!%20Estoy%20en%20[tu%20ubicación]%20¿hacen%20servicios%20allí?" target="_blank" style="color: #25D366; text-decoration: none; font-weight: bold;">
+    📱 Consulta tu ubicación
 </a>`,
                 timestamp: new Date()
             };
         }
-        
-        if (message.includes('baby shower') || message.includes('babyshower') || message.includes('baby')) {
+
+        if (message.includes('reserva') || message.includes('disponibilidad') || message.includes('fecha')) {
             return {
                 type: 'ai',
-                content: `👶 <strong>¡Baby Shower perfecto con ALMA Kids!</strong>
+                content: `📅 <strong>Reservas y Disponibilidad:</strong>
 
-🎪 <strong>Servicios ideales para Baby Shower:</strong>
+⏰ <strong>Horario de Atención:</strong>
+• Lunes a Domingo: 8:00 - 20:00 hrs
 
-🏕️ <strong>Carpa Tipi:</strong> Rincón especial para hermanitos mayores
-🏊‍♀️ <strong>Piscina de Pelotas:</strong> Zona segura para niños pequeños
-🫧 <strong>Máquina de Burbujas:</strong> Ambiente mágico para fotos
-🎈 <strong>Globos Metalizados:</strong> Decoración temática perfecta
+📞 <strong>Para reservar:</strong>
+• WhatsApp: +56 9 6907 3306
+• Email: info.almakids@gmail.com
 
-👶 <strong>Beneficios para Baby Shower:</strong>
-   • Entretenimiento para hermanitos
-   • Zona segura para niños
-   • Fotos espectaculares con burbujas
-   • Decoración temática completa
-   • Supervisión profesional incluida
+💡 <strong>Recomendaciones:</strong>
+• Reserva con anticipación
+• Especialmente en fines de semana
+• Verifica disponibilidad para tu fecha
 
-🎨 <strong>Diseños de globos para Baby Shower:</strong>
-   • Animales bebé
-   • Princesas y príncipes
-   • Temáticas de cuentos
-   • Colores pasteles
+🎪 <strong>Duración estándar:</strong> 4 horas
 
-💡 <strong>Recomendación especial:</strong>
-   • Carpa Tipi + Piscina de Pelotas + Máquina de Burbujas
-   • Perfecto para hermanitos de 6 meses a 7 años
-
-💬 <strong>Cotiza tu Baby Shower:</strong>
-<a href="https://wa.me/56969073306?text=Hola%20ALMA%20Kids,%20quiero%20cotizar%20para%20un%20Baby%20Shower" target="_blank" style="color: #25D366; text-decoration: none; font-weight: bold;">
-    📱 WhatsApp: +56 9 6907 3306
+<a href="https://wa.me/56969073306?text=Hola!%20Quiero%20reservar%20para%20el%20día%20[tu%20fecha]" target="_blank" style="color: #25D366; text-decoration: none; font-weight: bold;">
+    📱 Reserva ahora
 </a>`,
                 timestamp: new Date()
             };
         }
-        
-        if (message.includes('evento') || message.includes('eventos') || message.includes('celebración')) {
-            return {
-                type: 'ai',
-                content: `🎉 <strong>¡Eventos especiales con ALMA Kids!</strong>
 
-🎪 <strong>Tipos de eventos que atendemos:</strong>
-
-🎂 <strong>Cumpleaños:</strong> Fiestas temáticas inolvidables
-👶 <strong>Baby Showers:</strong> Entretenimiento para hermanitos
-🎓 <strong>Graduaciones:</strong> Celebración de logros académicos
-🏠 <strong>Eventos familiares:</strong> Reuniones y celebraciones
-🏢 <strong>Eventos corporativos:</strong> Actividades empresariales
-🎪 <strong>Ferias y festivales:</strong> Eventos comunitarios
-
-🎨 <strong>Servicios por tipo de evento:</strong>
-
-👶 <strong>Eventos infantiles (0-7 años):</strong>
-   • Piscina de Pelotas (zona segura)
-   • Carpa Tipi (rincón de calma)
-   • Inflable Saltarín Carestino
-   • Globos metalizados decorativos
-
-🧒 <strong>Eventos mixtos (todas las edades):</strong>
-   • Castillo Inflable (2-7 años)
-   • Máquina de Burbujas (ambiente mágico)
-   • Set de Motricidad
-   • Decoración temática completa
-
-💡 <strong>Ventajas de nuestros servicios:</strong>
-   • Materiales seguros y no tóxicos
-   • Supervisión profesional incluida
-   • Transporte, montaje y desmontaje
-   • Limpieza y desinfección garantizada
-   • Seguro de responsabilidad civil
-
-💬 <strong>Cotiza tu evento:</strong>
-<a href="https://wa.me/56969073306?text=Hola%20ALMA%20Kids,%20quiero%20cotizar%20para%20mi%20evento" target="_blank" style="color: #25D366; text-decoration: none; font-weight: bold;">
-    📱 WhatsApp: +56 9 6907 3306
-</a>`,
-                timestamp: new Date()
-            };
-        }
-        
         // Respuesta por defecto
         return {
             type: 'ai',
-            content: `Entiendo tu consulta. 😊
+            content: `🤔 <strong>Hmm, no estoy seguro de entenderte completamente.</strong>
 
-Para darte la mejor información, te recomiendo:
+💡 <strong>Puedo ayudarte con:</strong>
+• 💰 Precios y cotizaciones
+• 🎂 Servicios para cumpleaños
+• 👶 Baby Showers
+• 🏰 Información de castillos
+• 🏊‍♀️ Piscina de pelotas
+• 📞 Contacto y reservas
+• 📍 Ubicación y cobertura
 
-📞 <strong>Llamar directamente:</strong> +56 9 6907 3306
-📧 <strong>Email:</strong> info.almakids@gmail.com
-
-💬 <strong>WhatsApp directo:</strong> 
-<a href="https://wa.me/56969073306?text=Hola%20ALMA%20Kids,%20me%20interesa%20cotizar%20sus%20servicios" target="_blank" style="color: #25D366; text-decoration: none; font-weight: bold;">
-    📱 Chatear por WhatsApp
-</a>
-
-Nuestro equipo te ayudará con:
-• Cotizaciones personalizadas
-• Disponibilidad de fechas
-• Recomendaciones específicas
-• Información detallada
-
-¿Hay algo más en lo que pueda ayudarte? 🤔`,
+<a href="https://wa.me/56969073306?text=Hola!%20Necesito%20ayuda%20con%20[tu%20consulta]" target="_blank" style="color: #25D366; text-decoration: none; font-weight: bold;">
+    📱 ¿Prefieres hablar con un humano?
+</a>`,
             timestamp: new Date()
         };
+    }
+
+    addMessage(message) {
+        this.messages.push(message);
+        this.displayMessage(message);
+        this.scrollToBottom();
+    }
+
+    displayMessage(message) {
+        const messagesContainer = document.getElementById('ai-chat-messages');
+        if (!messagesContainer) return;
+
+        const messageElement = document.createElement('div');
+        messageElement.className = `ai-message ${message.type}`;
+        
+        const time = message.timestamp.toLocaleTimeString('es-CL', { 
+            hour: '2-digit', 
+            minute: '2-digit' 
+        });
+
+        messageElement.innerHTML = `
+            <div class="ai-message-content">
+                ${message.content}
+            </div>
+            <div class="ai-message-time">${time}</div>
+        `;
+
+        messagesContainer.appendChild(messageElement);
+    }
+
+    showTyping() {
+        const messagesContainer = document.getElementById('ai-chat-messages');
+        if (!messagesContainer) return;
+
+        const typingElement = document.createElement('div');
+        typingElement.className = 'ai-message ai typing';
+        typingElement.id = 'ai-typing';
+        typingElement.innerHTML = `
+            <div class="ai-message-content">
+                <div class="typing-indicator">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                Escribiendo...
+            </div>
+        `;
+
+        messagesContainer.appendChild(typingElement);
+        this.scrollToBottom();
+    }
+
+    hideTyping() {
+        const typingElement = document.getElementById('ai-typing');
+        if (typingElement) {
+            typingElement.remove();
+        }
+    }
+
+    scrollToBottom() {
+        const messagesContainer = document.getElementById('ai-chat-messages');
+        if (messagesContainer) {
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
     }
 }
 
 // Inicializar el chat cuando se carga la página
 document.addEventListener('DOMContentLoaded', function() {
     window.aiChat = new ALChat();
+    console.log('✅ Chat IA ALMA Kids cargado correctamente');
 });
-
-// Función global para abrir el chat
-function openAIChat() {
-    if (window.aiChat) {
-        window.aiChat.toggle();
-    }
-}
