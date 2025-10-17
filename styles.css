@@ -2683,12 +2683,12 @@ p {
 }
 
 .promocion-card {
-    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    background: linear-gradient(135deg, #3498db, #2ecc71);
     border-radius: 20px;
     padding: 2rem;
     color: white;
     text-align: center;
-    box-shadow: 0 10px 30px rgba(238, 90, 36, 0.3);
+    box-shadow: 0 10px 30px rgba(52, 152, 219, 0.3);
     position: relative;
     overflow: hidden;
 }
