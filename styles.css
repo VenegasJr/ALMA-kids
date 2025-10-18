@@ -2838,6 +2838,111 @@ p {
     }
 }
 
+/* Colores de Alfombras Carpa Tipi */
+.colores-alfombras {
+    margin: 1.5rem 0;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-radius: 15px;
+    border: 2px solid #dee2e6;
+}
+
+.colores-alfombras h4 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.colores-alfombras-grid {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.color-alfombra {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.color-alfombra:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.color-alfombra .color-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.color-alfombra span {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.colores-alfombras .colores-note {
+    background: rgba(52, 152, 219, 0.1);
+    padding: 0.8rem;
+    border-radius: 8px;
+    border-left: 4px solid #3498db;
+    font-size: 0.9rem;
+    color: #2c3e50;
+    margin: 0;
+    text-align: center;
+}
+
+.colores-alfombras .colores-note i {
+    color: #3498db;
+    margin-right: 0.5rem;
+}
+
+/* Responsive para colores de alfombras */
+@media (max-width: 768px) {
+    .colores-alfombras {
+        padding: 1rem;
+        margin: 1rem 0;
+    }
+    
+    .colores-alfombras h4 {
+        font-size: 1rem;
+    }
+    
+    .colores-alfombras-grid {
+        gap: 1rem;
+    }
+    
+    .color-alfombra {
+        padding: 0.6rem;
+    }
+    
+    .color-alfombra .color-circle {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .color-alfombra span {
+        font-size: 0.8rem;
+    }
+    
+    .colores-alfombras .colores-note {
+        font-size: 0.85rem;
+        padding: 0.6rem;
+    }
+}
+
 /* Responsive - Mantener efectos y colores consistentes */
 @media (max-width: 1200px) {
     .colores-grid {
