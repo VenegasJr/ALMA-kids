@@ -2847,6 +2847,106 @@ p {
     border: 2px solid #dee2e6;
 }
 
+/* Información sobre Conveniencia de Packs */
+.conveniencia-packs-info {
+    margin: 2rem 0;
+    padding: 0;
+}
+
+.conveniencia-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    padding: 2rem;
+    color: white;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.conveniencia-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, transparent 100%);
+    pointer-events: none;
+}
+
+.conveniencia-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.conveniencia-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.conveniencia-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.conveniencia-item i {
+    font-size: 1.2rem;
+    min-width: 20px;
+}
+
+.conveniencia-item span {
+    text-align: left;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.conveniencia-ejemplo {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+    padding: 1.5rem;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.conveniencia-ejemplo h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #FFD700;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.conveniencia-ejemplo p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.ahorro-destacado {
+    background: rgba(255, 215, 0, 0.2);
+    padding: 0.8rem;
+    border-radius: 10px;
+    border: 2px solid #FFD700;
+    font-weight: bold;
+    color: #FFD700 !important;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    margin-top: 1rem !important;
+}
+
+.ahorro-destacado i {
+    color: #FFD700;
+    margin-right: 0.5rem;
+}
+
 .colores-alfombras h4 {
     color: #2c3e50;
     margin-bottom: 1rem;
