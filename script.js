@@ -697,16 +697,6 @@ function openImageModal(imageSrc, title, code, category) {
     }
 }
 
-// Habilitar modal en todas las imágenes que no lo tengan
-document.addEventListener('DOMContentLoaded', function() {
-    const imgs = Array.from(document.querySelectorAll('img'))
-        .filter(img => !img.getAttribute('onclick'));
-    imgs.forEach(img => {
-        img.style.cursor = 'pointer';
-        img.setAttribute('onclick', `openImageModal(this.src, this.alt || 'Imagen', '', '')`);
-    });
-});
-
 function closeImageModal() {
     const modal = document.getElementById('imageModal');
     if (modal) {

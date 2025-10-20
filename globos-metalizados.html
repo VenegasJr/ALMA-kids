@@ -138,6 +138,27 @@
                 <p>Cada producto con nombre profesional y presentación elegante</p>
             </div>
 
+            <!-- Información de Precios -->
+            <div class="precios-globos-info">
+                <div class="precio-globos-card">
+                    <h3>💰 Precios Globos Metalizados</h3>
+                    <div class="precio-globos-details">
+                        <div class="precio-globo-item">
+                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                            <span><strong>Precio por globo:</strong> $5.000</span>
+                        </div>
+                        <div class="precio-globo-item">
+                            <i class="fas fa-gift" style="color: #E91E63;"></i>
+                            <span><strong>Descuentos por cantidad:</strong> Consulta por packs especiales</span>
+                        </div>
+                    </div>
+                    <p class="precio-globos-note">
+                        <i class="fas fa-info-circle"></i>
+                        Todos los globos incluyen inflado con helio y cinta decorativa. Precios IVA incluido.
+                    </p>
+                </div>
+            </div>
+
             <div class="globos-categories">
 
                 <!-- Princesas y Fantasía -->
@@ -159,7 +180,18 @@
                                     <p><i class="fas fa-ruler"></i> <strong>Medidas:</strong> 76×75cm</p>
                                     <p><i class="fas fa-boxes"></i> <strong>Stock:</strong> Consulta disponibilidad</p>
                                 </div>
-                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToCart('GM-PF-009', 'Globo Metálico Corona Azul', 'Princesas y Fantasía')">
+                                <div class="precio-globo-mini">
+                                    <span class="precio-amount">$5.000</span>
+                                    <span class="precio-iva">IVA incluido</span>
+                                </div>
+                                <button class="btn btn-cart" onclick="event.stopPropagation(); addToNewCart({
+                                    id: 'GM-PF-009',
+                                    name: 'Globo Metálico Corona Azul',
+                                    code: 'GM-PF-009',
+                                    category: 'Globos Metalizados',
+                                    image: 'imagenes globos decoracion/globo-metalico-corona-azul-76x75cm.png',
+                                    price: 5000
+                                })">
                                     <i class="fas fa-cart-plus"></i> Agregar al Carrito
                                 </button>
                             </div>
