@@ -2683,12 +2683,12 @@ p {
 }
 
 .promocion-card {
-    background: linear-gradient(135deg, #3498db, #2ecc71);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
     border-radius: 20px;
     padding: 2rem;
     color: white;
     text-align: center;
-    box-shadow: 0 10px 30px rgba(52, 152, 219, 0.3);
+    box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
     position: relative;
     overflow: hidden;
 }
@@ -2774,9 +2774,9 @@ p {
 }
 
 .btn-promocion {
-    background: rgba(255, 255, 255, 0.2);
+    background: linear-gradient(135deg, #ff6b6b, #ff8e8e, #ffa8a8);
     color: white;
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.4);
     padding: 1rem 2rem;
     font-size: 1.1rem;
     font-weight: 600;
@@ -2787,13 +2787,14 @@ p {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
+    box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
 }
 
 .btn-promocion:hover {
-    background: rgba(255, 255, 255, 0.3);
-    border-color: rgba(255, 255, 255, 0.5);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #ff5252, #ff7979, #ffb3b3);
+    border-color: rgba(255, 255, 255, 0.6);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(255, 107, 107, 0.6);
     color: white;
 }
 
