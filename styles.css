@@ -2683,14 +2683,15 @@ p {
 }
 
 .promocion-card {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-    border-radius: 20px;
-    padding: 2rem;
+    background: linear-gradient(135deg, #FF6B9D 0%, #E91E63 30%, #C2185B 70%, #AD1457 100%);
+    border-radius: 25px;
+    padding: 2.5rem;
     color: white;
     text-align: center;
-    box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 20px 40px rgba(255, 107, 157, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1);
     position: relative;
     overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .promocion-card::before {
@@ -2700,8 +2701,22 @@ p {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-    animation: shine 3s infinite;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+    animation: shine 4s infinite;
+    z-index: 1;
+}
+
+.promocion-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
+    border-radius: 25px;
+    z-index: 2;
 }
 
 @keyframes shine {
@@ -2709,13 +2724,19 @@ p {
     100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
 }
 
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3); }
+    50% { transform: scale(1.05); box-shadow: 0 12px 25px rgba(255, 215, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.4); }
+    100% { transform: scale(1); box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3); }
+}
+
 .promocion-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     position: relative;
-    z-index: 2;
+    z-index: 3;
 }
 
 .promocion-header h3 {
@@ -2726,18 +2747,23 @@ p {
 }
 
 .promocion-badge {
-    background: rgba(255, 255, 255, 0.2);
-    padding: 0.5rem 1rem;
-    border-radius: 25px;
-    font-size: 1.2rem;
-    font-weight: 700;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(10px);
+    background: linear-gradient(135deg, #FFD700, #FFA500, #FF8C00);
+    padding: 0.8rem 1.5rem;
+    border-radius: 30px;
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #8B0000;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    position: relative;
+    z-index: 3;
+    animation: pulse 2s infinite;
 }
 
 .promocion-content {
     position: relative;
-    z-index: 2;
+    z-index: 3;
 }
 
 .promocion-content p {
@@ -2774,28 +2800,31 @@ p {
 }
 
 .btn-promocion {
-    background: linear-gradient(135deg, #ff6b6b, #ff8e8e, #ffa8a8);
-    color: white;
-    border: 2px solid rgba(255, 255, 255, 0.4);
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
-    font-weight: 600;
+    background: linear-gradient(135deg, #FFD700, #FFA500, #FF8C00);
+    color: #8B0000;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    padding: 1.2rem 2.5rem;
+    font-size: 1.2rem;
+    font-weight: 700;
     border-radius: 50px;
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
     text-decoration: none;
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
+    gap: 0.8rem;
+    box-shadow: 0 10px 25px rgba(255, 215, 0, 0.5);
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
+    position: relative;
+    z-index: 3;
 }
 
 .btn-promocion:hover {
-    background: linear-gradient(135deg, #ff5252, #ff7979, #ffb3b3);
-    border-color: rgba(255, 255, 255, 0.6);
-    transform: translateY(-3px);
-    box-shadow: 0 12px 25px rgba(255, 107, 107, 0.6);
-    color: white;
+    background: linear-gradient(135deg, #FFA500, #FF8C00, #FF7F00);
+    border-color: rgba(255, 255, 255, 0.8);
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(255, 215, 0, 0.7);
+    color: #8B0000;
 }
 
 /* Responsive para promoción */
