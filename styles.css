@@ -3079,6 +3079,28 @@ p {
     }
 }
 
+/* Layout específico para Ofertas Especiales - 2 por fila */
+#ofertas .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#ofertas .service-card {
+    width: 100%;
+    max-width: none;
+}
+
+/* Responsive para ofertas */
+@media (max-width: 768px) {
+    #ofertas .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
 /* Información sobre Conveniencia de Packs */
 .conveniencia-packs-info {
     margin: 2rem 0;
