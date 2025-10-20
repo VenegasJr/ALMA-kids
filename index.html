@@ -55,7 +55,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <!-- CSS -->
-    <link rel="stylesheet" href="styles.css?v=20250115-26">
+    <link rel="stylesheet" href="styles.css?v=20250115-27">
     <link rel="stylesheet" href="animations.css">
     <link rel="stylesheet" href="visual-fixes.css">
     <link rel="stylesheet" href="layout-fixes.css">
@@ -464,7 +464,6 @@
                 </div>
                 <div class="hero-image">
                         <img src="imagenes/Castillo-inflable-portadas.png?v=20250115-10" alt="Castillo Inflable ALMA Kids" class="hero-img" onclick="openImageModal(this.src, 'Castillo Inflable ALMA Kids', 'Nuestro castillo inflable profesional de alta calidad para eventos infantiles')" style="cursor: pointer;">
-                    <div class="image-badge">Imagen referencial</div>
                 </div>
             </div>
         </div>
@@ -523,7 +522,6 @@
                     <div class="service-card service-card-1 clickeable">
                         <div class="service-image">
                             <img src="imagenes/Castillo-inflable-portadas.png?v=20250115-10" alt="Castillo Inflable" class="service-img" onclick="openImageModal(this.src, 'Castillo Inflable', 'Diversión garantizada con nuestros castillos inflables certificados y seguros', 'servicios')" style="cursor: pointer;">
-                            <div class="image-badge">Imagen referencial</div>
                             <div class="click-overlay">
                                 <i class="fas fa-arrow-right"></i>
                                 <span>Ver más Castillos</span>
@@ -549,7 +547,6 @@
                 <div class="service-card service-card-2">
                     <div class="service-image">
                         <img src="imagenes/plaza-blanda.png" alt="Plaza Blanda" class="service-img" onclick="openImageModal(this.src, 'Plaza Blanda', 'Zona de juegos segura para nuestros pequeños desde los 6 meses a 7 años')" style="cursor: pointer;">
-                        <div class="image-badge">Imagen referencial</div>
                     </div>
                     <div class="service-content">
                         <h3>Plaza Blanda</h3>
@@ -570,7 +567,6 @@
                 <div class="service-card service-card-3">
                     <div class="service-image">
                         <img src="imagenes/Castillo-servicios-adicinales.PNG" alt="Servicios Adicionales" class="service-img" onclick="openImageModal(this.src, 'Servicios Adicionales', 'Completa tu evento con nuestros servicios extra: Piscina de Pelotas, Set de Motricidad, Juegos de Espuma, Decoración Temática, Carpa Tipi, Inflable Saltarín y Máquina de Burbujas')" style="cursor: pointer;">
-                        <div class="image-badge">Imagen referencial</div>
                     </div>
                     <div class="service-content">
                         <h3>Servicios Adicionales</h3>
@@ -883,6 +879,87 @@
         </div>
     </section>
 
+    <!-- Soft Play Section -->
+    <section id="soft-play" class="soft-play">
+        <div class="container">
+            <h2 class="section-title">🏗️ Soft Play - Zona de Juegos Estructurada</h2>
+            <p class="section-subtitle">Área de juegos modular y segura para desarrollo motor y diversión estructurada</p>
+            <p class="supervision-note">
+                <i class="fas fa-exclamation-triangle"></i>
+                <strong>En todo momento debe estar la supervisión de un adulto responsable.</strong>
+            </p>
+            
+            <div class="soft-play-intro">
+                <p>Nuestro Soft Play es un sistema modular de juegos que combina diversión, seguridad y desarrollo motor. Perfecto para eventos donde necesitas una zona de juegos estructurada y educativa. Disponible en diferentes tamaños según tus necesidades.</p>
+            </div>
+            
+            <!-- Galería de Soft Play -->
+            <div class="soft-play-gallery">
+                <div class="soft-play-item">
+                    <div class="soft-play-images-gallery">
+                        <div class="soft-play-image">
+                            <img src="imagenes/soft-play-2x2.png" alt="Soft Play 2x2 metros" onclick="openImageModal(this.src, 'Soft Play 2x2 metros', 'Medidas: 2x2 metros - Zona de juegos básica ideal para espacios pequeños', 'soft-play-2x2')">
+                        </div>
+                        <div class="soft-play-image">
+                            <img src="imagenes/soft-play-3x3.png" alt="Soft Play 3x3 metros" onclick="openImageModal(this.src, 'Soft Play 3x3 metros', 'Medidas: 3x3 metros - Zona de juegos amplia con más elementos', 'soft-play-3x3')">
+                        </div>
+                        <div class="soft-play-image-caption">Nuestros Soft Play</div>
+                    </div>
+                    <div class="soft-play-info">
+                        <h4>Soft Play Modular</h4>
+                        <p class="medidas">📏 <strong>Medidas disponibles:</strong> 2x2m y 3x3m</p>
+                        <p>Sistema modular de juegos que incluye túneles, rampas, escalones y elementos de equilibrio. Diseñado para estimular el desarrollo motor grueso, la coordinación y la confianza de los niños en un ambiente completamente seguro.</p>
+                        <div class="soft-play-features">
+                            <h5>🎯 Características:</h5>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Materiales suaves y seguros</li>
+                                <li><i class="fas fa-check"></i> Colores vibrantes y atractivos</li>
+                                <li><i class="fas fa-check"></i> Fácil montaje y desmontaje</li>
+                                <li><i class="fas fa-check"></i> Ideal para niños de 1 a 8 años</li>
+                            </ul>
+                        </div>
+                        <div class="soft-play-prices">
+                            <div class="price-option">
+                                <span class="size-label">Soft Play 2x2m:</span>
+                                <span class="price-amount">$35.000</span>
+                            </div>
+                            <div class="price-option">
+                                <span class="size-label">Soft Play 3x3m:</span>
+                                <span class="price-amount">$55.000</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" onclick="addToNewCart({
+                            id: 'soft-play-2x2',
+                            name: 'Soft Play 2x2 metros',
+                            code: 'SP-2X2-001',
+                            category: 'Soft Play',
+                            image: 'imagenes/soft-play-2x2.png',
+                            price: 35000
+                        })">
+                            <i class="fas fa-cart-plus"></i> Agregar Soft Play 2x2m
+                        </button>
+                        <button class="btn btn-secondary" onclick="addToNewCart({
+                            id: 'soft-play-3x3',
+                            name: 'Soft Play 3x3 metros',
+                            code: 'SP-3X3-001',
+                            category: 'Soft Play',
+                            image: 'imagenes/soft-play-3x3.png',
+                            price: 55000
+                        })">
+                            <i class="fas fa-cart-plus"></i> Agregar Soft Play 3x3m
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="soft-play-cta">
+                <h3>¿Necesitas una zona de juegos estructurada?</h3>
+                <p>El Soft Play es perfecto para eventos educativos, cumpleaños temáticos y espacios donde quieres combinar diversión con desarrollo motor.</p>
+                <a href="#contacto" class="btn btn-primary">Solicitar Presupuesto</a>
+            </div>
+        </div>
+    </section>
+
     <!-- Servicios Adicionales Preview Section -->
     <section id="servicios-adicionales-preview" class="services-preview">
         <div class="container">
@@ -894,7 +971,6 @@
                 <div class="service-card service-card-1">
                     <div class="service-image">
                         <img src="Servicios adicionales/carpa-tipi.jpg" alt="Carpa Tipi" class="service-img" onclick="openImageModal(this.src, 'Carpa Tipi', 'Espacio mágico para la imaginación', 'carpa-tipi')" style="cursor: pointer;">
-                        <div class="image-badge">Imagen referencial</div>
                     </div>
                     <div class="service-content">
                         <h3>Carpa Tipi</h3>
@@ -911,7 +987,6 @@
                 <div class="service-card service-card-2">
                     <div class="service-image">
                         <img src="Servicios adicionales/Inflable-saltarin-de-eluche-carestino-18m.jpg" alt="Inflable Saltarín" class="service-img" onclick="openImageModal(this.src, 'Inflable Saltarín', 'Diversión segura desde 18 meses', 'inflable-carestino')" style="cursor: pointer;">
-                        <div class="image-badge">Imagen referencial</div>
                     </div>
                     <div class="service-content">
                         <h3>Inflable Saltarín</h3>
@@ -928,7 +1003,6 @@
                 <div class="service-card service-card-3">
                     <div class="service-image">
                         <img src="imagenes/Maquina-burbuja-.png?v=20250115-11" alt="Máquina de Burbujas" class="service-img" onclick="openImageModal(this.src, 'Máquina de Burbujas', 'Magia flotante para tu evento', 'maquina-burbujas')" style="cursor: pointer;">
-                        <div class="image-badge">Imagen referencial</div>
                     </div>
                     <div class="service-content">
                         <h3>Máquina de Burbujas</h3>

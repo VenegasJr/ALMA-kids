@@ -2877,6 +2877,208 @@ p {
     border: 2px solid #dee2e6;
 }
 
+/* Soft Play Section */
+.soft-play {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #F5F0FF, #FFF0F5);
+}
+
+.soft-play-intro {
+    text-align: center;
+    margin-bottom: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.soft-play-intro p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+.soft-play-gallery {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.soft-play-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 2px solid #f0f0f0;
+}
+
+.soft-play-images-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    position: relative;
+}
+
+.soft-play-image {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.soft-play-image:hover {
+    transform: translateY(-5px);
+}
+
+.soft-play-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.soft-play-image:hover img {
+    transform: scale(1.05);
+}
+
+.soft-play-image-caption {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 107, 157, 0.9);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+}
+
+.soft-play-info h4 {
+    color: #2c3e50;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.soft-play-info .medidas {
+    background: linear-gradient(135deg, #FF6B9D, #E91E63);
+    color: white;
+    padding: 0.8rem 1.2rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.soft-play-features {
+    margin: 1.5rem 0;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-radius: 15px;
+    border-left: 4px solid #FF6B9D;
+}
+
+.soft-play-features h5 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.soft-play-features ul {
+    list-style: none;
+    padding: 0;
+}
+
+.soft-play-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 0.8rem;
+    color: #555;
+}
+
+.soft-play-features li i {
+    color: #FF6B9D;
+    font-size: 1rem;
+}
+
+.soft-play-prices {
+    display: flex;
+    gap: 1rem;
+    margin: 1.5rem 0;
+    flex-wrap: wrap;
+}
+
+.price-option {
+    flex: 1;
+    min-width: 200px;
+    background: linear-gradient(135deg, #E8D5F2, #F0E6FF);
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    border: 2px solid #FF6B9D;
+}
+
+.size-label {
+    display: block;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.price-amount {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #E91E63;
+}
+
+.soft-play-cta {
+    text-align: center;
+    background: linear-gradient(135deg, #FF6B9D, #E91E63);
+    color: white;
+    padding: 2.5rem;
+    border-radius: 20px;
+    margin-top: 2rem;
+}
+
+.soft-play-cta h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.soft-play-cta p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+}
+
+/* Responsive para Soft Play */
+@media (max-width: 768px) {
+    .soft-play-item {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .soft-play-images-gallery {
+        grid-template-columns: 1fr;
+    }
+    
+    .soft-play-prices {
+        flex-direction: column;
+    }
+    
+    .price-option {
+        min-width: auto;
+    }
+}
+
 /* Información sobre Conveniencia de Packs */
 .conveniencia-packs-info {
     margin: 2rem 0;
