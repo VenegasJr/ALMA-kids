@@ -1,0 +1,4 @@
+Cache busting file - Version 38
+Updated: 2025-01-15 22:40
+Fixed format: "Pack: IVA incluido $precio" in single line
+All offers now show unified price format
