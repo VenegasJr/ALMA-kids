@@ -1,0 +1,4 @@
+Cache busting file - Version 40
+Updated: 2025-01-15 22:50
+Eliminada "Oferta Premium Total" completa
+Mantiene solo: Mini Tipi, Plaza Plus, y todos los Packs Alma
