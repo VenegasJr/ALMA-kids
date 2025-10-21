@@ -1,0 +1,5 @@
+Cache busting file - Version 41
+Updated: 2025-01-15 22:55
+Colores distintivos para ofertas especiales
+Gradiente rosa-magenta con efectos glassmorphism
+Textos blancos con sombras para mejor legibilidad
