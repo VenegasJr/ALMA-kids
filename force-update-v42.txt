@@ -1,5 +1,0 @@
-Cache busting file - Version 42
-Updated: 2025-01-15 23:00
-Colores suaves pasteles para ofertas especiales
-Cada oferta con color único: naranja, púrpura, verde, rosa, azul, verde claro
-Inspirado en los colores de la sección de características

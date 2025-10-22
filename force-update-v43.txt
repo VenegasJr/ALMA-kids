@@ -1,4 +1,0 @@
-Cache busting file - Version 43
-Updated: 2025-01-15 23:05
-Banner de actualización eliminado de la web
-Solo cambios internos, sin mensajes visibles

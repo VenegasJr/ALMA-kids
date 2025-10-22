@@ -1,5 +1,0 @@
-Cache busting file - Version 49
-Updated: 2025-01-15 23:35
-Corrección de nomenclatura: "Castillo Inflable Rosas" → "Castillo Inflable Rosa"
-Cambio aplicado en todas las referencias del sitio
-Consistencia en la nomenclatura del castillo rosa
