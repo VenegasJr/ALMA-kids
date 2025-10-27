@@ -408,8 +408,13 @@
         var(--halloween-purple) 50%, 
         var(--halloween-orange) 100%);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     overflow: hidden;
+    margin: 0;
+    padding: 0;
 }
 
 .header.halloween-theme::before {

@@ -261,6 +261,8 @@ p {
     box-shadow: var(--shadow);
     z-index: 1000;
     transition: var(--transition);
+    margin: 0;
+    padding: 0;
 }
 
 .header.scrolled {
@@ -7177,6 +7179,13 @@ body {
 html, body {
     height: 100%;
     overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    margin: 0;
+    padding: 0;
 }
 
 .footer-content {
