@@ -382,7 +382,55 @@
                     </div>
                 </div>
                 <div class="hero-image">
-                        <img src="imagenes/Castillo-inflable-portadas.png?v=20250115-10" alt="Castillo Inflable ALMA Kids" class="hero-img" onclick="openImageModal(this.src, 'Castillo Inflable ALMA Kids', 'Nuestro castillo inflable profesional de alta calidad para eventos infantiles')" style="cursor: pointer;">
+                    <div class="hero-carousel">
+                        <div class="carousel-container">
+                            <div class="carousel-slide active">
+                                <img src="imagenes/Castillo-inflable-portadas.png?v=20250115-10" alt="Castillo Inflable ALMA Kids" class="hero-img" onclick="openImageModal(this.src, 'Castillo Inflable ALMA Kids', 'Castillo inflable blanco con torres, tobogán y piscinas de pelotas laterales')" style="cursor: pointer;">
+                                <div class="carousel-caption">
+                                    <p>Castillo Inflable Clásico - Con torres, tobogán y piscinas de pelotas laterales</p>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="imagenes/Castillo, Piscina cuadrada.png" alt="Castillo con Piscina Cuadrada" class="hero-img" onclick="openImageModal(this.src, 'Castillo Inflable Peque', 'Castillo en tonos rosas con piscina cuadrada de pelotas integrada')" style="cursor: pointer;">
+                                <div class="carousel-caption">
+                                    <p>Castillo Inflable Peque - En tonos rosas con piscina cuadrada de pelotas integrada</p>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="imagenes/Castillo-Piscina-redonda.png" alt="Castillo con Piscina Redonda" class="hero-img" onclick="openImageModal(this.src, 'Castillo Inflable ROSA', 'Castillo inflable con piscina redonda integrada')" style="cursor: pointer;">
+                                <div class="carousel-caption">
+                                    <p>Castillo Inflable "ROSA" - Con piscina redonda integrada para diversión segura</p>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="imagenes/castillo-grand-peque.png" alt="Castillo Grand Peque" class="hero-img" onclick="openImageModal(this.src, 'Castillo Grand Peque', 'Castillo en tonos rosas con piscina de pelotas integrada')" style="cursor: pointer;">
+                                <div class="carousel-caption">
+                                    <p>Castillo Grand Peque - Perfecto para los más pequeños con diseño seguro</p>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="imagenes/Plaza-blanda-castillo-rosas.png" alt="Plaza Blanda con Castillo" class="hero-img" onclick="openImageModal(this.src, 'Plaza Blanda con Castillo', 'Combinación de plaza blanda y castillo para diversión completa')" style="cursor: pointer;">
+                                <div class="carousel-caption">
+                                    <p>Pack Completo - Plaza Blanda con Castillo para diversión garantizada</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Botones de navegación del carrusel -->
+                        <button class="carousel-btn carousel-prev" onclick="changeHeroSlide(-1)" aria-label="Imagen anterior">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-btn carousel-next" onclick="changeHeroSlide(1)" aria-label="Imagen siguiente">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                        <!-- Indicadores de puntos -->
+                        <div class="carousel-indicators">
+                            <span class="carousel-dot active" onclick="goToHeroSlide(0)" aria-label="Imagen 1"></span>
+                            <span class="carousel-dot" onclick="goToHeroSlide(1)" aria-label="Imagen 2"></span>
+                            <span class="carousel-dot" onclick="goToHeroSlide(2)" aria-label="Imagen 3"></span>
+                            <span class="carousel-dot" onclick="goToHeroSlide(3)" aria-label="Imagen 4"></span>
+                            <span class="carousel-dot" onclick="goToHeroSlide(4)" aria-label="Imagen 5"></span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -418,13 +466,27 @@
         </div>
     </section>
 
-    <!-- Mensaje Próximamente -->
+    <!-- Mensaje de Agendamiento Activo -->
     <section class="proximamente-section">
         <div class="container">
-            <div class="proximamente-message">
-                <div class="rocket-icon">🚀</div>
-                <h3>¡Próximamente!</h3>
-                <p>Desde Machalí para toda la región</p>
+            <div class="proximamente-message booking-active">
+                <div class="booking-icon">
+                    <i class="fas fa-calendar-check"></i>
+                </div>
+                <h3>🎉 ¡Ya Estamos Agendando!</h3>
+                <p class="booking-subtitle">Reserva tu fecha ahora y asegura la diversión para tu evento</p>
+                <p class="booking-location">📍 Desde Machalí para toda la Región de O'Higgins</p>
+                <div class="booking-cta">
+                    <a href="#contacto" class="btn btn-primary">Agendar Ahora</a>
+                    <a href="https://wa.me/56969073306?text=Hola%20ALMA%20Kids,%20quiero%20agendar%20mi%20evento" target="_blank" class="btn btn-secondary">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+                <div class="booking-features">
+                    <span><i class="fas fa-check-circle"></i> Disponibilidad inmediata</span>
+                    <span><i class="fas fa-check-circle"></i> Cobertura regional</span>
+                    <span><i class="fas fa-check-circle"></i> Atención personalizada</span>
+                </div>
             </div>
         </div>
     </section>
@@ -2289,6 +2351,89 @@
                 }
             }
         });
+
+        // ========================================
+        // CARRUSEL DEL HERO - CASTILLOS
+        // ========================================
+        
+        let currentHeroSlide = 0;
+        const heroSlides = document.querySelectorAll('.hero-carousel .carousel-slide');
+        const heroDots = document.querySelectorAll('.hero-carousel .carousel-dot');
+        let heroCarouselInterval = null;
+        
+        // Función para cambiar slide
+        function changeHeroSlide(direction) {
+            heroSlides[currentHeroSlide].classList.remove('active');
+            heroDots[currentHeroSlide].classList.remove('active');
+            
+            currentHeroSlide += direction;
+            
+            if (currentHeroSlide >= heroSlides.length) {
+                currentHeroSlide = 0;
+            } else if (currentHeroSlide < 0) {
+                currentHeroSlide = heroSlides.length - 1;
+            }
+            
+            heroSlides[currentHeroSlide].classList.add('active');
+            heroDots[currentHeroSlide].classList.add('active');
+            
+            // Reiniciar auto-play
+            resetHeroCarousel();
+        }
+        
+        // Función para ir a un slide específico
+        function goToHeroSlide(index) {
+            if (index >= 0 && index < heroSlides.length) {
+                heroSlides[currentHeroSlide].classList.remove('active');
+                heroDots[currentHeroSlide].classList.remove('active');
+                
+                currentHeroSlide = index;
+                
+                heroSlides[currentHeroSlide].classList.add('active');
+                heroDots[currentHeroSlide].classList.add('active');
+                
+                // Reiniciar auto-play
+                resetHeroCarousel();
+            }
+        }
+        
+        // Función para iniciar auto-play
+        function startHeroCarousel() {
+            heroCarouselInterval = setInterval(function() {
+                changeHeroSlide(1);
+            }, 5000); // Cambiar cada 5 segundos
+        }
+        
+        // Función para reiniciar auto-play
+        function resetHeroCarousel() {
+            if (heroCarouselInterval) {
+                clearInterval(heroCarouselInterval);
+            }
+            startHeroCarousel();
+        }
+        
+        // Inicializar carrusel al cargar la página
+        if (heroSlides.length > 0) {
+            startHeroCarousel();
+            
+            // Pausar al hacer hover
+            const heroCarousel = document.querySelector('.hero-carousel');
+            if (heroCarousel) {
+                heroCarousel.addEventListener('mouseenter', function() {
+                    if (heroCarouselInterval) {
+                        clearInterval(heroCarouselInterval);
+                    }
+                });
+                
+                heroCarousel.addEventListener('mouseleave', function() {
+                    startHeroCarousel();
+                });
+            }
+        }
+        
+        // Hacer funciones globales
+        window.changeHeroSlide = changeHeroSlide;
+        window.goToHeroSlide = goToHeroSlide;
 
         // Función para verificar que todos los elementos del carrito existan
         function verifyCartElements() {
