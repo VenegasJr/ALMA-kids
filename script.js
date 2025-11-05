@@ -746,12 +746,25 @@ function updateComparisonCount() {
 // SISTEMA DE MODALES
 // ========================================
 
+// Variable global para controlar el estado del zoom y pantalla completa
+let isImageZoomed = false;
+let isFullscreen = false;
+
 function openImageModal(imageSrc, title, code, category) {
     const modal = document.getElementById('imageModal');
     if (!modal) return;
     
     const modalImage = document.getElementById('modalImage');
     const modalCaption = document.getElementById('modalCaption');
+
+    // Resetear estados
+    isImageZoomed = false;
+    isFullscreen = false;
+    modal.classList.remove('fullscreen');
+    if (modalImage) {
+        modalImage.classList.remove('zoomed');
+    }
+    updateControlIcons();
 
     // Si el recurso es un video MP4, reemplazamos la imagen por un reproductor de video
     const isVideo = /\.mp4(\?|$)/i.test(imageSrc);
@@ -786,15 +799,22 @@ function openImageModal(imageSrc, title, code, category) {
             modalImage.style.display = 'block';
             modalImage.src = imageSrc;
             modalImage.alt = title;
+            
+            // Cargar imagen en alta resolución si está disponible
+            modalImage.onload = function() {
+                // Asegurar que la imagen se vea correctamente
+                this.style.display = 'block';
+            };
         }
 
+        const captionText = code || category || '';
         modalCaption.innerHTML = `
             <h3>${title}</h3>
-            ${code ? `<p>${code}</p>` : ''}
-            ${category ? `<p>${category}</p>` : ''}
+            ${captionText ? `<p>${captionText}</p>` : ''}
         `;
 
-        modal.style.display = 'block';
+        modal.style.display = 'flex';
+        modal.classList.add('active');
         document.body.style.overflow = 'hidden';
     }
 }
@@ -803,9 +823,132 @@ function closeImageModal() {
     const modal = document.getElementById('imageModal');
     if (modal) {
         modal.style.display = 'none';
+        modal.classList.remove('active', 'fullscreen');
         document.body.style.overflow = 'auto';
+        
+        // Resetear estados
+        isImageZoomed = false;
+        isFullscreen = false;
+        const modalImage = document.getElementById('modalImage');
+        if (modalImage) {
+            modalImage.classList.remove('zoomed');
+        }
+        updateControlIcons();
+        
+        // Salir de pantalla completa si está activo
+        if (document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement) {
+            exitFullscreen();
+        }
     }
 }
+
+// Función para toggle zoom
+function toggleZoom() {
+    const modalImage = document.getElementById('modalImage');
+    if (!modalImage || modalImage.style.display === 'none') return;
+    
+    isImageZoomed = !isImageZoomed;
+    
+    if (isImageZoomed) {
+        modalImage.classList.add('zoomed');
+    } else {
+        modalImage.classList.remove('zoomed');
+    }
+    
+    updateControlIcons();
+}
+
+// Función para toggle pantalla completa
+function toggleFullscreen() {
+    const modal = document.getElementById('imageModal');
+    if (!modal) return;
+    
+    isFullscreen = !isFullscreen;
+    
+    if (isFullscreen) {
+        // Entrar a pantalla completa
+        if (modal.requestFullscreen) {
+            modal.requestFullscreen();
+        } else if (modal.webkitRequestFullscreen) {
+            modal.webkitRequestFullscreen();
+        } else if (modal.mozRequestFullScreen) {
+            modal.mozRequestFullScreen();
+        } else if (modal.msRequestFullscreen) {
+            modal.msRequestFullscreen();
+        }
+        modal.classList.add('fullscreen');
+    } else {
+        // Salir de pantalla completa
+        exitFullscreen();
+        modal.classList.remove('fullscreen');
+    }
+    
+    updateControlIcons();
+}
+
+// Función para salir de pantalla completa
+function exitFullscreen() {
+    if (document.exitFullscreen) {
+        document.exitFullscreen();
+    } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();
+    } else if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen();
+    } else if (document.msExitFullscreen) {
+        document.msExitFullscreen();
+    }
+}
+
+// Función para actualizar iconos de control
+function updateControlIcons() {
+    const zoomIcon = document.getElementById('zoomIcon');
+    const fullscreenIcon = document.getElementById('fullscreenIcon');
+    
+    if (zoomIcon) {
+        zoomIcon.className = isImageZoomed ? 'fas fa-search-minus' : 'fas fa-search-plus';
+    }
+    
+    if (fullscreenIcon) {
+        fullscreenIcon.className = isFullscreen ? 'fas fa-compress' : 'fas fa-expand';
+    }
+}
+
+// Detectar cambios de pantalla completa
+document.addEventListener('fullscreenchange', function() {
+    const modal = document.getElementById('imageModal');
+    if (!document.fullscreenElement && modal) {
+        isFullscreen = false;
+        modal.classList.remove('fullscreen');
+        updateControlIcons();
+    }
+});
+
+document.addEventListener('webkitfullscreenchange', function() {
+    const modal = document.getElementById('imageModal');
+    if (!document.webkitFullscreenElement && modal) {
+        isFullscreen = false;
+        modal.classList.remove('fullscreen');
+        updateControlIcons();
+    }
+});
+
+document.addEventListener('mozfullscreenchange', function() {
+    const modal = document.getElementById('imageModal');
+    if (!document.mozFullScreenElement && modal) {
+        isFullscreen = false;
+        modal.classList.remove('fullscreen');
+        updateControlIcons();
+    }
+});
+
+document.addEventListener('msfullscreenchange', function() {
+    const modal = document.getElementById('imageModal');
+    if (!document.msFullscreenElement && modal) {
+        isFullscreen = false;
+        modal.classList.remove('fullscreen');
+        updateControlIcons();
+    }
+});
 
 // ========================================
 // CALCULADORA DE PRECIOS

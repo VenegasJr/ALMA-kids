@@ -1677,16 +1677,24 @@
     <!-- Image Modal -->
     <div id="imageModal" class="modal">
         <div class="modal-content">
-            <button class="close-modal" onclick="closeImageModal()">
-                <i class="fas fa-times"></i>
-            </button>
-            <button class="modal-nav modal-prev" onclick="previousImage()">
+            <div class="modal-controls">
+                <button class="modal-control-btn" onclick="toggleZoom()" title="Zoom">
+                    <i class="fas fa-search-plus" id="zoomIcon"></i>
+                </button>
+                <button class="modal-control-btn" onclick="toggleFullscreen()" title="Pantalla Completa">
+                    <i class="fas fa-expand" id="fullscreenIcon"></i>
+                </button>
+                <button class="close-modal" onclick="closeImageModal()" title="Cerrar">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <button class="modal-nav modal-prev" onclick="previousImage()" title="Anterior">
                 <i class="fas fa-chevron-left"></i>
             </button>
-            <button class="modal-nav modal-next" onclick="nextImage()">
+            <button class="modal-nav modal-next" onclick="nextImage()" title="Siguiente">
                 <i class="fas fa-chevron-right"></i>
             </button>
-            <img id="modalImage" class="modal-image" src="" alt="">
+            <img id="modalImage" class="modal-image" src="" alt="" onclick="toggleZoom()">
             <div id="modalCaption" class="modal-caption"></div>
         </div>
     </div>
