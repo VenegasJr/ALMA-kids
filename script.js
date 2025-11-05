@@ -91,43 +91,145 @@ function performSearch() {
         return;
     }
     
-    // Términos de búsqueda
-    const searchTerms = {
-        'inflable': 'index.html#servicios',
-        'castillo': 'index.html#servicios',
-        'plaza blanda': 'index.html#plaza-blanda',
-        'globos': 'globos-metalizados.html',
-        'eventos': 'eventos.html',
-        'cumpleaños': 'eventos.html',
-        'preguntas': 'faq.html',
-        'faq': 'faq.html',
-        'contacto': 'index.html#contacto',
-        'precios': 'faq.html',
-        'reserva': 'index.html#contacto',
-        'dinosaurio': 'globos-metalizados.html',
-        'princesa': 'globos-metalizados.html',
-        'pokemon': 'globos-metalizados.html'
-    };
+    // Base de datos de búsqueda mejorada con categorías
+    const searchDatabase = [
+        // Servicios - Castillos
+        { terms: ['castillo', 'inflable', 'hinchable', 'brinca brinca', 'saltarín'], title: 'Castillos Inflables', url: 'castillos-inflables.html', icon: '🏰', category: 'Servicios' },
+        { terms: ['castillo inflable', 'castillo pequ', 'castillo rosa', 'castillo grand'], title: 'Castillos Disponibles', url: 'castillos-inflables.html', icon: '🏰', category: 'Servicios' },
+        
+        // Servicios - Plaza Blanda
+        { terms: ['plaza blanda', 'piscina pelotas', 'pelotas', 'piscina', 'plaza'], title: 'Plaza Blanda', url: 'index.html#plaza-blanda', icon: '🏊‍♀️', category: 'Servicios' },
+        
+        // Servicios - Globos
+        { terms: ['globos', 'globos metalizados', 'decoracion', 'decoración', 'helium', 'helio'], title: 'Globos Metalizados', url: 'globos-metalizados.html', icon: '🎈', category: 'Servicios' },
+        { terms: ['dinosaurio', 'princesa', 'pokemon', 'superheroes', 'superhéroes', 'mickey', 'frozen'], title: 'Globos Temáticos', url: 'globos-metalizados.html', icon: '🎈', category: 'Servicios' },
+        
+        // Servicios Adicionales
+        { terms: ['servicios adicionales', 'tipi', 'carpa', 'maquina burbujas', 'burbujas', 'motricidad'], title: 'Servicios Adicionales', url: 'servicios-adicionales.html', icon: '🎪', category: 'Servicios' },
+        
+        // Eventos
+        { terms: ['eventos', 'cumpleaños', 'fiesta', 'celebración', 'festejo'], title: 'Eventos', url: 'eventos.html', icon: '🎉', category: 'Eventos' },
+        { terms: ['graduacion', 'graduación', 'kinder', 'colegio', 'escolar'], title: 'Eventos Escolares', url: 'eventos.html', icon: '🎓', category: 'Eventos' },
+        
+        // Información
+        { terms: ['preguntas', 'faq', 'preguntas frecuentes', 'dudas', 'consulta'], title: 'Preguntas Frecuentes', url: 'faq.html', icon: '❓', category: 'Información' },
+        { terms: ['precios', 'precio', 'cotizacion', 'cotización', 'costo', 'tarifas'], title: 'Precios y Cotizaciones', url: 'faq.html#precios', icon: '💰', category: 'Información' },
+        { terms: ['reserva', 'reservar', 'agendar', 'disponibilidad', 'fecha'], title: 'Reservar Fecha', url: 'index.html#contacto', icon: '📅', category: 'Información' },
+        
+        // Contacto
+        { terms: ['contacto', 'contactar', 'whatsapp', 'telefono', 'teléfono', 'email', 'correo'], title: 'Contacto', url: 'index.html#contacto', icon: '📞', category: 'Contacto' },
+        { terms: ['ubicacion', 'ubicación', 'direccion', 'dirección', 'machali', 'rancagua'], title: 'Ubicación y Cobertura', url: 'index.html#contacto', icon: '📍', category: 'Contacto' },
+        
+        // Packs
+        { terms: ['pack', 'packs', 'combo', 'paquete', 'promocion', 'promoción'], title: 'Packs y Promociones', url: 'index.html#ofertas', icon: '📦', category: 'Ofertas' },
+        
+        // Seguridad
+        { terms: ['seguridad', 'seguro', 'certificado', 'edad', 'supervision', 'supervisión'], title: 'Seguridad y Certificaciones', url: 'faq.html#seguridad', icon: '🛡️', category: 'Información' },
+        
+        // Términos generales
+        { terms: ['niños', 'niño', 'infantil', 'pequeños', 'bebes', 'bebés'], title: 'Servicios para Niños', url: 'index.html#servicios', icon: '👶', category: 'Servicios' },
+        { terms: ['machali', 'rancagua', 'ohiggins', 'region', 'región'], title: 'Cobertura en la Región', url: 'index.html#contacto', icon: '🗺️', category: 'Información' }
+    ];
     
+    // Búsqueda mejorada: busca coincidencias en términos
     const results = [];
-    Object.keys(searchTerms).forEach(term => {
-        if (term.includes(query)) {
+    const queryWords = query.split(' ');
+    
+    searchDatabase.forEach(item => {
+        let matchScore = 0;
+        let matchedTerm = '';
+        
+        // Buscar coincidencias exactas o parciales
+        item.terms.forEach(term => {
+            // Coincidencia exacta
+            if (term === query) {
+                matchScore = 100;
+                matchedTerm = term;
+            }
+            // El término contiene la búsqueda
+            else if (term.includes(query) && matchScore < 80) {
+                matchScore = 80;
+                matchedTerm = term;
+            }
+            // La búsqueda contiene el término
+            else if (query.includes(term) && matchScore < 60) {
+                matchScore = 60;
+                matchedTerm = term;
+            }
+            // Coincidencia de palabras individuales
+            else {
+                queryWords.forEach(word => {
+                    if (word.length >= 3 && term.includes(word) && matchScore < 40) {
+                        matchScore = 40;
+                        matchedTerm = term;
+                    }
+                });
+            }
+        });
+        
+        if (matchScore > 0) {
             results.push({
-                title: term.charAt(0).toUpperCase() + term.slice(1),
-                url: searchTerms[term]
+                ...item,
+                score: matchScore,
+                matchedTerm: matchedTerm
             });
         }
     });
     
-    if (results.length > 0) {
-        resultsContainer.innerHTML = results.map(result => 
-            `<div class="search-result" onclick="window.location.href='${result.url}'">
-                <i class="fas fa-search"></i>
-                <span>${result.title}</span>
-            </div>`
-        ).join('');
+    // Ordenar por relevancia (score)
+    results.sort((a, b) => b.score - a.score);
+    
+    // Limitar a 8 resultados más relevantes
+    const topResults = results.slice(0, 8);
+    
+    // Agrupar por categorías
+    const groupedResults = {};
+    topResults.forEach(result => {
+        if (!groupedResults[result.category]) {
+            groupedResults[result.category] = [];
+        }
+        groupedResults[result.category].push(result);
+    });
+    
+    // Generar HTML mejorado
+    if (topResults.length > 0) {
+        let html = '';
+        Object.keys(groupedResults).forEach(category => {
+            html += `<div class="search-category">
+                <div class="search-category-header">${category}</div>
+                <div class="search-category-results">`;
+            
+            groupedResults[category].forEach(result => {
+                html += `<div class="search-result-item" onclick="window.location.href='${result.url}'; toggleSearch();">
+                    <div class="search-result-icon">${result.icon}</div>
+                    <div class="search-result-content">
+                        <div class="search-result-title">${result.title}</div>
+                        <div class="search-result-subtitle">${result.matchedTerm}</div>
+                    </div>
+                    <div class="search-result-arrow"><i class="fas fa-chevron-right"></i></div>
+                </div>`;
+            });
+            
+            html += `</div></div>`;
+        });
+        
+        resultsContainer.innerHTML = html;
     } else {
-        resultsContainer.innerHTML = '<div class="search-result">No se encontraron resultados</div>';
+        resultsContainer.innerHTML = `
+            <div class="search-no-results">
+                <div class="search-no-results-icon">🔍</div>
+                <div class="search-no-results-text">No se encontraron resultados</div>
+                <div class="search-no-results-suggestions">
+                    <p>Intenta buscar:</p>
+                    <ul>
+                        <li>Castillos Inflables</li>
+                        <li>Plaza Blanda</li>
+                        <li>Globos Metalizados</li>
+                        <li>Eventos</li>
+                        <li>Precios</li>
+                    </ul>
+                </div>
+            </div>`;
     }
 }
 
