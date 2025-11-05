@@ -1913,7 +1913,7 @@ p {
    MODAL DE IMÁGENES MEJORADO - PANTALLA COMPLETA
    ======================================== */
 
-/* Modal de imágenes específico - Pantalla Completa */
+/* Modal de imágenes específico - Pantalla Completa con Glass estilo iOS */
 #imageModal {
     display: none;
     position: fixed;
@@ -1921,10 +1921,10 @@ p {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.95);
+    background: rgba(0, 0, 0, 0.6);
     z-index: 10000;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(40px) saturate(180%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
     animation: fadeIn 0.3s ease;
     overflow: hidden;
 }
@@ -1951,7 +1951,7 @@ p {
     align-items: center;
 }
 
-/* Modal content específico para imágenes - Pantalla Completa Optimizado */
+/* Modal content específico para imágenes - Pantalla Completa Optimizado con Glass iOS */
 #imageModal .modal-content {
     background: transparent;
     border-radius: 0;
@@ -1969,6 +1969,7 @@ p {
     align-items: center;
     justify-content: center;
     position: relative;
+    margin: 0;
 }
 
 .modal-image {
@@ -1988,14 +1989,14 @@ p {
     transform: scale(1.02);
 }
 
-/* Imagen del modal específica - Pantalla Completa */
+/* Imagen del modal específica - Pantalla Completa - Centrada perfectamente */
 #imageModal .modal-image {
     width: auto;
     height: auto;
     max-width: 95vw;
     max-height: 95vh;
     border-radius: 0;
-    margin-bottom: 0;
+    margin: 0 auto;
     object-fit: contain;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
     cursor: zoom-in;
@@ -2004,9 +2005,13 @@ p {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
+    display: block;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* Estado de zoom en la imagen */
+/* Estado de zoom en la imagen - Centrado */
 #imageModal .modal-image.zoomed {
     cursor: zoom-out;
     transform: scale(1.5);
@@ -2014,6 +2019,9 @@ p {
     max-height: none;
     width: auto;
     height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 
 /* Estado de pantalla completa */
@@ -2029,12 +2037,16 @@ p {
     transform: translateX(-50%);
     width: auto;
     max-width: 90%;
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(30px) saturate(180%);
+    -webkit-backdrop-filter: blur(30px) saturate(180%);
+    border-radius: 20px;
     padding: 1rem 1.5rem;
     margin-top: 0;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 .modal-caption {
@@ -2045,23 +2057,23 @@ p {
     text-align: center;
 }
 
-/* Caption del modal de imágenes específico - Mejorado */
+/* Caption del modal de imágenes específico - Glass estilo iOS */
 #imageModal .modal-caption {
     position: absolute;
     bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(30px) saturate(180%);
+    -webkit-backdrop-filter: blur(30px) saturate(180%);
+    border-radius: 20px;
     padding: 1rem 1.5rem;
     margin-top: 0;
     color: white;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.25);
     box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        0 8px 32px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
     width: auto;
     max-width: 90%;
     text-align: center;
@@ -2085,7 +2097,7 @@ p {
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-/* Botones de control adicionales */
+/* Botones de control adicionales - Glass estilo iOS */
 .modal-controls {
     position: absolute;
     top: 20px;
@@ -2099,10 +2111,10 @@ p {
     width: 45px;
     height: 45px;
     border-radius: 50%;
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(30px) saturate(180%);
+    -webkit-backdrop-filter: blur(30px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     color: white;
     font-size: 1.2rem;
     cursor: pointer;
@@ -2110,29 +2122,39 @@ p {
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 
+        0 4px 15px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 .modal-control-btn:hover {
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(255, 255, 255, 0.3);
     transform: scale(1.1);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    box-shadow: 
+        0 6px 20px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    border-color: rgba(255, 255, 255, 0.4);
 }
 
 .modal-control-btn:active {
     transform: scale(0.95);
+    background: rgba(255, 255, 255, 0.25);
 }
 
-/* Contador de imágenes */
+/* Contador de imágenes - Glass estilo iOS */
 .image-counter {
     display: inline-block;
     background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(30px) saturate(180%);
+    -webkit-backdrop-filter: blur(30px) saturate(180%);
     padding: 0.25rem 0.75rem;
     border-radius: 20px;
     font-size: 0.85rem;
     margin-top: 0.5rem;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 
+        0 4px 15px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 .modal-caption h3 {
@@ -2184,32 +2206,37 @@ p {
         inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
-/* Botón cerrar dentro del modal-controls */
+/* Botón cerrar dentro del modal-controls - Glass estilo iOS */
 .modal-controls .close-modal {
     position: static;
     margin: 0;
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(30px) saturate(180%);
+    -webkit-backdrop-filter: blur(30px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 
+        0 4px 15px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 .modal-controls .close-modal:hover {
-    background: rgba(255, 0, 0, 0.8);
-    box-shadow: 0 6px 20px rgba(255, 0, 0, 0.4);
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 
+        0 6px 20px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 
-/* Botones de navegación del modal - Liquid Glass */
+/* Botones de navegación del modal - Glass estilo iOS */
 .modal-nav {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: linear-gradient(135deg, 
-        rgba(255, 255, 255, 0.3),
-        rgba(255, 255, 255, 0.1)
-    );
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(30px) saturate(180%);
+    -webkit-backdrop-filter: blur(30px) saturate(180%);
     color: white;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -2219,23 +2246,19 @@ p {
     cursor: pointer;
     transition: all 0.3s ease;
     font-size: 1.4rem;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
     box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        0 8px 32px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
     z-index: 1000;
 }
 
 .modal-nav:hover {
-    background: linear-gradient(135deg, 
-        rgba(255, 255, 255, 0.4),
-        rgba(255, 255, 255, 0.2)
-    );
+    background: rgba(255, 255, 255, 0.3);
     transform: translateY(-50%) scale(1.1);
     box-shadow: 
-        0 12px 40px rgba(0, 0, 0, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        0 12px 40px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    border-color: rgba(255, 255, 255, 0.4);
 }
 
 .modal-nav.modal-prev {
@@ -7840,22 +7863,31 @@ html {
         max-height: 60vh;
     }
     
-    /* Modal de imágenes específico para móvil */
+    /* Modal de imágenes específico para móvil - Glass iOS y centrado */
     #imageModal .modal-content {
-        max-width: 95vw;
-        max-height: 85vh;
-        padding: 1rem;
+        max-width: 100vw;
+        max-height: 100vh;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     
     #imageModal .modal-image {
         max-width: 95vw;
         max-height: 85vh;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
     }
     
     #imageModal .modal-image.zoomed {
         transform: scale(1.3);
         max-width: none;
         max-height: none;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
     }
     
     #imageModal .modal-caption {
