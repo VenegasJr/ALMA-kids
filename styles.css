@@ -766,9 +766,9 @@ p {
     font-size: 1.2rem;
 }
 
-/* Sección de Agendamiento Activo */
+/* Sección de Agendamiento Activo (Reducido 40%) */
 .proximamente-section {
-    padding: 60px 0;
+    padding: 36px 0;
     background: linear-gradient(135deg, #E91E63, #FF6B9D, #E91E63);
     background-size: 200% 200%;
     animation: gradientShift 8s ease infinite;
@@ -798,22 +798,22 @@ p {
     100% { transform: translateY(-100px); }
 }
 
-/* Mensaje de Agendamiento Activo - Estilo Llamativo */
+/* Mensaje de Agendamiento Activo - Estilo Llamativo (Reducido 40%) */
 .proximamente-message.booking-active {
     background: rgba(255, 255, 255, 0.95);
     color: #2D3748;
-    padding: 2.5rem 2.5rem;
-    border-radius: 25px;
+    padding: 1.5rem 1.5rem;
+    border-radius: 15px;
     text-align: center;
     box-shadow: 
-        0 20px 60px rgba(0, 0, 0, 0.2),
-        0 0 40px rgba(233, 30, 99, 0.3),
+        0 12px 36px rgba(0, 0, 0, 0.2),
+        0 0 24px rgba(233, 30, 99, 0.3),
         inset 0 1px 0 rgba(255, 255, 255, 0.5);
     margin: 0 auto;
-    max-width: 600px;
+    max-width: 360px;
     position: relative;
     overflow: visible;
-    border: 3px solid rgba(255, 255, 255, 0.8);
+    border: 2px solid rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 }
@@ -836,11 +836,11 @@ p {
     z-index: 1;
 }
 
-/* Icono de calendario para agendamiento */
+/* Icono de calendario para agendamiento (Reducido 40%) */
 .booking-icon {
-    font-size: 3rem;
+    font-size: 1.8rem;
     color: #E91E63;
-    margin-bottom: 1rem;
+    margin-bottom: 0.6rem;
     animation: pulse 2s ease-in-out infinite;
     display: inline-block;
     position: relative;
@@ -861,9 +861,9 @@ p {
 }
 
 .booking-active h3 {
-    font-size: 2rem;
+    font-size: 1.2rem;
     font-weight: 700;
-    margin: 0.5rem 0 1rem 0;
+    margin: 0.3rem 0 0.6rem 0;
     position: relative;
     z-index: 2;
     color: #E91E63;
@@ -875,9 +875,9 @@ p {
 }
 
 .booking-subtitle {
-    font-size: 1.2rem;
+    font-size: 0.72rem;
     font-weight: 600;
-    margin: 0.5rem 0;
+    margin: 0.3rem 0;
     position: relative;
     z-index: 2;
     color: #2D3748;
@@ -885,9 +885,9 @@ p {
 }
 
 .booking-location {
-    font-size: 1rem;
+    font-size: 0.6rem;
     font-weight: 500;
-    margin: 0.5rem 0 1.5rem 0;
+    margin: 0.3rem 0 0.9rem 0;
     position: relative;
     z-index: 2;
     color: #4A5568;
@@ -895,33 +895,33 @@ p {
 
 .booking-cta {
     display: flex;
-    gap: 1rem;
+    gap: 0.6rem;
     justify-content: center;
-    margin: 1.5rem 0;
+    margin: 0.9rem 0;
     flex-wrap: wrap;
     position: relative;
     z-index: 2;
 }
 
 .booking-cta .btn {
-    padding: 0.875rem 2rem;
-    font-size: 1rem;
+    padding: 0.525rem 1.2rem;
+    font-size: 0.6rem;
     font-weight: 600;
-    border-radius: 50px;
+    border-radius: 30px;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2.4px 9px rgba(0, 0, 0, 0.2);
 }
 
 .booking-cta .btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 3.6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .booking-features {
     display: flex;
-    gap: 1.5rem;
+    gap: 0.9rem;
     justify-content: center;
-    margin-top: 1.5rem;
+    margin-top: 0.9rem;
     flex-wrap: wrap;
     position: relative;
     z-index: 2;
@@ -930,19 +930,19 @@ p {
 .booking-features span {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    font-size: 0.95rem;
+    gap: 0.3rem;
+    font-size: 0.57rem;
     font-weight: 500;
     color: #2D3748;
-    padding: 0.5rem 1rem;
+    padding: 0.3rem 0.6rem;
     background: rgba(233, 30, 99, 0.1);
-    border-radius: 20px;
+    border-radius: 12px;
     border: 1px solid rgba(233, 30, 99, 0.2);
 }
 
 .booking-features span i {
     color: #E91E63;
-    font-size: 1.1rem;
+    font-size: 0.66rem;
 }
 
 .proximamente-message h3 {
@@ -1021,53 +1021,59 @@ p {
     .cart-float { bottom: 12px; left: 12px; }
 }
 
-/* Responsive para mensaje de agendamiento */
+/* Responsive para mensaje de agendamiento (Reducido 40%) */
 @media (max-width: 768px) {
     .proximamente-section {
-        padding: 40px 0;
+        padding: 24px 0;
     }
     
     .proximamente-message.booking-active {
-        padding: 2rem 1.5rem;
+        padding: 1.2rem 0.9rem;
         margin: 0 1rem;
         max-width: calc(100% - 2rem);
     }
     
     .booking-active h3 {
-        font-size: 1.6rem;
+        font-size: 0.96rem;
     }
     
     .booking-subtitle {
-        font-size: 1.1rem;
+        font-size: 0.66rem;
     }
     
     .booking-location {
-        font-size: 0.95rem;
+        font-size: 0.57rem;
     }
     
     .booking-icon {
-        font-size: 2.5rem;
+        font-size: 1.5rem;
     }
     
     .booking-cta {
         flex-direction: column;
-        gap: 0.75rem;
+        gap: 0.45rem;
     }
     
     .booking-cta .btn {
         width: 100%;
-        max-width: 300px;
+        max-width: 180px;
+        padding: 0.525rem 1.2rem;
+        font-size: 0.6rem;
     }
     
     .booking-features {
         flex-direction: column;
-        gap: 0.75rem;
+        gap: 0.45rem;
         align-items: center;
     }
     
     .booking-features span {
-        font-size: 0.9rem;
-        padding: 0.5rem 0.875rem;
+        font-size: 0.54rem;
+        padding: 0.3rem 0.525rem;
+    }
+    
+    .booking-features span i {
+        font-size: 0.66rem;
     }
 }
 
