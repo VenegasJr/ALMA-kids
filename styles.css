@@ -79,6 +79,30 @@ html, body {
 /* Imágenes nunca más anchas que su contenedor */
 img, .globo-img, .gallery-img {
     max-width: 100%;
+    display: block;
+}
+
+/* Asegurar que todas las imágenes se muestren correctamente */
+.service-img,
+.about-img,
+.plaza-image img,
+.castillo-image img,
+.globo-img,
+.gallery-img,
+.service-image img,
+.divertete-image img,
+.globo-image-container img {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Asegurar que las imágenes generales del hero se vean */
+.hero-image > img,
+.hero-img:not(.carousel-slide img) {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
 /* Evitar 100vw que cause overflow en mobile por la scrollbar */
@@ -1484,7 +1508,7 @@ p {
     z-index: 1;
 }
 
-.carousel-slide img {
+.hero-carousel .carousel-slide img {
     width: 100%;
     max-width: 100%;
     height: auto;
@@ -1494,12 +1518,19 @@ p {
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-lg);
     transition: var(--transition);
-    display: block !important;
+    display: block;
     margin: 0 auto;
-    opacity: 1 !important;
-    visibility: visible !important;
+    opacity: 1;
+    visibility: visible;
     position: relative;
     z-index: 2;
+}
+
+/* Asegurar que las imágenes del carrusel se vean cuando el slide está activo */
+.hero-carousel .carousel-slide.active img {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
 .carousel-caption {
