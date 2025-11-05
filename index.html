@@ -2357,14 +2357,55 @@
         // ========================================
         
         let currentHeroSlide = 0;
-        const heroSlides = document.querySelectorAll('.hero-carousel .carousel-slide');
-        const heroDots = document.querySelectorAll('.hero-carousel .carousel-dot');
+        let heroSlides = [];
+        let heroDots = [];
         let heroCarouselInterval = null;
+        
+        // Función para inicializar el carrusel
+        function initHeroCarousel() {
+            heroSlides = document.querySelectorAll('.hero-carousel .carousel-slide');
+            heroDots = document.querySelectorAll('.hero-carousel .carousel-dot');
+            
+            if (heroSlides.length > 0) {
+                // Asegurar que el primer slide esté activo
+                heroSlides[0].classList.add('active');
+                if (heroDots.length > 0) {
+                    heroDots[0].classList.add('active');
+                }
+                
+                console.log('✅ Carrusel inicializado con', heroSlides.length, 'slides');
+                
+                // Iniciar auto-play
+                startHeroCarousel();
+                
+                // Pausar al hacer hover
+                const heroCarousel = document.querySelector('.hero-carousel');
+                if (heroCarousel) {
+                    heroCarousel.addEventListener('mouseenter', function() {
+                        if (heroCarouselInterval) {
+                            clearInterval(heroCarouselInterval);
+                        }
+                    });
+                    
+                    heroCarousel.addEventListener('mouseleave', function() {
+                        startHeroCarousel();
+                    });
+                }
+            } else {
+                console.warn('⚠️ No se encontraron slides del carrusel');
+            }
+        }
         
         // Función para cambiar slide
         function changeHeroSlide(direction) {
-            heroSlides[currentHeroSlide].classList.remove('active');
-            heroDots[currentHeroSlide].classList.remove('active');
+            if (heroSlides.length === 0) return;
+            
+            if (heroSlides[currentHeroSlide]) {
+                heroSlides[currentHeroSlide].classList.remove('active');
+            }
+            if (heroDots[currentHeroSlide]) {
+                heroDots[currentHeroSlide].classList.remove('active');
+            }
             
             currentHeroSlide += direction;
             
@@ -2374,8 +2415,12 @@
                 currentHeroSlide = heroSlides.length - 1;
             }
             
-            heroSlides[currentHeroSlide].classList.add('active');
-            heroDots[currentHeroSlide].classList.add('active');
+            if (heroSlides[currentHeroSlide]) {
+                heroSlides[currentHeroSlide].classList.add('active');
+            }
+            if (heroDots[currentHeroSlide]) {
+                heroDots[currentHeroSlide].classList.add('active');
+            }
             
             // Reiniciar auto-play
             resetHeroCarousel();
@@ -2383,14 +2428,23 @@
         
         // Función para ir a un slide específico
         function goToHeroSlide(index) {
+            if (heroSlides.length === 0) return;
             if (index >= 0 && index < heroSlides.length) {
-                heroSlides[currentHeroSlide].classList.remove('active');
-                heroDots[currentHeroSlide].classList.remove('active');
+                if (heroSlides[currentHeroSlide]) {
+                    heroSlides[currentHeroSlide].classList.remove('active');
+                }
+                if (heroDots[currentHeroSlide]) {
+                    heroDots[currentHeroSlide].classList.remove('active');
+                }
                 
                 currentHeroSlide = index;
                 
-                heroSlides[currentHeroSlide].classList.add('active');
-                heroDots[currentHeroSlide].classList.add('active');
+                if (heroSlides[currentHeroSlide]) {
+                    heroSlides[currentHeroSlide].classList.add('active');
+                }
+                if (heroDots[currentHeroSlide]) {
+                    heroDots[currentHeroSlide].classList.add('active');
+                }
                 
                 // Reiniciar auto-play
                 resetHeroCarousel();
@@ -2399,6 +2453,12 @@
         
         // Función para iniciar auto-play
         function startHeroCarousel() {
+            if (heroSlides.length === 0) return;
+            
+            if (heroCarouselInterval) {
+                clearInterval(heroCarouselInterval);
+            }
+            
             heroCarouselInterval = setInterval(function() {
                 changeHeroSlide(1);
             }, 5000); // Cambiar cada 5 segundos
@@ -2412,28 +2472,16 @@
             startHeroCarousel();
         }
         
-        // Inicializar carrusel al cargar la página
-        if (heroSlides.length > 0) {
-            startHeroCarousel();
-            
-            // Pausar al hacer hover
-            const heroCarousel = document.querySelector('.hero-carousel');
-            if (heroCarousel) {
-                heroCarousel.addEventListener('mouseenter', function() {
-                    if (heroCarouselInterval) {
-                        clearInterval(heroCarouselInterval);
-                    }
-                });
-                
-                heroCarousel.addEventListener('mouseleave', function() {
-                    startHeroCarousel();
-                });
-            }
-        }
-        
         // Hacer funciones globales
         window.changeHeroSlide = changeHeroSlide;
         window.goToHeroSlide = goToHeroSlide;
+        
+        // Inicializar cuando el DOM esté listo
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initHeroCarousel);
+        } else {
+            initHeroCarousel();
+        }
 
         // Función para verificar que todos los elementos del carrito existan
         function verifyCartElements() {

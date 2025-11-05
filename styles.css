@@ -1446,20 +1446,17 @@ p {
     position: relative;
     width: 100%;
     min-height: 400px;
-    overflow: hidden;
+    overflow: visible;
     border-radius: var(--border-radius);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: block;
 }
 
 .carousel-container {
     position: relative;
     width: 100%;
     min-height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: block;
+    overflow: hidden;
 }
 
 .carousel-slide {
@@ -1469,17 +1466,20 @@ p {
     width: 100%;
     min-height: 400px;
     opacity: 0;
-    transition: opacity 0.6s ease-in-out;
+    visibility: hidden;
+    transition: opacity 0.6s ease-in-out, visibility 0.6s ease-in-out;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 1rem;
     box-sizing: border-box;
+    z-index: 0;
 }
 
 .carousel-slide.active {
     opacity: 1;
+    visibility: visible;
     position: relative;
     z-index: 1;
 }
@@ -1489,12 +1489,17 @@ p {
     max-width: 100%;
     height: auto;
     max-height: 400px;
+    min-height: 200px;
     object-fit: contain;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-lg);
     transition: var(--transition);
-    display: block;
+    display: block !important;
     margin: 0 auto;
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: relative;
+    z-index: 2;
 }
 
 .carousel-caption {
