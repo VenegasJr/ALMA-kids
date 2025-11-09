@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap principal
-Sitemap: https://almakids.cl/sitemap.xml
+Sitemap: https://www.almakids.cl/sitemap.xml
 
 # Permitir acceso a recursos importantes
 Allow: /styles.css

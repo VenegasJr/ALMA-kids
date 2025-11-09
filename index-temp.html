@@ -26,12 +26,12 @@
     
     <!-- Open Graph / Facebook / WhatsApp -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://almakids.cl">
+    <meta property="og:url" content="https://www.almakids.cl">
     <meta property="og:site_name" content="ALMA Kids">
     <meta property="og:title" content="ALMA Kids - Juegos Inflables y Plaza Blanda | Fiestas Infantiles Machalí">
     <meta property="og:description" content="🎪 Especialistas en entretención infantil. Castillos inflables, plaza blanda segura, globos metalizados y más. Cobertura Machalí, Rancagua y región. ¡Cotiza gratis por WhatsApp! 🎈">
-    <meta property="og:image" content="https://almakids.cl/imagenes/ALMA%20kids%20Logo%20web.png">
-    <meta property="og:image:secure_url" content="https://almakids.cl/imagenes/ALMA%20kids%20Logo%20web.png">
+    <meta property="og:image" content="https://www.almakids.cl/imagenes/ALMA%20kids%20Logo%20web.png">
+    <meta property="og:image:secure_url" content="https://www.almakids.cl/imagenes/ALMA%20kids%20Logo%20web.png">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -41,10 +41,10 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://almakids.cl">
+    <meta name="twitter:url" content="https://www.almakids.cl">
     <meta name="twitter:title" content="ALMA Kids - Juegos Inflables y Plaza Blanda | Fiestas Infantiles Machalí">
     <meta name="twitter:description" content="🎪 Especialistas en entretención infantil. Castillos inflables, plaza blanda segura, globos metalizados y más. Cobertura Machalí, Rancagua y región. ¡Cotiza gratis por WhatsApp! 🎈">
-    <meta name="twitter:image" content="https://almakids.cl/imagenes/ALMA%20kids%20Logo%20web.png">
+    <meta name="twitter:image" content="https://www.almakids.cl/imagenes/ALMA%20kids%20Logo%20web.png">
     <meta name="twitter:image:alt" content="ALMA Kids - Juegos Inflables y Plaza Blanda para Fiestas Infantiles">
     
     <!-- WhatsApp Optimización -->
@@ -59,9 +59,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <!-- CSS -->
-    <link rel="stylesheet" href="styles.css?v=20250115-34&t=1737061800">
-    <link rel="stylesheet" href="animations.css">
-    <link rel="stylesheet" href="visual-fixes.css">
+    <link rel="stylesheet" href="styles.min.css?v=20250126-03">
     <link rel="stylesheet" href="layout-fixes.css">
     
     <!-- Favicon y PWA -->
@@ -75,15 +73,15 @@
     {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
-        "@id": "https://almakids.cl",
+        "@id": "https://www.almakids.cl",
         "name": "ALMA Kids Entretenciones Infantiles Ltda.",
         "alternateName": "ALMA Kids",
         "description": "Empresa líder en arriendo de juegos inflables, plaza blanda y entretenimiento infantil en Machalí y Región de O'Higgins. Especialistas en fiestas seguras para niños de 6 meses a 7 años.",
-        "url": "https://almakids.cl",
-        "logo": "https://almakids.cl/imagenes/ALMA kids Logo web.png",
+        "url": "https://www.almakids.cl",
+        "logo": "https://www.almakids.cl/imagenes/ALMA kids Logo web.png",
         "image": [
-            "https://almakids.cl/imagenes/castillo-inflable.png",
-            "https://almakids.cl/imagenes/ALMA kids Logo web.png"
+            "https://www.almakids.cl/imagenes/castillo-inflable.png",
+            "https://www.almakids.cl/imagenes/ALMA kids Logo web.png"
         ],
         "telephone": ["+56969073306", "+56920609796"],
         "email": "info.almakids@gmail.com",
@@ -193,7 +191,7 @@
         "organizer": {
             "@type": "Organization",
             "name": "ALMA Kids Entretenciones Infantiles Ltda.",
-            "url": "https://almakids.cl"
+            "url": "https://www.almakids.cl"
         },
         "location": {
             "@type": "Place",
@@ -419,18 +417,43 @@
         </div>
     </header>
 
-    <!-- Floating Navigation Buttons (Mobile) -->
-    <div class="floating-nav-buttons" style="pointer-events:none;">
-        <button class="btn btn-search" onclick="toggleSearch()" title="Buscar" style="pointer-events:auto;">
-            <i class="fas fa-search"></i>
-        </button>
-        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" title="Menú" style="pointer-events:auto;">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-    </div>
+    <section class="silo-navigation" aria-label="Explora nuestros servicios principales">
+        <div class="container">
+            <span class="section-label">Descubre ALMA Kids</span>
+            <div class="silo-grid">
+                <a class="silo-card" href="castillos-inflables.html">
+                    <div class="silo-icon">🏰</div>
+                    <h3>Juegos Inflables Premium</h3>
+                    <p>Arriendo de juegos inflables pastel, castillos inflables y saltarines seguros para fiestas infantiles en Machalí y Rancagua.</p>
+                    <p class="silo-keywords">arriendo de juegos inflables · arriendo de castillos inflables · entretenciones infantiles Rancagua</p>
+                    <span class="silo-link">Ver castillos <i class="fas fa-arrow-right"></i></span>
+                </a>
+                <a class="silo-card" href="#plaza-blanda">
+                    <div class="silo-icon">🎠</div>
+                    <h3>Plaza Blanda & Mobiliario</h3>
+                    <p>Plaza blanda estética pastel, arriendo de mobiliario infantil y piscina de pelotas para ambientaciones delicadas.</p>
+                    <p class="silo-keywords">arriendo de plaza blanda · arriendo de mobiliario infantil · arriendo de piscina de pelotas</p>
+                    <span class="silo-link">Explorar plaza blanda <i class="fas fa-arrow-right"></i></span>
+                </a>
+                <a class="silo-card" href="servicios-adicionales.html">
+                    <div class="silo-icon">🎉</div>
+                    <h3>Servicios & Experiencias</h3>
+                    <p>Packs todo incluido, producción de eventos infantiles, espuma para fiestas y máquina de burbujas infantil.</p>
+                    <p class="silo-keywords">producción de eventos infantiles · arriendo de espuma para fiestas · packs todo incluido para fiestas</p>
+                    <span class="silo-link">Ver servicios adicionales <i class="fas fa-arrow-right"></i></span>
+                </a>
+                <a class="silo-card" href="#contacto">
+                    <div class="silo-icon">📍</div>
+                    <h3>Cobertura & Reservas</h3>
+                    <p>Fiestas infantiles Machalí y Rancagua, juegos infantiles región O'Higgins y atención personalizada para cada familia.</p>
+                    <p class="silo-keywords">arriendo juegos infantiles O'Higgins · fiestas infantiles Machalí Rancagua · servicios de arriendo para fiestas de niños</p>
+                    <span class="silo-link">Agendar ahora <i class="fas fa-arrow-right"></i></span>
+                </a>
+            </div>
+        </div>
+    </section>
 
+    <!-- Floating Navigation Buttons (Mobile) -->
     <!-- Hero Section -->
     <section id="inicio" class="hero">
         <!-- Partículas animadas de fondo -->
@@ -1507,7 +1530,7 @@
                             <span class="price-iva">IVA incluido</span>
                         </div>
                         <div class="oferta-details">
-                            <p><i class="fas fa-check"></i> Castillo Inflable: $75.000</p>
+                            <p><i class="fas fa-check"></i> Castillo Inflable: $90.000</p>
                             <p><i class="fas fa-check"></i> Piscina de Pelotas: $50.000</p>
                             <p><i class="fas fa-check"></i> Carpa Tipi: $15.000</p>
                             <p><i class="fas fa-check"></i> Máquina de Burbujas: $15.000</p>
@@ -1575,7 +1598,7 @@
                             <span class="price-iva">IVA incluido</span>
                         </div>
                         <div class="oferta-details">
-                            <p><i class="fas fa-check"></i> Castillo inflable: $75.000</p>
+                            <p><i class="fas fa-check"></i> Castillo inflable: $90.000</p>
                             <p><i class="fas fa-check"></i> Soft Play: $55.000</p>
                             <p><i class="fas fa-check"></i> Máquina de burbujas: $15.000</p>
                             <p class="descuento"><i class="fas fa-tag"></i> Ahorras: $25.000 (20% descuento)</p>
@@ -1956,46 +1979,7 @@
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     
-    <!-- ALMA Kids Emergency Functions (Load First) -->
-    <script src="emergency-functions.js"></script>
-    <script src="quote-tracking-system.js"></script>
-    <script src="email-system.js"></script>
-    <script src="google-maps-integration.js"></script>
-    
-    <!-- ALMA Kids Optimization Suite -->
-    <script src="image-optimizer.js"></script>
-    <script src="form-enhancer.js"></script>
-    <script src="link-checker.js"></script>
-    <script src="accessibility-enhancer.js"></script>
-    <script src="analytics-enhanced.js"></script>
-    <script src="security-enhancer.js"></script>
-    <script src="analytics-advanced.js"></script>
-    
-    <!-- EmailJS SDK -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <!-- EmailJS Configuration -->
-    <script src="emailjs-config.js"></script>
-    <!-- Calendar System -->
-    <script src="calendar-system.js"></script>
-    <!-- Payment System -->
-    <!-- Social Media Integration -->
-    <script src="social-integration.js"></script>
-    <!-- Animation System -->
-    <script src="animations.js"></script>
-    <!-- Performance Optimizer -->
-    <script src="performance-optimizer.js"></script>
-    <!-- Notifications System -->
-    <script src="notifications.js"></script>
-    <!-- Favorites & Comparison System -->
-    <script src="favorites-system.js"></script>
-    <!-- Price Calculator -->
-    <script src="script.js?v=20250115-19"></script>
-    
-    <!-- Mobile Fix Definitivo -->
-    <script src="mobile-fix.js"></script>
-    
-    <!-- Fix Definitivo - Sistema que SÍ funciona -->
-    <script src="fix-definitivo.js"></script>
+    <script src="script.js?v=20250126-01" defer></script>
     
     <!-- Debug Script for Testing -->
     <script>
@@ -2585,74 +2569,7 @@
     </script>
     
     <!-- PWA Service Worker Registration -->
-    <script>
-        // Registrar Service Worker para PWA
-    if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/sw.js')
-                    .then((registration) => {
-                        console.log('🎪 ALMA Kids PWA: Service Worker registrado', registration.scope);
-                        
-                        // Verificar actualizaciones
-                        registration.addEventListener('updatefound', () => {
-                            const newWorker = registration.installing;
-                            newWorker.addEventListener('statechange', () => {
-                                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                                    // Nueva versión disponible
-                                    showUpdateNotification();
-                                }
-                });
-        });
-                    })
-                    .catch((error) => {
-                        console.log('❌ Service Worker: Error de registro', error);
-                    });
-            });
-        }
-
-        // Mostrar notificación de actualización
-        function showUpdateNotification() {
-            if (window.showAnimatedNotification) {
-                window.showAnimatedNotification(
-                    '🎉 Nueva versión disponible. Recarga para actualizar ALMA Kids.',
-                    'info',
-                    10000
-                );
-            }
-        }
-
-        // Detectar cuando la app se instala
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            
-            // Mostrar banner de instalación personalizado
-            setTimeout(() => {
-                if (window.showAnimatedNotification) {
-                    window.showAnimatedNotification(
-                        '📱 ¡Instala ALMA Kids en tu teléfono para acceso rápido!',
-                        'info',
-                        8000
-                    );
-                }
-            }, 5000);
-            
-            // Guardar el evento para uso posterior
-            window.deferredPrompt = e;
-        });
-
-        // Detectar cuando la app se instala exitosamente
-        window.addEventListener('appinstalled', () => {
-            console.log('🎉 ALMA Kids PWA instalada exitosamente');
-            
-            if (window.trackCustomEvent) {
-                window.trackCustomEvent('pwa_installed', 'PWA', 'App Installed', 1);
-            }
-            
-            if (window.createConfetti) {
-                window.createConfetti();
-            }
-        });
-    </script>
+    <!-- PWA Service Worker Registration deshabilitado (sw.js no disponible) -->
     
     <!-- Formulario oculto para Netlify Forms -->
     <form name="alma-kids-quotes" netlify netlify-honeypot="bot-field" hidden>
@@ -2692,6 +2609,15 @@
             
             console.log('✅ Página cargada correctamente, sin bloqueos');
         });
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KX626G1MB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-3KX626G1MB');
     </script>
 </body>
 </html>
