@@ -71,7 +71,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <!-- CSS -->
-    <link rel="stylesheet" href="styles.min.css?v=20250126-08">
+    <link rel="stylesheet" href="styles.min.css?v=20250126-09">
     
     <!-- Favicon y PWA -->
     <link rel="icon" type="image/png" href="imagenes/ALMA kids Logo web.png">
@@ -2585,6 +2585,43 @@
         let heroDots = [];
         let heroCarouselInterval = null;
         
+        // Función para forzar visualización de imagen en slide activo
+        function forceImageDisplay(slide) {
+            if (!slide) return;
+            const img = slide.querySelector('img');
+            const picture = slide.querySelector('picture');
+            
+            if (img) {
+                // Forzar estilos inline para asegurar visibilidad
+                img.style.display = 'block';
+                img.style.opacity = '1';
+                img.style.visibility = 'visible';
+                img.style.position = 'relative';
+                img.style.zIndex = '3';
+                
+                // Forzar carga de la imagen si no está cargada
+                if (!img.complete || img.naturalHeight === 0) {
+                    const src = img.src;
+                    if (src) {
+                        const newImg = new Image();
+                        newImg.onload = function() {
+                            img.src = src;
+                            img.style.display = 'block';
+                            img.style.opacity = '1';
+                            img.style.visibility = 'visible';
+                        };
+                        newImg.src = src;
+                    }
+                }
+            }
+            
+            if (picture) {
+                picture.style.display = 'block';
+                picture.style.opacity = '1';
+                picture.style.visibility = 'visible';
+            }
+        }
+        
         // Función para inicializar el carrusel
         function initHeroCarousel() {
             heroSlides = document.querySelectorAll('.hero-carousel .carousel-slide');
@@ -2596,6 +2633,9 @@
                 if (heroDots.length > 0) {
                     heroDots[0].classList.add('active');
                 }
+                
+                // Forzar visualización de la primera imagen
+                forceImageDisplay(heroSlides[0]);
                 
                 console.log('✅ Carrusel inicializado con', heroSlides.length, 'slides');
                 
@@ -2671,6 +2711,8 @@
             
             if (heroSlides[currentHeroSlide]) {
                 heroSlides[currentHeroSlide].classList.add('active');
+                // Forzar visualización de la imagen
+                forceImageDisplay(heroSlides[currentHeroSlide]);
             }
             if (heroDots[currentHeroSlide]) {
                 heroDots[currentHeroSlide].classList.add('active');
@@ -2698,6 +2740,8 @@
                 
                 if (heroSlides[currentHeroSlide]) {
                     heroSlides[currentHeroSlide].classList.add('active');
+                    // Forzar visualización de la imagen
+                    forceImageDisplay(heroSlides[currentHeroSlide]);
                 }
                 if (heroDots[currentHeroSlide]) {
                     heroDots[currentHeroSlide].classList.add('active');
