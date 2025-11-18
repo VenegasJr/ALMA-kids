@@ -1748,20 +1748,19 @@ p {
 }
 
 .hero-carousel .carousel-slide img {
-    width: auto;
-    max-width: 100%;
-    height: auto;
-    max-height: 400px;
-    min-height: 250px;
-    object-fit: contain;
+    width: auto !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: 400px !important;
+    min-height: 250px !important;
+    object-fit: contain !important;
     border-radius: 8px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-    display: block !important;
-    margin: 0 auto;
+    margin: 0 auto !important;
     padding: 0;
     position: relative;
-    opacity: 1 !important;
-    visibility: visible !important;
+    z-index: 2;
+    background: transparent;
 }
 
 /* Asegurar que las imágenes se vean cuando el slide está activo */
@@ -1769,12 +1768,27 @@ p {
     display: block !important;
     opacity: 1 !important;
     visibility: visible !important;
-    z-index: 3;
+    z-index: 3 !important;
 }
 
-/* Asegurar que las imágenes inactivas estén ocultas */
+/* Asegurar que las imágenes inactivas estén ocultas pero cargadas */
 .hero-carousel .carousel-slide:not(.active) img {
-    display: none;
+    display: none !important;
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Asegurar que picture elements funcionen correctamente */
+.hero-carousel .carousel-slide picture {
+    display: block !important;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.hero-carousel .carousel-slide.active picture {
+    display: block !important;
+    z-index: 3;
 }
 
 .carousel-slide .carousel-caption {
