@@ -61,11 +61,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
+    <!-- Preload imagen crítica del hero -->
+    <link rel="preload" as="image" href="imagenes/Castillo-inflable-portadas.webp" type="image/webp">
+    <link rel="preload" as="image" href="imagenes/Castillo-inflable-portadas.png?v=20250115-10" type="image/png">
+    
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <!-- CSS -->
-    <link rel="stylesheet" href="styles.min.css?v=20250126-05">
+    <link rel="stylesheet" href="styles.min.css?v=20250126-07">
     
     <!-- Favicon y PWA -->
     <link rel="icon" type="image/png" href="imagenes/ALMA kids Logo web.png">
@@ -442,7 +446,7 @@
 
                                     <source srcset="imagenes/Castillo-inflable-portadas.webp" type="image/webp">
 
-                                    <img src="imagenes/Castillo-inflable-portadas.png?v=20250115-10" alt="Castillo Inflable ALMA Kids" class="hero-img" onclick="openImageModal(this.src, 'Castillo Inflable ALMA Kids', 'Castillo inflable blanco con torres, tobogán y piscinas de pelotas laterales')" style="cursor: pointer;">
+                                    <img src="imagenes/Castillo-inflable-portadas.png?v=20250115-10" alt="Castillo Inflable ALMA Kids" class="hero-img" onclick="openImageModal(this.src, 'Castillo Inflable ALMA Kids', 'Castillo inflable blanco con torres, tobogán y piscinas de pelotas laterales')" style="cursor: pointer;" loading="eager" fetchpriority="high" decoding="async">
 
                                 </picture>
                                 <div class="carousel-caption">
@@ -454,7 +458,7 @@
 
                                     <source srcset="imagenes/Castillo-Piscina-cuadrada.webp" type="image/webp">
 
-                                    <img src="imagenes/Castillo, Piscina cuadrada.png" alt="Castillo con Piscina Cuadrada" class="hero-img" onclick="openImageModal(this.src, 'Castillo Inflable Peque', 'Castillo en tonos rosas con piscina cuadrada de pelotas integrada')" style="cursor: pointer;" decoding="async">
+                                    <img src="imagenes/Castillo, Piscina cuadrada.png" alt="Castillo con Piscina Cuadrada" class="hero-img" onclick="openImageModal(this.src, 'Castillo Inflable Peque', 'Castillo en tonos rosas con piscina cuadrada de pelotas integrada')" style="cursor: pointer;" loading="lazy" decoding="async">
 
                                 </picture>
                                 <div class="carousel-caption">
@@ -466,7 +470,7 @@
 
                                     <source srcset="imagenes/Castillo-Piscina-redonda.webp" type="image/webp">
 
-                                    <img src="imagenes/Castillo-Piscina-redonda.png" alt="Castillo con Piscina Redonda" class="hero-img" onclick="openImageModal(this.src, 'Castillo Inflable ROSA', 'Castillo inflable con piscina redonda integrada')" style="cursor: pointer;" decoding="async">
+                                    <img src="imagenes/Castillo-Piscina-redonda.png" alt="Castillo con Piscina Redonda" class="hero-img" onclick="openImageModal(this.src, 'Castillo Inflable ROSA', 'Castillo inflable con piscina redonda integrada')" style="cursor: pointer;" loading="lazy" decoding="async">
 
                                 </picture>
                                 <div class="carousel-caption">
@@ -478,7 +482,7 @@
 
                                     <source srcset="imagenes/castillo-grand-peque.webp" type="image/webp">
 
-                                    <img src="imagenes/castillo-grand-peque.png" alt="Castillo Grand Peque" class="hero-img" onclick="openImageModal(this.src, 'Castillo Grand Peque', 'Castillo en tonos rosas con piscina de pelotas integrada')" style="cursor: pointer;" decoding="async">
+                                    <img src="imagenes/castillo-grand-peque.png" alt="Castillo Grand Peque" class="hero-img" onclick="openImageModal(this.src, 'Castillo Grand Peque', 'Castillo en tonos rosas con piscina de pelotas integrada')" style="cursor: pointer;" loading="lazy" decoding="async">
 
                                 </picture>
                                 <div class="carousel-caption">
@@ -490,7 +494,7 @@
 
                                     <source srcset="imagenes/Plaza-blanda-castillo-rosas.webp" type="image/webp">
 
-                                    <img src="imagenes/Plaza-blanda-castillo-rosas.png" alt="Plaza Blanda con Castillo" class="hero-img" onclick="openImageModal(this.src, 'Plaza Blanda con Castillo', 'Combinación de plaza blanda y castillo para diversión completa')" style="cursor: pointer;" decoding="async">
+                                    <img src="imagenes/Plaza-blanda-castillo-rosas.png" alt="Plaza Blanda con Castillo" class="hero-img" onclick="openImageModal(this.src, 'Plaza Blanda con Castillo', 'Combinación de plaza blanda y castillo para diversión completa')" style="cursor: pointer;" loading="lazy" decoding="async">
 
                                 </picture>
                                 <div class="carousel-caption">
@@ -2569,6 +2573,33 @@
             }
         }
         
+        // Función para precargar imagen del slide
+        function preloadHeroSlideImage(slideIndex) {
+            if (!heroSlides[slideIndex]) return;
+            const img = heroSlides[slideIndex].querySelector('img');
+            const picture = heroSlides[slideIndex].querySelector('picture');
+            if (img && img.loading === 'lazy') {
+                img.loading = 'eager';
+                // Forzar carga de la imagen
+                if (img.complete === false) {
+                    const src = img.src;
+                    img.src = '';
+                    img.src = src;
+                }
+            }
+            // Precargar WebP si existe
+            if (picture) {
+                const source = picture.querySelector('source[type="image/webp"]');
+                if (source) {
+                    const link = document.createElement('link');
+                    link.rel = 'preload';
+                    link.as = 'image';
+                    link.href = source.srcset;
+                    document.head.appendChild(link);
+                }
+            }
+        }
+        
         // Función para cambiar slide
         function changeHeroSlide(direction) {
             if (heroSlides.length === 0) return;
@@ -2587,6 +2618,9 @@
             } else if (currentHeroSlide < 0) {
                 currentHeroSlide = heroSlides.length - 1;
             }
+            
+            // Precargar imagen antes de activar
+            preloadHeroSlideImage(currentHeroSlide);
             
             if (heroSlides[currentHeroSlide]) {
                 heroSlides[currentHeroSlide].classList.add('active');
@@ -2611,6 +2645,9 @@
                 }
                 
                 currentHeroSlide = index;
+                
+                // Precargar imagen antes de activar
+                preloadHeroSlideImage(currentHeroSlide);
                 
                 if (heroSlides[currentHeroSlide]) {
                     heroSlides[currentHeroSlide].classList.add('active');
