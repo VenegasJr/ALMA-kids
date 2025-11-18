@@ -2651,10 +2651,16 @@
                 img.style.visibility = 'visible';
                 img.style.position = 'relative';
                 img.style.zIndex = '3';
+                img.style.width = 'auto';
+                img.style.height = 'auto';
+                img.style.maxWidth = '100%';
+                img.style.maxHeight = '400px';
+                img.style.margin = '0 auto';
+                img.style.objectFit = 'contain';
                 
                 // Forzar carga de la imagen si no está cargada
                 if (!img.complete || img.naturalHeight === 0) {
-                    const src = img.src;
+                    const src = img.src || img.getAttribute('src');
                     if (src) {
                         const newImg = new Image();
                         newImg.onload = function() {
@@ -2662,9 +2668,24 @@
                             img.style.display = 'block';
                             img.style.opacity = '1';
                             img.style.visibility = 'visible';
+                            console.log('✅ Imagen del carrusel cargada:', src);
+                        };
+                        newImg.onerror = function() {
+                            // Intentar con fallback
+                            const fallbackSrc = src.replace('.webp', '.png').replace('.png', '.jpg');
+                            img.src = fallbackSrc;
+                            img.style.display = 'block';
+                            img.style.opacity = '1';
+                            img.style.visibility = 'visible';
+                            console.warn('⚠️ Usando fallback para:', fallbackSrc);
                         };
                         newImg.src = src;
                     }
+                } else {
+                    // Si ya está cargada, solo asegurar visibilidad
+                    img.style.display = 'block';
+                    img.style.opacity = '1';
+                    img.style.visibility = 'visible';
                 }
             }
             
@@ -2672,6 +2693,8 @@
                 picture.style.display = 'block';
                 picture.style.opacity = '1';
                 picture.style.visibility = 'visible';
+                picture.style.width = '100%';
+                picture.style.height = '100%';
             }
         }
         
