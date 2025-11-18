@@ -2445,23 +2445,40 @@
         
         // Función para abrir modal con navegación
         window.openImageModal = function(imageSrc, title, description, groupKey = null) {
-            console.log('🖼️ Abriendo modal de imagen:', title);
+            console.log('🖼️ Abriendo modal de imagen:', title, 'Src:', imageSrc);
+            
+            // Normalizar la ruta de la imagen
+            if (imageSrc) {
+                // Remover parámetros de versión para comparación
+                const cleanSrc = imageSrc.split('?')[0];
+                // Si no empieza con 'imagenes/' y no es una URL completa, agregar 'imagenes/'
+                if (!imageSrc.startsWith('http') && !imageSrc.startsWith('imagenes/') && !imageSrc.startsWith('/')) {
+                    imageSrc = 'imagenes/' + cleanSrc.split('/').pop();
+                }
+            }
             
             // Si se proporciona un grupo, usarlo; si no, crear grupo individual
-            if (groupKey && window.imageGroups[groupKey]) {
+            if (groupKey && window.imageGroups && window.imageGroups[groupKey]) {
                 window.currentImageGroup = window.imageGroups[groupKey];
-                // Encontrar el índice de la imagen actual
-                window.currentImageIndex = window.currentImageGroup.findIndex(img => img.src === imageSrc);
+                // Encontrar el índice de la imagen actual (comparar sin parámetros)
+                window.currentImageIndex = window.currentImageGroup.findIndex(img => {
+                    const imgSrc = img.src.split('?')[0];
+                    const currentSrc = imageSrc.split('?')[0];
+                    return imgSrc === currentSrc || imgSrc.includes(currentSrc.split('/').pop()) || currentSrc.includes(imgSrc.split('/').pop());
+                });
                 if (window.currentImageIndex === -1) window.currentImageIndex = 0;
             } else {
                 // Crear grupo temporal con una sola imagen
                 window.currentImageGroup = [{
                     src: imageSrc,
-                    title: title,
-                    description: description
+                    title: title || 'Imagen',
+                    description: description || ''
                 }];
                 window.currentImageIndex = 0;
             }
+            
+            console.log('📸 Grupo de imágenes:', window.currentImageGroup);
+            console.log('📍 Índice actual:', window.currentImageIndex);
             
             displayCurrentImage();
             showModal();
@@ -2476,12 +2493,48 @@
             if (modal && modalImage && modalCaption && window.currentImageGroup.length > 0) {
                 const currentImage = window.currentImageGroup[window.currentImageIndex];
                 
+                // Limpiar src anterior para forzar recarga
+                modalImage.src = '';
+                modalImage.style.display = 'none';
+                modalImage.style.opacity = '0';
+                
+                // Crear nueva imagen para precargar
+                const imgLoader = new Image();
+                imgLoader.onload = function() {
+                    // Una vez cargada, asignar al modal
                 modalImage.src = currentImage.src;
-                modalImage.alt = currentImage.title;
+                    modalImage.alt = currentImage.title || '';
+                    
+                    // Forzar estilos para visibilidad
+                    modalImage.style.display = 'block';
+                    modalImage.style.opacity = '1';
+                    modalImage.style.visibility = 'visible';
+                    modalImage.style.maxWidth = '95vw';
+                    modalImage.style.maxHeight = '95vh';
+                    modalImage.style.width = 'auto';
+                    modalImage.style.height = 'auto';
+                    modalImage.style.margin = '0 auto';
+                    modalImage.style.objectFit = 'contain';
+                    
+                    console.log(`✅ Imagen cargada: ${currentImage.src}`);
+                };
+                
+                imgLoader.onerror = function() {
+                    // Si falla, intentar con fallback
+                    const fallbackSrc = currentImage.src.replace('.webp', '.png').replace('.png', '.jpg');
+                    modalImage.src = fallbackSrc;
+                    modalImage.style.display = 'block';
+                    modalImage.style.opacity = '1';
+                    modalImage.style.visibility = 'visible';
+                    console.warn(`⚠️ Fallback usado: ${fallbackSrc}`);
+                };
+                
+                // Iniciar carga
+                imgLoader.src = currentImage.src;
                 
                 modalCaption.innerHTML = `
-                    <h3>${currentImage.title}</h3>
-                    <p>${currentImage.description}</p>
+                    <h3>${currentImage.title || 'Imagen'}</h3>
+                    <p>${currentImage.description || ''}</p>
                     <div class="image-counter">
                         ${window.currentImageIndex + 1} de ${window.currentImageGroup.length}
                     </div>
