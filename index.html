@@ -362,19 +362,16 @@
                     <a class='nav-link' href='index.html#contacto'>Contacto</a>
             </nav>
             
-                <!-- Search and Contact Buttons -->
-                <div class="header-buttons">
-                    <!-- Search Button -->
-                    <button class="btn btn-search" onclick="toggleSearch()">
-                        <i class="fas fa-search"></i>
-                    </button>
-                    
-                    <!-- Search Input (hidden by default) -->
-                    <div class="search-container" id="searchContainer">
-                        <input type="text" id="searchInput" placeholder="Buscar en ALMA Kids..." onkeyup="performSearch()">
-                        <div class="search-results" id="searchResults"></div>
-                    </div>
-            </div>
+                <!-- Search Button (ahora flotante, no en header) -->
+                <button class="btn btn-search" onclick="toggleSearch()">
+                    <i class="fas fa-search"></i>
+                </button>
+                
+                <!-- Search Input (hidden by default) -->
+                <div class="search-container" id="searchContainer">
+                    <input type="text" id="searchInput" placeholder="Buscar en ALMA Kids..." onkeyup="performSearch()">
+                    <div class="search-results" id="searchResults"></div>
+                </div>
             
                 <!-- Mobile Menu Toggle -->
                 <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
