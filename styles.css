@@ -1019,6 +1019,34 @@ p {
     display: block !important;
 }
 
+/* Botón de cerrar del menú móvil */
+.mobile-menu-close {
+    position: absolute !important;
+    top: 15px !important;
+    right: 15px !important;
+    width: 45px !important;
+    height: 45px !important;
+    background: linear-gradient(135deg, #E91E63, #FF6B9D) !important;
+    border: 2px solid rgba(255, 255, 255, 0.3) !important;
+    border-radius: 50% !important;
+    color: white !important;
+    font-size: 1.2rem !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 1002 !important;
+    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.4) !important;
+    transition: all 0.3s ease !important;
+}
+
+.mobile-menu-close:hover,
+.mobile-menu-close:active {
+    background: linear-gradient(135deg, #C2185B, #E91E63) !important;
+    transform: scale(1.1) !important;
+    box-shadow: 0 6px 20px rgba(233, 30, 99, 0.6) !important;
+}
+
 .mobile-menu.active {
     display: block;
     animation: slideDown 0.3s ease;
