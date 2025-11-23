@@ -104,8 +104,8 @@
     </script>
     
     <!-- Favicon y PWA -->
-    <link rel="icon" type="image/png" href="imagenes/LOGO ALMA kids Ltda.png">
-    <link rel="shortcut icon" type="image/png" href="imagenes/LOGO ALMA kids Ltda.png">
+    <link rel="icon" type="image/webp" href="imagenes/logo-alma-kids-favicon.webp">
+    <link rel="shortcut icon" type="image/webp" href="imagenes/logo-alma-kids-favicon.webp">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#E91E63">
     
@@ -236,12 +236,12 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="ALMA Kids">
-    <link rel="apple-touch-icon" href="imagenes/LOGO ALMA kids Ltda.png">
+    <link rel="apple-touch-icon" href="imagenes/logo-alma-kids-pagina.webp">
     
     <!-- Open Graph Meta Tags para redes sociales -->
-    <meta property="og:image" content="imagenes/LOGO ALMA kids Ltda.png">
+    <meta property="og:image" content="imagenes/logo-alma-kids-oficial.webp">
     <meta property="og:image:alt" content="ALMA Kids - Entretenciones Infantiles">
-    <meta name="twitter:image" content="imagenes/LOGO ALMA kids Ltda.png">
+    <meta name="twitter:image" content="imagenes/logo-alma-kids-oficial.webp">
     
     <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
@@ -348,7 +348,10 @@
         <div class="header-content">
             <!-- Logo -->
             <a class='logo' href='index.html'>
-                <img src="imagenes/LOGO ALMA kids Ltda.png?v=20250115-4" alt="ALMA Kids - Entretenciones Infantiles" class="logo-image">
+                <picture>
+                    <source srcset="imagenes/logo-alma-kids-pagina.webp" type="image/webp">
+                    <img src="imagenes/logo-alma-kids-pagina.webp?v=20250127" alt="ALMA Kids - Entretenciones Infantiles" class="logo-image">
+                </picture>
             </a>
             
                 <!-- Navigation -->
@@ -515,7 +518,10 @@
                     </div>
                 </div>
                 <div class="about-image">
-                    <img src="imagenes/LOGO ALMA kids Ltda.png" alt="ALMA Kids Entretenciones Infantiles - Logo Oficial" class="about-img" loading="lazy" onclick="openImageModal(this.src, 'ALMA Kids Logo Oficial', 'Logo oficial de ALMA Kids Entretenciones Infantiles Ltda.')" style="cursor: pointer;">
+                    <picture>
+                        <source srcset="imagenes/logo-alma-kids-oficial.webp" type="image/webp">
+                        <img src="imagenes/logo-alma-kids-oficial.webp" alt="ALMA Kids Entretenciones Infantiles - Logo Oficial" class="about-img" loading="lazy" onclick="openImageModal(this.src, 'ALMA Kids Logo Oficial', 'Logo oficial de ALMA Kids Entretenciones Infantiles Ltda.')" style="cursor: pointer;">
+                    </picture>
                 </div>
             </div>
         </div>
@@ -1926,7 +1932,7 @@
     <!-- Botones Flotantes Móviles - Logo, Búsqueda y Menú -->
     <div class="mobile-float-buttons">
         <a href="index.html" class="mobile-float-btn mobile-logo-btn" title="ALMA Kids - Inicio">
-            <img src="imagenes/LOGO ALMA kids Ltda.png?v=20250115-4" alt="ALMA Kids" style="width: 40px; height: auto;">
+            <img src="imagenes/logo-alma-kids-favicon.webp" alt="ALMA Kids" style="width: 40px; height: auto;">
         </a>
         <button class="mobile-float-btn mobile-search-btn" onclick="toggleSearch()" title="Buscar">
             <i class="fas fa-search"></i>
@@ -2146,7 +2152,7 @@
                 html += `
                     <div class="cart-item">
                         <div class="item-image">
-                            <img src="${item.image || 'imagenes/LOGO ALMA kids Ltda.png'}" alt="${item.name}">
+                            <img src="${item.image || 'imagenes/logo-alma-kids-pagina.webp'}" alt="${item.name}">
                         </div>
                         <div class="item-info">
                             <h4>${item.name}</h4>
@@ -2321,7 +2327,7 @@
             ],
             'logo': [
                 {
-                    src: 'imagenes/LOGO ALMA kids Ltda.png',
+                    src: 'imagenes/logo-alma-kids-pagina.webp',
                     title: 'ALMA Kids Logo Oficial',
                     description: 'Logo oficial de ALMA Kids Entretenciones Infantiles Ltda.'
                 }
