@@ -14,56 +14,111 @@ let comparison = JSON.parse(localStorage.getItem('almakids_comparison')) || [];
 // ========================================
 
 function toggleMobileMenu() {
+    console.log('🍔 toggleMobileMenu llamado');
     const mobileMenu = document.getElementById('mobileMenu');
-    const overlay = document.getElementById('mobileMenuOverlay');
+    const overlay = document.getElementById('mobileMenuOverlay') || createMobileMenuOverlay();
     const toggleButton = document.querySelector('.mobile-menu-toggle');
-    const floatMenuBtn = document.querySelector('.mobile-menu-btn'); // Botón flotante móvil
+    const floatMenuBtn = document.querySelector('.mobile-menu-btn');
     const body = document.body;
     
-    if (mobileMenu) {
+    if (!mobileMenu) {
+        console.error('❌ mobileMenu no encontrado');
+        return;
+    }
+    
         const isActive = mobileMenu.classList.contains('active');
+    console.log('Estado actual:', isActive ? 'abierto' : 'cerrado');
         
         if (isActive) {
             closeMobileMenu();
         } else {
-            // Crear overlay si no existe
-            if (!overlay) {
+        // Asegurar que el overlay existe
+        if (!document.getElementById('mobileMenuOverlay')) {
                 createMobileMenuOverlay();
             }
             
+        // Abrir menú
             mobileMenu.classList.add('active');
-            document.getElementById('mobileMenuOverlay').classList.add('active');
-            if (toggleButton) toggleButton.classList.add('active');
-            if (floatMenuBtn) floatMenuBtn.classList.add('active'); // Activar botón flotante
-            body.style.overflow = 'hidden';
+        mobileMenu.style.display = 'block';
+        
+        const overlayEl = document.getElementById('mobileMenuOverlay');
+        if (overlayEl) {
+            overlayEl.classList.add('active');
+            overlayEl.style.display = 'block';
         }
+        
+        if (toggleButton) {
+            toggleButton.classList.add('active');
+        }
+        if (floatMenuBtn) {
+            floatMenuBtn.classList.add('active');
+        }
+        
+        body.style.overflow = 'hidden';
+        body.classList.add('menu-open');
+        
+        console.log('✅ Menú móvil abierto');
     }
 }
 
 function closeMobileMenu() {
+    console.log('❌ closeMobileMenu llamado');
     const mobileMenu = document.getElementById('mobileMenu');
     const overlay = document.getElementById('mobileMenuOverlay');
     const toggleButton = document.querySelector('.mobile-menu-toggle');
-    const floatMenuBtn = document.querySelector('.mobile-menu-btn'); // Botón flotante móvil
+    const floatMenuBtn = document.querySelector('.mobile-menu-btn');
     const body = document.body;
     
     if (mobileMenu) {
         mobileMenu.classList.remove('active');
-        if (toggleButton) toggleButton.classList.remove('active');
-        if (floatMenuBtn) floatMenuBtn.classList.remove('active'); // Desactivar botón flotante
+        mobileMenu.style.display = 'none';
+        
+        if (toggleButton) {
+            toggleButton.classList.remove('active');
+        }
+        if (floatMenuBtn) {
+            floatMenuBtn.classList.remove('active');
+        }
         if (overlay) {
             overlay.classList.remove('active');
+            overlay.style.display = 'none';
         }
+        
         body.style.overflow = 'auto';
+        body.classList.remove('menu-open');
+        
+        console.log('✅ Menú móvil cerrado');
     }
 }
 
 function createMobileMenuOverlay() {
-    const overlay = document.createElement('div');
+    // Verificar si ya existe
+    let overlay = document.getElementById('mobileMenuOverlay');
+    if (overlay) {
+        return overlay;
+    }
+    
+    overlay = document.createElement('div');
     overlay.id = 'mobileMenuOverlay';
     overlay.className = 'mobile-menu-overlay';
-    overlay.onclick = closeMobileMenu;
+    overlay.style.display = 'none';
+    
+    // Agregar event listener para cerrar
+    overlay.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        closeMobileMenu();
+    });
+    
+    // También cerrar con tap en cualquier parte
+    overlay.addEventListener('touchend', function(e) {
+        e.preventDefault();
+        closeMobileMenu();
+    });
+    
     document.body.appendChild(overlay);
+    console.log('✅ Overlay del menú móvil creado');
+    return overlay;
 }
 
 // ========================================
@@ -1403,6 +1458,27 @@ document.addEventListener('DOMContentLoaded', function() {
     // Agrupar botones de acción (Carrito y WhatsApp) horizontalmente
     groupActionButtons();
     
+    // Asegurar que el overlay del menú móvil existe
+    createMobileMenuOverlay();
+    
+    // Agregar event listeners a los enlaces del menú móvil
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            closeMobileMenu();
+        });
+    });
+    
+    // Cerrar menú con tecla Escape
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            const mobileMenu = document.getElementById('mobileMenu');
+            if (mobileMenu && mobileMenu.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        }
+    });
+    
     // Cerrar modales con click fuera
     window.addEventListener('click', function(e) {
         if (e.target.classList.contains('modal')) {
@@ -1426,6 +1502,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     console.log('🎪 ALMA Kids: Sistema funcional principal activado');
+    console.log('✅ Menú móvil inicializado');
 });
 
 // ========================================
