@@ -1274,9 +1274,10 @@ p {
     .hero { padding: 20px 0 30px; min-height: 100vh; }
     .hero-title { font-size: 1.8rem; }
     .hero-description { font-size: 0.9rem; }
-    /* Evitar superposiciones de botones flotantes */
-    .whatsapp-float { bottom: 12px; right: 12px; }
-    .cart-float { bottom: 12px; left: 12px; }
+    /* Botones flotantes en la orilla */
+    .whatsapp-float { bottom: 0 !important; right: 0 !important; padding: 15px; }
+    .cart-float { bottom: 0 !important; left: 0 !important; padding: 15px; }
+    .whatsapp-btn, .cart-btn { width: 110px !important; height: 110px !important; font-size: 2rem !important; }
 }
 
 /* Responsive para mensaje de agendamiento (Reducido 40%) */
@@ -1600,13 +1601,14 @@ p {
 }
 
 .hero-content {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 3rem;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 3rem !important;
     position: relative;
     z-index: 2;
-    align-items: center;
+    align-items: center !important;
     min-height: 500px;
+    width: 100% !important;
 }
 
 .hero-text {
@@ -1670,15 +1672,15 @@ p {
 }
 
 .hero-image {
-    position: relative;
+    position: relative !important;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
     height: 100%;
     min-height: 450px;
-    width: 100%;
+    width: 100% !important;
 }
 
 .hero-img {
@@ -1775,6 +1777,18 @@ p {
     visibility: visible !important;
     z-index: 3 !important;
     position: relative !important;
+    max-width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+}
+
+/* FORZAR VISIBILIDAD - Sobrescribir cualquier regla que oculte */
+.hero-carousel img,
+.hero-carousel .carousel-slide img,
+.hero-carousel .carousel-slide.active img {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
 }
 
 /* Asegurar que las imágenes inactivas estén ocultas pero cargadas */
@@ -1787,6 +1801,17 @@ p {
     opacity: 0 !important;
     visibility: hidden !important;
     pointer-events: none;
+    /* PERO asegurar que cuando esté activo, se vea */
+}
+
+/* REGLA CRÍTICA: Las imágenes del carrusel activo DEBEN verse */
+.hero-carousel .carousel-slide.active img.loaded,
+.hero-carousel .carousel-slide.active img {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    position: relative !important;
+    z-index: 10 !important;
 }
 
 /* Asegurar que picture elements funcionen correctamente */
@@ -2679,25 +2704,21 @@ p {
 #imageModal .modal-image {
     width: auto !important;
     height: auto !important;
-    max-width: 95vw !important;
+    max-width: calc(95vw - 400px) !important; /* Dejar espacio para la descripción */
     max-height: 95vh !important;
     border-radius: 0;
     margin: 0 auto !important;
+    margin-left: 30px !important; /* Espacio desde la izquierda */
     object-fit: contain !important;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
     cursor: zoom-in;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, max-width 0.3s ease;
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     display: block !important;
     position: relative !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    z-index: 10 !important;
     background: transparent;
 }
 
@@ -2748,16 +2769,17 @@ p {
 }
 
 /* Caption del modal de imágenes específico - Glass estilo iOS */
+/* Posicionado a la derecha para no tapar la imagen */
 #imageModal .modal-caption {
     position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%);
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(30px) saturate(180%);
     -webkit-backdrop-filter: blur(30px) saturate(180%);
     border-radius: 20px;
-    padding: 1rem 1.5rem;
+    padding: 1.5rem;
     margin-top: 0;
     color: white;
     border: 1px solid rgba(255, 255, 255, 0.25);
@@ -2765,10 +2787,13 @@ p {
         0 8px 32px rgba(0, 0, 0, 0.2),
         inset 0 1px 0 rgba(255, 255, 255, 0.3);
     width: auto;
-    max-width: 90%;
-    text-align: center;
+    max-width: 350px;
+    min-width: 250px;
+    text-align: left;
     z-index: 10001;
-    transition: opacity 0.3s ease;
+    transition: all 0.3s ease, transform 0.3s ease, max-width 0.3s ease;
+    max-height: 80vh;
+    overflow-y: auto;
 }
 
 #imageModal .modal-caption h3 {
@@ -8306,25 +8331,105 @@ html {
 }
 
 /* WhatsApp Float Buttons */
-.whatsapp-float {
+/* ========================================
+   BOTONES FLOTANTES MÓVILES - Búsqueda y Menú
+   ======================================== */
+.mobile-float-buttons {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
-    z-index: 1000;
-    display: block;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+    display: none; /* Oculto por defecto, visible solo en móviles */
+    flex-direction: column;
+    gap: 12px;
 }
 
-/* Estilos para botón único de WhatsApp */
+.mobile-float-btn {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    text-decoration: none;
+}
+
+.mobile-logo-btn {
+    background: linear-gradient(135deg, #FFFFFF, #F5F0FF);
+    border: 2px solid rgba(233, 30, 99, 0.2);
+    padding: 15px;
+}
+
+.mobile-logo-btn img {
+    width: 70px !important;
+    height: auto !important;
+}
+
+.mobile-logo-btn:hover,
+.mobile-logo-btn:active {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(233, 30, 99, 0.3);
+    border-color: rgba(233, 30, 99, 0.4);
+}
+
+.mobile-search-btn {
+    background: linear-gradient(135deg, #2196F3, #21CBF3);
+}
+
+.mobile-search-btn:hover,
+.mobile-search-btn:active {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(33, 150, 243, 0.4);
+    background: linear-gradient(135deg, #1976D2, #00BCD4);
+}
+
+.mobile-menu-btn {
+    background: linear-gradient(135deg, #E91E63, #FF6B9D);
+}
+
+.mobile-menu-btn:hover,
+.mobile-menu-btn:active {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(233, 30, 99, 0.4);
+    background: linear-gradient(135deg, #C2185B, #E91E63);
+}
+
+.mobile-menu-btn.active {
+    background: linear-gradient(135deg, #C2185B, #E91E63);
+}
+
+.mobile-menu-btn.active i {
+    transform: rotate(90deg);
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 1000;
+    display: block;
+    padding: 15px;
+}
+
+/* Estilos para botón único de WhatsApp - Aumentado 30% */
 .whatsapp-btn {
-    width: 84px;
-    height: 84px;
+    width: 110px;
+    height: 110px;
     background: #25D366;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: white;
     box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
     transition: all 0.3s ease;
@@ -8369,19 +8474,20 @@ html {
     color: var(--white);
 }
 
-/* Cart Float Button */
+/* Cart Float Button - Aumentado 30% y en la orilla */
 .cart-float {
     position: fixed;
-    bottom: 30px;
+    bottom: 0;
     right: auto;
-    left: 30px;
+    left: 0;
     z-index: 1000;
     display: block;
+    padding: 15px;
 }
 
 .cart-btn {
-    width: 84px;
-    height: 84px;
+    width: 110px;
+    height: 110px;
     background: var(--primary-color);
     border: none;
     border-radius: 50%;
@@ -8389,7 +8495,7 @@ html {
     align-items: center;
     justify-content: center;
     color: var(--white);
-    font-size: 1.5rem;
+    font-size: 2rem;
     cursor: pointer;
     box-shadow: var(--shadow-lg);
     transition: var(--transition);
@@ -8403,18 +8509,18 @@ html {
 
 .cart-count {
     position: absolute;
-    top: -5px;
-    right: -5px;
+    top: 5px;
+    right: 5px;
     background: #E74C3C;
     color: var(--white);
+    width: 28px;
+    height: 28px;
+    font-size: 0.9rem;
+    font-weight: bold;
     border-radius: 50%;
-    width: 20px;
-    height: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.8rem;
-    font-weight: bold;
 }
 
 @keyframes pulse {
@@ -8462,10 +8568,14 @@ html {
     
     /* Hero section para tablet */
     .hero-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 2rem;
+        grid-template-columns: 1fr 1fr !important;
+        text-align: left;
+        gap: 2rem !important;
         padding: 2rem 0;
+    }
+    
+    .hero-text {
+        text-align: left !important;
     }
     
     .hero h1 {
@@ -8545,20 +8655,111 @@ html {
         display: block;
     }
     
-    #imageModal .modal-caption {
-        padding: 0.75rem 1rem;
-        font-size: 0.85rem;
-        bottom: 15px;
-        max-width: 95%;
+    /* RESPONSIVE: Tablets medianas (768px - 1024px) */
+    @media (min-width: 768px) and (max-width: 1024px) {
+        #imageModal .modal-caption {
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            max-width: 280px;
+            min-width: 200px;
+            padding: 1rem 1.25rem;
+            font-size: 0.9rem;
+            text-align: left;
+        }
+        
+        #imageModal .modal-image {
+            max-width: calc(95vw - 320px) !important;
+            margin-left: 20px !important;
+        }
+        
+        #imageModal .modal-caption h3 {
+            font-size: 1.1rem;
+        }
+        
+        #imageModal .modal-caption p {
+            font-size: 0.85rem;
+        }
     }
     
-    #imageModal .modal-caption h3 {
-        font-size: 1.1rem;
-        margin-bottom: 0.25rem;
+    /* RESPONSIVE: Móviles grandes (481px - 767px) */
+    @media (min-width: 481px) and (max-width: 767px) {
+        #imageModal .modal-caption {
+            position: absolute;
+            top: auto;
+            right: auto;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%) translateY(0);
+            padding: 0.9rem 1.1rem;
+            font-size: 0.88rem;
+            max-width: 90%;
+            min-width: auto;
+            text-align: center;
+            max-height: 25vh;
+        }
+        
+        #imageModal .modal-image {
+            max-width: 95vw !important;
+            margin-left: auto !important;
+            max-height: 70vh !important; /* Dejar espacio para la descripción */
+        }
+        
+        #imageModal .modal-caption h3 {
+            font-size: 1.05rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        #imageModal .modal-caption p {
+            font-size: 0.82rem;
+        }
     }
     
-    #imageModal .modal-caption p {
-        font-size: 0.8rem;
+    /* RESPONSIVE: Móviles pequeños (hasta 480px) */
+    @media (max-width: 480px) {
+        #imageModal .modal-caption {
+            position: absolute;
+            top: auto;
+            right: auto;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%) translateY(0);
+            padding: 0.75rem 1rem;
+            font-size: 0.85rem;
+            max-width: 95%;
+            min-width: auto;
+            text-align: center;
+            max-height: 20vh;
+        }
+        
+        #imageModal .modal-image {
+            max-width: 95vw !important;
+            margin-left: auto !important;
+            max-height: 75vh !important; /* Dejar espacio para la descripción */
+        }
+        
+        #imageModal .modal-caption h3 {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        #imageModal .modal-caption p {
+            font-size: 0.8rem;
+        }
+        
+        .modal-controls {
+            top: 10px;
+            right: 10px;
+            gap: 8px;
+        }
+        
+        .modal-control-btn,
+        .close-modal {
+            width: 35px;
+            height: 35px;
+            font-size: 0.9rem;
+        }
     }
     
     .modal-controls {
@@ -8626,8 +8827,9 @@ html {
         -webkit-tap-highlight-color: transparent;
     }
 
-    .whatsapp-float { bottom: 16px; right: 16px; }
-    .cart-float { bottom: 16px; left: 16px; }
+    .whatsapp-float { bottom: 0 !important; right: 0 !important; padding: 15px; }
+    .cart-float { bottom: 0 !important; left: 0 !important; padding: 15px; }
+    .whatsapp-btn, .cart-btn { width: 110px !important; height: 110px !important; font-size: 2rem !important; }
 
     .floating-nav-buttons { display: none !important; }
 
@@ -8783,9 +8985,13 @@ html {
     }
     
     .hero-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 2rem;
+        grid-template-columns: 1fr 1fr !important;
+        text-align: left;
+        gap: 1.5rem !important;
+    }
+    
+    .hero-text {
+        text-align: left !important;
     }
     
     .hero-title {
@@ -12958,12 +13164,6 @@ body {
     margin-top: 5px;
 }
 
-/* Destacar precios en botones */
-.btn[onclick*="addToNewCart"]::after {
-    content: " - Precio visible";
-    font-size: 0.8em;
-    opacity: 0.8;
-}
 
 /* Precios en WhatsApp buttons */
 .btn[onclick*="wa.me"][onclick*="$"] {
@@ -13321,6 +13521,122 @@ img[loading="lazy"].loaded {
    ACCESIBILIDAD
    ============================================ */
 
+/* ============================================
+   HEADER MÓVIL - BOTONES FLOTANTES
+   ============================================ */
+
+/* En móviles: Ocultar header y mostrar botones flotantes */
+@media (max-width: 768px) {
+    /* Ocultar header completo en móviles */
+    .header {
+        display: none !important;
+    }
+    
+    /* Eliminar padding-top del body ya que no hay header */
+    body {
+        padding-top: 0 !important;
+    }
+    
+    /* Mostrar botones flotantes móviles */
+    .mobile-float-buttons {
+        display: flex !important;
+    }
+    
+    /* Botones flotantes en la orilla - Tamaño aumentado 30% */
+    .whatsapp-float {
+        bottom: 0 !important;
+        right: 0 !important;
+        padding: 15px;
+    }
+    
+    .cart-float {
+        bottom: 0 !important;
+        left: 0 !important;
+        padding: 15px;
+    }
+    
+    .whatsapp-btn {
+        width: 110px !important;
+        height: 110px !important;
+        font-size: 2rem !important;
+    }
+    
+    .cart-btn {
+        width: 110px !important;
+        height: 110px !important;
+        font-size: 2rem !important;
+    }
+    
+    .mobile-float-btn {
+        width: 110px !important;
+        height: 110px !important;
+        font-size: 2rem !important;
+    }
+    
+    .mobile-logo-btn img {
+        width: 70px !important;
+    }
+    
+    /* Asegurar que el search container funcione desde el botón flotante */
+    .search-container {
+        position: fixed;
+        top: 90px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 500px;
+        z-index: 1002;
+    }
+    
+    .search-container.active {
+        display: block !important;
+    }
+    
+    /* Asegurar que el menú móvil funcione desde el botón flotante */
+    .mobile-menu {
+        top: 90px;
+        z-index: 1002;
+    }
+}
+
+/* Móviles pequeños - Mantener tamaño aumentado pero ajustar espaciado */
+@media (max-width: 480px) {
+    .mobile-float-btn {
+        width: 110px !important;
+        height: 110px !important;
+        font-size: 2rem !important;
+    }
+    
+    .mobile-float-buttons {
+        top: 15px;
+        right: 15px;
+        gap: 12px;
+    }
+    
+    .whatsapp-float {
+        bottom: 0 !important;
+        right: 0 !important;
+        padding: 12px;
+    }
+    
+    .cart-float {
+        bottom: 0 !important;
+        left: 0 !important;
+        padding: 12px;
+    }
+    
+    .whatsapp-btn,
+    .cart-btn {
+        width: 110px !important;
+        height: 110px !important;
+        font-size: 2rem !important;
+    }
+    
+    .mobile-logo-btn img {
+        width: 70px !important;
+    }
+}
+
 /* Focus states para accesibilidad */
 img:focus {
     outline: 3px solid #E91E63;
@@ -13378,5 +13694,71 @@ img.error::after {
 
     body {
         padding-top: 96px !important;
+    }
+}
+
+/* Estilos para las dos imágenes del hero */
+.hero-images-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 20px !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 0 10px;
+}
+
+.hero-image-item {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+}
+
+.hero-image-item img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 400px !important;
+    object-fit: contain !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: block !important;
+}
+
+.hero-image-item img:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.hero-image-item p {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 0.9em;
+    color: #666;
+    font-weight: 500;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    .hero-content {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+    
+    .hero-text {
+        text-align: center !important;
+    }
+    
+    .hero-images-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 10px !important;
+    }
+    
+    .hero-image-item img {
+        max-height: 250px;
+    }
+    
+    .hero-image-item p {
+        font-size: 0.75em;
     }
 }

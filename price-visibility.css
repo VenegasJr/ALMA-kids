@@ -83,12 +83,6 @@
     margin-top: 5px;
 }
 
-/* Destacar precios en botones */
-.btn[onclick*="addToNewCart"]::after {
-    content: " - Precio visible";
-    font-size: 0.8em;
-    opacity: 0.8;
-}
 
 /* Precios en WhatsApp buttons */
 .btn[onclick*="wa.me"][onclick*="$"] {

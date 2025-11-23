@@ -86,7 +86,7 @@
   Content-Type: application/xml
 
 # Headers específicos para PWA
-/imagenes/ALMA kids Logo web.png
+/imagenes/LOGO ALMA kids Ltda.png
   Cache-Control: public, max-age=31536000, immutable
   Content-Type: image/png
 

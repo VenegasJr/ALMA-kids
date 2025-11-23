@@ -1,0 +1,93 @@
+/* ========================================
+   FIX CRÍTICO PARA CARRUSEL - IMÁGENES VISIBLES
+   Este archivo sobrescribe TODAS las reglas que ocultan imágenes
+   ======================================== */
+
+/* FORZAR VISIBILIDAD DE TODAS LAS IMÁGENES DEL CARRUSEL - MÁXIMA PRIORIDAD */
+.hero-carousel img,
+.hero-carousel .carousel-slide img,
+.hero-carousel .carousel-slide.active img,
+.hero-carousel .carousel-image,
+.hero-carousel .carousel-slide .carousel-image,
+.hero-carousel .carousel-slide.active .carousel-image {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    position: relative !important;
+    z-index: 10 !important;
+    max-width: 100% !important;
+    width: auto !important;
+    height: auto !important;
+    max-height: 400px !important;
+    object-fit: contain !important;
+    image-rendering: auto !important;
+    -webkit-backface-visibility: visible !important;
+    backface-visibility: visible !important;
+    margin: 0 auto !important;
+}
+
+/* Cuando el slide está activo - FORZAR VISIBILIDAD */
+.hero-carousel .carousel-slide.active img {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: 400px !important;
+    min-height: 250px !important;
+    object-fit: contain !important;
+    position: relative !important;
+    z-index: 5 !important;
+    margin: 0 auto !important;
+}
+
+/* Picture elements también visibles */
+.hero-carousel .carousel-slide picture,
+.hero-carousel .carousel-slide.active picture {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    width: 100% !important;
+    height: 100% !important;
+    position: relative !important;
+    z-index: 4 !important;
+}
+
+/* Contenedor del carrusel */
+.hero-carousel {
+    min-height: 400px !important;
+    display: block !important;
+    position: relative !important;
+    overflow: visible !important;
+}
+
+.carousel-container {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+    overflow: visible !important;
+}
+
+/* Slides activos */
+.carousel-slide.active {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: flex !important;
+    z-index: 2 !important;
+}
+
+/* Clase loaded - asegurar que funcione */
+.hero-carousel img.loaded,
+.hero-carousel .carousel-slide img.loaded {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-carousel .carousel-slide.active img {
+        max-height: 300px !important;
+        max-width: 95% !important;
+    }
+}
+

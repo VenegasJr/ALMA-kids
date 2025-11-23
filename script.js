@@ -17,6 +17,7 @@ function toggleMobileMenu() {
     const mobileMenu = document.getElementById('mobileMenu');
     const overlay = document.getElementById('mobileMenuOverlay');
     const toggleButton = document.querySelector('.mobile-menu-toggle');
+    const floatMenuBtn = document.querySelector('.mobile-menu-btn'); // Botón flotante móvil
     const body = document.body;
     
     if (mobileMenu) {
@@ -32,7 +33,8 @@ function toggleMobileMenu() {
             
             mobileMenu.classList.add('active');
             document.getElementById('mobileMenuOverlay').classList.add('active');
-            toggleButton.classList.add('active');
+            if (toggleButton) toggleButton.classList.add('active');
+            if (floatMenuBtn) floatMenuBtn.classList.add('active'); // Activar botón flotante
             body.style.overflow = 'hidden';
         }
     }
@@ -42,11 +44,13 @@ function closeMobileMenu() {
     const mobileMenu = document.getElementById('mobileMenu');
     const overlay = document.getElementById('mobileMenuOverlay');
     const toggleButton = document.querySelector('.mobile-menu-toggle');
+    const floatMenuBtn = document.querySelector('.mobile-menu-btn'); // Botón flotante móvil
     const body = document.body;
     
     if (mobileMenu) {
         mobileMenu.classList.remove('active');
-        toggleButton.classList.remove('active');
+        if (toggleButton) toggleButton.classList.remove('active');
+        if (floatMenuBtn) floatMenuBtn.classList.remove('active'); // Desactivar botón flotante
         if (overlay) {
             overlay.classList.remove('active');
         }

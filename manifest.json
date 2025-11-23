@@ -12,13 +12,13 @@
   "categories": ["entertainment", "kids", "business"],
   "icons": [
     {
-      "src": "imagenes/ALMA kids Logo web.png",
+      "src": "imagenes/LOGO ALMA kids Ltda.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "imagenes/ALMA kids Logo web.png", 
+      "src": "imagenes/LOGO ALMA kids Ltda.png", 
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
@@ -40,7 +40,7 @@
       "url": "https://wa.me/56969073306",
       "icons": [
         {
-          "src": "imagenes/ALMA kids Logo web.png",
+          "src": "imagenes/LOGO ALMA kids Ltda.png",
           "sizes": "96x96"
         }
       ]
@@ -52,7 +52,7 @@
       "url": "/#contacto",
       "icons": [
         {
-          "src": "imagenes/ALMA kids Logo web.png",
+          "src": "imagenes/LOGO ALMA kids Ltda.png",
           "sizes": "96x96"
         }
       ]
@@ -64,7 +64,7 @@
       "url": "/#galeria",
       "icons": [
         {
-          "src": "imagenes/ALMA kids Logo web.png",
+          "src": "imagenes/LOGO ALMA kids Ltda.png",
           "sizes": "96x96"
         }
       ]
