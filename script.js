@@ -763,12 +763,32 @@ function updateComparisonCount() {
 let isImageZoomed = false;
 let isFullscreen = false;
 
+// Variables globales para galería de imágenes
+let currentImageGallery = [];
+let currentImageIndex = 0;
+
 function openImageModal(imageSrc, title, code, category) {
     const modal = document.getElementById('imageModal');
     if (!modal) return;
     
     const modalImage = document.getElementById('modalImage');
     const modalCaption = document.getElementById('modalCaption');
+
+    // Detectar galería de imágenes relacionadas
+    detectImageGallery(imageSrc);
+    
+    // Encontrar el índice de la imagen actual en la galería
+    currentImageIndex = currentImageGallery.findIndex(img => img.src === imageSrc);
+    if (currentImageIndex === -1) {
+        currentImageIndex = 0;
+        // Si no está en la galería, crear una galería con solo esta imagen
+        currentImageGallery = [{
+            src: imageSrc,
+            title: title,
+            code: code,
+            category: category
+        }];
+    }
 
     // Resetear estados
     isImageZoomed = false;
@@ -829,9 +849,163 @@ function openImageModal(imageSrc, title, code, category) {
         modal.style.display = 'flex';
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
+        
+        // Actualizar botones de navegación
+        updateImageNavigation();
+        
+        // Agregar listeners de teclado
+        document.addEventListener('keydown', handleImageModalKeyboard);
     }
 }
 
+// Función para detectar galería de imágenes relacionadas
+function detectImageGallery(currentImageSrc) {
+    currentImageGallery = [];
+    
+    // Buscar todas las imágenes con onclick que abren el modal
+    const allImages = document.querySelectorAll('img[onclick*="openImageModal"]');
+    
+    allImages.forEach(img => {
+        // Extraer parámetros del onclick
+        const onclickAttr = img.getAttribute('onclick');
+        if (onclickAttr) {
+            const match = onclickAttr.match(/openImageModal\(['"]([^'"]+)['"]\s*,\s*['"]([^'"]*)['"]\s*(?:,\s*['"]([^'"]*)['"])?\s*(?:,\s*['"]([^'"]*)['"])?/);
+            if (match) {
+                const src = match[1];
+                const title = match[2] || img.alt || 'Imagen';
+                const code = match[3] || '';
+                const category = match[4] || '';
+                
+                currentImageGallery.push({
+                    src: src,
+                    title: title,
+                    code: code,
+                    category: category
+                });
+            }
+        }
+    });
+    
+    // Si no se encontraron imágenes, buscar imágenes en contenedores de galería
+    if (currentImageGallery.length === 0) {
+        // Buscar en galerías comunes (divertete-images-gallery, castillo-images-gallery, etc.)
+        const galleryContainers = document.querySelectorAll('.divertete-images-gallery, .castillo-images-gallery, .service-images, .gallery');
+        
+        galleryContainers.forEach(container => {
+            const images = container.querySelectorAll('img');
+            images.forEach(img => {
+                if (img.src && !img.src.includes('data:')) {
+                    currentImageGallery.push({
+                        src: img.src,
+                        title: img.alt || 'Imagen',
+                        code: '',
+                        category: ''
+                    });
+                }
+            });
+        });
+    }
+    
+    console.log(`📸 Galería detectada: ${currentImageGallery.length} imágenes`);
+}
+
+// Función para actualizar navegación de imágenes
+function updateImageNavigation() {
+    const prevBtn = document.querySelector('.modal-prev');
+    const nextBtn = document.querySelector('.modal-next');
+    
+    if (currentImageGallery.length > 1) {
+        // Mostrar botones de navegación
+        if (prevBtn) {
+            prevBtn.style.display = 'flex';
+            prevBtn.style.opacity = currentImageIndex > 0 ? '1' : '0.5';
+            prevBtn.style.pointerEvents = currentImageIndex > 0 ? 'auto' : 'none';
+        }
+        if (nextBtn) {
+            nextBtn.style.display = 'flex';
+            nextBtn.style.opacity = currentImageIndex < currentImageGallery.length - 1 ? '1' : '0.5';
+            nextBtn.style.pointerEvents = currentImageIndex < currentImageGallery.length - 1 ? 'auto' : 'none';
+        }
+    } else {
+        // Ocultar botones si solo hay una imagen
+        if (prevBtn) prevBtn.style.display = 'none';
+        if (nextBtn) nextBtn.style.display = 'none';
+    }
+}
+
+// Función para navegar a la imagen anterior
+window.previousImage = function() {
+    if (currentImageIndex > 0) {
+        currentImageIndex--;
+        showImageInModal(currentImageIndex);
+    }
+}
+
+// Función para navegar a la imagen siguiente
+window.nextImage = function() {
+    if (currentImageIndex < currentImageGallery.length - 1) {
+        currentImageIndex++;
+        showImageInModal(currentImageIndex);
+    }
+}
+
+// Función para mostrar imagen específica en el modal
+function showImageInModal(index) {
+    if (index < 0 || index >= currentImageGallery.length) return;
+    
+    const image = currentImageGallery[index];
+    const modalImage = document.getElementById('modalImage');
+    const modalCaption = document.getElementById('modalCaption');
+    
+    if (modalImage) {
+        // Resetear zoom
+        isImageZoomed = false;
+        modalImage.classList.remove('zoomed');
+        
+        // Cargar nueva imagen
+        modalImage.src = image.src;
+        modalImage.alt = image.title;
+        
+        // Actualizar caption
+        if (modalCaption) {
+            modalCaption.innerHTML = `
+                <h3>${image.title}</h3>
+                ${image.code ? `<p><strong>Código:</strong> ${image.code}</p>` : ''}
+                ${image.category ? `<p><strong>Categoría:</strong> ${image.category}</p>` : ''}
+                <p class="image-counter">${index + 1} / ${currentImageGallery.length}</p>
+            `;
+        }
+        
+        // Actualizar navegación
+        updateImageNavigation();
+    }
+}
+
+// Función para manejar teclado en el modal
+function handleImageModalKeyboard(e) {
+    const modal = document.getElementById('imageModal');
+    if (!modal || !modal.classList.contains('active')) return;
+    
+    // No procesar si hay un input activo
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    
+    switch(e.key) {
+        case 'ArrowLeft':
+            e.preventDefault();
+            previousImage();
+            break;
+        case 'ArrowRight':
+            e.preventDefault();
+            nextImage();
+            break;
+        case 'Escape':
+            e.preventDefault();
+            closeImageModal();
+            break;
+    }
+}
+
+// Remover listener de teclado al cerrar modal
 function closeImageModal() {
     const modal = document.getElementById('imageModal');
     if (modal) {
@@ -848,12 +1022,17 @@ function closeImageModal() {
         }
         updateControlIcons();
         
+        // Remover listener de teclado
+        document.removeEventListener('keydown', handleImageModalKeyboard);
+        
         // Salir de pantalla completa si está activo
         if (document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement) {
             exitFullscreen();
         }
     }
 }
+
+// closeImageModal ya está definida más abajo, no duplicar
 
 // Función para toggle zoom
 function toggleZoom() {
