@@ -2316,30 +2316,63 @@ p {
     box-shadow: var(--shadow-lg);
 }
 
+/* ==================== IMÁGENES DE SETs - MÁS GRANDES Y LLAMATIVAS ==================== */
 .service-image {
     position: relative;
-    height: 320px;
+    height: 450px !important; /* Aumentado de 320px a 450px (40% más grande) */
     overflow: hidden;
+    border-radius: 16px 16px 0 0;
+    background: linear-gradient(135deg, rgba(255, 245, 252, 0.3), rgba(240, 249, 255, 0.3));
 }
 
 .service-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: var(--transition);
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    cursor: pointer !important;
+    border-radius: 16px 16px 0 0;
 }
 
 .service-card:hover .service-img {
-    transform: scale(1.05);
+    transform: scale(1.08) !important; /* Zoom más pronunciado */
+    filter: brightness(1.05) saturate(1.1) !important;
+}
+
+.service-card:hover {
+    transform: translateY(-8px) !important; /* Elevación más pronunciada */
+    box-shadow: 0 15px 40px rgba(233, 30, 99, 0.25) !important;
 }
 
 .service-content {
-    padding: 2rem;
+    padding: 2rem !important;
 }
 
 .service-content h3 {
-    color: var(--primary-color);
-    margin-bottom: 1rem;
+    color: var(--primary-color) !important;
+    margin-bottom: 1rem !important;
+    font-size: 1.5rem !important; /* Títulos más grandes */
+    font-weight: 700 !important;
+}
+
+/* ==================== RESPONSIVE TABLET (768px - 1024px) ==================== */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .service-image {
+        height: 400px !important; /* Tamaño intermedio para tablets */
+    }
+    
+    #ofertas .service-image {
+        height: 450px !important;
+    }
+    
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr) !important; /* 2 columnas en tablet */
+        gap: 2rem !important;
+    }
+    
+    #ofertas .services-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
 }
 
 .service-features {
@@ -4378,11 +4411,11 @@ p {
     }
 }
 
-/* Layout específico para Ofertas Especiales - 2 por fila */
+/* Layout específico para Ofertas Especiales - 2 por fila - IMÁGENES MÁS GRANDES */
 #ofertas .services-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 2.5rem !important; /* Más espacio entre cards */
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -4394,13 +4427,28 @@ p {
     border: 2px solid #E0D0FF !important;
     box-shadow: 0 8px 25px rgba(128, 0, 128, 0.1) !important;
     color: #333 !important;
+    border-radius: 16px !important;
+}
+
+#ofertas .service-image {
+    height: 500px !important; /* Aún más grande en la sección de ofertas */
+    border-radius: 16px 16px 0 0 !important;
+}
+
+#ofertas .service-img {
+    border-radius: 16px 16px 0 0 !important;
 }
 
 #ofertas .service-card:hover {
     background: linear-gradient(135deg, #F0E5FF, #FFE5F0) !important;
     border-color: #D0B0FF !important;
-    box-shadow: 0 12px 35px rgba(128, 0, 128, 0.15) !important;
-    transform: translateY(-5px) !important;
+    box-shadow: 0 15px 40px rgba(128, 0, 128, 0.2) !important;
+    transform: translateY(-8px) !important; /* Elevación más pronunciada */
+}
+
+#ofertas .service-card:hover .service-img {
+    transform: scale(1.08) !important;
+    filter: brightness(1.05) saturate(1.1) !important;
 }
 
 #ofertas .service-card h3 {
@@ -9413,18 +9461,32 @@ html {
         text-align: left;
     }
     
-    /* Servicios móvil */
+    /* Servicios móvil - Imágenes más grandes y llamativas */
     .services-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important; /* Más espacio entre cards */
     }
     
     .service-image {
-        height: 250px;
+        height: 350px !important; /* Aumentado de 250px a 350px (40% más grande) */
+        border-radius: 12px 12px 0 0 !important;
+    }
+    
+    .service-img {
+        border-radius: 12px 12px 0 0 !important;
     }
     
     .service-content {
-        padding: 1.5rem;
+        padding: 1.5rem !important;
+    }
+    
+    .service-card {
+        border-radius: 12px !important;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15) !important;
+    }
+    
+    .service-card:hover {
+        transform: translateY(-5px) !important;
     }
     
     /* Plaza Blanda móvil */
@@ -9589,6 +9651,20 @@ html {
     .service-card,
     .event-card {
         margin: 0 10px;
+    }
+    
+    /* Imágenes de SETs en móviles pequeños - aún más grandes */
+    .service-image {
+        height: 320px !important; /* Grande pero ajustado para pantallas pequeñas */
+    }
+    
+    #ofertas .service-image {
+        height: 320px !important; /* Ajustado para móviles pequeños */
+    }
+    
+    #ofertas .services-grid {
+        grid-template-columns: 1fr !important; /* Una columna en móviles */
+        gap: 2rem !important;
     }
 }
 
@@ -13109,13 +13185,17 @@ img[onerror] {
         overflow: hidden !important;
     }
     
-    /* Grids responsive */
+    /* Grids responsive - Imágenes más grandes */
     .services-grid,
     .plaza-gallery,
     .globos-grid {
         grid-template-columns: 1fr !important;
-        gap: 15px !important;
-        padding: 0 10px !important;
+        gap: 2rem !important; /* Más espacio entre cards */
+        padding: 0 15px !important;
+    }
+    
+    .service-image {
+        height: 350px !important; /* Imágenes grandes en tablet */
     }
 }
 
