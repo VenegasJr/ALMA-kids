@@ -481,9 +481,18 @@ function clearCart() {
 }
 
 function updateCartCount() {
+    const totalItems = cart.reduce((total, item) => total + (item.quantity || 1), 0);
+    
+    // Actualizar contador en el badge de la sección de botones de acción
+    const cartCountBadge = document.getElementById('cartCountBadge');
+    if (cartCountBadge) {
+        cartCountBadge.textContent = totalItems;
+        cartCountBadge.style.display = totalItems > 0 ? 'flex' : 'none';
+    }
+    
+    // Actualizar contador en el botón flotante del carrito
     const cartCount = document.getElementById('cartCount');
     if (cartCount) {
-        const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
         cartCount.textContent = totalItems;
         
         // Animación del contador
@@ -1212,6 +1221,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Configurar formulario de contacto
     setupContactForm();
     
+    // Agrupar botones de acción (Carrito y WhatsApp) horizontalmente
+    groupActionButtons();
+    
     // Cerrar modales con click fuera
     window.addEventListener('click', function(e) {
         if (e.target.classList.contains('modal')) {
@@ -1236,6 +1248,54 @@ document.addEventListener('DOMContentLoaded', function() {
     
     console.log('🎪 ALMA Kids: Sistema funcional principal activado');
 });
+
+// ========================================
+// AGRUPAR BOTONES DE ACCIÓN HORIZONTALMENTE
+// ========================================
+function groupActionButtons() {
+    // Buscar todos los botones de "Agregar al Carrito" en secciones de productos
+    const productSections = document.querySelectorAll('.divertete-item, .castillo-item');
+    
+    productSections.forEach(section => {
+        const infoDiv = section.querySelector('.divertete-info, .castillo-info');
+        if (!infoDiv) return;
+        
+        // Buscar botón de carrito
+        const cartButton = infoDiv.querySelector('button.btn-primary, .btn[onclick*="addToNewCart"]');
+        if (!cartButton) return;
+        
+        // Verificar si ya está agrupado
+        if (cartButton.closest('.product-actions-wrapper')) return;
+        
+        // Crear contenedor para botones
+        const wrapper = document.createElement('div');
+        wrapper.className = 'product-actions-wrapper';
+        
+        // Mover botón de carrito al wrapper
+        cartButton.parentNode.insertBefore(wrapper, cartButton);
+        wrapper.appendChild(cartButton);
+        
+        // Buscar o crear botón de WhatsApp
+        let whatsappBtn = infoDiv.querySelector('.btn-whatsapp, .whatsapp-btn');
+        if (!whatsappBtn) {
+            // Crear botón de WhatsApp si no existe
+            whatsappBtn = document.createElement('a');
+            whatsappBtn.href = 'https://wa.me/56969073306?text=Hola%20ALMA%20Kids,%20me%20interesa%20cotizar%20este%20producto';
+            whatsappBtn.target = '_blank';
+            whatsappBtn.className = 'whatsapp-btn';
+            whatsappBtn.title = 'WhatsApp: +56 9 6907 3306';
+            whatsappBtn.innerHTML = '<i class="fab fa-whatsapp"></i>';
+        }
+        
+        // Mover botón de WhatsApp al wrapper
+        if (whatsappBtn.parentNode) {
+            whatsappBtn.parentNode.removeChild(whatsappBtn);
+        }
+        wrapper.appendChild(whatsappBtn);
+    });
+    
+    console.log('✅ Botones de acción agrupados horizontalmente');
+}
 
 // ========================================
 // CSS PARA FUNCIONALIDADES

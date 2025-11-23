@@ -8412,24 +8412,24 @@ html {
 
 .whatsapp-float {
     position: fixed;
-    bottom: 0;
-    right: 0;
+    bottom: 20px !important;
+    right: 20px !important;
     z-index: 1000;
     display: block;
-    padding: 15px;
+    padding: 0 !important;
 }
 
 /* Estilos para botón único de WhatsApp - Aumentado 30% */
 .whatsapp-btn {
-    width: 110px;
-    height: 110px;
+    width: 143px !important; /* Aumentado 30% desde 110px */
+    height: 143px !important; /* Aumentado 30% desde 110px */
     background: #25D366;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    font-size: 2rem;
+    font-size: 2.6rem !important; /* Aumentado 30% desde 2rem */
     color: white;
     box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
     transition: all 0.3s ease;
@@ -8474,6 +8474,153 @@ html {
     color: var(--white);
 }
 
+/* ==================== SECCIÓN DE BOTONES DE ACCIÓN - ANTES DEL FOOTER ==================== */
+.action-buttons-section {
+    background: linear-gradient(135deg, #F5F0FF, #FFF0F5);
+    padding: 40px 20px !important;
+    margin: 0 !important;
+    border-top: 2px solid rgba(233, 30, 99, 0.1);
+}
+
+.action-buttons-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Contenedor para botones de carrito y WhatsApp alineados horizontalmente */
+.product-action-buttons {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 25px !important;
+    width: 100% !important;
+    padding: 0 !important;
+    flex-wrap: wrap !important;
+}
+
+/* Estilos para botones dentro de secciones de productos - alineados horizontalmente */
+.divertete-info .btn-primary,
+.castillo-info .btn-primary,
+.divertete-info button.btn-primary,
+.castillo-info button.btn-primary {
+    width: auto !important;
+    min-width: 200px !important;
+    padding: 18px 36px !important; /* Aumentado 30% */
+    font-size: 1.3rem !important; /* Aumentado 30% */
+    min-height: 60px !important; /* Aumentado 30% */
+    border-radius: 12px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3) !important;
+    transition: all 0.3s ease !important;
+    margin-right: 15px !important; /* Espacio para WhatsApp */
+}
+
+.divertete-info .btn-primary i,
+.castillo-info .btn-primary i {
+    font-size: 1.4rem !important; /* Aumentado 30% */
+}
+
+/* Contenedor para agrupar botones de acción en productos */
+.product-actions-wrapper {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 15px !important;
+    margin-top: 20px !important;
+    flex-wrap: wrap !important;
+}
+
+/* WhatsApp button dentro de productos - alineado horizontalmente */
+.product-actions-wrapper .whatsapp-btn,
+.product-actions-wrapper .btn-whatsapp,
+.divertete-info + .whatsapp-btn,
+.castillo-info + .whatsapp-btn {
+    width: 78px !important; /* Aumentado 30% desde 60px */
+    height: 78px !important; /* Aumentado 30% desde 60px */
+    min-width: 78px !important;
+    min-height: 78px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 2rem !important; /* Aumentado 30% */
+    flex-shrink: 0 !important;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3) !important;
+    transition: all 0.3s ease !important;
+    text-decoration: none !important;
+}
+
+/* Botón de Ver Carrito - Aumentado 30% */
+.product-action-buttons .btn-primary,
+.product-action-buttons button.btn-primary,
+.product-action-buttons .btn[onclick*="openCartModal"] {
+    padding: 20px 40px !important; /* Aumentado 30% */
+    font-size: 1.3rem !important; /* Aumentado 30% desde ~1rem */
+    min-height: 65px !important; /* Aumentado 30% */
+    border-radius: 12px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    white-space: nowrap !important;
+    flex: 0 1 auto !important;
+    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3) !important;
+    transition: all 0.3s ease !important;
+    font-weight: 600 !important;
+}
+
+.product-action-buttons .btn-primary i,
+.product-action-buttons button.btn-primary i {
+    font-size: 1.5rem !important; /* Aumentado 30% */
+}
+
+/* Badge del contador del carrito */
+.cart-count-badge {
+    background: #E74C3C !important;
+    color: white !important;
+    border-radius: 50% !important;
+    width: 28px !important;
+    height: 28px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 0.9rem !important;
+    font-weight: bold !important;
+    margin-left: 5px !important;
+}
+
+/* Botón de WhatsApp - Aumentado 30% */
+.product-action-buttons .whatsapp-btn,
+.product-action-buttons .btn-whatsapp {
+    width: 78px !important; /* Aumentado 30% desde 60px */
+    height: 78px !important; /* Aumentado 30% desde 60px */
+    min-width: 78px !important;
+    min-height: 78px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 2rem !important; /* Aumentado 30% */
+    flex: 0 0 auto !important;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3) !important;
+    transition: all 0.3s ease !important;
+    text-decoration: none !important;
+    background: #25D366 !important;
+    color: white !important;
+}
+
+.product-action-buttons .whatsapp-btn:hover,
+.product-action-buttons .btn-whatsapp:hover {
+    transform: scale(1.1) !important;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4) !important;
+    background: #20B358 !important;
+}
+
 /* Cart Float Button - Aumentado 30% y en la orilla */
 .cart-float {
     position: fixed;
@@ -8486,8 +8633,8 @@ html {
 }
 
 .cart-btn {
-    width: 110px;
-    height: 110px;
+    width: 143px !important; /* Aumentado 30% desde 110px */
+    height: 143px !important; /* Aumentado 30% desde 110px */
     background: var(--primary-color);
     border: none;
     border-radius: 50%;
@@ -8495,7 +8642,7 @@ html {
     align-items: center;
     justify-content: center;
     color: var(--white);
-    font-size: 2rem;
+    font-size: 2.6rem !important; /* Aumentado 30% desde 2rem */
     cursor: pointer;
     box-shadow: var(--shadow-lg);
     transition: var(--transition);
@@ -13760,5 +13907,68 @@ img.error::after {
     
     .hero-image-item p {
         font-size: 0.75em;
+    }
+}
+
+/* ==================== RESPONSIVE PARA BOTONES DE ACCIÓN ==================== */
+@media (max-width: 768px) {
+    .action-buttons-section {
+        padding: 30px 15px !important;
+    }
+    
+    .product-action-buttons {
+        gap: 20px !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+    }
+    
+    .product-action-buttons .btn-primary,
+    .product-action-buttons button.btn-primary,
+    .product-action-buttons .btn[onclick*="openCartModal"] {
+        padding: 18px 32px !important;
+        font-size: 1.2rem !important;
+        min-height: 60px !important;
+        flex: 1 1 auto !important;
+        min-width: 200px !important;
+        max-width: 100% !important;
+    }
+    
+    .product-action-buttons .whatsapp-btn,
+    .product-action-buttons .btn-whatsapp {
+        width: 70px !important;
+        height: 70px !important;
+        min-width: 70px !important;
+        min-height: 70px !important;
+        font-size: 1.9rem !important;
+        flex: 0 0 70px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .action-buttons-section {
+        padding: 25px 10px !important;
+    }
+    
+    .product-action-buttons {
+        gap: 15px !important;
+    }
+    
+    .product-action-buttons .btn-primary,
+    .product-action-buttons button.btn-primary,
+    .product-action-buttons .btn[onclick*="openCartModal"] {
+        padding: 16px 28px !important;
+        font-size: 1.1rem !important;
+        min-height: 55px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    .product-action-buttons .whatsapp-btn,
+    .product-action-buttons .btn-whatsapp {
+        width: 65px !important;
+        height: 65px !important;
+        min-width: 65px !important;
+        min-height: 65px !important;
+        font-size: 1.7rem !important;
     }
 }
