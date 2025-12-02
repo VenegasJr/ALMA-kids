@@ -137,6 +137,7 @@
    ============================== */
 
 /* Versión desktop / general: caption flotando en la parte inferior de la imagen */
+/* Glassmorphism mejorado: fondo translúcido, blur y borde sutil */
 #imageModal .modal-caption {
     position: absolute !important;
     bottom: 20px !important;
@@ -144,7 +145,7 @@
     transform: translateX(-50%) !important;
     width: auto !important;
     max-width: min(90vw, 420px) !important;
-    background: rgba(255, 255, 255, 0.15) !important;
+    background: rgba(255, 255, 255, 0.2) !important;
     backdrop-filter: blur(10px) !important;
     -webkit-backdrop-filter: blur(10px) !important;
     border-radius: 20px !important;
@@ -271,5 +272,56 @@ body.modo-ano-nuevo .main-nav {
     100% {
         transform: translate3d(-10px, 110vh, 0) rotate(360deg);
     }
+}
+
+/* ==============================
+   BOTONES DEL MODAL - Z-INDEX ALTO
+   (Asegurar que siempre sean clickeables)
+   ============================== */
+
+/* Botones de navegación (Siguiente/Anterior) - Z-index alto */
+.modal-nav,
+.modal-nav.modal-prev,
+.modal-nav.modal-next {
+    z-index: 10000 !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+}
+
+/* Botón cerrar - Z-index alto */
+.close-modal,
+.modal-controls .close-modal {
+    z-index: 10000 !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+}
+
+/* Controles del modal - Z-index alto */
+.modal-controls {
+    z-index: 10000 !important;
+    pointer-events: auto !important;
+}
+
+.modal-control-btn {
+    z-index: 10000 !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+}
+
+/* Sobrescribir cualquier fondo blanco sólido del caption */
+.modal-caption {
+    background: rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Asegurar contraste de texto: blanco con sombra para legibilidad */
+.modal-caption h3,
+.modal-caption p,
+#imageModal .modal-caption h3,
+#imageModal .modal-caption p {
+    color: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6) !important;
 }
 
