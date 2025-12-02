@@ -348,10 +348,7 @@
         <div class="header-content">
             <!-- Logo -->
             <a class='logo' href='index.html'>
-                <picture>
-                    <source srcset="imagenes/logo-alma-kids-pagina.webp" type="image/webp">
-                    <img src="imagenes/logo-alma-kids-pagina.webp?v=20250127" alt="ALMA Kids - Entretenciones Infantiles" class="logo-image">
-                </picture>
+                <img src="imagenes/logo-alma-kids-pagina.jpg?v=20250127" alt="ALMA Kids - Entretenciones Infantiles" class="logo-image">
             </a>
             
                 <!-- Navigation -->
@@ -365,23 +362,26 @@
                     <a class='nav-link' href='index.html#contacto'>Contacto</a>
             </nav>
             
-                <!-- Search Button (ahora flotante, no en header) -->
-                <button class="btn btn-search" onclick="toggleSearch()">
-                    <i class="fas fa-search"></i>
-                </button>
+                <!-- Contenedor de botones móviles (búsqueda + menú) -->
+                <div class="header-mobile-buttons">
+                    <!-- Search Button -->
+                    <button class="btn btn-search" onclick="toggleSearch()">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    
+                    <!-- Mobile Menu Toggle -->
+                    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
                 
                 <!-- Search Input (hidden by default) -->
                 <div class="search-container" id="searchContainer">
                     <input type="text" id="searchInput" placeholder="Buscar en ALMA Kids..." onkeyup="performSearch()">
                     <div class="search-results" id="searchResults"></div>
                 </div>
-            
-                <!-- Mobile Menu Toggle -->
-                <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
             </div>
         </div>
         
