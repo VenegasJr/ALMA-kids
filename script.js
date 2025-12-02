@@ -1888,4 +1888,95 @@ const style = document.createElement('style');
 style.textContent = functionalCSS;
 document.head.appendChild(style);
 
+// ========================================
+// TEMAS FESTIVOS AUTOMÁTICOS (Navidad / Año Nuevo)
+// ========================================
+
+function initFestiveThemes() {
+    try {
+        const today = new Date();
+        const month = today.getMonth(); // 0 = enero, 11 = diciembre
+        const day = today.getDate();
+
+        let mode = null;
+
+        // Lógica de fechas:
+        // - Navidad: 1 al 26 de diciembre
+        // - Año Nuevo: 27 de diciembre al 6 de enero
+        if (month === 11 && day <= 26) {
+            mode = 'navidad';
+        } else if (
+            (month === 11 && day >= 27) || // 27-31 diciembre
+            (month === 0 && day <= 6)      // 1-6 enero
+        ) {
+            mode = 'ano-nuevo';
+        }
+
+        if (!mode) return; // Cualquier otra fecha: modo normal
+
+        const body = document.body;
+        if (!body) return;
+
+        // Asegurar que solo haya un modo activo
+        body.classList.remove('modo-navidad', 'modo-ano-nuevo');
+
+        if (mode === 'navidad') {
+            body.classList.add('modo-navidad');
+            createFestiveEffects('navidad');
+        } else if (mode === 'ano-nuevo') {
+            body.classList.add('modo-ano-nuevo');
+            createFestiveEffects('ano-nuevo');
+        }
+    } catch (e) {
+        console.error('Error inicializando temas festivos:', e);
+    }
+}
+
+function createFestiveEffects(mode) {
+    // Contenedor único para efectos festivos
+    let container = document.getElementById('festive-effects');
+    if (!container) {
+        container = document.createElement('div');
+        container.id = 'festive-effects';
+        container.style.position = 'fixed';
+        container.style.inset = '0';
+        container.style.pointerEvents = 'none';
+        container.style.zIndex = '9999';
+        document.body.appendChild(container);
+    } else {
+        container.innerHTML = '';
+    }
+
+    if (mode === 'navidad') {
+        // Crear copos de nieve ligeros
+        const snowflakeCount = 35;
+        for (let i = 0; i < snowflakeCount; i++) {
+            const span = document.createElement('span');
+            span.className = 'snowflake';
+            span.textContent = '✦';
+            span.style.left = Math.random() * 100 + '%';
+            span.style.animationDelay = (Math.random() * 10).toFixed(2) + 's';
+            span.style.fontSize = (10 + Math.random() * 14).toFixed(0) + 'px';
+            container.appendChild(span);
+        }
+    } else if (mode === 'ano-nuevo') {
+        // Crear confeti / destellos dorados sutiles
+        const confettiCount = 45;
+        for (let i = 0; i < confettiCount; i++) {
+            const div = document.createElement('div');
+            div.className = 'confetti-piece';
+            div.style.left = Math.random() * 100 + '%';
+            div.style.animationDelay = (Math.random() * 8).toFixed(2) + 's';
+            div.style.opacity = (0.3 + Math.random() * 0.7).toFixed(2);
+            container.appendChild(div);
+        }
+    }
+}
+
+// Ejecutar al cargar la página
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initFestiveThemes);
+} else {
+    initFestiveThemes();
+}
 

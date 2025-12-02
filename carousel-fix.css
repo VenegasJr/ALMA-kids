@@ -1,3 +1,43 @@
+/* ==============================
+   TARJETAS DE GALERÍA (PRODUCTOS)
+   ============================== */
+
+/* Estilo glass para todas las tarjetas de productos de la galería */
+.gallery-item,
+.plaza-item,
+.divertete-item {
+    border-radius: 20px !important;
+    overflow: hidden !important;
+    background: rgba(255, 255, 255, 0.18) !important;
+    border: 1px solid rgba(255, 255, 255, 0.35) !important;
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.22) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+}
+
+/* Asegurar tamaño uniforme de las imágenes de producto (galerías) */
+.gallery-img,
+.gallery-item img,
+.plaza-image img,
+.divertete-image img,
+.soft-play-image img {
+    width: 100% !important;
+    height: 240px !important;
+    object-fit: cover !important;
+    border-radius: 20px 20px 0 0 !important;
+}
+
+/* Pequeño ajuste en móviles: altura algo menor para evitar scroll excesivo */
+@media (max-width: 768px) {
+    .gallery-img,
+    .gallery-item img,
+    .plaza-image img,
+    .divertete-image img,
+    .soft-play-image img {
+        height: 210px !important;
+    }
+}
+
 /* ========================================
    FIX CRÍTICO PARA CARRUSEL - IMÁGENES VISIBLES
    Este archivo sobrescribe TODAS las reglas que ocultan imágenes
@@ -88,6 +128,148 @@
     .hero-carousel .carousel-slide.active img {
         max-height: 300px !important;
         max-width: 95% !important;
+    }
+}
+
+/* ==============================
+   CAPTION DEL MODAL DE IMÁGENES
+   (Lightbox con efecto vidrio)
+   ============================== */
+
+/* Versión desktop / general: caption flotando en la parte inferior de la imagen */
+#imageModal .modal-caption {
+    position: absolute !important;
+    bottom: 20px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: auto !important;
+    max-width: min(90vw, 420px) !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border-radius: 20px !important;
+    padding: 1rem 1.5rem !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.25) !important;
+    color: #ffffff !important;
+    text-align: center !important;
+    z-index: 10001 !important;
+    max-height: 35vh !important;
+    overflow-y: auto !important;
+}
+
+#imageModal .modal-caption h3 {
+    margin: 0 0 0.5rem 0 !important;
+    color: #ffffff !important;
+    font-size: 1.25rem !important;
+    font-weight: 600 !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6) !important;
+}
+
+#imageModal .modal-caption p {
+    margin: 0.35rem 0 !important;
+    color: rgba(255, 255, 255, 0.92) !important;
+    font-size: 0.95rem !important;
+    line-height: 1.5 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Ajustes responsive para móviles: un poco más compacto y pegado al borde inferior */
+@media (max-width: 768px) {
+    #imageModal .modal-caption {
+        bottom: 12px !important;
+        max-width: 92vw !important;
+        padding: 0.8rem 1.1rem !important;
+        font-size: 0.9rem !important;
+        max-height: 28vh !important;
+    }
+
+    #imageModal .modal-caption h3 {
+        font-size: 1.05rem !important;
+    }
+
+    #imageModal .modal-caption p {
+        font-size: 0.85rem !important;
+    }
+}
+
+/* ==============================
+   TEMAS FESTIVOS AUTOMÁTICOS
+   (Navidad / Año Nuevo)
+   ============================== */
+
+/* Borde sutil en el menú según modo activo */
+body.modo-navidad .header,
+body.modo-navidad .main-nav {
+    border-bottom: 3px solid rgba(220, 53, 69, 0.65) !important;
+    box-shadow: 0 6px 20px rgba(220, 53, 69, 0.25) !important;
+}
+
+body.modo-ano-nuevo .header,
+body.modo-ano-nuevo .main-nav {
+    border-bottom: 3px solid rgba(255, 215, 0, 0.9) !important; /* Dorado */
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.35) !important;
+}
+
+/* Contenedor general de efectos festivos (el JS lo crea) */
+#festive-effects {
+    pointer-events: none;
+}
+
+/* Copos de nieve */
+.snowflake {
+    position: absolute;
+    top: -5%;
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow:
+        0 0 8px rgba(135, 206, 250, 0.8),
+        0 0 16px rgba(0, 0, 0, 0.4);
+    animation: snow-fall 12s linear infinite;
+}
+
+@keyframes snow-fall {
+    0% {
+        transform: translate3d(0, -10vh, 0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate3d(-20px, 110vh, 0);
+        opacity: 0;
+    }
+}
+
+/* Confeti / destellos dorados */
+.confetti-piece {
+    position: absolute;
+    top: -5%;
+    width: 6px;
+    height: 14px;
+    background: linear-gradient(
+        135deg,
+        #ffd700,
+        #ffa500,
+        #ffffff
+    );
+    border-radius: 999px;
+    box-shadow:
+        0 0 10px rgba(255, 215, 0, 0.8),
+        0 0 18px rgba(0, 0, 0, 0.25);
+    animation: confetti-fall 9s ease-in-out infinite;
+}
+
+@keyframes confetti-fall {
+    0% {
+        transform: translate3d(0, -10vh, 0) rotate(0deg);
+    }
+    50% {
+        transform: translate3d(15px, 50vh, 0) rotate(180deg);
+    }
+    100% {
+        transform: translate3d(-10px, 110vh, 0) rotate(360deg);
     }
 }
 
