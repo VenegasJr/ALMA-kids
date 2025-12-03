@@ -14647,43 +14647,46 @@ body::before {
    REDISEÑO MODERNO - SECCIÓN NUESTROS SERVICIOS
    ============================================ */
 
-/* CONTENEDOR DE LA TARJETA - Estilo Moderno */
+/* TARJETAS FLOTANTES - Estilo Moderno y Profesional */
 #servicios .service-card,
 #servicios .service-card-link .service-card {
     background: #ffffff !important;
+    padding: 20px !important;
     border-radius: 20px !important;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05) !important;
     transition: all 0.3s ease !important;
-    border: 1px solid #f0f0f0 !important;
     overflow: hidden !important;
     position: relative !important;
     display: flex !important;
     flex-direction: column !important;
+    border: none !important;
 }
 
-/* EFECTO HOVER - Elevación y Sombra Colorida */
+/* EFECTO HOVER - Elevación y Sombra Creciente */
 #servicios .service-card:hover,
 #servicios .service-card-link:hover .service-card {
-    transform: translateY(-10px) !important;
-    box-shadow: 0 20px 50px rgba(233, 30, 99, 0.15) !important;
+    transform: translateY(-8px) !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12) !important;
 }
 
-/* IMÁGENES - Altura Fija y Zoom Sutil */
+/* IMÁGENES ATRACTIVAS - Altura Fija y Uniformidad */
 #servicios .service-image {
-    height: 250px !important;
+    height: 220px !important;
     overflow: hidden !important;
-    border-radius: 20px 20px 0 0 !important;
+    border-radius: 15px !important;
+    margin-bottom: 1rem !important;
 }
 
 #servicios .service-image img,
 #servicios .service-img {
-    height: 250px !important;
+    height: 220px !important;
     object-fit: cover !important;
     width: 100% !important;
+    border-radius: 15px !important;
     transition: transform 0.3s ease !important;
 }
 
-/* Zoom sutil en hover */
+/* Zoom Suave al Hover en la Tarjeta */
 #servicios .service-card:hover .service-image img,
 #servicios .service-card:hover .service-img,
 #servicios .service-card-link:hover .service-image img,
@@ -14691,24 +14694,24 @@ body::before {
     transform: scale(1.05) !important;
 }
 
-/* CONTENEDOR DE CONTENIDO - Padding Cómodo */
+/* CONTENEDOR DE CONTENIDO - Flexbox para Estructura */
 #servicios .service-content {
-    padding: 2rem !important;
+    padding: 0 !important;
     display: flex !important;
     flex-direction: column !important;
     flex-grow: 1 !important;
 }
 
-/* TÍTULOS - Centrados y Modernos */
+/* TÍTULOS - Centrados y Limpios */
 #servicios .service-content h3 {
     text-align: center !important;
     color: #333 !important;
     font-weight: 700 !important;
-    margin-bottom: 1rem !important;
+    margin-bottom: 0.75rem !important;
     font-size: 1.5rem !important;
 }
 
-/* TEXTO - Color Gris Suave */
+/* TEXTO - Legible Color Gris Medio */
 #servicios .service-content p {
     color: #666 !important;
     text-align: center !important;
@@ -14790,16 +14793,47 @@ body::before {
     animation: none !important;
 }
 
-/* BOTÓN CTA AL FINAL DE LA TARJETA - Estilo Pill */
+/* BOTONES DE ACCIÓN (Call to Action) - Estilo Pill con Degradado */
+#servicios .service-card-link {
+    text-decoration: none !important;
+    color: inherit !important;
+    display: block !important;
+}
+
+/* Botón CTA al final del contenido - Convertir enlaces en botones reales */
+#servicios .service-card-link .service-content::after {
+    content: 'Ver Detalles' !important;
+    display: block !important;
+    margin: 1.5rem auto 0 !important;
+    padding: 12px 30px !important;
+    background: linear-gradient(135deg, #FF6B9D, #E91E63) !important;
+    color: #ffffff !important;
+    border-radius: 50px !important;
+    font-weight: 700 !important;
+    font-size: 1rem !important;
+    text-align: center !important;
+    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3) !important;
+    transition: all 0.3s ease !important;
+    width: fit-content !important;
+    cursor: pointer !important;
+}
+
+#servicios .service-card-link:hover .service-content::after {
+    background: linear-gradient(135deg, #FF7BAD, #F91E73) !important;
+    box-shadow: 0 6px 20px rgba(233, 30, 99, 0.4) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* Botones CTA directos si existen */
 #servicios .service-content .service-cta-btn,
 #servicios .service-card .service-cta-btn {
     display: inline-block !important;
     margin: 1.5rem auto 0 !important;
-    padding: 10px 25px !important;
+    padding: 12px 30px !important;
     background: linear-gradient(135deg, #FF6B9D, #E91E63) !important;
     color: #ffffff !important;
     border-radius: 50px !important;
-    font-weight: 600 !important;
+    font-weight: 700 !important;
     font-size: 1rem !important;
     text-decoration: none !important;
     text-align: center !important;
@@ -14812,36 +14846,6 @@ body::before {
 
 #servicios .service-content .service-cta-btn:hover,
 #servicios .service-card:hover .service-cta-btn {
-    background: linear-gradient(135deg, #FF7BAD, #F91E73) !important;
-    box-shadow: 0 6px 20px rgba(233, 30, 99, 0.4) !important;
-    transform: translateY(-2px) !important;
-}
-
-/* Si hay un enlace dentro de service-card-link, agregar botón al final */
-#servicios .service-card-link {
-    text-decoration: none !important;
-    color: inherit !important;
-    display: block !important;
-}
-
-/* Agregar botón CTA al final del contenido cuando está dentro de un enlace */
-#servicios .service-card-link .service-content::after {
-    content: 'Ver Detalles' !important;
-    display: block !important;
-    margin: 1.5rem auto 0 !important;
-    padding: 10px 25px !important;
-    background: linear-gradient(135deg, #FF6B9D, #E91E63) !important;
-    color: #ffffff !important;
-    border-radius: 50px !important;
-    font-weight: 600 !important;
-    font-size: 1rem !important;
-    text-align: center !important;
-    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3) !important;
-    transition: all 0.3s ease !important;
-    width: fit-content !important;
-}
-
-#servicios .service-card-link:hover .service-content::after {
     background: linear-gradient(135deg, #FF7BAD, #F91E73) !important;
     box-shadow: 0 6px 20px rgba(233, 30, 99, 0.4) !important;
     transform: translateY(-2px) !important;
@@ -14863,8 +14867,13 @@ body::before {
         width: 100% !important;
     }
     
+    #servicios .service-card,
+    #servicios .service-card-link .service-card {
+        padding: 15px !important;
+    }
+    
     #servicios .service-content {
-        padding: 1.5rem !important;
+        padding: 0 !important;
     }
     
     #servicios .service-content h3 {
@@ -14887,18 +14896,19 @@ body::before {
     }
     
     #servicios .service-content .service-cta-btn,
-    #servicios .service-card-link::after {
-        padding: 10px 20px !important;
+    #servicios .service-card-link .service-content::after {
+        padding: 10px 25px !important;
         font-size: 0.95rem !important;
     }
     
     #servicios .service-image {
-        height: 220px !important;
+        height: 200px !important;
+        margin-bottom: 0.75rem !important;
     }
     
     #servicios .service-image img,
     #servicios .service-img {
-        height: 220px !important;
+        height: 200px !important;
     }
 }
 
