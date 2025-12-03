@@ -137,7 +137,7 @@
    ============================== */
 
 /* Versión desktop / general: caption flotando en la parte inferior de la imagen */
-/* Glassmorphism mejorado: fondo translúcido, blur y borde sutil */
+ß/* Glassmorphism mejorado: fondo translúcido, blur y borde sutil */
 #imageModal .modal-caption {
     position: absolute !important;
     bottom: 20px !important;
