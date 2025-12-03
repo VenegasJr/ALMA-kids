@@ -2299,8 +2299,8 @@ p {
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 2.2rem;
 }
 
 .service-card {
@@ -2736,8 +2736,8 @@ p {
 
 .gallery-items {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.75rem;
 }
 
 .gallery-item {
@@ -7384,8 +7384,13 @@ p {
     }
     
     .services-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 1.5rem;
+        grid-template-columns: 1fr;
+        gap: 1.75rem;
+    }
+
+    /* Galería de productos: columnas grandes en móvil (1 por fila) */
+    .gallery-items {
+        grid-template-columns: 1fr;
     }
     
     .eventos-cta {
@@ -13710,46 +13715,36 @@ body {
    Todas las imágenes tendrán el mismo tamaño de referencia: Castillo Piscina Cuadrada */
 
 /* ============================================
-   LOGO DEL HEADER - TAMAÑO ESPECÍFICO
+   LOGO DEL HEADER - TAMAÑO PROTAGONISTA
    ============================================ */
 
-/* Logo del header - debe ajustarse al tamaño del header */
+/* Logo del header en escritorio: grande y protagonista */
 .logo-image {
-    height: 40px !important; /* Altura más pequeña para el header */
-    width: auto !important; /* Ancho automático para mantener proporción */
-    max-width: 160px !important; /* Ancho máximo más pequeño */
-    object-fit: contain !important; /* Mantener proporción completa */
-    transition: all 0.3s ease;
+    max-height: 90px !important;
+    height: auto !important;
+    width: auto !important;
+    max-width: 260px !important;
+    object-fit: contain !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
-/* Logo en hover */
-.logo-image:hover {
-    transform: scale(1.05);
-}
-
-/* Logo en mobile - más pequeño */
+/* Logo en mobile: ligeramente más pequeño pero muy visible */
 @media (max-width: 768px) {
     .logo-image {
-        height: 32px !important;
-        max-width: 120px !important;
+        max-height: 70px !important;
+        max-width: 220px !important;
     }
 }
 
-/* Logo en mobile pequeño */
-@media (max-width: 480px) {
-    .logo-image {
-        height: 28px !important;
-        max-width: 100px !important;
-    }
-}
-
-/* Contenedor del logo */
+/* Evitar contenedor del logo demasiado bajo que lo corte */
 .logo {
     display: flex;
     align-items: center;
-    height: 100%;
-    max-height: 60px; /* Altura máxima del contenedor */
+    height: auto !important;
+    max-height: none !important;
 }
+
 
 /* ============================================
    CONFIGURACIÓN BASE PARA TODAS LAS IMÁGENES
