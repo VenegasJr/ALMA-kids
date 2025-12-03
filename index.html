@@ -347,8 +347,8 @@
         <div class="container">
         <div class="header-content">
             <!-- Logo -->
-            <a class='logo' href='index.html'>
-                <img src="imagenes/logo-alma-kids-pagina.jpg?v=20250127" alt="ALMA Kids - Entretenciones Infantiles" class="logo-image">
+            <a class="navbar-brand" href="index.html">
+                <img src="./imagenes/logo-alma-kids-pagina.jpg" alt="AlmaKids" class="logo-header" style="max-height: 80px; display: block !important;">
             </a>
             
                 <!-- Navigation -->
@@ -1982,10 +1982,10 @@
                     <i class="fas fa-times"></i>
                 </button>
             </div>
-            <button class="modal-nav modal-prev" onclick="previousImage()" title="Anterior">
+            <button class="modal-nav modal-prev" onclick="changeImage(-1)" title="Anterior">
                 <i class="fas fa-chevron-left"></i>
             </button>
-            <button class="modal-nav modal-next" onclick="nextImage()" title="Siguiente">
+            <button class="modal-nav modal-next" onclick="changeImage(1)" title="Siguiente">
                 <i class="fas fa-chevron-right"></i>
             </button>
             <img id="modalImage" class="modal-image" src="" alt="" onclick="toggleZoom()">

@@ -1004,6 +1004,15 @@ window.nextImage = function() {
     }
 }
 
+// Función changeImage para compatibilidad con onclick directo (fuerza bruta)
+window.changeImage = function(direction) {
+    if (direction === -1) {
+        previousImage();
+    } else if (direction === 1) {
+        nextImage();
+    }
+}
+
 // Función para mostrar imagen específica en el modal
 function showImageInModal(index) {
     if (index < 0 || index >= currentImageGallery.length) return;

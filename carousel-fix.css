@@ -578,13 +578,9 @@ body.modo-ano-nuevo .main-nav {
         font-size: 1.9rem !important;
     }
 
-    /* Contenedor WhatsApp - posición fija y margen 25px solo en móvil
-       (hereda el z-index alto definido en styles.min.css para no bajar prioridad) */
-    .whatsapp-float {
-        position: fixed !important;
-        bottom: 25px !important;
-        right: 25px !important;
-    }
+    /* Contenedor WhatsApp - NO definir posición aquí para evitar conflictos
+       La posición se maneja en mobile-overlap-fixes.css para evitar superposiciones con chat IA
+       Solo mantener el tamaño del botón aquí */
 
     /* Botón de carrito - Aumentado 30% */
     .cart-btn {
@@ -666,6 +662,45 @@ body.modo-ano-nuevo .main-nav {
 }
 
 /* ==============================
+   BOTONES MODAL SEPARADOS Y CLICKEABLES
+   (Z-index alto y cursor pointer)
+   ============================== */
+
+/* Contenedor de controles del modal - separación y z-index alto */
+.modal-controls {
+    display: flex !important;
+    gap: 15px !important;
+    align-items: center !important;
+    position: absolute !important;
+    top: 20px !important;
+    right: 20px !important;
+    z-index: 99999 !important;
+    pointer-events: auto !important;
+}
+
+/* Botones de control del modal - z-index alto y cursor pointer */
+.modal-control-btn,
+.close-modal {
+    z-index: 99999 !important;
+    cursor: pointer !important;
+    pointer-events: auto !important;
+    position: relative !important;
+}
+
+/* Botón cerrar siempre al final (derecha) */
+.modal-controls .close-modal {
+    order: 999 !important;
+}
+
+/* Flechas de navegación también con z-index alto */
+.modal-nav {
+    z-index: 99999 !important;
+    cursor: pointer !important;
+    pointer-events: auto !important;
+    position: fixed !important;
+}
+
+/* ==============================
    LIMPIEZA FLECHAS NAVEGACIÓN MODAL
    (Solo íconos, sin círculos de fondo)
    ============================== */
@@ -699,6 +734,27 @@ body.modo-ano-nuevo .main-nav {
         border: none !important;
         box-shadow: none !important;
     }
+}
+
+/* ==============================
+   LOGO HEADER FORZADO VISIBLE
+   (Emergencia - garantizar visibilidad)
+   ============================== */
+
+.navbar-brand,
+.navbar-brand img,
+.logo-header {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    max-height: 80px !important;
+    width: auto !important;
+    height: auto !important;
+}
+
+.navbar-brand {
+    display: flex !important;
+    align-items: center !important;
 }
 
 
