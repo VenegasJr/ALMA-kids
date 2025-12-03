@@ -14657,13 +14657,15 @@ body::before {
     border: 1px solid #f0f0f0 !important;
     overflow: hidden !important;
     position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
 }
 
 /* EFECTO HOVER - Elevación y Sombra Colorida */
 #servicios .service-card:hover,
 #servicios .service-card-link:hover .service-card {
     transform: translateY(-10px) !important;
-    box-shadow: 0 20px 50px rgba(233, 30, 99, 0.25) !important;
+    box-shadow: 0 20px 50px rgba(233, 30, 99, 0.15) !important;
 }
 
 /* IMÁGENES - Altura Fija y Zoom Sutil */
@@ -14689,6 +14691,14 @@ body::before {
     transform: scale(1.05) !important;
 }
 
+/* CONTENEDOR DE CONTENIDO - Padding Cómodo */
+#servicios .service-content {
+    padding: 2rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    flex-grow: 1 !important;
+}
+
 /* TÍTULOS - Centrados y Modernos */
 #servicios .service-content h3 {
     text-align: center !important;
@@ -14704,6 +14714,40 @@ body::before {
     text-align: center !important;
     line-height: 1.6 !important;
     font-size: 1rem !important;
+    margin-bottom: 1rem !important;
+}
+
+/* LISTAS DE CARACTERÍSTICAS */
+#servicios .service-features {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 1rem 0 !important;
+    text-align: center !important;
+}
+
+#servicios .service-features li {
+    color: #666 !important;
+    margin-bottom: 0.5rem !important;
+    font-size: 0.95rem !important;
+}
+
+#servicios .service-features li i {
+    color: #FF6B9D !important;
+    margin-right: 0.5rem !important;
+}
+
+/* NOTA DE SUPERVISIÓN */
+#servicios .supervision-note {
+    color: #999 !important;
+    font-size: 0.85rem !important;
+    font-style: italic !important;
+    text-align: center !important;
+    margin-top: 1rem !important;
+}
+
+#servicios .supervision-note i {
+    color: #FFA500 !important;
+    margin-right: 0.5rem !important;
 }
 
 /* BOTONES DE LLAMADA A LA ACCIÓN - Estilo Pill con Degradado */
@@ -14746,18 +14790,77 @@ body::before {
     animation: none !important;
 }
 
-/* VERSIÓN MÓVIL - Tarjetas Casi Todo el Ancho */
+/* BOTÓN CTA AL FINAL DE LA TARJETA - Estilo Pill */
+#servicios .service-content .service-cta-btn,
+#servicios .service-card .service-cta-btn {
+    display: inline-block !important;
+    margin: 1.5rem auto 0 !important;
+    padding: 10px 25px !important;
+    background: linear-gradient(135deg, #FF6B9D, #E91E63) !important;
+    color: #ffffff !important;
+    border-radius: 50px !important;
+    font-weight: 600 !important;
+    font-size: 1rem !important;
+    text-decoration: none !important;
+    text-align: center !important;
+    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3) !important;
+    transition: all 0.3s ease !important;
+    border: none !important;
+    cursor: pointer !important;
+    width: fit-content !important;
+}
+
+#servicios .service-content .service-cta-btn:hover,
+#servicios .service-card:hover .service-cta-btn {
+    background: linear-gradient(135deg, #FF7BAD, #F91E73) !important;
+    box-shadow: 0 6px 20px rgba(233, 30, 99, 0.4) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* Si hay un enlace dentro de service-card-link, agregar botón al final */
+#servicios .service-card-link {
+    text-decoration: none !important;
+    color: inherit !important;
+    display: block !important;
+}
+
+/* Agregar botón CTA al final del contenido cuando está dentro de un enlace */
+#servicios .service-card-link .service-content::after {
+    content: 'Ver Detalles' !important;
+    display: block !important;
+    margin: 1.5rem auto 0 !important;
+    padding: 10px 25px !important;
+    background: linear-gradient(135deg, #FF6B9D, #E91E63) !important;
+    color: #ffffff !important;
+    border-radius: 50px !important;
+    font-weight: 600 !important;
+    font-size: 1rem !important;
+    text-align: center !important;
+    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3) !important;
+    transition: all 0.3s ease !important;
+    width: fit-content !important;
+}
+
+#servicios .service-card-link:hover .service-content::after {
+    background: linear-gradient(135deg, #FF7BAD, #F91E73) !important;
+    box-shadow: 0 6px 20px rgba(233, 30, 99, 0.4) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* VERSIÓN MÓVIL - Tarjetas Casi Todo el Ancho con Márgenes */
 @media (max-width: 768px) {
     #servicios .services-grid {
         grid-template-columns: 1fr !important;
         gap: 2rem !important;
         padding: 0 1rem !important;
+        margin: 0 auto !important;
     }
     
     #servicios .service-card,
     #servicios .service-card-link {
         margin: 0 auto !important;
         max-width: 100% !important;
+        width: 100% !important;
     }
     
     #servicios .service-content {
@@ -14766,15 +14869,27 @@ body::before {
     
     #servicios .service-content h3 {
         font-size: 1.3rem !important;
+        margin-bottom: 0.75rem !important;
     }
     
     #servicios .service-content p {
         font-size: 16px !important; /* Mínimo 16px para legibilidad */
+        margin-bottom: 0.75rem !important;
+    }
+    
+    #servicios .service-features li {
+        font-size: 15px !important;
     }
     
     #servicios .click-overlay {
         padding: 0.875rem 1.5rem !important;
         font-size: 1rem !important;
+    }
+    
+    #servicios .service-content .service-cta-btn,
+    #servicios .service-card-link::after {
+        padding: 10px 20px !important;
+        font-size: 0.95rem !important;
     }
     
     #servicios .service-image {
