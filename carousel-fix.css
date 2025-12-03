@@ -406,25 +406,29 @@ body.modo-ano-nuevo .main-nav {
         flex-shrink: 0 !important;
     }
 
-    /* Botón de búsqueda siempre visible al lado del menú hamburguesa */
+    /* Botón de búsqueda limpio sin fondo ni bordes */
     .header-mobile-buttons .btn-search {
-        background: rgba(233, 30, 99, 0.1) !important;
-        border: 2px solid rgba(233, 30, 99, 0.2) !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
         color: #E91E63 !important;
-        font-size: 1.1rem !important;
+        font-size: 1.3rem !important;
     }
 
     .header-mobile-buttons .btn-search:hover,
     .header-mobile-buttons .btn-search:active {
-        background: rgba(233, 30, 99, 0.2) !important;
-        border-color: #E91E63 !important;
-        transform: scale(1.05) !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        transform: scale(1.1) !important;
+        color: #C2185B !important;
     }
 
-    /* Menú hamburguesa con z-index alto y tamaño táctil */
+    /* Menú hamburguesa limpio sin fondo ni bordes */
     .header-mobile-buttons .mobile-menu-toggle {
-        background: rgba(233, 30, 99, 0.1) !important;
-        border: 2px solid rgba(233, 30, 99, 0.2) !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
         display: flex !important;
         flex-direction: column !important;
         justify-content: center !important;
@@ -432,8 +436,8 @@ body.modo-ano-nuevo .main-nav {
     }
 
     .header-mobile-buttons .mobile-menu-toggle span {
-        width: 22px !important;
-        height: 2.5px !important;
+        width: 24px !important;
+        height: 3px !important;
         background: #E91E63 !important;
         border-radius: 2px !important;
         transition: all 0.3s ease !important;
@@ -441,8 +445,15 @@ body.modo-ano-nuevo .main-nav {
 
     .header-mobile-buttons .mobile-menu-toggle:hover,
     .header-mobile-buttons .mobile-menu-toggle:active {
-        background: rgba(233, 30, 99, 0.2) !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
         transform: scale(1.05) !important;
+    }
+
+    .header-mobile-buttons .mobile-menu-toggle:hover span,
+    .header-mobile-buttons .mobile-menu-toggle:active span {
+        background: #C2185B !important;
     }
 
     /* Ocultar navegación en móvil */
@@ -548,6 +559,90 @@ body.modo-ano-nuevo .main-nav {
     .header-mobile-buttons .mobile-menu-toggle {
         min-width: 40px !important;
         min-height: 40px !important;
+    }
+}
+
+/* ==============================
+   BOTONES FLOTANTES MÓVIL
+   (Aumento 30% y ubicación WhatsApp)
+   ============================== */
+
+/* Aumentar botones flotantes 30% en móvil y tablets pequeñas */
+@media (max-width: 768px) {
+    /* Botón WhatsApp - Aumentado 30% (de ~50px a 65px) */
+    .whatsapp-btn {
+        width: 65px !important;
+        height: 65px !important;
+        min-width: 65px !important;
+        min-height: 65px !important;
+        font-size: 1.8rem !important;
+    }
+
+    /* Contenedor WhatsApp - Posición fija con márgenes adecuados */
+    .whatsapp-float {
+        position: fixed !important;
+        bottom: 25px !important;
+        right: 25px !important;
+        z-index: 1000 !important;
+    }
+
+    /* Botón de carrito - Aumentado 30% */
+    .cart-btn {
+        width: 65px !important;
+        height: 65px !important;
+        min-width: 65px !important;
+        min-height: 65px !important;
+        font-size: 1.8rem !important;
+    }
+
+    /* Contenedor carrito */
+    .cart-float {
+        position: fixed !important;
+        bottom: 25px !important;
+        left: 25px !important;
+        z-index: 1000 !important;
+    }
+
+    /* Botones flotantes genéricos - Aumentado 30% */
+    .float-btn {
+        width: 65px !important;
+        height: 65px !important;
+        min-width: 65px !important;
+        min-height: 65px !important;
+        font-size: 1.8rem !important;
+    }
+
+    /* Botones de favoritos, comparación, calculadora - Aumentado 30% */
+    .favorites-btn,
+    .comparison-btn,
+    .calculator-toggle,
+    .price-btn {
+        width: 65px !important;
+        height: 65px !important;
+        min-width: 65px !important;
+        min-height: 65px !important;
+        font-size: 1.8rem !important;
+    }
+
+    /* Contenedores de botones flotantes adicionales */
+    .favorites-float,
+    .comparison-float,
+    .price-calculator-float {
+        z-index: 999 !important;
+    }
+}
+
+/* Ajustes para tablets pequeñas (hasta 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .whatsapp-btn,
+    .cart-btn,
+    .float-btn,
+    .favorites-btn,
+    .comparison-btn,
+    .calculator-toggle {
+        width: 60px !important;
+        height: 60px !important;
+        font-size: 1.6rem !important;
     }
 }
 
