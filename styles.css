@@ -13746,6 +13746,17 @@ body {
 }
 
 
+/* Emergencia: forzar visibilidad de logos heredados (.navbar-brand img, .logo-header) */
+.navbar-brand img,
+.logo-header {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    max-height: 80px !important;
+    width: auto !important;
+}
+
+
 /* ============================================
    CONFIGURACIÓN BASE PARA TODAS LAS IMÁGENES
    ============================================ */
