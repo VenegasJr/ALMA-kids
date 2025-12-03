@@ -646,3 +646,43 @@ body.modo-ano-nuevo .main-nav {
     }
 }
 
+/* ==============================
+   LIMPIEZA HEADER MÓVIL
+   (Lupa + Menú Hamburguesa)
+   ============================== */
+
+/* Quitar fondos y sombras de los iconos del header en móvil */
+@media (max-width: 768px) {
+    .btn-search,
+    .header .btn-search,
+    .header-mobile-buttons .btn-search,
+    .mobile-menu-toggle,
+    .header .mobile-menu-toggle,
+    .header-mobile-buttons .mobile-menu-toggle {
+        background: transparent !important;
+        background-color: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+}
+
+/* ==============================
+   BOTÓN FLOTANTE WHATSAPP
+   (Tamaño 70px y posición fija)
+   ============================== */
+
+.whatsapp-float {
+    position: fixed !important;
+    bottom: 20px !important;
+    right: 20px !important;
+    z-index: 1200 !important;
+}
+
+.whatsapp-btn {
+    width: 70px !important;
+    height: 70px !important;
+    min-width: 70px !important;
+    min-height: 70px !important;
+    font-size: 1.9rem !important;
+}
+
