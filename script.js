@@ -1991,17 +1991,46 @@ function createFestiveEffects(mode) {
     }
 
     if (mode === 'navidad') {
-        // Crear copos de nieve ligeros
-        const snowflakeCount = 35;
+        // Crear copos de nieve más intensos (aumentado de 35 a 70)
+        const snowflakeCount = 70;
         for (let i = 0; i < snowflakeCount; i++) {
             const span = document.createElement('span');
             span.className = 'snowflake';
             span.textContent = '✦';
             span.style.left = Math.random() * 100 + '%';
             span.style.animationDelay = (Math.random() * 10).toFixed(2) + 's';
-            span.style.fontSize = (10 + Math.random() * 14).toFixed(0) + 'px';
+            span.style.fontSize = (12 + Math.random() * 18).toFixed(0) + 'px';
             container.appendChild(span);
         }
+        
+        // Agregar gorro de Santa al logo
+        const logo = document.querySelector('.logo-header, .navbar-brand img');
+        if (logo && !logo.parentElement.querySelector('.santa-hat')) {
+            const hat = document.createElement('span');
+            hat.className = 'santa-hat';
+            hat.textContent = '🎅';
+            hat.style.position = 'absolute';
+            hat.style.top = '-15px';
+            hat.style.right = '10px';
+            hat.style.fontSize = '1.5rem';
+            hat.style.zIndex = '1000';
+            hat.style.pointerEvents = 'none';
+            logo.parentElement.style.position = 'relative';
+            logo.parentElement.appendChild(hat);
+        }
+        
+        // Agregar gorro de Santa a títulos principales
+        const mainTitles = document.querySelectorAll('h1, .hero-title');
+        mainTitles.forEach(title => {
+            if (!title.querySelector('.santa-hat-title')) {
+                const hatTitle = document.createElement('span');
+                hatTitle.className = 'santa-hat-title';
+                hatTitle.textContent = '🎅';
+                hatTitle.style.marginLeft = '10px';
+                hatTitle.style.fontSize = '0.8em';
+                title.appendChild(hatTitle);
+            }
+        });
     } else if (mode === 'ano-nuevo') {
         // Crear confeti / destellos dorados sutiles
         const confettiCount = 45;

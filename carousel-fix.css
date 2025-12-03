@@ -200,17 +200,52 @@
    (Navidad / Año Nuevo)
    ============================== */
 
-/* Borde sutil en el menú según modo activo */
+/* Borde festivo y guirnalda navideña en el header */
 body.modo-navidad .header,
 body.modo-navidad .main-nav {
     border-bottom: 3px solid rgba(220, 53, 69, 0.65) !important;
     box-shadow: 0 6px 20px rgba(220, 53, 69, 0.25) !important;
+    position: relative !important;
 }
 
+/* Guirnalda navideña decorativa en la parte superior del header */
+body.modo-navidad .header::before {
+    content: '🎄 🎁 🎄 🎁 🎄 🎁 🎄';
+    position: absolute;
+    top: -25px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 1.2rem;
+    letter-spacing: 8px;
+    z-index: 1000;
+    pointer-events: none;
+    animation: garland-shimmer 3s ease-in-out infinite;
+}
+
+@keyframes garland-shimmer {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+}
+
+/* Borde festivo dorado para Año Nuevo */
 body.modo-ano-nuevo .header,
 body.modo-ano-nuevo .main-nav {
     border-bottom: 3px solid rgba(255, 215, 0, 0.9) !important; /* Dorado */
     box-shadow: 0 6px 20px rgba(255, 215, 0, 0.35) !important;
+}
+
+/* Borde festivo en tarjetas de productos principales */
+body.modo-navidad .services-grid .service-card,
+body.modo-navidad .gallery-items .gallery-item {
+    border: 2px solid rgba(220, 53, 69, 0.3) !important;
+    box-shadow: 0 4px 15px rgba(220, 53, 69, 0.2) !important;
+}
+
+body.modo-ano-nuevo .services-grid .service-card,
+body.modo-ano-nuevo .gallery-items .gallery-item {
+    border: 2px solid rgba(255, 215, 0, 0.4) !important;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.25) !important;
 }
 
 /* Contenedor general de efectos festivos (el JS lo crea) */
@@ -218,7 +253,7 @@ body.modo-ano-nuevo .main-nav {
     pointer-events: none;
 }
 
-/* Copos de nieve */
+/* Copos de nieve - Más intensos y variados */
 .snowflake {
     position: absolute;
     top: -5%;
@@ -227,20 +262,47 @@ body.modo-ano-nuevo .main-nav {
         0 0 8px rgba(135, 206, 250, 0.8),
         0 0 16px rgba(0, 0, 0, 0.4);
     animation: snow-fall 12s linear infinite;
+    font-weight: bold;
 }
 
 @keyframes snow-fall {
     0% {
-        transform: translate3d(0, -10vh, 0);
+        transform: translate3d(0, -10vh, 0) rotate(0deg);
         opacity: 0;
     }
     10% {
         opacity: 1;
     }
+    50% {
+        transform: translate3d(15px, 50vh, 0) rotate(180deg);
+    }
     100% {
-        transform: translate3d(-20px, 110vh, 0);
+        transform: translate3d(-25px, 110vh, 0) rotate(360deg);
         opacity: 0;
     }
+}
+
+/* Gorro de Santa decorativo */
+.santa-hat {
+    position: absolute;
+    top: -15px;
+    right: 10px;
+    font-size: 1.5rem;
+    z-index: 1000;
+    pointer-events: none;
+    animation: hat-bounce 2s ease-in-out infinite;
+}
+
+@keyframes hat-bounce {
+    0%, 100% { transform: translateY(0) rotate(-5deg); }
+    50% { transform: translateY(-5px) rotate(5deg); }
+}
+
+.santa-hat-title {
+    margin-left: 10px;
+    font-size: 0.8em;
+    animation: hat-bounce 2s ease-in-out infinite;
+    display: inline-block;
 }
 
 /* Confeti / destellos dorados */
@@ -647,13 +709,13 @@ body.modo-ano-nuevo .main-nav {
    Glassmorphism oscuro global
    ============================== */
 
-/* Overlay principal del modal de imágenes - FONDO BLANCO TRANSLÚCIDO */
+/* Overlay principal del modal de imágenes - FONDO BLANCO TRANSLÚCIDO (Glass White) */
 #imageModal,
 .image-modal {
-    background-color: rgba(255, 255, 255, 0.95) !important;
-    background: rgba(255, 255, 255, 0.95) !important;
-    backdrop-filter: blur(10px) !important;
-    -webkit-backdrop-filter: blur(10px) !important;
+    background-color: rgba(255, 255, 255, 0.85) !important;
+    background: rgba(255, 255, 255, 0.85) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
 }
 
 /* Contenido del modal de imágenes: sin fondo blanco sólido */
@@ -666,26 +728,26 @@ body.modo-ano-nuevo .main-nav {
    (Fondo blanco requiere texto oscuro)
    ============================== */
 
-/* Títulos y descripciones del modal en negro */
+/* Títulos y descripciones del modal en negro (#333333 para mejor legibilidad) */
 #imageModal .modal-caption,
 #imageModal .modal-caption h3,
 #imageModal .modal-caption p,
 .modal-caption,
 .modal-caption h3,
 .modal-caption p {
-    color: #000000 !important;
+    color: #333333 !important;
     text-shadow: none !important;
 }
 
-/* Asegurar que los íconos también sean visibles sobre fondo blanco */
+/* Asegurar que los íconos también sean oscuros sobre fondo blanco */
 .modal-control-btn,
 .close-modal {
-    color: #000000 !important;
+    color: #333333 !important;
 }
 
 .modal-control-btn i,
 .close-modal i {
-    color: #000000 !important;
+    color: #333333 !important;
 }
 
 /* ==============================
@@ -762,20 +824,28 @@ body.modo-ano-nuevo .main-nav {
    (Emergencia - garantizar visibilidad)
    ============================== */
 
-.navbar-brand,
-.navbar-brand img,
+/* Logo del header - Corrección definitiva */
 .logo-header {
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
-    max-height: 80px !important;
+    max-height: 85px !important;
     width: auto !important;
-    height: auto !important;
+    margin: 0 auto !important;
 }
 
 .navbar-brand {
     display: flex !important;
     align-items: center !important;
+}
+
+.navbar-brand img,
+.navbar-brand .logo-header {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    max-height: 85px !important;
+    width: auto !important;
 }
 
 
