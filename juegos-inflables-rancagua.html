@@ -88,27 +88,64 @@
 <body>
     <!-- Header -->
     <header class="header">
-        <nav class="nav container">
-            <div class="nav__data">
-                <a href="index.html" class="nav__logo">
-                    <img src="imagenes/logo-alma-kids-oficial.png" alt="ALMA Kids Logo" class="nav__logo-img logo-header">
-                    ALMA Kids
-                </a>
-                <div class="nav__toggle" id="nav-toggle">
-                    <i class="fas fa-bars nav__burger"></i>
-                    <i class="fas fa-times nav__close"></i>
+        <div class="container">
+        <div class="header-content">
+            <!-- Logo -->
+            <a class="navbar-brand" href="index.html">
+                <img src="imagenes/logo-alma-kids-oficial.png" alt="AlmaKids" class="logo-header">
+            </a>
+            
+                <!-- Navigation -->
+        <nav class="nav">
+                    <a class='nav-link' href='index.html#inicio'>Inicio</a>
+                    <a class='nav-link' href='eventos.html'>Eventos</a>
+                    <a class='nav-link' href='castillos-inflables.html'>Castillos Inflables</a>
+                    <a class='nav-link' href='servicios-adicionales.html'>Servicios Adicionales</a>
+                    <a class='nav-link' href='faq.html'>FAQ</a>
+                    
+                    <a class='nav-link' href='index.html#contacto'>Contacto</a>
+            </nav>
+            
+                <!-- Contenedor de íconos móviles (búsqueda + menú) -->
+                <div class="mobile-icons-container">
+                    <!-- Search Button -->
+                    <button class="btn btn-search" onclick="toggleSearch()" title="Buscar">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    
+                    <!-- Mobile Menu Toggle -->
+                    <button class="mobile-menu-toggle navbar-toggler" onclick="toggleMobileMenu()" type="button" aria-label="Toggle navigation" title="Menú">
+                        <span class="navbar-toggler-icon">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
+                    </button>
+                </div>
+                
+                <!-- Search Input (hidden by default) -->
+                <div class="search-container" id="searchContainer">
+                    <input type="text" id="searchInput" placeholder="Buscar en ALMA Kids..." onkeyup="performSearch()">
+                    <div class="search-results" id="searchResults"></div>
                 </div>
             </div>
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list">
-                    <li><a href="index.html" class="nav__link">Inicio</a></li>
-                    <li><a href="eventos.html" class="nav__link">Eventos</a></li>
-                    <li><a href="globos-metalizados.html" class="nav__link">Globos</a></li>
-                    <li><a href="faq.html" class="nav__link">FAQ</a></li>
-                    <li><a href="index.html#contact" class="nav__link nav__cta">Cotizar</a></li>
-                </ul>
-            </div>
-        </nav>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <button class="mobile-menu-close" onclick="closeMobileMenu()" title="Cerrar menú">
+                <i class="fas fa-times"></i>
+            </button>
+            <nav class="mobile-nav">
+                <a class='mobile-link' href='index.html#inicio' onclick='closeMobileMenu()'>Inicio</a>
+                <a class='mobile-link' href='eventos.html' onclick='closeMobileMenu()'>Eventos</a>
+                <a class='mobile-link' href='castillos-inflables.html' onclick='closeMobileMenu()'>Castillos Inflables</a>
+                <a class='mobile-link' href='servicios-adicionales.html' onclick='closeMobileMenu()'>Servicios Adicionales</a>
+                <a class='mobile-link' href='faq.html' onclick='closeMobileMenu()'>FAQ</a>
+                
+                <a class='mobile-link' href='index.html#contacto' onclick='closeMobileMenu()'>Contacto</a>
+            </nav>
+        </div>
     </header>
 
     <section class="silo-navigation" aria-label="Explora nuestros servicios principales">
