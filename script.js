@@ -1198,6 +1198,40 @@ document.addEventListener('msfullscreenchange', function() {
 });
 
 // ========================================
+// ACCIONES EXTRA DEL MODAL DE IMÁGENES
+// (Compartir por WhatsApp / Abrir en nueva pestaña)
+// ========================================
+
+function shareImageOnWhatsApp() {
+    try {
+        const modalImage = document.getElementById('modalImage');
+        const pageUrl = window.location.href;
+        const imageUrl = modalImage && modalImage.src ? modalImage.src : '';
+
+        let text = `Mira esto en ALMA Kids: ${pageUrl}`;
+        if (imageUrl) {
+            text += `\nImagen: ${imageUrl}`;
+        }
+
+        const waUrl = `https://wa.me/?text=${encodeURIComponent(text)}`;
+        window.open(waUrl, '_blank');
+    } catch (e) {
+        console.error('Error al compartir imagen por WhatsApp:', e);
+    }
+}
+
+function openImageInNewTab() {
+    try {
+        const modalImage = document.getElementById('modalImage');
+        if (modalImage && modalImage.src) {
+            window.open(modalImage.src, '_blank');
+        }
+    } catch (e) {
+        console.error('Error al abrir imagen en nueva pestaña:', e);
+    }
+}
+
+// ========================================
 // CALCULADORA DE PRECIOS
 // ========================================
 

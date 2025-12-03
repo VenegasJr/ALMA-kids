@@ -1969,15 +1969,18 @@
     <div id="imageModal" class="modal">
         <div class="modal-content">
             <div class="modal-controls">
-                <button class="modal-control-btn" onclick="toggleZoom()" title="Zoom">
-                    <i class="fas fa-search-plus" id="zoomIcon"></i>
+                <!-- Botón Compartir por WhatsApp -->
+                <button class="modal-control-btn" onclick="shareImageOnWhatsApp()" title="Compartir por WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
                 </button>
-                <button class="modal-control-btn" onclick="toggleFullscreen()" title="Pantalla Completa">
-                    <i class="fas fa-expand" id="fullscreenIcon"></i>
+                <!-- Botón Abrir imagen en nueva pestaña -->
+                <button class="modal-control-btn" onclick="openImageInNewTab()" title="Abrir imagen en nueva pestaña">
+                    <i class="fas fa-search-plus"></i>
                 </button>
+                <!-- Botón Cerrar -->
                 <button class="close-modal" onclick="closeImageModal()" title="Cerrar">
-                <i class="fas fa-times"></i>
-            </button>
+                    <i class="fas fa-times"></i>
+                </button>
             </div>
             <button class="modal-nav modal-prev" onclick="previousImage()" title="Anterior">
                 <i class="fas fa-chevron-left"></i>

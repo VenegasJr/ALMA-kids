@@ -665,6 +665,21 @@ body.modo-ano-nuevo .main-nav {
     background: transparent !important;
 }
 
+/* ==============================
+   LIMPIEZA FLECHAS NAVEGACIÓN MODAL
+   (Solo íconos, sin círculos de fondo)
+   ============================== */
+
+.modal-nav {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.modal-nav i {
+    font-size: 1.6rem !important;
+}
+
 
 /* ==============================
    LIMPIEZA HEADER MÓVIL
