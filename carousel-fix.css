@@ -647,6 +647,26 @@ body.modo-ano-nuevo .main-nav {
 }
 
 /* ==============================
+   FONDO MODAL GALERÍA (LIGHTBOX)
+   Glassmorphism oscuro global
+   ============================== */
+
+/* Overlay principal del modal de imágenes (cubre toda la pantalla) */
+#imageModal,
+.image-modal {
+    background-color: rgba(0, 0, 0, 0.75) !important;
+    background: rgba(0, 0, 0, 0.75) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+}
+
+/* Contenido del modal de imágenes: sin fondo blanco sólido */
+#imageModal .modal-content {
+    background: transparent !important;
+}
+
+
+/* ==============================
    LIMPIEZA HEADER MÓVIL
    (Lupa + Menú Hamburguesa)
    ============================== */
