@@ -15486,3 +15486,95 @@ body::before {
         color: #000000 !important;
     }
 }
+
+/* --- 🚨 REPARACIÓN URGENTE MÓVIL (HEADER Y BOTONES) 🚨 --- */
+@media (max-width: 768px) {
+    /* 1. Header Controlado: Altura fija y elementos alineados */
+    .header-content {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        height: 70px !important;
+        padding: 0 15px !important;
+    }
+    
+    /* 2. Logo visible y tamaño correcto */
+    .navbar-brand img,
+    .logo-header {
+        max-height: 50px !important;
+        width: auto !important;
+        display: block !important;
+    }
+    
+    /* 3. Botones del Menú (Lupa y Sándwich): Quitar círculos gigantes */
+    .mobile-icons-container {
+        display: flex !important;
+        align-items: center !important;
+        gap: 15px !important;
+    }
+    
+    .btn-search,
+    .navbar-toggler,
+    .mobile-menu-btn,
+    .mobile-menu-toggle {
+        width: 40px !important;
+        height: 40px !important;
+        background: transparent !important; /* Quitar fondo de color */
+        border: none !important;
+        box-shadow: none !important; /* Quitar sombras raras */
+        padding: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    
+    .btn-search i,
+    .navbar-toggler i,
+    .navbar-toggler-icon i {
+        font-size: 22px !important;
+        color: #333 !important; /* Iconos oscuros para verlos */
+    }
+    
+    .navbar-toggler-icon span,
+    .mobile-menu-toggle span {
+        width: 22px !important;
+        height: 3px !important;
+        background: #333 !important;
+    }
+    
+    /* 4. Botones Flotantes (WhatsApp y Carrito): Pequeños y abajo */
+    .whatsapp-float,
+    .cart-float {
+        position: fixed !important;
+        bottom: 20px !important;
+        width: 50px !important;
+        height: 50px !important;
+        z-index: 999999 !important;
+    }
+    
+    .whatsapp-float {
+        right: 20px !important;
+    }
+    
+    .cart-float {
+        left: 20px !important;
+        right: auto !important; /* Carrito a la izquierda */
+    }
+    
+    .whatsapp-btn,
+    .cart-btn {
+        width: 100% !important;
+        height: 100% !important;
+        border-radius: 50% !important;
+        font-size: 24px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    
+    /* 5. Espacio para que el título no se esconda */
+    .hero {
+        margin-top: 0 !important;
+        padding-top: 30px !important;
+    }
+}
