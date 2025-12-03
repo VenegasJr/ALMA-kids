@@ -14642,3 +14642,155 @@ body::before {
     color: #ffffff !important;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
 }
+
+/* ============================================
+   REDISEÑO MODERNO - SECCIÓN NUESTROS SERVICIOS
+   ============================================ */
+
+/* CONTENEDOR DE LA TARJETA - Estilo Moderno */
+#servicios .service-card,
+#servicios .service-card-link .service-card {
+    background: #ffffff !important;
+    border-radius: 20px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+    transition: all 0.3s ease !important;
+    border: 1px solid #f0f0f0 !important;
+    overflow: hidden !important;
+    position: relative !important;
+}
+
+/* EFECTO HOVER - Elevación y Sombra Colorida */
+#servicios .service-card:hover,
+#servicios .service-card-link:hover .service-card {
+    transform: translateY(-10px) !important;
+    box-shadow: 0 20px 50px rgba(233, 30, 99, 0.25) !important;
+}
+
+/* IMÁGENES - Altura Fija y Zoom Sutil */
+#servicios .service-image {
+    height: 250px !important;
+    overflow: hidden !important;
+    border-radius: 20px 20px 0 0 !important;
+}
+
+#servicios .service-image img,
+#servicios .service-img {
+    height: 250px !important;
+    object-fit: cover !important;
+    width: 100% !important;
+    transition: transform 0.3s ease !important;
+}
+
+/* Zoom sutil en hover */
+#servicios .service-card:hover .service-image img,
+#servicios .service-card:hover .service-img,
+#servicios .service-card-link:hover .service-image img,
+#servicios .service-card-link:hover .service-img {
+    transform: scale(1.05) !important;
+}
+
+/* TÍTULOS - Centrados y Modernos */
+#servicios .service-content h3 {
+    text-align: center !important;
+    color: #333 !important;
+    font-weight: 700 !important;
+    margin-bottom: 1rem !important;
+    font-size: 1.5rem !important;
+}
+
+/* TEXTO - Color Gris Suave */
+#servicios .service-content p {
+    color: #666 !important;
+    text-align: center !important;
+    line-height: 1.6 !important;
+    font-size: 1rem !important;
+}
+
+/* BOTONES DE LLAMADA A LA ACCIÓN - Estilo Pill con Degradado */
+#servicios .click-overlay {
+    background: linear-gradient(135deg, #FF6B9D, #E91E63) !important;
+    border-radius: 50px !important;
+    padding: 1rem 2rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.75rem !important;
+    font-weight: 600 !important;
+    font-size: 1.1rem !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.4) !important;
+    transition: all 0.3s ease !important;
+    width: auto !important;
+    height: auto !important;
+    top: 50% !important;
+    left: 50% !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: translate(-50%, -50%) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+}
+
+#servicios .service-card:hover .click-overlay,
+#servicios .service-card-link:hover .click-overlay {
+    transform: translate(-50%, -50%) scale(1.05) !important;
+    box-shadow: 0 6px 20px rgba(233, 30, 99, 0.5) !important;
+}
+
+#servicios .click-overlay span {
+    text-shadow: none !important;
+}
+
+#servicios .click-overlay i {
+    font-size: 1.2rem !important;
+    animation: none !important;
+}
+
+/* VERSIÓN MÓVIL - Tarjetas Casi Todo el Ancho */
+@media (max-width: 768px) {
+    #servicios .services-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+        padding: 0 1rem !important;
+    }
+    
+    #servicios .service-card,
+    #servicios .service-card-link {
+        margin: 0 auto !important;
+        max-width: 100% !important;
+    }
+    
+    #servicios .service-content {
+        padding: 1.5rem !important;
+    }
+    
+    #servicios .service-content h3 {
+        font-size: 1.3rem !important;
+    }
+    
+    #servicios .service-content p {
+        font-size: 16px !important; /* Mínimo 16px para legibilidad */
+    }
+    
+    #servicios .click-overlay {
+        padding: 0.875rem 1.5rem !important;
+        font-size: 1rem !important;
+    }
+    
+    #servicios .service-image {
+        height: 220px !important;
+    }
+    
+    #servicios .service-image img,
+    #servicios .service-img {
+        height: 220px !important;
+    }
+}
+
+/* Tablet - 2 columnas */
+@media (min-width: 769px) and (max-width: 1024px) {
+    #servicios .services-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 2rem !important;
+    }
+}
