@@ -640,9 +640,7 @@ body.modo-ano-nuevo .gallery-items .gallery-item {
         font-size: 1.9rem !important;
     }
 
-    /* Contenedor WhatsApp - NO definir posición aquí para evitar conflictos
-       La posición se maneja en mobile-overlap-fixes.css para evitar superposiciones con chat IA
-       Solo mantener el tamaño del botón aquí */
+    /* Contenedor WhatsApp - Tamaño del botón en móvil */
 
     /* Botón de carrito - Aumentado 30% */
     .cart-btn {
@@ -846,6 +844,26 @@ body.modo-ano-nuevo .gallery-items .gallery-item {
     opacity: 1 !important;
     max-height: 85px !important;
     width: auto !important;
+}
+
+/* ==============================
+   BOTÓN WHATSAPP - FIJACIÓN ABSOLUTA
+   (Hardcore CSS - Sin chat IA)
+   ============================== */
+
+.whatsapp-float,
+.whatsapp-btn {
+    position: fixed !important;
+    bottom: 25px !important;
+    right: 25px !important;
+    z-index: 2147483647 !important; /* Máximo z-index posible */
+    margin: 0 !important;
+    transform: none !important;
+}
+
+/* Asegurar que el body no tenga padding extra */
+body {
+    padding-bottom: 0 !important;
 }
 
 
