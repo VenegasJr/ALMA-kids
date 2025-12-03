@@ -14515,14 +14515,45 @@ img.error::after {
    FONDOS NAVIDEÑOS - INTEGRACIÓN CON IMÁGENES
    ============================================ */
 
-/* HEADER - Marco Rojo Navideño */
+/* HEADER - Marco Rojo Navideño con Fondo Borroso */
+header,
 .header,
 .navbar {
+    position: relative !important;
+    overflow: hidden !important;
+    background: none !important; /* Quitamos el fondo directo */
+    z-index: 10 !important;
+}
+
+header::before,
+.header::before,
+.navbar::before {
+    content: "" !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
     background-image: url('imagenes/fondo-navidad-decoracion.jpg') !important;
     background-size: cover !important;
-    background-position: top center !important;
+    background-position: center !important;
     background-repeat: no-repeat !important;
-    position: relative !important;
+    filter: blur(4px) !important; /* El efecto borroso */
+    transform: scale(1.05) !important; /* Para evitar bordes blancos por el blur */
+    z-index: -1 !important;
+}
+
+header::after,
+.header::after,
+.navbar::after {
+    content: "" !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.3) !important; /* Capa oscura extra para contraste */
+    z-index: -1 !important;
 }
 
 /* Textos del header en blanco con sombra para legibilidad */
@@ -15150,9 +15181,9 @@ body::before {
 .modal,
 #imageModal,
 .image-modal {
-    background-color: rgba(255, 255, 255, 0.90) !important; /* Blanco translúcido */
-    backdrop-filter: blur(12px) !important; /* Desenfoque elegante */
-    -webkit-backdrop-filter: blur(12px) !important;
+    background-color: rgba(255, 255, 255, 0.95) !important; /* Blanco translúcido */
+    backdrop-filter: blur(15px) !important; /* Desenfoque elegante */
+    -webkit-backdrop-filter: blur(15px) !important;
     z-index: 99999 !important;
 }
 
@@ -15186,8 +15217,9 @@ body::before {
     top: 20px !important;
     right: 20px !important;
     display: flex !important;
-    gap: 12px !important;
+    gap: 15px !important; /* Espacio entre botones para evitar superposición */
     z-index: 100000 !important;
+    align-items: center !important;
 }
 
 /* Estilo unificado de botones redondos */
@@ -15198,9 +15230,9 @@ body::before {
     width: 45px !important;
     height: 45px !important;
     border-radius: 50% !important;
-    background: white !important;
+    background: white !important; /* Fondo blanco */
     border: 1px solid #eee !important;
-    color: #333 !important; /* Icono oscuro */
+    color: #333 !important; /* Icono oscuro para visibilidad */
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -15279,4 +15311,178 @@ body::before {
 #imageModal .modal-next i {
     color: inherit !important;
     font-size: 20px !important;
+}
+
+/* LIMPIEZA SUPERIOR - Eliminar estrellas negras y espacios en blanco */
+body {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* Asegurar que body::before no tenga contenido de texto */
+body::before {
+    content: '' !important; /* Solo fondo, sin texto */
+}
+
+/* ============================================
+   ESTANDARIZACIÓN TOTAL - ESTILO APPLE MODERNO
+   ============================================ */
+
+/* TAREA 1: HÉROE/Bienvenida - Diseño Minimalista Apple */
+.hero {
+    background: #fafafa !important; /* Fondo limpio gris muy pálido */
+    padding: 100px 0 80px !important;
+    min-height: 80vh !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+}
+
+.hero-content {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 0 20px !important;
+}
+
+.hero-text {
+    margin-bottom: 3rem !important;
+}
+
+.hero-title {
+    font-size: 3.5rem !important;
+    font-weight: 700 !important;
+    color: #1a1a1a !important;
+    margin-bottom: 1.5rem !important;
+    line-height: 1.2 !important;
+}
+
+.hero-description {
+    font-size: 1.25rem !important;
+    color: #666 !important;
+    line-height: 1.6 !important;
+    max-width: 700px !important;
+    margin: 0 auto !important;
+}
+
+/* Imágenes del Hero - Estilo Apple */
+.hero-image img,
+.hero-img,
+.hero-image > img {
+    border-radius: 24px !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1) !important;
+    object-fit: cover !important;
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100% !important;
+    transition: transform 0.3s ease !important;
+}
+
+.hero-image img:hover,
+.hero-img:hover {
+    transform: scale(1.02) !important;
+}
+
+/* ANIMACIÓN DE NIEVE - Re-inyectada */
+.snowflake {
+    position: fixed !important;
+    top: -10px !important;
+    color: #ffffff !important;
+    font-size: 1em !important;
+    font-family: Arial, sans-serif !important;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8) !important;
+    animation: snowfall linear infinite !important;
+    pointer-events: none !important;
+    z-index: 1000 !important;
+}
+
+@keyframes snowfall {
+    0% {
+        transform: translateY(0vh) translateX(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) translateX(var(--drift)) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* BOTONES FLOTANTES - Fijados Correctamente */
+.whatsapp-float,
+.cart-float {
+    position: fixed !important;
+    bottom: 30px !important;
+    z-index: 99999 !important;
+}
+
+.whatsapp-float {
+    right: 30px !important;
+}
+
+.cart-float {
+    right: 100px !important; /* A la izquierda del wsp */
+}
+
+/* Móvil */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        right: 20px !important;
+        bottom: 20px !important;
+    }
+    
+    .cart-float {
+        right: 85px !important;
+        bottom: 20px !important;
+    }
+    
+    .hero {
+        padding: 60px 0 40px !important;
+        min-height: 70vh !important;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem !important;
+    }
+    
+    .hero-description {
+        font-size: 1.1rem !important;
+    }
+}
+
+/* iPad */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .hero-title {
+        font-size: 3rem !important;
+    }
+}
+
+/* AJUSTE MÓVIL/IPAD - Padding Lateral */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 20px !important;
+    }
+    
+    .hero-content {
+        padding: 0 20px !important;
+    }
+}
+
+/* Menú Hamburguesa Visible y Funcional */
+@media (max-width: 1024px) {
+    .navbar-toggler,
+    .mobile-menu-toggle {
+        color: #000000 !important;
+        background: transparent !important;
+        border: none !important;
+        z-index: 10001 !important;
+    }
+    
+    .navbar-toggler-icon span,
+    .mobile-menu-toggle span {
+        background: #000000 !important;
+    }
+    
+    .btn-search i {
+        color: #000000 !important;
+    }
 }
