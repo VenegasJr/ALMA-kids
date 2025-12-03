@@ -578,12 +578,12 @@ body.modo-ano-nuevo .main-nav {
         font-size: 1.9rem !important;
     }
 
-    /* Contenedor WhatsApp - posición fija y margen 25px solo en móvil */
+    /* Contenedor WhatsApp - posición fija y margen 25px solo en móvil
+       (hereda el z-index alto definido en styles.min.css para no bajar prioridad) */
     .whatsapp-float {
         position: fixed !important;
         bottom: 25px !important;
         right: 25px !important;
-        z-index: 1000 !important;
     }
 
     /* Botón de carrito - Aumentado 30% */
