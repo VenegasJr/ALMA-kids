@@ -15028,3 +15028,118 @@ body::before {
 #servicios .service-content {
     padding: 25px !important; /* Espacio interno solo para el texto */
 }
+
+/* --- ARREGLO MODAL / LIGHTBOX (Glass Blanco y Botones) --- */
+
+/* 1. Fondo Glass Blanco Luminoso */
+.modal,
+#imageModal,
+.image-modal {
+    background-color: rgba(255, 255, 255, 0.92) !important; /* Blanco translúcido */
+    backdrop-filter: blur(15px) !important; /* Efecto vidrio */
+    -webkit-backdrop-filter: blur(15px) !important;
+}
+
+/* 2. Contenedor de la Imagen */
+.modal-content,
+#imageModal .modal-content {
+    background: transparent !important; /* Sin fondo extra */
+    box-shadow: none !important;
+    border: none !important;
+    max-width: 90vw !important;
+    max-height: 90vh !important;
+}
+
+/* 3. GRUPO DE BOTONES SUPERIORES (Para que no se amontonen) */
+.modal-controls,
+#imageModal .modal-controls {
+    position: absolute !important;
+    top: 20px !important;
+    right: 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 15px !important; /* Espacio entre botones */
+    z-index: 10000 !important;
+}
+
+/* 4. Estilo de los Botones (Oscuros para verlos sobre blanco) */
+.modal-control-btn,
+.close-modal,
+#imageModal .modal-control-btn,
+#imageModal .close-modal {
+    background: rgba(255, 255, 255, 0.8) !important;
+    border: 1px solid #ddd !important;
+    border-radius: 50% !important; /* Círculos perfectos */
+    width: 45px !important;
+    height: 45px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    margin: 0 !important;
+}
+
+/* Iconos oscuros */
+.modal-control-btn i,
+.close-modal i,
+#imageModal .modal-control-btn i,
+#imageModal .close-modal i {
+    color: #333 !important; /* Gris oscuro fuerte */
+    font-size: 20px !important;
+}
+
+/* Botón Cerrar destacado */
+.close-modal:hover,
+#imageModal .close-modal:hover {
+    background: #ff4081 !important; /* Fucsia al pasar el mouse */
+    border-color: #ff4081 !important;
+}
+
+.close-modal:hover i,
+#imageModal .close-modal:hover i {
+    color: white !important;
+}
+
+/* 5. FLECHAS DE NAVEGACIÓN (Anterior / Siguiente) */
+.modal-nav,
+.modal-prev,
+.modal-next,
+#imageModal .modal-nav,
+#imageModal .modal-prev,
+#imageModal .modal-next {
+    background: rgba(255, 255, 255, 0.5) !important;
+    color: #333 !important; /* Flecha oscura */
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 50% !important;
+    border: none !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.3s !important;
+    position: fixed !important;
+    z-index: 10001 !important;
+}
+
+.modal-nav:hover,
+.modal-prev:hover,
+.modal-next:hover,
+#imageModal .modal-nav:hover,
+#imageModal .modal-prev:hover,
+#imageModal .modal-next:hover {
+    background: #ff4081 !important;
+    color: white !important;
+}
+
+.modal-nav i,
+.modal-prev i,
+.modal-next i,
+#imageModal .modal-nav i,
+#imageModal .modal-prev i,
+#imageModal .modal-next i {
+    color: inherit !important;
+}
