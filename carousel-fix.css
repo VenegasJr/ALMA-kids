@@ -647,18 +647,45 @@ body.modo-ano-nuevo .main-nav {
    Glassmorphism oscuro global
    ============================== */
 
-/* Overlay principal del modal de imágenes (cubre toda la pantalla) */
+/* Overlay principal del modal de imágenes - FONDO BLANCO TRANSLÚCIDO */
 #imageModal,
 .image-modal {
-    background-color: rgba(0, 0, 0, 0.75) !important;
-    background: rgba(0, 0, 0, 0.75) !important;
-    backdrop-filter: blur(15px) !important;
-    -webkit-backdrop-filter: blur(15px) !important;
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
 }
 
 /* Contenido del modal de imágenes: sin fondo blanco sólido */
 #imageModal .modal-content {
     background: transparent !important;
+}
+
+/* ==============================
+   TEXTO NEGRO PARA CONTRASTE
+   (Fondo blanco requiere texto oscuro)
+   ============================== */
+
+/* Títulos y descripciones del modal en negro */
+#imageModal .modal-caption,
+#imageModal .modal-caption h3,
+#imageModal .modal-caption p,
+.modal-caption,
+.modal-caption h3,
+.modal-caption p {
+    color: #000000 !important;
+    text-shadow: none !important;
+}
+
+/* Asegurar que los íconos también sean visibles sobre fondo blanco */
+.modal-control-btn,
+.close-modal {
+    color: #000000 !important;
+}
+
+.modal-control-btn i,
+.close-modal i {
+    color: #000000 !important;
 }
 
 /* ==============================
@@ -692,27 +719,21 @@ body.modo-ano-nuevo .main-nav {
     order: 999 !important;
 }
 
-/* Flechas de navegación también con z-index alto */
-.modal-nav {
-    z-index: 99999 !important;
-    cursor: pointer !important;
-    pointer-events: auto !important;
-    position: fixed !important;
-}
-
 /* ==============================
-   LIMPIEZA FLECHAS NAVEGACIÓN MODAL
-   (Solo íconos, sin círculos de fondo)
+   OCULTAR FLECHAS DE NAVEGACIÓN
+   (Eliminar flechas Anterior/Siguiente del modal)
    ============================== */
 
-.modal-nav {
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-}
-
-.modal-nav i {
-    font-size: 1.6rem !important;
+.modal-nav,
+.modal-nav.modal-prev,
+.modal-nav.modal-next,
+.prev,
+.next,
+.carousel-control,
+.nav-btn {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
 }
 
 
