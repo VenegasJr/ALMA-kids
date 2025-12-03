@@ -17,7 +17,7 @@ function toggleMobileMenu() {
     console.log('🍔 toggleMobileMenu llamado');
     const mobileMenu = document.getElementById('mobileMenu');
     const overlay = document.getElementById('mobileMenuOverlay') || createMobileMenuOverlay();
-    const toggleButton = document.querySelector('.mobile-menu-toggle');
+    const toggleButton = document.querySelector('.mobile-menu-toggle, .navbar-toggler');
     const floatMenuBtn = document.querySelector('.mobile-menu-btn');
     const body = document.body;
     

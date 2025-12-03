@@ -14298,3 +14298,213 @@ img.error::after {
         font-size: 1.7rem !important;
     }
 }
+
+/* ============================================
+   CORRECCIONES HEADER MÓVIL Y TABLET (iPad)
+   REESCRITO COMPLETO - REGLAS ESTRICTAS
+   ============================================ */
+
+@media (max-width: 1024px) {
+    /* Ordenar elementos del header con Flexbox */
+    .header-content,
+    .navbar,
+    .navbar-container {
+        display: flex !important;
+        justify-content: space-between !important; /* Logo a la izq, botones a la der */
+        align-items: center !important;
+        padding: 10px 15px !important;
+        width: 100% !important;
+    }
+
+    /* ============================================
+       CONTENEDOR DE ÍCONOS MÓVILES - ALINEACIÓN PERFECTA
+       ============================================ */
+    .mobile-icons-container {
+        display: flex !important;
+        align-items: center !important;
+        gap: 20px !important; /* Separación limpia entre lupa y menú */
+        margin-left: auto !important;
+        position: relative !important;
+        z-index: 10000 !important; /* Encima de la nieve y todo */
+    }
+
+    /* Compatibilidad con nombres antiguos */
+    .header-mobile-buttons,
+    .header-actions,
+    .mobile-controls {
+        display: flex !important;
+        align-items: center !important;
+        gap: 20px !important;
+        margin-left: auto !important;
+        position: relative !important;
+        z-index: 10000 !important;
+    }
+
+    /* Logo visible y centrado - Aumentar tamaño en iPad */
+    .logo-header,
+    .navbar-brand img {
+        max-height: 60px !important;
+        width: auto !important;
+        height: auto !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    /* ============================================
+       REVIVIR EL BOTÓN - Z-INDEX EXTREMO
+       ============================================ */
+    .navbar-toggler,
+    .mobile-menu-toggle,
+    .mobile-icons-container {
+        position: relative !important;
+        z-index: 10000 !important; /* Encima de la nieve */
+        cursor: pointer !important;
+        pointer-events: auto !important;
+    }
+
+    /* Botón del menú hamburguesa - Estilos base */
+    .navbar-toggler,
+    .mobile-menu-toggle {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 10px !important;
+        min-width: 44px !important; /* Tamaño táctil mínimo */
+        min-height: 44px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        position: relative !important;
+        z-index: 10001 !important; /* Aún más alto que el contenedor */
+        cursor: pointer !important;
+        pointer-events: auto !important;
+        -webkit-tap-highlight-color: transparent !important;
+    }
+
+    /* Contenedor del ícono del botón */
+    .navbar-toggler-icon {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 5px !important;
+        width: 28px !important;
+        height: 20px !important;
+        position: relative !important;
+    }
+
+    /* ============================================
+       COLOR VIVO - LÍNEAS DEL SÁNDWICH EN FUCSIA
+       ============================================ */
+    .navbar-toggler-icon span,
+    .mobile-menu-toggle span,
+    .navbar-toggler span {
+        background: #ff0080 !important; /* Fucsia Neón */
+        width: 28px !important;
+        height: 3px !important;
+        border-radius: 2px !important;
+        display: block !important;
+        box-shadow: 0 0 4px rgba(255, 0, 128, 0.8) !important; /* Resplandor neón */
+        transition: all 0.3s ease !important;
+    }
+
+    /* Efecto hover más intenso */
+    .navbar-toggler:hover .navbar-toggler-icon span,
+    .navbar-toggler:active .navbar-toggler-icon span,
+    .mobile-menu-toggle:hover span,
+    .mobile-menu-toggle:active span {
+        background: #ff0080 !important;
+        box-shadow: 0 0 8px rgba(255, 0, 128, 1) !important;
+        transform: scale(1.1) !important;
+    }
+
+    /* Estado activo del botón (menú abierto) */
+    .navbar-toggler.active .navbar-toggler-icon span:nth-child(1),
+    .mobile-menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px) !important;
+        background: #ff0080 !important;
+    }
+
+    .navbar-toggler.active .navbar-toggler-icon span:nth-child(2),
+    .mobile-menu-toggle.active span:nth-child(2) {
+        opacity: 0 !important;
+    }
+
+    .navbar-toggler.active .navbar-toggler-icon span:nth-child(3),
+    .mobile-menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px) !important;
+        background: #ff0080 !important;
+    }
+
+    /* ============================================
+       BOTÓN DE BÚSQUEDA - ESTILOS COHERENTES
+       ============================================ */
+    .btn-search {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 10px !important;
+        min-width: 44px !important; /* Tamaño táctil mínimo */
+        min-height: 44px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        position: relative !important;
+        z-index: 10001 !important;
+        cursor: pointer !important;
+        pointer-events: auto !important;
+        -webkit-tap-highlight-color: transparent !important;
+    }
+
+    .btn-search i {
+        color: #ff0080 !important;
+        font-size: 24px !important;
+        text-shadow: 0 0 4px rgba(255, 0, 128, 0.8) !important;
+        transition: all 0.3s ease !important;
+    }
+
+    .btn-search:hover i,
+    .btn-search:active i {
+        color: #ff0080 !important;
+        text-shadow: 0 0 8px rgba(255, 0, 128, 1) !important;
+        transform: scale(1.1) !important;
+    }
+}
+
+/* ============================================
+   MÓVIL PEQUEÑO - ASEGURAR FUNCIONALIDAD
+   ============================================ */
+@media (max-width: 768px) {
+    /* Asegurar que el contenedor de íconos esté siempre visible y clickeable */
+    .mobile-icons-container {
+        z-index: 10000 !important;
+        position: relative !important;
+    }
+
+    /* Botón del menú - Forzar clickeabilidad */
+    .navbar-toggler,
+    .mobile-menu-toggle {
+        z-index: 10001 !important;
+        position: relative !important;
+        cursor: pointer !important;
+        pointer-events: auto !important;
+        touch-action: manipulation !important; /* Mejor respuesta táctil */
+        -webkit-tap-highlight-color: rgba(255, 0, 128, 0.3) !important;
+    }
+
+    /* Asegurar que las líneas del botón sean visibles */
+    .navbar-toggler-icon span,
+    .mobile-menu-toggle span {
+        background: #ff0080 !important;
+        pointer-events: none !important; /* Las líneas no interceptan clicks */
+    }
+
+    /* Botón de búsqueda también clickeable */
+    .btn-search {
+        z-index: 10001 !important;
+        position: relative !important;
+        cursor: pointer !important;
+        pointer-events: auto !important;
+        touch-action: manipulation !important;
+        -webkit-tap-highlight-color: rgba(255, 0, 128, 0.3) !important;
+    }
+}

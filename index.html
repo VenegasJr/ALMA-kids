@@ -362,18 +362,20 @@
                     <a class='nav-link' href='index.html#contacto'>Contacto</a>
             </nav>
             
-                <!-- Contenedor de botones móviles (búsqueda + menú) -->
-                <div class="header-mobile-buttons">
+                <!-- Contenedor de íconos móviles (búsqueda + menú) -->
+                <div class="mobile-icons-container">
                     <!-- Search Button -->
-                    <button class="btn btn-search" onclick="toggleSearch()">
+                    <button class="btn btn-search" onclick="toggleSearch()" title="Buscar">
                         <i class="fas fa-search"></i>
                     </button>
                     
                     <!-- Mobile Menu Toggle -->
-                    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
-                        <span></span>
-                        <span></span>
-                        <span></span>
+                    <button class="mobile-menu-toggle navbar-toggler" onclick="toggleMobileMenu()" type="button" aria-label="Toggle navigation" title="Menú">
+                        <span class="navbar-toggler-icon">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
                     </button>
                 </div>
                 
