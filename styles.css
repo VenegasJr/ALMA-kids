@@ -14919,3 +14919,112 @@ body::before {
         gap: 2rem !important;
     }
 }
+
+/* --- ESTILOS NUEVOS: SECCIONES ALTERNAS Y TARJETAS LIMPIAS --- */
+
+/* 1. Fondo suave para secciones alternadas (Efecto Ritmo) */
+.section-secondary {
+    background-color: #fcf8fa !important; /* Rosado/Gris muy pálido */
+}
+
+/* 2. Rediseño de Tarjetas de Servicio (SIN FOTOS) */
+#servicios .service-card {
+    text-align: center !important;
+    padding: 40px 30px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    min-height: 320px !important; /* Altura uniforme */
+    background: white !important;
+    border: 1px solid #f0f0f0 !important;
+    border-radius: 20px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03) !important;
+    transition: all 0.3s ease !important;
+}
+
+#servicios .service-card:hover {
+    transform: translateY(-10px) !important;
+    box-shadow: 0 20px 40px rgba(233, 30, 99, 0.15) !important; /* Sombra rosada al flotar */
+    border-color: #ffc1e3 !important;
+}
+
+/* Títulos y Textos de las tarjetas */
+#servicios .service-card h3 {
+    font-size: 1.5rem !important;
+    color: #333 !important;
+    margin-bottom: 15px !important;
+    font-weight: 700 !important;
+}
+
+#servicios .service-card p {
+    font-size: 0.95rem !important;
+    color: #666 !important;
+    line-height: 1.6 !important;
+    margin-bottom: 20px !important;
+}
+
+/* Listas de características centradas */
+#servicios .service-features {
+    text-align: left !important;
+    display: inline-block !important;
+    margin: 0 auto 20px auto !important;
+    padding-left: 0 !important;
+    list-style: none !important;
+}
+
+#servicios .service-features li {
+    margin-bottom: 8px !important;
+    color: #555 !important;
+}
+
+#servicios .service-features li i {
+    color: #ff4081 !important; /* Iconos check rosados */
+    margin-right: 8px !important;
+}
+
+/* --- ESTILOS TARJETAS CON IMAGEN (RESTAURADO Y MEJORADO) --- */
+#servicios .service-card {
+    padding: 0 !important; /* IMPORTANTE: Sin padding para que la foto toque los bordes */
+    border-radius: 20px !important;
+    overflow: hidden !important; /* Recorta la imagen en las esquinas */
+    background: white !important;
+    border: 1px solid #eee !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    display: flex !important;
+    flex-direction: column !important;
+    text-align: left !important; /* Texto alineado normal */
+}
+
+#servicios .service-card:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Contenedor de la imagen */
+#servicios .service-image {
+    width: 100% !important;
+    height: 240px !important; /* Altura fija para uniformidad */
+    overflow: hidden !important;
+    position: relative !important;
+}
+
+/* La Imagen misma (Corrección de deformación) */
+#servicios .service-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* ESTO EVITA QUE SE VEA HORRIBLE/ESTIRADA */
+    object-position: center !important;
+    transition: transform 0.5s ease !important;
+}
+
+/* Efecto Zoom suave */
+#servicios .service-card:hover .service-img {
+    transform: scale(1.08) !important;
+}
+
+/* Contenido de texto */
+#servicios .service-content {
+    padding: 25px !important; /* Espacio interno solo para el texto */
+}
