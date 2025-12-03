@@ -14325,7 +14325,7 @@ img.error::after {
         gap: 20px !important; /* Separación limpia entre lupa y menú */
         margin-left: auto !important;
         position: relative !important;
-        z-index: 10000 !important; /* Encima de la nieve y todo */
+        z-index: 10001 !important; /* Encima de la nieve y todo */
     }
 
     /* Compatibilidad con nombres antiguos */
@@ -14337,7 +14337,7 @@ img.error::after {
         gap: 20px !important;
         margin-left: auto !important;
         position: relative !important;
-        z-index: 10000 !important;
+        z-index: 10001 !important;
     }
 
     /* Logo visible y centrado - Aumentar tamaño en iPad */
@@ -14358,7 +14358,7 @@ img.error::after {
     .mobile-menu-toggle,
     .mobile-icons-container {
         position: relative !important;
-        z-index: 10000 !important; /* Encima de la nieve */
+        z-index: 10001 !important; /* Encima de la nieve */
         cursor: pointer !important;
         pointer-events: auto !important;
     }
@@ -14393,17 +14393,17 @@ img.error::after {
     }
 
     /* ============================================
-       COLOR VIVO - LÍNEAS DEL SÁNDWICH EN FUCSIA
+       COLOR VISIBLE - LÍNEAS DEL SÁNDWICH EN NEGRO
        ============================================ */
     .navbar-toggler-icon span,
     .mobile-menu-toggle span,
     .navbar-toggler span {
-        background: #ff0080 !important; /* Fucsia Neón */
+        background: #000000 !important; /* Negro para máximo contraste */
         width: 28px !important;
         height: 3px !important;
         border-radius: 2px !important;
         display: block !important;
-        box-shadow: 0 0 4px rgba(255, 0, 128, 0.8) !important; /* Resplandor neón */
+        box-shadow: none !important; /* Sin resplandor para mejor visibilidad */
         transition: all 0.3s ease !important;
     }
 
@@ -14412,16 +14412,17 @@ img.error::after {
     .navbar-toggler:active .navbar-toggler-icon span,
     .mobile-menu-toggle:hover span,
     .mobile-menu-toggle:active span {
-        background: #ff0080 !important;
-        box-shadow: 0 0 8px rgba(255, 0, 128, 1) !important;
+        background: #000000 !important;
+        box-shadow: none !important;
         transform: scale(1.1) !important;
+        opacity: 0.8 !important;
     }
 
     /* Estado activo del botón (menú abierto) */
     .navbar-toggler.active .navbar-toggler-icon span:nth-child(1),
     .mobile-menu-toggle.active span:nth-child(1) {
         transform: rotate(45deg) translate(6px, 6px) !important;
-        background: #ff0080 !important;
+        background: #000000 !important;
     }
 
     .navbar-toggler.active .navbar-toggler-icon span:nth-child(2),
@@ -14432,7 +14433,7 @@ img.error::after {
     .navbar-toggler.active .navbar-toggler-icon span:nth-child(3),
     .mobile-menu-toggle.active span:nth-child(3) {
         transform: rotate(-45deg) translate(6px, -6px) !important;
-        background: #ff0080 !important;
+        background: #000000 !important;
     }
 
     /* ============================================
@@ -14456,17 +14457,18 @@ img.error::after {
     }
 
     .btn-search i {
-        color: #ff0080 !important;
+        color: #000000 !important; /* Negro para máximo contraste */
         font-size: 24px !important;
-        text-shadow: 0 0 4px rgba(255, 0, 128, 0.8) !important;
+        text-shadow: none !important; /* Sin resplandor para mejor visibilidad */
         transition: all 0.3s ease !important;
     }
 
     .btn-search:hover i,
     .btn-search:active i {
-        color: #ff0080 !important;
-        text-shadow: 0 0 8px rgba(255, 0, 128, 1) !important;
+        color: #000000 !important;
+        text-shadow: none !important;
         transform: scale(1.1) !important;
+        opacity: 0.8 !important;
     }
 }
 
@@ -14488,13 +14490,13 @@ img.error::after {
         cursor: pointer !important;
         pointer-events: auto !important;
         touch-action: manipulation !important; /* Mejor respuesta táctil */
-        -webkit-tap-highlight-color: rgba(255, 0, 128, 0.3) !important;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0.2) !important;
     }
 
     /* Asegurar que las líneas del botón sean visibles */
     .navbar-toggler-icon span,
     .mobile-menu-toggle span {
-        background: #ff0080 !important;
+        background: #000000 !important; /* Negro para máximo contraste */
         pointer-events: none !important; /* Las líneas no interceptan clicks */
     }
 
@@ -14505,6 +14507,138 @@ img.error::after {
         cursor: pointer !important;
         pointer-events: auto !important;
         touch-action: manipulation !important;
-        -webkit-tap-highlight-color: rgba(255, 0, 128, 0.3) !important;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0.2) !important;
     }
+}
+
+/* ============================================
+   FONDOS NAVIDEÑOS - INTEGRACIÓN CON IMÁGENES
+   ============================================ */
+
+/* HEADER - Marco Rojo Navideño */
+.header,
+.navbar {
+    background-image: url('imagenes/fondo-navidad-decoracion.jpg') !important;
+    background-size: cover !important;
+    background-position: top center !important;
+    background-repeat: no-repeat !important;
+    position: relative !important;
+}
+
+/* Textos del header en blanco con sombra para legibilidad */
+.header .nav-link,
+.navbar .nav-link,
+.header-content .nav-link {
+    color: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
+}
+
+.header .nav-link:hover,
+.navbar .nav-link:hover {
+    color: #ffffff !important;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7) !important;
+    background: rgba(255, 255, 255, 0.2) !important;
+}
+
+.header .nav-link.active,
+.navbar .nav-link.active {
+    color: #ffffff !important;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7) !important;
+    background: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Logo del header - asegurar visibilidad sobre fondo rojo */
+.header .logo-header,
+.navbar .logo-header,
+.header .navbar-brand img {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)) !important;
+}
+
+/* FONDO GENERAL - Patrón Suave */
+body::before {
+    content: '' !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: -1 !important;
+    background-image: url('imagenes/fondo-navidad-decoracion-3.jpg') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    opacity: 0.10 !important; /* Muy suave para no molestar la lectura */
+    pointer-events: none !important;
+}
+
+/* SECCIONES DE CONTENIDO - Bocetos Navideños */
+.services-section,
+.service-card,
+.silo-card,
+.seo-keyword-card,
+.plaza-item,
+.castillo-item {
+    background-image: url('imagenes/fondo-navidad-decoracion-2.jpg') !important;
+    background-position: right center !important;
+    background-repeat: no-repeat !important;
+    background-size: contain !important;
+    position: relative !important;
+}
+
+/* Asegurar que el contenido de las tarjetas sea legible */
+.service-card .service-content,
+.silo-card h3,
+.silo-card p,
+.seo-keyword-card h3,
+.seo-keyword-card p {
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+/* FOOTER - Cálido Navideño */
+.footer {
+    background-image: url('imagenes/fondo-navidad-decoracion-logo-alma.jpg') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    position: relative !important;
+}
+
+/* Overlay oscuro sobre el fondo del footer para legibilidad */
+.footer::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background-color: rgba(0, 0, 0, 0.6) !important;
+    z-index: 0 !important;
+    pointer-events: none !important;
+}
+
+/* Asegurar que el contenido del footer esté por encima del overlay */
+.footer-content,
+.footer-info,
+.footer-links,
+.footer-contact,
+.footer-bottom {
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+/* Texto del footer en blanco para legibilidad */
+.footer-info p,
+.footer-links a,
+.footer-contact p,
+.footer-contact a,
+.footer-bottom {
+    color: #ffffff !important;
+}
+
+.footer-info h3,
+.footer-links h4,
+.footer-contact h4 {
+    color: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
 }

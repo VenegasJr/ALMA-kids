@@ -208,25 +208,7 @@ body.modo-navidad .main-nav {
     position: relative !important;
 }
 
-/* Guirnalda navideña decorativa en la parte superior del header */
-body.modo-navidad .header::before {
-    content: '🎄 🎁 🎄 🎁 🎄 🎁 🎄';
-    position: absolute;
-    top: -25px;
-    left: 0;
-    right: 0;
-    text-align: center;
-    font-size: 1.2rem;
-    letter-spacing: 8px;
-    z-index: 1000;
-    pointer-events: none;
-    animation: garland-shimmer 3s ease-in-out infinite;
-}
-
-@keyframes garland-shimmer {
-    0%, 100% { opacity: 0.7; }
-    50% { opacity: 1; }
-}
+/* Guirnalda navideña eliminada - Header limpio */
 
 /* Borde festivo dorado para Año Nuevo */
 body.modo-ano-nuevo .header,
@@ -282,28 +264,7 @@ body.modo-ano-nuevo .gallery-items .gallery-item {
     }
 }
 
-/* Gorro de Santa decorativo */
-.santa-hat {
-    position: absolute;
-    top: -15px;
-    right: 10px;
-    font-size: 1.5rem;
-    z-index: 1000;
-    pointer-events: none;
-    animation: hat-bounce 2s ease-in-out infinite;
-}
-
-@keyframes hat-bounce {
-    0%, 100% { transform: translateY(0) rotate(-5deg); }
-    50% { transform: translateY(-5px) rotate(5deg); }
-}
-
-.santa-hat-title {
-    margin-left: 10px;
-    font-size: 0.8em;
-    animation: hat-bounce 2s ease-in-out infinite;
-    display: inline-block;
-}
+/* Gorros de Santa eliminados - Header limpio */
 
 /* Confeti / destellos dorados */
 .confetti-piece {
