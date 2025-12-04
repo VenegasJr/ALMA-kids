@@ -15578,3 +15578,241 @@ body::before {
         padding-top: 30px !important;
     }
 }
+
+/* ==================================================
+   🚑 PARCHE DE EMERGENCIA: HEADER Y MÓVIL
+   ================================================== */
+
+/* 1. FORZAR TAMAÑO PEQUEÑO EN BOTONES DEL HEADER */
+/* Esto evita que hereden estilos de botones grandes */
+.header .btn-search,
+.header .navbar-toggler,
+.header .mobile-menu-btn,
+.header .mobile-menu-toggle {
+    width: 40px !important;
+    height: 40px !important;
+    padding: 5px !important;
+    margin: 0 !important;
+    background: transparent !important; /* Quitar fondo de color */
+    box-shadow: none !important; /* Quitar sombras */
+    border: none !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Iconos del header visibles y tamaño correcto */
+.header .btn-search i,
+.header .navbar-toggler i,
+.header .navbar-toggler-icon i {
+    font-size: 22px !important;
+    color: #333 !important; /* Color oscuro para verlos */
+}
+
+.header .navbar-toggler-icon span,
+.header .mobile-menu-toggle span {
+    width: 22px !important;
+    height: 3px !important;
+    background: #333 !important;
+}
+
+/* 2. LOGO VISIBLE (Que no lo tapen) */
+.navbar-brand {
+    z-index: 1005 !important;
+    position: relative !important;
+}
+
+.navbar-brand img.logo-header {
+    max-height: 55px !important; /* Tamaño controlado en móvil */
+    width: auto !important;
+    display: block !important;
+}
+
+/* 3. SEPARAR BOTONES FLOTANTES (WhatsApp y Carrito) */
+/* Para que no se monten encima del texto ni entre ellos */
+.whatsapp-float {
+    bottom: 25px !important;
+    right: 25px !important;
+    width: 60px !important;
+    height: 60px !important;
+    z-index: 99999 !important;
+}
+
+.cart-float {
+    bottom: 25px !important;
+    left: 25px !important; /* Lo movemos a la IZQUIERDA en móvil para equilibrar */
+    right: auto !important;
+    width: 60px !important;
+    height: 60px !important;
+    z-index: 99999 !important;
+}
+
+/* 4. AJUSTE DE ESPACIO SUPERIOR */
+/* Para que el título 'Te damos la bienvenida' no quede pegado arriba */
+.hero {
+    padding-top: 20px !important;
+    margin-top: 0 !important;
+}
+
+/* =================================================================
+   🛡️ BLOQUE DE RESTAURACIÓN UX (FIX DEFINITIVO)
+   ================================================================= */
+
+/* --- 1. MODAL / LIGHTBOX (Arreglo de Visibilidad) --- */
+.modal,
+#imageModal,
+.image-modal {
+    /* Fondo Vidrio Blanco elegante */
+    background-color: rgba(255, 255, 255, 0.90) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    z-index: 999999 !important; /* Siempre encima de todo */
+}
+
+/* Botones del Modal (Cerrar, Zoom, Flechas) - VISIBLES */
+.close-modal,
+.modal-nav,
+.modal-control-btn,
+#imageModal .close-modal,
+#imageModal .modal-nav,
+#imageModal .modal-control-btn {
+    background-color: white !important;
+    color: #222 !important; /* Icono Negro Fuerte */
+    border: 1px solid #ddd !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important;
+    width: 45px !important;
+    height: 45px !important;
+    border-radius: 50% !important; /* Círculo perfecto */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    opacity: 1 !important;
+    cursor: pointer !important;
+}
+
+.close-modal i,
+.modal-nav i,
+.modal-control-btn i,
+#imageModal .close-modal i,
+#imageModal .modal-nav i,
+#imageModal .modal-control-btn i {
+    color: inherit !important;
+    font-size: 18px !important;
+}
+
+/* Ubicación del botón cerrar para que no se pierda */
+.close-modal,
+#imageModal .close-modal {
+    position: absolute !important;
+    top: 20px !important;
+    right: 20px !important;
+    z-index: 1000002 !important;
+}
+
+/* Controles extra (WhatsApp/Zoom) separados */
+.modal-controls,
+#imageModal .modal-controls {
+    display: flex !important;
+    gap: 15px !important;
+    position: absolute !important;
+    top: 20px !important;
+    right: 80px !important; /* A la izquierda del botón cerrar */
+    z-index: 1000001 !important;
+}
+
+.close-modal:hover,
+.modal-nav:hover,
+.modal-control-btn:hover,
+#imageModal .close-modal:hover,
+#imageModal .modal-nav:hover,
+#imageModal .modal-control-btn:hover {
+    background-color: #ff4081 !important;
+    color: white !important;
+    border-color: #ff4081 !important;
+    transform: scale(1.1) !important;
+}
+
+/* --- 2. TARJETAS DE SERVICIOS (Estilo Apple Moderno) --- */
+#servicios .service-card {
+    background: #fff !important;
+    border-radius: 24px !important;
+    border: 1px solid rgba(0, 0, 0, 0.04) !important;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06) !important;
+    overflow: hidden !important; /* Para que la imagen respete el borde redondo */
+    transition: transform 0.3s ease !important;
+    padding: 0 !important; /* Sin padding para que la foto llene el espacio */
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+#servicios .service-card:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: 0 20px 40px rgba(233, 30, 99, 0.15) !important;
+}
+
+/* Contenedor de la foto - Altura fija para orden */
+#servicios .service-image {
+    width: 100% !important;
+    height: 240px !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+/* La Foto misma - NO DEFORMADA */
+#servicios .service-img,
+#servicios .service-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* Clave: Recorta, no estira */
+    object-position: center !important;
+    display: block !important;
+}
+
+/* Texto de la tarjeta */
+#servicios .service-content {
+    padding: 25px !important;
+    text-align: left !important;
+}
+
+/* --- 3. REPARACIÓN HEADER MÓVIL (Botones Gigantes) --- */
+@media (max-width: 768px) {
+    /* Forzar botones pequeños */
+    .header .btn-search,
+    .header .navbar-toggler,
+    .header .mobile-menu-toggle {
+        width: 40px !important;
+        height: 40px !important;
+        padding: 0 !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        border: none !important;
+    }
+    
+    /* Iconos visibles */
+    .header .btn-search i,
+    .header .navbar-toggler i {
+        font-size: 22px !important;
+        color: #333 !important;
+    }
+    
+    .header .navbar-toggler-icon span,
+    .header .mobile-menu-toggle span {
+        width: 22px !important;
+        height: 3px !important;
+        background: #333 !important;
+    }
+    
+    /* Contenedor alineado */
+    .mobile-icons-container {
+        display: flex !important;
+        align-items: center !important;
+        gap: 10px !important;
+    }
+    
+    /* Logo visible */
+    .navbar-brand img {
+        max-height: 50px !important;
+        width: auto !important;
+    }
+}
