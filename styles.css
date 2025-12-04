@@ -14515,45 +14515,14 @@ img.error::after {
    FONDOS NAVIDEÑOS - INTEGRACIÓN CON IMÁGENES
    ============================================ */
 
-/* HEADER - Marco Rojo Navideño con Fondo Borroso */
-header,
+/* HEADER - Marco Rojo Navideño */
 .header,
 .navbar {
-    position: relative !important;
-    overflow: hidden !important;
-    background: none !important; /* Quitamos el fondo directo */
-    z-index: 10 !important;
-}
-
-header::before,
-.header::before,
-.navbar::before {
-    content: "" !important;
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
     background-image: url('imagenes/fondo-navidad-decoracion.jpg') !important;
     background-size: cover !important;
-    background-position: center !important;
+    background-position: top center !important;
     background-repeat: no-repeat !important;
-    filter: blur(4px) !important; /* El efecto borroso */
-    transform: scale(1.05) !important; /* Para evitar bordes blancos por el blur */
-    z-index: -1 !important;
-}
-
-header::after,
-.header::after,
-.navbar::after {
-    content: "" !important;
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    background: rgba(0, 0, 0, 0.3) !important; /* Capa oscura extra para contraste */
-    z-index: -1 !important;
+    position: relative !important;
 }
 
 /* Textos del header en blanco con sombra para legibilidad */
@@ -14674,1003 +14643,19 @@ body::before {
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
 }
 
-/* ============================================
-   REDISEÑO MODERNO - SECCIÓN NUESTROS SERVICIOS
-   ============================================ */
+/* --- MEJORAS VISUALES 2025 (SAFE MODE) --- */
 
-/* TARJETAS FLOTANTES - Estilo Moderno y Profesional */
-#servicios .service-card,
-#servicios .service-card-link .service-card {
-    background: #ffffff !important;
-    padding: 20px !important;
-    border-radius: 20px !important;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05) !important;
-    transition: all 0.3s ease !important;
-    overflow: hidden !important;
-    position: relative !important;
-    display: flex !important;
-    flex-direction: column !important;
-    border: none !important;
-}
-
-/* EFECTO HOVER - Elevación y Sombra Creciente */
-#servicios .service-card:hover,
-#servicios .service-card-link:hover .service-card {
-    transform: translateY(-8px) !important;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12) !important;
-}
-
-/* IMÁGENES ATRACTIVAS - Altura Fija y Uniformidad */
-#servicios .service-image {
-    height: 220px !important;
-    overflow: hidden !important;
-    border-radius: 15px !important;
-    margin-bottom: 1rem !important;
-}
-
-#servicios .service-image img,
-#servicios .service-img {
-    height: 220px !important;
-    object-fit: cover !important;
-    width: 100% !important;
-    border-radius: 15px !important;
-    transition: transform 0.3s ease !important;
-}
-
-/* Zoom Suave al Hover en la Tarjeta */
-#servicios .service-card:hover .service-image img,
-#servicios .service-card:hover .service-img,
-#servicios .service-card-link:hover .service-image img,
-#servicios .service-card-link:hover .service-img {
-    transform: scale(1.05) !important;
-}
-
-/* CONTENEDOR DE CONTENIDO - Flexbox para Estructura */
-#servicios .service-content {
-    padding: 0 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    flex-grow: 1 !important;
-}
-
-/* TÍTULOS - Centrados y Limpios */
-#servicios .service-content h3 {
-    text-align: center !important;
-    color: #333 !important;
-    font-weight: 700 !important;
-    margin-bottom: 0.75rem !important;
-    font-size: 1.5rem !important;
-}
-
-/* TEXTO - Legible Color Gris Medio */
-#servicios .service-content p {
-    color: #666 !important;
-    text-align: center !important;
-    line-height: 1.6 !important;
-    font-size: 1rem !important;
-    margin-bottom: 1rem !important;
-}
-
-/* LISTAS DE CARACTERÍSTICAS */
-#servicios .service-features {
-    list-style: none !important;
-    padding: 0 !important;
-    margin: 1rem 0 !important;
-    text-align: center !important;
-}
-
-#servicios .service-features li {
-    color: #666 !important;
-    margin-bottom: 0.5rem !important;
-    font-size: 0.95rem !important;
-}
-
-#servicios .service-features li i {
-    color: #FF6B9D !important;
-    margin-right: 0.5rem !important;
-}
-
-/* NOTA DE SUPERVISIÓN */
-#servicios .supervision-note {
-    color: #999 !important;
-    font-size: 0.85rem !important;
-    font-style: italic !important;
-    text-align: center !important;
-    margin-top: 1rem !important;
-}
-
-#servicios .supervision-note i {
-    color: #FFA500 !important;
-    margin-right: 0.5rem !important;
-}
-
-/* BOTONES DE LLAMADA A LA ACCIÓN - Estilo Pill con Degradado */
-#servicios .click-overlay {
-    background: linear-gradient(135deg, #FF6B9D, #E91E63) !important;
-    border-radius: 50px !important;
-    padding: 1rem 2rem !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 0.75rem !important;
-    font-weight: 600 !important;
-    font-size: 1.1rem !important;
-    color: #ffffff !important;
-    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.4) !important;
-    transition: all 0.3s ease !important;
-    width: auto !important;
-    height: auto !important;
-    top: 50% !important;
-    left: 50% !important;
-    right: auto !important;
-    bottom: auto !important;
-    transform: translate(-50%, -50%) !important;
-    backdrop-filter: blur(10px) !important;
-    -webkit-backdrop-filter: blur(10px) !important;
-}
-
-#servicios .service-card:hover .click-overlay,
-#servicios .service-card-link:hover .click-overlay {
-    transform: translate(-50%, -50%) scale(1.05) !important;
-    box-shadow: 0 6px 20px rgba(233, 30, 99, 0.5) !important;
-}
-
-#servicios .click-overlay span {
-    text-shadow: none !important;
-}
-
-#servicios .click-overlay i {
-    font-size: 1.2rem !important;
-    animation: none !important;
-}
-
-/* BOTONES DE ACCIÓN (Call to Action) - Estilo Pill con Degradado */
-#servicios .service-card-link {
-    text-decoration: none !important;
-    color: inherit !important;
-    display: block !important;
-}
-
-/* Botón CTA al final del contenido - Convertir enlaces en botones reales */
-#servicios .service-card-link .service-content::after {
-    content: 'Ver Detalles' !important;
-    display: block !important;
-    margin: 1.5rem auto 0 !important;
-    padding: 12px 30px !important;
-    background: linear-gradient(135deg, #FF6B9D, #E91E63) !important;
-    color: #ffffff !important;
-    border-radius: 50px !important;
-    font-weight: 700 !important;
-    font-size: 1rem !important;
-    text-align: center !important;
-    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3) !important;
-    transition: all 0.3s ease !important;
-    width: fit-content !important;
-    cursor: pointer !important;
-}
-
-#servicios .service-card-link:hover .service-content::after {
-    background: linear-gradient(135deg, #FF7BAD, #F91E73) !important;
-    box-shadow: 0 6px 20px rgba(233, 30, 99, 0.4) !important;
-    transform: translateY(-2px) !important;
-}
-
-/* Botones CTA directos si existen */
-#servicios .service-content .service-cta-btn,
-#servicios .service-card .service-cta-btn {
-    display: inline-block !important;
-    margin: 1.5rem auto 0 !important;
-    padding: 12px 30px !important;
-    background: linear-gradient(135deg, #FF6B9D, #E91E63) !important;
-    color: #ffffff !important;
-    border-radius: 50px !important;
-    font-weight: 700 !important;
-    font-size: 1rem !important;
-    text-decoration: none !important;
-    text-align: center !important;
-    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3) !important;
-    transition: all 0.3s ease !important;
-    border: none !important;
-    cursor: pointer !important;
-    width: fit-content !important;
-}
-
-#servicios .service-content .service-cta-btn:hover,
-#servicios .service-card:hover .service-cta-btn {
-    background: linear-gradient(135deg, #FF7BAD, #F91E73) !important;
-    box-shadow: 0 6px 20px rgba(233, 30, 99, 0.4) !important;
-    transform: translateY(-2px) !important;
-}
-
-/* VERSIÓN MÓVIL - Tarjetas Casi Todo el Ancho con Márgenes */
-@media (max-width: 768px) {
-    #servicios .services-grid {
-        grid-template-columns: 1fr !important;
-        gap: 2rem !important;
-        padding: 0 1rem !important;
-        margin: 0 auto !important;
-    }
-    
-    #servicios .service-card,
-    #servicios .service-card-link {
-        margin: 0 auto !important;
-        max-width: 100% !important;
-        width: 100% !important;
-    }
-    
-    #servicios .service-card,
-    #servicios .service-card-link .service-card {
-        padding: 15px !important;
-    }
-    
-    #servicios .service-content {
-        padding: 0 !important;
-    }
-    
-    #servicios .service-content h3 {
-        font-size: 1.3rem !important;
-        margin-bottom: 0.75rem !important;
-    }
-    
-    #servicios .service-content p {
-        font-size: 16px !important; /* Mínimo 16px para legibilidad */
-        margin-bottom: 0.75rem !important;
-    }
-    
-    #servicios .service-features li {
-        font-size: 15px !important;
-    }
-    
-    #servicios .click-overlay {
-        padding: 0.875rem 1.5rem !important;
-        font-size: 1rem !important;
-    }
-    
-    #servicios .service-content .service-cta-btn,
-    #servicios .service-card-link .service-content::after {
-        padding: 10px 25px !important;
-        font-size: 0.95rem !important;
-    }
-    
-    #servicios .service-image {
-        height: 200px !important;
-        margin-bottom: 0.75rem !important;
-    }
-    
-    #servicios .service-image img,
-    #servicios .service-img {
-        height: 200px !important;
-    }
-}
-
-/* Tablet - 2 columnas */
-@media (min-width: 769px) and (max-width: 1024px) {
-    #servicios .services-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 2rem !important;
-    }
-}
-
-/* --- ESTILOS NUEVOS: SECCIONES ALTERNAS Y TARJETAS LIMPIAS --- */
-
-/* 1. Fondo suave para secciones alternadas (Efecto Ritmo) */
-.section-secondary {
-    background-color: #fcf8fa !important; /* Rosado/Gris muy pálido */
-}
-
-/* 2. Rediseño de Tarjetas de Servicio (SIN FOTOS) */
-#servicios .service-card {
-    text-align: center !important;
-    padding: 40px 30px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-    align-items: center !important;
-    min-height: 320px !important; /* Altura uniforme */
-    background: white !important;
-    border: 1px solid #f0f0f0 !important;
-    border-radius: 20px !important;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03) !important;
-    transition: all 0.3s ease !important;
-}
-
-#servicios .service-card:hover {
-    transform: translateY(-10px) !important;
-    box-shadow: 0 20px 40px rgba(233, 30, 99, 0.15) !important; /* Sombra rosada al flotar */
-    border-color: #ffc1e3 !important;
-}
-
-/* Títulos y Textos de las tarjetas */
-#servicios .service-card h3 {
-    font-size: 1.5rem !important;
-    color: #333 !important;
-    margin-bottom: 15px !important;
-    font-weight: 700 !important;
-}
-
-#servicios .service-card p {
-    font-size: 0.95rem !important;
-    color: #666 !important;
-    line-height: 1.6 !important;
-    margin-bottom: 20px !important;
-}
-
-/* Listas de características centradas */
-#servicios .service-features {
-    text-align: left !important;
-    display: inline-block !important;
-    margin: 0 auto 20px auto !important;
-    padding-left: 0 !important;
-    list-style: none !important;
-}
-
-#servicios .service-features li {
-    margin-bottom: 8px !important;
-    color: #555 !important;
-}
-
-#servicios .service-features li i {
-    color: #ff4081 !important; /* Iconos check rosados */
-    margin-right: 8px !important;
-}
-
-/* --- ESTILOS TARJETAS CON IMAGEN (RESTAURADO Y MEJORADO) --- */
-#servicios .service-card {
-    padding: 0 !important; /* IMPORTANTE: Sin padding para que la foto toque los bordes */
-    border-radius: 20px !important;
-    overflow: hidden !important; /* Recorta la imagen en las esquinas */
-    background: white !important;
-    border: 1px solid #eee !important;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06) !important;
-    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
-    display: flex !important;
-    flex-direction: column !important;
-    text-align: left !important; /* Texto alineado normal */
-}
-
-#servicios .service-card:hover {
-    transform: translateY(-8px) !important;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12) !important;
-}
-
-/* Contenedor de la imagen */
-#servicios .service-image {
-    width: 100% !important;
-    height: 240px !important; /* Altura fija para uniformidad */
-    overflow: hidden !important;
-    position: relative !important;
-}
-
-/* La Imagen misma (Corrección de deformación) */
-#servicios .service-img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important; /* ESTO EVITA QUE SE VEA HORRIBLE/ESTIRADA */
-    object-position: center !important;
-    transition: transform 0.5s ease !important;
-}
-
-/* Efecto Zoom suave */
-#servicios .service-card:hover .service-img {
-    transform: scale(1.08) !important;
-}
-
-/* Contenido de texto */
-#servicios .service-content {
-    padding: 25px !important; /* Espacio interno solo para el texto */
-}
-
-/* --- ARREGLO MODAL / LIGHTBOX (Glass Blanco y Botones) --- */
-
-/* 1. Fondo Glass Blanco Luminoso */
-.modal,
-#imageModal,
-.image-modal {
-    background-color: rgba(255, 255, 255, 0.92) !important; /* Blanco translúcido */
-    backdrop-filter: blur(15px) !important; /* Efecto vidrio */
-    -webkit-backdrop-filter: blur(15px) !important;
-}
-
-/* 2. Contenedor de la Imagen */
-.modal-content,
-#imageModal .modal-content {
-    background: transparent !important; /* Sin fondo extra */
-    box-shadow: none !important;
-    border: none !important;
-    max-width: 90vw !important;
-    max-height: 90vh !important;
-}
-
-/* 3. GRUPO DE BOTONES SUPERIORES (Para que no se amontonen) */
-.modal-controls,
-#imageModal .modal-controls {
-    position: absolute !important;
-    top: 20px !important;
-    right: 20px !important;
-    display: flex !important;
-    align-items: center !important;
-    gap: 15px !important; /* Espacio entre botones */
-    z-index: 10000 !important;
-}
-
-/* 4. Estilo de los Botones (Oscuros para verlos sobre blanco) */
-.modal-control-btn,
-.close-modal,
-#imageModal .modal-control-btn,
-#imageModal .close-modal {
-    background: rgba(255, 255, 255, 0.8) !important;
-    border: 1px solid #ddd !important;
-    border-radius: 50% !important; /* Círculos perfectos */
-    width: 45px !important;
-    height: 45px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    cursor: pointer !important;
-    transition: all 0.3s ease !important;
-    position: relative !important;
-    top: auto !important;
-    right: auto !important;
-    margin: 0 !important;
-}
-
-/* Iconos oscuros */
-.modal-control-btn i,
-.close-modal i,
-#imageModal .modal-control-btn i,
-#imageModal .close-modal i {
-    color: #333 !important; /* Gris oscuro fuerte */
-    font-size: 20px !important;
-}
-
-/* Botón Cerrar destacado */
-.close-modal:hover,
-#imageModal .close-modal:hover {
-    background: #ff4081 !important; /* Fucsia al pasar el mouse */
-    border-color: #ff4081 !important;
-}
-
-.close-modal:hover i,
-#imageModal .close-modal:hover i {
-    color: white !important;
-}
-
-/* 5. FLECHAS DE NAVEGACIÓN (Anterior / Siguiente) */
-.modal-nav,
-.modal-prev,
-.modal-next,
-#imageModal .modal-nav,
-#imageModal .modal-prev,
-#imageModal .modal-next {
-    background: rgba(255, 255, 255, 0.5) !important;
-    color: #333 !important; /* Flecha oscura */
-    width: 50px !important;
-    height: 50px !important;
-    border-radius: 50% !important;
-    border: none !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    transition: all 0.3s !important;
-    position: fixed !important;
-    z-index: 10001 !important;
-}
-
-.modal-nav:hover,
-.modal-prev:hover,
-.modal-next:hover,
-#imageModal .modal-nav:hover,
-#imageModal .modal-prev:hover,
-#imageModal .modal-next:hover {
-    background: #ff4081 !important;
-    color: white !important;
-}
-
-.modal-nav i,
-.modal-prev i,
-.modal-next i,
-#imageModal .modal-nav i,
-#imageModal .modal-prev i,
-#imageModal .modal-next i {
-    color: inherit !important;
-}
-
-/* --- FIX DEFINITIVO MODAL / LIGHTBOX --- */
-
-/* 1. Fondo Pantalla Completa (Efecto Vidrio Blanco) */
+/* 1. MODAL / LIGHTBOX (Estilo Vidrio Blanco) */
 .modal,
 #imageModal,
 .image-modal {
     background-color: rgba(255, 255, 255, 0.95) !important; /* Blanco translúcido */
-    backdrop-filter: blur(15px) !important; /* Desenfoque elegante */
-    -webkit-backdrop-filter: blur(15px) !important;
-    z-index: 99999 !important;
-}
-
-/* 2. Imagen Central */
-.modal-content,
-#imageModal .modal-content {
-    background: transparent !important;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15) !important; /* Sombra suave */
-    border: none !important;
-    border-radius: 15px !important;
-    padding: 0 !important;
-    max-width: 90vw !important;
-    max-height: 85vh !important;
-}
-
-.modal-image,
-#imageModal .modal-image,
-.modal-content img,
-#imageModal .modal-content img {
-    border-radius: 15px !important;
-    max-height: 85vh !important;
-    object-fit: contain !important;
-    width: auto !important;
-    height: auto !important;
-}
-
-/* 3. Botones de Control (Cerrar, Zoom, WhatsApp) */
-.modal-controls,
-#imageModal .modal-controls {
-    position: absolute !important;
-    top: 20px !important;
-    right: 20px !important;
-    display: flex !important;
-    gap: 15px !important; /* Espacio entre botones para evitar superposición */
-    z-index: 100000 !important;
-    align-items: center !important;
-}
-
-/* Estilo unificado de botones redondos */
-.close-modal,
-.modal-control-btn,
-#imageModal .close-modal,
-#imageModal .modal-control-btn {
-    width: 45px !important;
-    height: 45px !important;
-    border-radius: 50% !important;
-    background: white !important; /* Fondo blanco */
-    border: 1px solid #eee !important;
-    color: #333 !important; /* Icono oscuro para visibilidad */
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    cursor: pointer !important;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important;
-    transition: transform 0.2s ease !important;
-    /* Resetear posiciones antiguas */
-    position: relative !important;
-    top: auto !important;
-    right: auto !important;
-    margin: 0 !important;
-}
-
-.close-modal:hover,
-.modal-control-btn:hover,
-#imageModal .close-modal:hover,
-#imageModal .modal-control-btn:hover {
-    transform: scale(1.1) !important;
-    background: #ff4081 !important; /* Color marca al pasar mouse */
-    color: white !important;
-    border-color: #ff4081 !important;
-}
-
-.close-modal i,
-.modal-control-btn i,
-#imageModal .close-modal i,
-#imageModal .modal-control-btn i {
-    color: inherit !important;
-    font-size: 18px !important;
-}
-
-/* 4. Flechas de Navegación (Laterales) */
-.modal-prev,
-.modal-next,
-#imageModal .modal-prev,
-#imageModal .modal-next {
-    background: white !important;
-    color: #333 !important;
-    width: 50px !important;
-    height: 50px !important;
-    border-radius: 50% !important;
-    border: 1px solid #eee !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
-    position: absolute !important;
-    top: 50% !important;
-    transform: translateY(-50%) !important;
-    opacity: 0.9 !important;
-    z-index: 100000 !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    cursor: pointer !important;
-    transition: all 0.3s ease !important;
-}
-
-.modal-prev {
-    left: 20px !important;
-}
-
-.modal-next {
-    right: 20px !important;
-}
-
-.modal-prev:hover,
-.modal-next:hover,
-#imageModal .modal-prev:hover,
-#imageModal .modal-next:hover {
-    background: #ff4081 !important;
-    color: white !important;
-    opacity: 1 !important;
-}
-
-.modal-prev i,
-.modal-next i,
-#imageModal .modal-prev i,
-#imageModal .modal-next i {
-    color: inherit !important;
-    font-size: 20px !important;
-}
-
-/* LIMPIEZA SUPERIOR - Eliminar estrellas negras y espacios en blanco */
-body {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-}
-
-/* Asegurar que body::before no tenga contenido de texto */
-body::before {
-    content: '' !important; /* Solo fondo, sin texto */
-}
-
-/* ============================================
-   ESTANDARIZACIÓN TOTAL - ESTILO APPLE MODERNO
-   ============================================ */
-
-/* TAREA 1: HÉROE/Bienvenida - Diseño Minimalista Apple */
-.hero {
-    background: #fafafa !important; /* Fondo limpio gris muy pálido */
-    padding: 100px 0 80px !important;
-    min-height: 80vh !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    text-align: center !important;
-}
-
-.hero-content {
-    max-width: 1200px !important;
-    margin: 0 auto !important;
-    padding: 0 20px !important;
-}
-
-.hero-text {
-    margin-bottom: 3rem !important;
-}
-
-.hero-title {
-    font-size: 3.5rem !important;
-    font-weight: 700 !important;
-    color: #1a1a1a !important;
-    margin-bottom: 1.5rem !important;
-    line-height: 1.2 !important;
-}
-
-.hero-description {
-    font-size: 1.25rem !important;
-    color: #666 !important;
-    line-height: 1.6 !important;
-    max-width: 700px !important;
-    margin: 0 auto !important;
-}
-
-/* Imágenes del Hero - Estilo Apple */
-.hero-image img,
-.hero-img,
-.hero-image > img {
-    border-radius: 24px !important;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1) !important;
-    object-fit: cover !important;
-    width: 100% !important;
-    height: auto !important;
-    max-width: 100% !important;
-    transition: transform 0.3s ease !important;
-}
-
-.hero-image img:hover,
-.hero-img:hover {
-    transform: scale(1.02) !important;
-}
-
-/* ANIMACIÓN DE NIEVE - Re-inyectada */
-.snowflake {
-    position: fixed !important;
-    top: -10px !important;
-    color: #ffffff !important;
-    font-size: 1em !important;
-    font-family: Arial, sans-serif !important;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8) !important;
-    animation: snowfall linear infinite !important;
-    pointer-events: none !important;
-    z-index: 1000 !important;
-}
-
-@keyframes snowfall {
-    0% {
-        transform: translateY(0vh) translateX(0) rotate(0deg);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(100vh) translateX(var(--drift)) rotate(360deg);
-        opacity: 0;
-    }
-}
-
-/* BOTONES FLOTANTES - Fijados Correctamente */
-.whatsapp-float,
-.cart-float {
-    position: fixed !important;
-    bottom: 30px !important;
-    z-index: 99999 !important;
-}
-
-.whatsapp-float {
-    right: 30px !important;
-}
-
-.cart-float {
-    right: 100px !important; /* A la izquierda del wsp */
-}
-
-/* Móvil */
-@media (max-width: 768px) {
-    .whatsapp-float {
-        right: 20px !important;
-        bottom: 20px !important;
-    }
-    
-    .cart-float {
-        right: 85px !important;
-        bottom: 20px !important;
-    }
-    
-    .hero {
-        padding: 60px 0 40px !important;
-        min-height: 70vh !important;
-    }
-    
-    .hero-title {
-        font-size: 2.5rem !important;
-    }
-    
-    .hero-description {
-        font-size: 1.1rem !important;
-    }
-}
-
-/* iPad */
-@media (min-width: 769px) and (max-width: 1024px) {
-    .hero-title {
-        font-size: 3rem !important;
-    }
-}
-
-/* AJUSTE MÓVIL/IPAD - Padding Lateral */
-@media (max-width: 1024px) {
-    .container {
-        padding: 0 20px !important;
-    }
-    
-    .hero-content {
-        padding: 0 20px !important;
-    }
-}
-
-/* Menú Hamburguesa Visible y Funcional */
-@media (max-width: 1024px) {
-    .navbar-toggler,
-    .mobile-menu-toggle {
-        color: #000000 !important;
-        background: transparent !important;
-        border: none !important;
-        z-index: 10001 !important;
-    }
-    
-    .navbar-toggler-icon span,
-    .mobile-menu-toggle span {
-        background: #000000 !important;
-    }
-    
-    .btn-search i {
-        color: #000000 !important;
-    }
-}
-
-/* --- 🚨 REPARACIÓN URGENTE MÓVIL (HEADER Y BOTONES) 🚨 --- */
-@media (max-width: 768px) {
-    /* 1. Header Controlado: Altura fija y elementos alineados */
-    .header-content {
-        display: flex !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-        height: 70px !important;
-        padding: 0 15px !important;
-    }
-    
-    /* 2. Logo visible y tamaño correcto */
-    .navbar-brand img,
-    .logo-header {
-        max-height: 50px !important;
-        width: auto !important;
-        display: block !important;
-    }
-    
-    /* 3. Botones del Menú (Lupa y Sándwich): Quitar círculos gigantes */
-    .mobile-icons-container {
-        display: flex !important;
-        align-items: center !important;
-        gap: 15px !important;
-    }
-    
-    .btn-search,
-    .navbar-toggler,
-    .mobile-menu-btn,
-    .mobile-menu-toggle {
-        width: 40px !important;
-        height: 40px !important;
-        background: transparent !important; /* Quitar fondo de color */
-        border: none !important;
-        box-shadow: none !important; /* Quitar sombras raras */
-        padding: 0 !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-    }
-    
-    .btn-search i,
-    .navbar-toggler i,
-    .navbar-toggler-icon i {
-        font-size: 22px !important;
-        color: #333 !important; /* Iconos oscuros para verlos */
-    }
-    
-    .navbar-toggler-icon span,
-    .mobile-menu-toggle span {
-        width: 22px !important;
-        height: 3px !important;
-        background: #333 !important;
-    }
-    
-    /* 4. Botones Flotantes (WhatsApp y Carrito): Pequeños y abajo */
-    .whatsapp-float,
-    .cart-float {
-        position: fixed !important;
-        bottom: 20px !important;
-        width: 50px !important;
-        height: 50px !important;
-        z-index: 999999 !important;
-    }
-    
-    .whatsapp-float {
-        right: 20px !important;
-    }
-    
-    .cart-float {
-        left: 20px !important;
-        right: auto !important; /* Carrito a la izquierda */
-    }
-    
-    .whatsapp-btn,
-    .cart-btn {
-        width: 100% !important;
-        height: 100% !important;
-        border-radius: 50% !important;
-        font-size: 24px !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-    }
-    
-    /* 5. Espacio para que el título no se esconda */
-    .hero {
-        margin-top: 0 !important;
-        padding-top: 30px !important;
-    }
-}
-
-/* ==================================================
-   🚑 PARCHE DE EMERGENCIA: HEADER Y MÓVIL
-   ================================================== */
-
-/* 1. FORZAR TAMAÑO PEQUEÑO EN BOTONES DEL HEADER */
-/* Esto evita que hereden estilos de botones grandes */
-.header .btn-search,
-.header .navbar-toggler,
-.header .mobile-menu-btn,
-.header .mobile-menu-toggle {
-    width: 40px !important;
-    height: 40px !important;
-    padding: 5px !important;
-    margin: 0 !important;
-    background: transparent !important; /* Quitar fondo de color */
-    box-shadow: none !important; /* Quitar sombras */
-    border: none !important;
-    border-radius: 50% !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-}
-
-/* Iconos del header visibles y tamaño correcto */
-.header .btn-search i,
-.header .navbar-toggler i,
-.header .navbar-toggler-icon i {
-    font-size: 22px !important;
-    color: #333 !important; /* Color oscuro para verlos */
-}
-
-.header .navbar-toggler-icon span,
-.header .mobile-menu-toggle span {
-    width: 22px !important;
-    height: 3px !important;
-    background: #333 !important;
-}
-
-/* 2. LOGO VISIBLE (Que no lo tapen) */
-.navbar-brand {
-    z-index: 1005 !important;
-    position: relative !important;
-}
-
-.navbar-brand img.logo-header {
-    max-height: 55px !important; /* Tamaño controlado en móvil */
-    width: auto !important;
-    display: block !important;
-}
-
-/* 3. SEPARAR BOTONES FLOTANTES (WhatsApp y Carrito) */
-/* Para que no se monten encima del texto ni entre ellos */
-.whatsapp-float {
-    bottom: 25px !important;
-    right: 25px !important;
-    width: 60px !important;
-    height: 60px !important;
-    z-index: 99999 !important;
-}
-
-.cart-float {
-    bottom: 25px !important;
-    left: 25px !important; /* Lo movemos a la IZQUIERDA en móvil para equilibrar */
-    right: auto !important;
-    width: 60px !important;
-    height: 60px !important;
-    z-index: 99999 !important;
-}
-
-/* 4. AJUSTE DE ESPACIO SUPERIOR */
-/* Para que el título 'Te damos la bienvenida' no quede pegado arriba */
-.hero {
-    padding-top: 20px !important;
-    margin-top: 0 !important;
-}
-
-/* =================================================================
-   🛡️ BLOQUE DE RESTAURACIÓN UX (FIX DEFINITIVO)
-   ================================================================= */
-
-/* --- 1. MODAL / LIGHTBOX (Arreglo de Visibilidad) --- */
-.modal,
-#imageModal,
-.image-modal {
-    /* Fondo Vidrio Blanco elegante */
-    background-color: rgba(255, 255, 255, 0.90) !important;
     backdrop-filter: blur(15px) !important;
     -webkit-backdrop-filter: blur(15px) !important;
-    z-index: 999999 !important; /* Siempre encima de todo */
+    z-index: 999999 !important;
 }
 
-/* Botones del Modal (Cerrar, Zoom, Flechas) - VISIBLES */
+/* Botones del Modal (Negros sobre blanco para visibilidad) */
 .close-modal,
 .modal-nav,
 .modal-control-btn,
@@ -15678,17 +14663,29 @@ body::before {
 #imageModal .modal-nav,
 #imageModal .modal-control-btn {
     background-color: white !important;
-    color: #222 !important; /* Icono Negro Fuerte */
-    border: 1px solid #ddd !important;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important;
+    color: #222 !important;
+    border: 1px solid #eee !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
     width: 45px !important;
     height: 45px !important;
-    border-radius: 50% !important; /* Círculo perfecto */
+    border-radius: 50% !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     opacity: 1 !important;
     cursor: pointer !important;
+    transition: transform 0.2s ease !important;
+}
+
+.close-modal:hover,
+.modal-nav:hover,
+.modal-control-btn:hover,
+#imageModal .close-modal:hover,
+#imageModal .modal-nav:hover,
+#imageModal .modal-control-btn:hover {
+    transform: scale(1.1) !important;
+    border-color: #ff4081 !important;
+    color: #ff4081 !important;
 }
 
 .close-modal i,
@@ -15701,118 +14698,97 @@ body::before {
     font-size: 18px !important;
 }
 
-/* Ubicación del botón cerrar para que no se pierda */
-.close-modal,
-#imageModal .close-modal {
+/* Ubicación fija de controles */
+.modal-controls,
+#imageModal .modal-controls {
     position: absolute !important;
     top: 20px !important;
     right: 20px !important;
-    z-index: 1000002 !important;
-}
-
-/* Controles extra (WhatsApp/Zoom) separados */
-.modal-controls,
-#imageModal .modal-controls {
     display: flex !important;
     gap: 15px !important;
-    position: absolute !important;
-    top: 20px !important;
-    right: 80px !important; /* A la izquierda del botón cerrar */
-    z-index: 1000001 !important;
+    z-index: 1000000 !important;
 }
 
-.close-modal:hover,
-.modal-nav:hover,
-.modal-control-btn:hover,
-#imageModal .close-modal:hover,
-#imageModal .modal-nav:hover,
-#imageModal .modal-control-btn:hover {
-    background-color: #ff4081 !important;
-    color: white !important;
-    border-color: #ff4081 !important;
-    transform: scale(1.1) !important;
+.close-modal,
+#imageModal .close-modal {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
 }
 
-/* --- 2. TARJETAS DE SERVICIOS (Estilo Apple Moderno) --- */
+/* 2. TARJETAS DE SERVICIOS (Estilo Moderno & Fotos Fix) */
 #servicios .service-card {
     background: #fff !important;
     border-radius: 24px !important;
-    border: 1px solid rgba(0, 0, 0, 0.04) !important;
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06) !important;
-    overflow: hidden !important; /* Para que la imagen respete el borde redondo */
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+    overflow: hidden !important; /* Mantiene la foto dentro de los bordes redondos */
+    padding: 0 !important; /* Sin padding para que la foto toque los bordes */
     transition: transform 0.3s ease !important;
-    padding: 0 !important; /* Sin padding para que la foto llene el espacio */
     display: flex !important;
     flex-direction: column !important;
 }
 
 #servicios .service-card:hover {
     transform: translateY(-8px) !important;
-    box-shadow: 0 20px 40px rgba(233, 30, 99, 0.15) !important;
+    box-shadow: 0 20px 40px rgba(233, 30, 99, 0.12) !important;
 }
 
-/* Contenedor de la foto - Altura fija para orden */
+/* Contenedor de Foto */
 #servicios .service-image {
     width: 100% !important;
-    height: 240px !important;
-    position: relative !important;
+    height: 240px !important; /* Altura fija para uniformidad */
     overflow: hidden !important;
 }
 
-/* La Foto misma - NO DEFORMADA */
+/* La Foto (Anti-Deformación) */
 #servicios .service-img,
 #servicios .service-image img {
     width: 100% !important;
     height: 100% !important;
-    object-fit: cover !important; /* Clave: Recorta, no estira */
-    object-position: center !important;
+    object-fit: cover !important; /* CRUCIAL: Recorta la foto para que se vea bien */
     display: block !important;
 }
 
-/* Texto de la tarjeta */
+/* Texto */
 #servicios .service-content {
     padding: 25px !important;
     text-align: left !important;
 }
 
-/* --- 3. REPARACIÓN HEADER MÓVIL (Botones Gigantes) --- */
+/* 3. HEADER MÓVIL (Protección contra botones gigantes) */
 @media (max-width: 768px) {
-    /* Forzar botones pequeños */
     .header .btn-search,
     .header .navbar-toggler,
-    .header .mobile-menu-toggle {
-        width: 40px !important;
+    .mobile-menu-btn,
+    .mobile-menu-toggle {
+        width: 40px !important; /* Tamaño pequeño forzado */
         height: 40px !important;
         padding: 0 !important;
         background: transparent !important;
         box-shadow: none !important;
         border: none !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
     }
     
-    /* Iconos visibles */
     .header .btn-search i,
     .header .navbar-toggler i {
-        font-size: 22px !important;
+        font-size: 20px !important;
         color: #333 !important;
     }
     
     .header .navbar-toggler-icon span,
     .header .mobile-menu-toggle span {
-        width: 22px !important;
+        width: 20px !important;
         height: 3px !important;
         background: #333 !important;
     }
     
-    /* Contenedor alineado */
+    /* Alineación de iconos móviles */
     .mobile-icons-container {
         display: flex !important;
-        align-items: center !important;
         gap: 10px !important;
-    }
-    
-    /* Logo visible */
-    .navbar-brand img {
-        max-height: 50px !important;
-        width: auto !important;
     }
 }
