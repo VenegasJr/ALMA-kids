@@ -1059,16 +1059,17 @@ footer .container {
     color: #999; 
 }
 
-/* === FAQ === */
-.faq-section { 
-    background: white; 
+/* === FAQ SECTION === */
+.faq-section {
+    background: #F5F5F7; /* Fondo gris suave */
+    padding: 80px 20px;
 }
 
-.faq-grid { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); 
-    gap: 30px; 
-    margin-top: 40px; 
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 40px;
 }
 
 .faq-column {
@@ -1078,67 +1079,70 @@ footer .container {
 }
 
 .faq-category {
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--text-dark);
+    font-size: 1.1rem;
+    color: var(--accent); /* Rosa */
     margin-bottom: 20px;
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-.faq-category i {
-    color: var(--primary);
+/* Estilo del Acordeón */
+.faq-item {
+    background: white;
+    border-radius: 16px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    overflow: hidden;
+    transition: all 0.3s ease;
 }
 
-.faq-item {
-    background: var(--pastel-green); /* Fondo muy suave */
-    padding: 20px;
-    border-radius: 20px;
-    border: 1px solid rgba(0,0,0,0.03);
-    margin-bottom: 10px;
+.faq-item[open] {
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
 }
 
 .faq-item summary {
-    font-size: 16px;
+    padding: 20px;
     font-weight: 600;
-    color: var(--text-dark);
     cursor: pointer;
+    list-style: none; /* Ocultar flecha por defecto */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    list-style: none;
-    user-select: none;
+    color: var(--text);
 }
 
-.faq-item summary::-webkit-details-marker {
-    display: none;
-}
+.faq-item summary::-webkit-details-marker { display: none; }
 
 .faq-item summary i {
-    color: var(--primary);
-    transition: transform 0.3s ease;
-    font-size: 12px;
+    transition: transform 0.3s;
+    color: var(--text-grey);
+    font-size: 14px;
 }
 
+/* Rotar flecha al abrir */
 .faq-item[open] summary i {
     transform: rotate(180deg);
+    color: var(--accent);
 }
 
-.faq-item p { 
-    font-size: 15px; 
-    color: #555; 
-    line-height: 1.6; 
-    margin: 15px 0 0 0; 
-    padding-top: 15px;
-    border-top: 1px solid rgba(0,0,0,0.05);
+.faq-item p {
+    padding: 0 20px 20px 20px;
+    margin: 0;
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    animation: fadeIn 0.3s ease;
 }
 
-/* Responsive */
+/* Animación suave */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 @media(max-width: 768px) {
-    .faq-grid { 
-        grid-template-columns: 1fr; 
-    }
+    .faq-grid { grid-template-columns: 1fr; }
 }
 
 /* === BANNER DE URGENCIA FLOTANTE (OPCIONAL) === */
