@@ -1,5 +1,0 @@
-Cache busting file - Globos Metalizados
-Updated: 2025-01-15 23:55
-Sección de globos metalizados agregada a servicios-adicionales.html
-Posición: antes del footer
-Contenido: catálogo completo con 4 ejemplos
