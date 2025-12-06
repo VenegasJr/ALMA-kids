@@ -1,115 +1,335 @@
-/* === ALMA KIDS: LÓGICA 2025 === */
+/* === ALMA KIDS: LÓGICA COMPLETA 2025 === */
 
-// 1. CATÁLOGO OFICIAL (Precios del PDF)
-
+// 1. BASE DE DATOS (Catálogo PDF 2025)
 const CATALOGO = [
-    // --- SETS ---
+    // --- SETS / PACKS ---
     {
-        id: 'set-magic',
+        id: 'set-alma-magic',
+        category: 'Pack Todo Incluido',
         name: 'Set ALMA MAGIC',
         price: 150000,
-        category: 'Todo Incluido',
-        image: 'imagenes/set-magic.webp', // Renombrado
-        badge: '🏆 Más Vendido',
-        description: 'La experiencia definitiva: Castillo (Rosa/Peque) + Piscina + Motricidad + 2 Saltarines + Tipi + Burbujas + Tatami.',
-        features: ['4 horas de uso', 'Espacio: 4x3.5m', 'Instalación incluida']
+        image: 'imagenes/Pack-alma-magic.webp',
+        badge: 'Más Vendido 🏆',
+        description: 'La experiencia definitiva: Castillo (Rosa/Peque) + Piscina + Motricidad + 2 Saltarines + Tipi + Burbujas + Accesorios.',
+        features: ['4 horas de uso', 'Espacio: 3.5x4m', 'Instalación incluida']
     },
     {
         id: 'set-active',
-        name: 'Set ALMA ACTIVE',
-        price: 130000, // Corregido según PDF pag 4
         category: 'Pack Diversión',
-        image: 'imagenes/set-active.webp', // Renombrado
-        badge: '🔥 Popular',
-        description: 'Diversión activa: Castillo (Peque/Rosa) + Piscina + Motricidad + 2 Saltarines + Tatami.',
+        name: 'Set ACTIVE',
+        price: 130000,
+        image: 'imagenes/set-alma-active.webp',
+        badge: 'Popular 🔥',
+        description: 'Diversión total: Castillo (Peque/Rosa) + Piscina + Motricidad + 2 Saltarines + Tatami.',
         features: ['4 horas de uso', 'Espacio: 3.5x2.5m', 'Ideal 1-6 años']
     },
     {
-        id: 'set-mini',
-        name: 'Pack MINI PLAY',
-        price: 90000,
+        id: 'set-mini-play',
         category: 'Pack Bebés',
-        image: 'imagenes/set-mini.webp', // Renombrado
-        description: 'Ideal espacios reducidos: Piscina espuma + Motricidad + Tatami + Cojines.',
+        name: 'Pack ALMA MINI PLAY',
+        price: 90000,
+        image: 'imagenes/Pack-alma-mini-play-machali.webp',
+        description: 'Ideal espacios reducidos. Piscina espuma + Motricidad + Tatami + Cojines.',
         features: ['4 horas de uso', 'Espacio: 2.5x2.5m', 'Ideal bebés']
     },
 
     // --- CASTILLOS ---
     {
-        id: 'castillo-grand',
+        id: 'castillo-grand-peque',
+        category: 'Castillos',
         name: 'Castillo Grand-Peque',
         price: 90000,
-        category: 'Castillos',
-        image: 'imagenes/castillo-grand.png', // Renombrado
-        description: 'El gigante blanco. Ideal para fotos y eventos grandes.',
-        features: ['Medidas: 5x4x2.8m', 'Capacidad: 6 niños', 'Requiere 6x6m']
+        image: 'imagenes/castillo-grand.png',
+        description: 'El gigante de la familia. Blanco impoluto, ideal para fotos y eventos grandes.',
+        features: ['Medidas: 5x4x2.8m', 'Requiere 6x6m', 'Capacidad 6 niños']
     },
     {
         id: 'castillo-rosa',
+        category: 'Castillos',
         name: 'Castillo Inflable ROSA',
         price: 75000,
-        category: 'Castillos',
-        image: 'imagenes/castillo-rosa.png', // Renombrado
-        description: 'Elegante con piscina redonda integrada.',
+        image: 'imagenes/castillo-rosa.png',
+        description: 'Elegante y tierno. Piscina integrada redonda. Perfecto para temáticas delicadas.',
         features: ['Medidas: 2.8x2.5x2.3m', 'Incluye pelotas', 'Capacidad 4 niños']
     },
     {
         id: 'castillo-peque',
+        category: 'Castillos',
         name: 'Castillo Inflable PEQUE',
         price: 75000,
-        category: 'Castillos',
-        image: 'imagenes/castillo-peque.webp', // Renombrado
-        description: 'Clásico con piscina cuadrada integrada.',
+        image: 'imagenes/castillo-peque.webp', 
+        description: 'Clásico y seguro. Piscina cuadrada integrada. Colores neutros.',
         features: ['Medidas: 2.9x2.8x2.3m', 'Incluye pelotas', 'Capacidad 4 niños']
     },
-    
-    // --- EXTRAS ---
+
+    // --- PLAZA BLANDA & EXTRAS ---
     {
         id: 'piscina-pelotas',
+        category: 'Plaza Blanda',
         name: 'Piscina de Pelotas',
         price: 60000,
-        category: 'Plaza Blanda',
         image: 'imagenes/Nuestra Plaza blanda/Plaza-Blanda-Pelotas-Azules.png',
-        description: 'Piscina de espuma segura con pelotas a elección.',
-        features: ['Medidas: 1.5x1.5m', 'Incluye Tatami', 'Colores: Blanco, Rosa, Celeste']
+        description: 'Piscina de espuma segura. Incluye 2 colores de pelotas base.',
+        features: ['Medidas: 1.5x1.5m', 'Incluye Tatami', 'Colores a elección']
+    },
+    {
+        id: 'maquina-burbujas',
+        category: 'Extras',
+        name: 'Máquina de Burbujas',
+        price: 25000,
+        image: 'imagenes/Maquina-burbuja-.png',
+        description: 'Magia flotante para tus fotos. Incluye 700ml de líquido.',
+        features: ['Más de 2000 burbujas/min', 'No tóxico', 'Ideal fotos']
     }
 ];
 
-// 2. INYECCIÓN HTML
+// 2. SISTEMA DE CARRITO (LocalStorage)
+const CART_STORAGE_KEY = 'almakids_cart';
+let cart = loadCart();
 
-document.addEventListener('DOMContentLoaded', () => {
+function loadCart() {
+    try {
+        const stored = localStorage.getItem(CART_STORAGE_KEY);
+        return stored ? JSON.parse(stored) : [];
+    } catch (e) {
+        console.error('Error cargando carrito:', e);
+        return [];
+    }
+}
+
+function saveCart() {
+    try {
+        localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
+    } catch (e) {
+        console.error('Error guardando carrito:', e);
+    }
+}
+
+function addToCart(id) {
+    const product = CATALOGO.find(p => p.id === id);
+    if (!product) {
+        console.error('Producto no encontrado:', id);
+        return;
+    }
+    
+    // Agregar producto al carrito
+    cart.push({
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        image: product.image,
+        category: product.category
+    });
+    
+    saveCart();
+    updateCartCounters();
+    
+    // Feedback visual
+    showNotification(`${product.name} agregado al carrito 🛒`, 'success');
+}
+
+function removeFromCart(index) {
+    cart.splice(index, 1);
+    saveCart();
+    updateCartCounters();
+    renderCartModal();
+}
+
+function clearCart() {
+    cart = [];
+    saveCart();
+    updateCartCounters();
+    renderCartModal();
+}
+
+function updateCartCounters() {
+    const count = cart.length;
+    const badges = document.querySelectorAll('.cart-badge, #cartCount, #mobileCartCount');
+    badges.forEach(badge => {
+        if (badge) {
+            badge.textContent = count;
+            badge.style.display = count > 0 ? 'flex' : 'none';
+        }
+    });
+}
+
+// 3. RENDERIZADO DE CATÁLOGO
+function renderCatalog() {
     const grid = document.getElementById('catalogo-grid');
-    if(grid) {
-        grid.innerHTML = CATALOGO.map(p => `
-            <div class="card">
-                ${p.badge ? `<div class="badge">${p.badge}</div>` : ''}
-                <div class="card-img">
-                    <img src="${p.image}" alt="${p.name}" onerror="this.src='imagenes/logo-alma-kids-pagina.webp'">
+    if (!grid) {
+        console.warn('No se encontró el contenedor #catalogo-grid');
+        return;
+    }
+    
+    grid.innerHTML = CATALOGO.map(product => `
+        <div class="card">
+            ${product.badge ? `<div class="badge">${product.badge}</div>` : ''}
+            <div class="card-img">
+                <img src="${product.image}" 
+                     alt="${product.name}" 
+                     loading="lazy" 
+                     onerror="this.src='imagenes/logo-alma-kids-pagina.webp'">
+            </div>
+            <div class="card-body">
+                <span class="category">${product.category}</span>
+                <h3>${product.name}</h3>
+                <p>${product.description}</p>
+                <ul class="features">
+                    ${product.features.map(f => `<li>✓ ${f}</li>`).join('')}
+                </ul>
+                <div class="card-footer">
+                    <div class="price">$${product.price.toLocaleString('es-CL')}</div>
+                    <button onclick="addToCart('${product.id}')" class="btn-comprar">Agregar</button>
                 </div>
-                <div class="card-body">
-                    <span class="category">${p.category}</span>
-                    <h3>${p.name}</h3>
-                    <p>${p.description}</p>
-                    <ul class="features">
-                        ${p.features.map(f => `<li>✓ ${f}</li>`).join('')}
-                    </ul>
-                    <div class="card-footer">
-                        <div class="price">$${p.price.toLocaleString('es-CL')}</div>
-                        <button onclick="comprar('${p.id}')" class="btn-comprar">Cotizar</button>
+            </div>
+        </div>
+    `).join('');
+}
+
+// 4. MODAL DE CARRITO
+function showCartModal() {
+    const modal = document.getElementById('cartModal');
+    if (modal) {
+        modal.style.display = 'flex';
+        renderCartModal();
+    }
+}
+
+function hideCartModal() {
+    const modal = document.getElementById('cartModal');
+    if (modal) {
+        modal.style.display = 'none';
+    }
+}
+
+function renderCartModal() {
+    const cartItemsList = document.getElementById('cartItemsList');
+    if (!cartItemsList) return;
+    
+    if (cart.length === 0) {
+        cartItemsList.innerHTML = `
+            <div class="cart-empty">
+                <i class="fas fa-shopping-cart"></i>
+                <p>Tu carrito está vacío</p>
+            </div>
+        `;
+        return;
+    }
+    
+    // Calcular totales
+    const total = cart.reduce((sum, item) => sum + item.price, 0);
+    
+    cartItemsList.innerHTML = `
+        <div class="cart-items">
+            ${cart.map((item, index) => `
+                <div class="cart-item">
+                    <img src="${item.image}" alt="${item.name}" onerror="this.src='imagenes/logo-alma-kids-pagina.webp'">
+                    <div class="cart-item-info">
+                        <h4>${item.name}</h4>
+                        <p class="cart-item-price">$${item.price.toLocaleString('es-CL')}</p>
+                    </div>
+                    <button onclick="removeFromCart(${index})" class="cart-item-remove">×</button>
+                </div>
+            `).join('')}
+        </div>
+        <div class="cart-total">
+            <strong>Total: $${total.toLocaleString('es-CL')}</strong>
+        </div>
+    `;
+}
+
+// 5. CHECKOUT WHATSAPP
+function checkout() {
+    if (cart.length === 0) {
+        showNotification('Tu carrito está vacío', 'warning');
+        return;
+    }
+    
+    // Calcular totales
+    const total = cart.reduce((sum, item) => sum + item.price, 0);
+    
+    // Construir mensaje detallado
+    let mensaje = "Hola ALMA Kids! 🎪\n\n";
+    mensaje += "Estoy interesado en reservar:\n\n";
+    mensaje += "📦 *DETALLE DEL PEDIDO:*\n";
+    
+    cart.forEach((item, index) => {
+        mensaje += `${index + 1}. ${item.name} - $${item.price.toLocaleString('es-CL')}\n`;
+    });
+    
+    mensaje += `\n💰 *TOTAL: $${total.toLocaleString('es-CL')}*\n\n`;
+    mensaje += "📝 *MIS DATOS:*\n";
+    mensaje += "- Nombre: \n";
+    mensaje += "- Fecha Evento: \n";
+    mensaje += "- Dirección/Comuna: \n\n";
+    mensaje += "Quedo atento a disponibilidad. Gracias! 🙏";
+    
+    // Abrir WhatsApp
+    const whatsappUrl = `https://wa.me/56969073306?text=${encodeURIComponent(mensaje)}`;
+    window.open(whatsappUrl, '_blank');
+}
+
+// 6. NOTIFICACIONES
+function showNotification(message, type = 'info') {
+    // Crear elemento de notificación
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    notification.textContent = message;
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: ${type === 'success' ? '#4CAF50' : type === 'warning' ? '#FF9800' : '#2196F3'};
+        color: white;
+        padding: 15px 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        z-index: 10000;
+        animation: slideIn 0.3s ease;
+    `;
+    
+    document.body.appendChild(notification);
+    
+    // Remover después de 3 segundos
+    setTimeout(() => {
+        notification.style.animation = 'slideOut 0.3s ease';
+        setTimeout(() => notification.remove(), 300);
+    }, 3000);
+}
+
+// 7. INICIALIZACIÓN
+document.addEventListener('DOMContentLoaded', () => {
+    // Renderizar catálogo
+    renderCatalog();
+    
+    // Actualizar contadores de carrito
+    updateCartCounters();
+    
+    // Crear modal de carrito si no existe
+    if (!document.getElementById('cartModal')) {
+        const modalHTML = `
+            <div id="cartModal" class="cart-modal" style="display: none;">
+                <div class="cart-modal-content">
+                    <div class="cart-modal-header">
+                        <h2>🛒 Mi Carrito</h2>
+                        <button onclick="hideCartModal()" class="cart-modal-close">×</button>
+                    </div>
+                    <div id="cartItemsList" class="cart-items-list"></div>
+                    <div class="cart-modal-footer">
+                        <button onclick="clearCart()" class="btn-clear">Limpiar Todo</button>
+                        <button onclick="checkout()" class="btn-checkout">Solicitar Cotización</button>
                     </div>
                 </div>
             </div>
-        `).join('');
+        `;
+        document.body.insertAdjacentHTML('beforeend', modalHTML);
     }
 });
 
-// 3. WHATSAPP CHECKOUT
-
-function comprar(id) {
-    const prod = CATALOGO.find(p => p.id === id);
-    const text = `Hola ALMA Kids! 👋\nMe interesa el *${prod.name}* ($${prod.price.toLocaleString('es-CL')}).\n¿Tienen disponibilidad?`;
-    window.open(`https://wa.me/56969073306?text=${encodeURIComponent(text)}`, '_blank');
-}
-
-// Exponer función global
-window.comprar = comprar;
+// 8. EXPONER FUNCIONES GLOBALES
+window.addToCart = addToCart;
+window.removeFromCart = removeFromCart;
+window.clearCart = clearCart;
+window.showCartModal = showCartModal;
+window.hideCartModal = hideCartModal;
+window.checkout = checkout;
