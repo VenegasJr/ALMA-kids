@@ -2,363 +2,113 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ALMA Kids | Juegos Inflables en Rancagua</title>
     
-    <title>ALMA Kids | Juegos Inflables y Plaza Blanda en Rancagua y Machalí</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&display=swap" rel="stylesheet">
     
-    <meta name="description" content="El mejor arriendo de Castillos Inflables y Plaza Blanda en Rancagua, Machalí y toda la VI Región. Packs todo incluido, juegos limpios y seguros. ¡Llegamos a tu evento!">
-    
-    <meta name="keywords" content="juegos inflables rancagua, arriendo juegos machali, plaza blanda sexta region, cumpleaños niños rancagua, castillos inflables, alma kids">
-    
-    <meta name="geo.region" content="CL-LI">
-    <meta name="geo.placename" content="Rancagua">
-    <meta name="geo.position" content="-34.1701;-70.7406">
-    <meta name="ICBM" content="-34.1701, -70.7406">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style-apple.css">
 </head>
 <body>
 
-    <nav class="mobile-app-nav">
-        <a href="https://wa.me/56969073306" target="_blank" class="nav-item">
+    <nav class="mobile-nav">
+        <a href="https://wa.me/56969073306" class="nav-item">
             <i class="fa-brands fa-whatsapp"></i>
             <span>Cotizar</span>
         </a>
-        <div class="nav-item" onclick="toggleCart()">
-            <div class="icon-wrapper">
+        <div class="nav-item cart-trigger" onclick="toggleCart()">
+            <div class="icon-wrap">
                 <i class="fa-solid fa-cart-shopping"></i>
-                <span id="cartCount" class="badge">0</span>
-                </div>
-            <span>Carrito</span>
+                <span id="cart-badge" class="badge">0</span>
             </div>
-        <div class="nav-item">
-            <i class="fa-solid fa-bars"></i>
-            <span>Menú</span>
+            <span>Carrito</span>
         </div>
-            </nav>
+        <a href="#catalogo" class="nav-item">
+            <i class="fa-solid fa-store"></i>
+            <span>Catálogo</span>
+        </a>
+    </nav>
 
-    <header class="glass-header">
-        <div class="container">
-            <img src="imagenes/logo-alma-kids-oficial.png" alt="ALMA Kids" class="logo-image">
+    <header class="site-header">
+        <div class="container header-flex">
+            <img src="imagenes/logo-alma-kids-oficial.png" alt="ALMA Kids" class="logo">
+            <a href="#contacto" class="btn-desktop">Contacto</a>
         </div>
     </header>
 
-    <div class="coverage-bar">
-        <div class="container">
-            <p>
-                <i class="fa-solid fa-location-dot"></i> 
-                Llegamos a <strong>Rancagua, Machalí, Graneros, Rengo</strong> y toda la VI Región 
-                <span class="separator">|</span> 
-                <i class="fa-solid fa-truck-fast"></i> Vamos donde tú estés
-            </p>
-    </div>
-        </div>
-
-    <section class="section hero-section">
-        <div class="container">
-            <h1>Diversión <span class="text-gradient">Premium</span><br>para tus hijos</h1>
-            <p>Juegos inflables seguros, estéticos y limpios en Machalí y Rancagua.</p>
-            <div class="hero-carousel">
-                <img src="imagenes/set-magic.webp" class="active" alt="Set Magic">
-            </div>
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Diversión <span class="highlight">Premium</span><br>en tu casa</h1>
+            <p>Arriendo de Juegos Inflables y Plaza Blanda en Machalí, Rancagua y VI Región.</p>
+            <a href="#catalogo" class="btn-primary">Ver Packs Disponibles</a>
         </div>
     </section>
 
-    <main id="catalogo-container">
-        <!-- Los productos se inyectan aquí dinámicamente -->
-    </main>
-
-    <section class="section story-section">
+    <section id="catalogo" class="section">
         <div class="container">
-            <div class="story-content">
-                <div class="story-text">
-                    <span class="badge-story">Nuestra Historia</span>
-                    <h2>Más que juegos, creamos <span class="text-gradient">recuerdos mágicos</span></h2>
-                    <p>
-                        <strong>ALMA Kids</strong> nace en 2025 con la llegada de nuestro primer hijo. Como papás, entendimos la importancia de entregar lo mejor para el desarrollo y felicidad de los más pequeños.
-                    </p>
-                    <p>
-                        No solo arrendamos inflables; llevamos <strong>seguridad, higiene y estética</strong> a tu evento. Transformamos cualquier espacio en un mundo de aventura sana en Machalí y toda la región.
-                    </p>
-                    
-                    <div class="features-grid">
-                        <div class="feature-item">
-                            <i class="fa-solid fa-shield-heart"></i>
-                            <span>Seguridad Garantizada</span>
-                    </div>
-                        <div class="feature-item">
-                            <i class="fa-solid fa-sparkles"></i>
-                            <span>Limpieza Profunda</span>
+            <h2 class="section-title">Nuestros Packs 2025</h2>
+            <div id="grid-productos" class="grid-productos">
                 </div>
-                        <div class="feature-item">
-                            <i class="fa-solid fa-clock"></i>
-                            <span>Puntualidad</span>
-                </div>
-            </div>
-        </div>
-                <div class="story-image">
-                    <img src="imagenes/set-magic.webp" alt="Familia ALMA Kids" class="img-rounded">
-                </div>
-            </div>
         </div>
     </section>
 
-    <section class="section cta-section">
+    <section class="section bg-grey">
         <div class="container text-center">
-            <h2>¿Listo para celebrar en <span class="highlight">Machalí o Rancagua</span>?</h2>
-            <p>Agenda tu fecha con anticipación. Los cupos de fin de semana se agotan rápido.</p>
-            <a href="https://wa.me/56969073306" target="_blank" class="btn-whatsapp-large">
-                <i class="fa-brands fa-whatsapp"></i> Hablar con un Humano
-            </a>
-        </div>
-    </section>
-
-    <section class="section instagram-section">
-        <div class="container">
-            <div class="insta-profile">
-                <img src="imagenes/logo-alma-kids-oficial.png" alt="ALMA Kids" class="insta-avatar">
-                <div>
-                    <div class="insta-handle">
-                        alma.kidscl <i class="fa-solid fa-circle-check verified-badge"></i>
-                            </div>
-                    <div class="insta-stats">
-                        <span><strong>150+</strong> Eventos</span>
-                        <span><strong>1.2k</strong> Seguidores</span>
-                        <span><strong>4.9</strong> ⭐ Valoración</span>
-                        </div>
-                        </div>
-                    </div>
-                
+            <h2 class="section-title"><i class="fa-brands fa-instagram"></i> @alma.kidscl</h2>
+            <p>Síguenos para ver nuestros eventos reales</p>
             <div class="insta-grid">
-                <div class="insta-item" onclick="window.open('https://instagram.com/alma.kidscl', '_blank')">
-                    <img src="imagenes/set-magic.webp" alt="Evento 1">
-                    <div class="insta-overlay"><i class="fa-solid fa-heart"></i></div>
-                    </div>
-                <div class="insta-item" onclick="window.open('https://instagram.com/alma.kidscl', '_blank')">
-                    <img src="imagenes/castillo-rosa.png" alt="Evento 2">
-                    <div class="insta-overlay"><i class="fa-solid fa-heart"></i></div>
-                    </div>
-                <div class="insta-item" onclick="window.open('https://instagram.com/alma.kidscl', '_blank')">
-                    <img src="imagenes/set-active.webp" alt="Evento 3">
-                    <div class="insta-overlay"><i class="fa-solid fa-heart"></i></div>
-                </div>
-                <div class="insta-item" onclick="window.open('https://instagram.com/alma.kidscl', '_blank')">
-                    <img src="imagenes/castillo-grand.png" alt="Evento 4">
-                    <div class="insta-overlay"><i class="fa-solid fa-heart"></i></div>
-                    </div>
-                </div>
-
-            <a href="https://instagram.com/alma.kidscl" target="_blank" class="btn-instagram">
-                <i class="fa-brands fa-instagram"></i> Síguenos en Instagram
-            </a>
+                <img src="imagenes/set-magic.webp" alt="Evento 1">
+                <img src="imagenes/castillo-rosa.png" alt="Evento 2">
+                <img src="imagenes/set-active.webp" alt="Evento 3">
+                <img src="imagenes/castillo-grand.png" alt="Evento 4">
+            </div>
+            <a href="https://instagram.com/alma.kidscl" target="_blank" class="btn-text">Ver perfil completo &rarr;</a>
         </div>
     </section>
 
-    <section class="section reviews-section">
+    <section class="section">
         <div class="container">
-            <div class="text-center" style="margin-bottom: 40px;">
-                <span class="badge-story">Experiencias Reales</span>
-                <h2 class="section-title">Familias felices en <span class="text-gradient">La VI Región</span></h2>
-            </div>
-            
-            <div class="reviews-grid">
-                <div class="review-card">
-                    <div class="review-header">
-                        <div class="stars">★★★★★</div>
-                        <span class="date">Hace 1 semana</span>
-                        </div>
-                    <h3>"¡El Set Magic salvó el cumpleaños!"</h3>
-                    <p>Arrendamos para mi hijo de 4 años en Machalí. Llegaron súper puntuales, todo estaba impecable y los niños no pararon de jugar. 100% recomendados.</p>
-                    <div class="review-author">
-                        <div class="author-avatar">C</div>
-                        <div>
-                            <strong>Carolina M.</strong>
-                            <span>Machalí, Santa Elena</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="review-card">
-                    <div class="review-header">
-                        <div class="stars">★★★★★</div>
-                        <span class="date">Hace 2 semanas</span>
-                        </div>
-                    <h3>"Estética preciosa y muy seguros"</h3>
-                    <p>Buscaba algo que no fuera el típico inflable de colores chillones. El Castillo Blanco se veía hermoso en las fotos. La atención de ALMA Kids fue un 7.</p>
-                    <div class="review-author">
-                        <div class="author-avatar">F</div>
-                        <div>
-                            <strong>Felipe R.</strong>
-                            <span>Rancagua, Manzanal</span>
-                    </div>
-                </div>
-            </div>
-            
-                <div class="review-card">
-                    <div class="review-header">
-                        <div class="stars">★★★★★</div>
-                        <span class="date">Hace 1 mes</span>
-                    </div>
-                    <h3>"Excelente servicio post-venta"</h3>
-                    <p>Tuvimos dudas con el espacio y nos asesoraron súper bien por WhatsApp. El montaje fue rápido y retiraron a la hora acordada. Muy profesionales.</p>
-                    <div class="review-author">
-                        <div class="author-avatar">V</div>
-                        <div>
-                            <strong>Valentina S.</strong>
-                            <span>Graneros</span>
-                    </div>
-                    </div>
-                    </div>
+            <h2 class="section-title">Preguntas Frecuentes</h2>
+            <div class="faq-container">
+                <details>
+                    <summary>¿Van a Machalí y Rancagua?</summary>
+                    <p>¡Sí! Cubrimos toda la zona y alrededores. El traslado se calcula según ubicación exacta.</p>
+                </details>
+                <details>
+                    <summary>¿Qué pasa si llueve?</summary>
+                    <p>Puedes reagendar tu fecha sin costo o instalamos bajo techo si tienes espacio.</p>
+                </details>
+                <details>
+                    <summary>¿Cómo reservo?</summary>
+                    <p>Abonando el 50% del valor. El resto se paga el día del evento al instalar.</p>
+                </details>
             </div>
         </div>
     </section>
 
-    <section class="section faq-section" id="faq">
-        <div class="container">
-            <div class="text-center" style="margin-bottom: 50px;">
-                <span class="badge-story">Resolvemos tus dudas</span>
-                <h2 class="section-title">Preguntas Frecuentes</h2>
-                <p>Todo lo que necesitas saber para tu evento en Rancagua y Machalí</p>
-                </div>
-
-            <div class="faq-grid">
-                <div class="faq-column">
-                    <h3 class="faq-category"><i class="fa-solid fa-wallet"></i> Reservas y Pagos</h3>
-                    
-                    <details class="faq-item">
-                        <summary>¿Cómo hago la reserva? <i class="fa-solid fa-chevron-down"></i></summary>
-                        <p>Puedes reservar escribiendo directamente a nuestro WhatsApp +56 9 6907 3306 o completando el formulario de contacto en esta web.</p>
-                    </details>
-
-                    <details class="faq-item">
-                        <summary>¿Cuáles son las condiciones de pago? <i class="fa-solid fa-chevron-down"></i></summary>
-                        <p>Solicitamos un <strong>50% de reserva</strong> al momento de agendar la fecha para bloquear tu cupo. El 50% restante se paga previo a la instalación de los juegos el día del evento.</p>
-                    </details>
-
-                    <details class="faq-item">
-                        <summary>¿Qué pasa si anulo el servicio? <i class="fa-solid fa-chevron-down"></i></summary>
-                        <p>Si cancelas con más de 1 semana de anticipación, devolvemos el 50% abonado. Con menos de 7 días, no hay devolución por los costos de logística reservados.</p>
-                    </details>
-                </div>
-
-                <div class="faq-column">
-                    <h3 class="faq-category"><i class="fa-solid fa-truck-fast"></i> Logística y Servicio</h3>
-
-                    <details class="faq-item">
-                        <summary>¿Cuánto dura el servicio? <i class="fa-solid fa-chevron-down"></i></summary>
-                        <p>Nuestro servicio estándar incluye <strong>4 horas de juego intenso</strong>. Si necesitas tiempo extra, consúltanos por disponibilidad y costo asociado.</p>
-                    </details>
-
-                    <details class="faq-item">
-                        <summary>¿Cubren toda la ciudad? <i class="fa-solid fa-chevron-down"></i></summary>
-                        <p>¡Sí! Cubrimos principalmente <strong>Machalí, Rancagua, Graneros y Rengo</strong>. También vamos a Coya, Codegua, Olivar y sectores aledaños (el traslado tiene un costo adicional según ubicación).</p>
-                    </details>
-
-                    <details class="faq-item">
-                        <summary>¿Qué pasa si llueve? <i class="fa-solid fa-cloud-showers-heavy"></i> <i class="fa-solid fa-chevron-down"></i></summary>
-                        <p>En caso de lluvia, podemos reprogramar el evento sin costo adicional (sujeto a disponibilidad) o instalar en un espacio techado si cuentas con él.</p>
-                    </details>
+    <section id="contacto" class="section bg-dark">
+        <div class="container contact-flex">
+            <div class="contact-info">
+                <h2>Hablemos</h2>
+                <p>¿Tienes dudas específicas? Escríbenos directo.</p>
+                <a href="https://wa.me/56969073306" class="contact-link"><i class="fa-brands fa-whatsapp"></i> +56 9 6907 3306</a>
+                <a href="mailto:info@almakids.cl" class="contact-link"><i class="fa-solid fa-envelope"></i> info@almakids.cl</a>
             </div>
-            
-                <div class="faq-column">
-                    <h3 class="faq-category"><i class="fa-solid fa-shield-cat"></i> Seguridad y Espacio</h3>
-
-                    <details class="faq-item">
-                        <summary>¿Qué espacio necesito? <i class="fa-solid fa-chevron-down"></i></summary>
-                        <p>Cada juego requiere al menos <strong>1 metro adicional</strong> por lado para seguridad. El suelo debe estar seco, limpio y nivelado (sin piedras ni humedad). Necesitamos un enchufe a máximo 10 metros.</p>
-                    </details>
-
-                    <details class="faq-item">
-                        <summary>¿Para qué edades son los juegos? <i class="fa-solid fa-chevron-down"></i></summary>
-                        <p>Nuestros juegos están diseñados para niños de <strong>6 meses a 7 años</strong>. Recomendamos siempre la presencia de un adulto responsable supervisando.</p>
-                    </details>
-                    
-                    <details class="faq-item">
-                        <summary>¿Los juegos son seguros? <i class="fa-solid fa-chevron-down"></i></summary>
-                        <p>Sí, utilizamos materiales de primera calidad y realizamos limpieza profunda después de cada evento. No permitimos calzado, comida ni mascotas dentro de los juegos para mantener la higiene.</p>
-                    </details>
-                                    </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contacto" class="section contact-section">
-        <div class="container">
-            <div style="text-align: center; max-width: 700px; margin: 0 auto;">
-                <h2 class="section-title">Hablemos de tu Evento</h2>
-                <p class="section-subtitle">¿Tienes dudas o quieres personalizar un pack? Estamos aquí para ayudarte.</p>
-            </div>
-            
-            <div class="contact-grid">
-                <div class="contact-info-card">
-                    <div class="info-item">
-                        <div class="icon-box"><i class="fa-brands fa-whatsapp"></i></div>
-                        <div class="info-text">
-                            <h4>WhatsApp Directo</h4>
-                            <a href="https://wa.me/56969073306" target="_blank">+56 9 6907 3306</a>
-            </div>
-        </div>
-                            
-                    <div class="info-item">
-                        <div class="icon-box"><i class="fa-solid fa-location-dot"></i></div>
-                        <div class="info-text">
-                            <h4>Cobertura</h4>
-                            <p>Machalí, Rancagua y Región de O'Higgins</p>
-                    </div>
-                </div>
-                
-                    <div class="info-item">
-                        <div class="icon-box"><i class="fa-regular fa-envelope"></i></div>
-                        <div class="info-text">
-                            <h4>Correo Electrónico</h4>
-                            <a href="mailto:info.almakids@gmail.com">info.almakids@gmail.com</a>
-                        </div>
-                    </div>
-                    
-                    <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;">
-                    
-                    <p style="font-size: 14px; color: #999;">
-                        <i class="fa-solid fa-circle-info"></i> Respondemos rápido de Lunes a Domingo.
-                    </p>
-                    </div>
-                    
-                <form class="contact-form" onsubmit="enviarContacto(event)">
-                            <div class="form-group">
-                        <label>Tu Nombre</label>
-                        <input type="text" id="contactName" class="form-input" placeholder="Ej: María Pérez" required>
-                        </div>
-                        
-                            <div class="form-group">
-                        <label>Fecha del Evento</label>
-                        <input type="date" id="contactDate" class="form-input" required>
-                        </div>
-                        
-                            <div class="form-group">
-                        <label>¿Qué necesitas?</label>
-                        <textarea id="contactMessage" class="form-textarea" rows="4" placeholder="Hola, quisiera saber si tienen disponibilidad para..." required></textarea>
-                        </div>
-                        
-                    <button type="submit" class="btn-submit">
-                        Enviar Mensaje <i class="fa-regular fa-paper-plane"></i>
-                                    </button>
-                    </form>
-            </div>
+            <form class="contact-form" onsubmit="sendForm(event)">
+                <input type="text" id="formName" placeholder="Tu Nombre" required>
+                <input type="date" id="formDate" required>
+                <button type="submit">Enviar Consulta</button>
+            </form>
         </div>
     </section>
 
     <footer>
         <div class="container">
             <p>© 2025 ALMA Kids Ltda.</p>
-            <div class="socials">
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#"><i class="fa-brands fa-facebook"></i></a>
-            </div>
         </div>
     </footer>
 
-    <script src="app.js" defer></script>
+    <script src="app.js"></script>
 </body>
 </html>
