@@ -71,7 +71,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="main.css">
+    <!-- Archivos CSS antiguos comentados (por seguridad, no borrados aún) -->
+    <!-- <link rel="stylesheet" href="styles.css"> -->
     <!-- SCRIPT DE DIAGNÓSTICO Y FIX INMEDIATO -->
     <script>
         // Ejecutar INMEDIATAMENTE cuando el script carga
@@ -437,22 +439,35 @@
                     </div>
                 </div>
                 <div class="hero-image">
-                    <div class="hero-images-grid">
-                        <!-- Imagen 1: Castillo Inflable -->
-                        <div class="hero-image-item">
-                            <picture>
-                                <source srcset="imagenes/Castillo-inflable-portadas.webp" type="image/webp">
-                                <img src="imagenes/Castillo-inflable-portadas.png?v=20250115-10" alt="Castillo Inflable ALMA Kids" class="hero-img" onclick="openImageModal(this.src, 'Castillo Inflable ALMA Kids', 'Castillo inflable blanco con torres, tobogán y piscinas de pelotas laterales')" style="cursor: pointer;" loading="eager">
-                            </picture>
-                            <p>🏰 Castillo Inflable Clásico</p>
+                    <!-- Carrusel de Imágenes -->
+                    <div class="hero-carousel">
+                        <div class="carousel-container">
+                            <!-- Slide 1: Castillo Inflable -->
+                            <div class="carousel-slide active">
+                                <img src="imagenes/Castillo-inflable-portadas.png?v=20250115-10" alt="Castillo Inflable ALMA Kids" class="carousel-image" onclick="openImageModal(this.src, 'Castillo Inflable ALMA Kids', 'Castillo inflable blanco con torres, tobogán y piscinas de pelotas laterales')" style="cursor: pointer;" loading="eager">
+                                <div class="carousel-caption">
+                                    <p>🏰 Castillo Inflable Clásico</p>
+                                </div>
+                            </div>
+                            <!-- Slide 2: SET Alma Magic -->
+                            <div class="carousel-slide">
+                                <img src="imagenes/Pack-alma-magic.png" alt="SET Alma Magic" class="carousel-image" onclick="openImageModal(this.src, 'SET Alma Magic', 'SET Todo Incluido - Castillo + Piscina + Motricidad + Saltarines + Tipi + Accesorios')" style="cursor: pointer;" loading="eager">
+                                <div class="carousel-caption">
+                                    <p>✨ SET Alma Magic - Todo Incluido</p>
+                                </div>
+                            </div>
                         </div>
-                        <!-- Imagen 2: SET Alma Magic -->
-                        <div class="hero-image-item">
-                            <picture>
-                                <source srcset="imagenes/Pack-alma-magic.webp" type="image/webp">
-                                <img src="imagenes/Pack-alma-magic.png" alt="SET Alma Magic" class="hero-img" onclick="openImageModal(this.src, 'SET Alma Magic', 'SET Todo Incluido - Castillo + Piscina + Motricidad + Saltarines + Tipi + Accesorios')" style="cursor: pointer;" loading="eager">
-                            </picture>
-                            <p>✨ SET Alma Magic - Todo Incluido</p>
+                        <!-- Controles del Carrusel -->
+                        <button class="carousel-prev" aria-label="Imagen anterior">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-next" aria-label="Imagen siguiente">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                        <!-- Indicadores -->
+                        <div class="carousel-indicators">
+                            <button class="carousel-indicator active" data-slide="0" aria-label="Slide 1"></button>
+                            <button class="carousel-indicator" data-slide="1" aria-label="Slide 2"></button>
                         </div>
                     </div>
                 </div>
@@ -1968,7 +1983,7 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     
     <!-- Script principal de la aplicación -->
-    <script src="script.js?v=20250126-01" defer></script>
+    <script src="app.js" defer></script>
     
     <!-- Debug Script for Testing -->
     <script>
@@ -3033,6 +3048,27 @@
             console.log('✅ Página cargada correctamente, sin bloqueos');
         });
     </script>
+
+    <!-- Barra de navegación móvil inferior -->
+    <nav class="mobile-app-nav">
+        <a href="https://wa.me/56969073306?text=Hola%20ALMA%20Kids..." target="_blank" class="mobile-nav-item whatsapp">
+            <div class="icon-container"><i class="fab fa-whatsapp"></i></div>
+            <span>Cotizar</span>
+        </a>
+        
+        <button onclick="showNewCart()" class="mobile-nav-item cart">
+            <div class="icon-container">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="mobileCartCount" class="cart-badge">0</span>
+            </div>
+            <span>Carrito</span>
+        </button>
+        
+        <button onclick="toggleMobileMenu()" class="mobile-nav-item menu">
+            <div class="icon-container"><i class="fas fa-bars"></i></div>
+            <span>Menú</span>
+        </button>
+    </nav>
 </body>
 <!-- FORCE UPDATE: 2025-01-15-22-35-00 -->
 </html>

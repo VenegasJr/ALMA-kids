@@ -10,8 +10,11 @@
     
     <!-- CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.min.css?v=20250126-09">
-    <link rel="stylesheet" href="layout-fixes.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="main.css">
+    <!-- Archivos CSS antiguos comentados (por seguridad, no borrados aún) -->
+    <!-- <link rel="stylesheet" href="styles.min.css?v=20250126-09"> -->
+    <!-- <link rel="stylesheet" href="layout-fixes.css"> -->
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -521,6 +524,27 @@
         </button>
     </div>
 
-    <script src="script.js?v=20250126-01" defer></script>
+    <script src="app.js" defer></script>
+
+    <!-- Barra de navegación móvil inferior -->
+    <nav class="mobile-app-nav">
+        <a href="https://wa.me/56969073306?text=Hola%20ALMA%20Kids..." target="_blank" class="mobile-nav-item whatsapp">
+            <div class="icon-container"><i class="fab fa-whatsapp"></i></div>
+            <span>Cotizar</span>
+        </a>
+        
+        <button onclick="showNewCart()" class="mobile-nav-item cart">
+            <div class="icon-container">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="mobileCartCount" class="cart-badge">0</span>
+            </div>
+            <span>Carrito</span>
+        </button>
+        
+        <button onclick="toggleMobileMenu()" class="mobile-nav-item menu">
+            <div class="icon-container"><i class="fas fa-bars"></i></div>
+            <span>Menú</span>
+        </button>
+    </nav>
 </body>
 </html>
