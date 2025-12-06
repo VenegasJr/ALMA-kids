@@ -153,7 +153,46 @@ function updateCartCounters() {
     });
 }
 
-// 3. RENDERIZADO DE CATÁLOGO
+// 3. FUNCIÓN ZOOM
+function openZoom(imgSrc) {
+    const modal = document.createElement('div');
+    modal.id = 'zoom-modal';
+    modal.className = 'zoom-modal animate-fade-in';
+    modal.onclick = closeZoom;
+    modal.innerHTML = `
+        <div class="zoom-content">
+            <span class="close-btn">&times;</span>
+            <img src="${imgSrc}" class="zoom-img">
+        </div>
+    `;
+    document.body.appendChild(modal);
+    document.body.style.overflow = 'hidden'; // Evitar scroll
+    
+    // Cerrar al hacer clic en el botón X
+    const closeBtn = modal.querySelector('.close-btn');
+    if (closeBtn) {
+        closeBtn.onclick = (e) => {
+            e.stopPropagation();
+            closeZoom();
+        };
+    }
+    
+    // Prevenir cierre al hacer clic en la imagen
+    const zoomContent = modal.querySelector('.zoom-content');
+    if (zoomContent) {
+        zoomContent.onclick = (e) => e.stopPropagation();
+    }
+}
+
+function closeZoom() {
+    const modal = document.getElementById('zoom-modal');
+    if (modal) {
+        modal.remove();
+        document.body.style.overflow = 'auto';
+    }
+}
+
+// 4. RENDERIZADO DE CATÁLOGO
 function renderCatalog() {
     const grid = document.getElementById('catalogo-grid');
     if (!grid) {
@@ -162,31 +201,30 @@ function renderCatalog() {
     }
     
     grid.innerHTML = CATALOGO.map(product => `
-        <div class="card">
-            ${product.badge ? `<div class="badge">${product.badge}</div>` : ''}
-            <div class="card-img">
-                <img src="${product.image}" 
-                     alt="${product.name}" 
-                     loading="lazy" 
-                     onerror="this.src='imagenes/logo-alma-kids-pagina.webp'">
+        <article class="product-card">
+            ${product.badge ? `<span class="badge">${product.badge}</span>` : ''}
+            <div class="card-image" onclick="openZoom('${product.image}')" style="cursor: pointer;">
+                <img src="${product.image}" alt="${product.name}" loading="lazy" onerror="this.src='imagenes/logo-alma-kids-pagina.webp'">
+                <div class="zoom-icon"><i class="fas fa-search-plus"></i></div>
             </div>
-            <div class="card-body">
-                <span class="category">${product.category}</span>
-                <h3>${product.name}</h3>
-                <p>${product.description}</p>
-                <ul class="features">
-                    ${product.features.map(f => `<li>✓ ${f}</li>`).join('')}
-                </ul>
+            <div class="card-content">
+                <div class="card-header">
+                    <span class="category">${product.category}</span>
+                    <h3>${product.name}</h3>
+                </div>
+                <p class="description">${product.description}</p>
                 <div class="card-footer">
                     <div class="price">$${product.price.toLocaleString('es-CL')}</div>
-                    <button onclick="addToCart('${product.id}')" class="btn-comprar">Agregar</button>
+                    <button onclick="addToCart('${product.id}')" class="btn-add">
+                        Agregar
+                    </button>
                 </div>
             </div>
-        </div>
+        </article>
     `).join('');
 }
 
-// 4. MODAL DE CARRITO
+// 5. MODAL DE CARRITO
 function showCartModal() {
     const modal = document.getElementById('cartModal');
     if (modal) {
@@ -238,38 +276,29 @@ function renderCartModal() {
     `;
 }
 
-// 5. CHECKOUT WHATSAPP
+// 6. CHECKOUT WHATSAPP (CORREGIDO)
 function checkout() {
     if (cart.length === 0) {
-        showNotification('Tu carrito está vacío', 'warning');
+        alert('Tu carrito está vacío 🛒');
         return;
     }
     
-    // Calcular totales
-    const total = cart.reduce((sum, item) => sum + item.price, 0);
+    let text = "¡Hola ALMA Kids! 👋%0AQuiero cotizar lo siguiente:%0A%0A";
+    let total = 0;
     
-    // Construir mensaje detallado
-    let mensaje = "Hola ALMA Kids! 🎪\n\n";
-    mensaje += "Estoy interesado en reservar:\n\n";
-    mensaje += "📦 *DETALLE DEL PEDIDO:*\n";
-    
-    cart.forEach((item, index) => {
-        mensaje += `${index + 1}. ${item.name} - $${item.price.toLocaleString('es-CL')}\n`;
+    cart.forEach(item => {
+        text += `▪️ *${item.name}* - $${item.price.toLocaleString('es-CL')}%0A`;
+        total += item.price;
     });
     
-    mensaje += `\n💰 *TOTAL: $${total.toLocaleString('es-CL')}*\n\n`;
-    mensaje += "📝 *MIS DATOS:*\n";
-    mensaje += "- Nombre: \n";
-    mensaje += "- Fecha Evento: \n";
-    mensaje += "- Dirección/Comuna: \n\n";
-    mensaje += "Quedo atento a disponibilidad. Gracias! 🙏";
+    text += `%0A💰 *TOTAL REF: $${total.toLocaleString('es-CL')}*%0A`;
+    text += "%0A📝 *MIS DATOS:*%0A- Nombre:%0A- Fecha:%0A- Dirección:%0A%0AQuedo atento a disponibilidad.";
     
-    // Abrir WhatsApp
-    const whatsappUrl = `https://wa.me/56969073306?text=${encodeURIComponent(mensaje)}`;
-    window.open(whatsappUrl, '_blank');
+    // Abrir en nueva pestaña
+    window.open(`https://wa.me/56969073306?text=${text}`, '_blank');
 }
 
-// 6. NOTIFICACIONES
+// 7. NOTIFICACIONES
 function showNotification(message, type = 'info') {
     // Crear elemento de notificación
     const notification = document.createElement('div');
@@ -297,7 +326,7 @@ function showNotification(message, type = 'info') {
     }, 3000);
 }
 
-// 7. INICIALIZACIÓN
+// 8. INICIALIZACIÓN
 document.addEventListener('DOMContentLoaded', () => {
     // Renderizar catálogo
     renderCatalog();
@@ -326,10 +355,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// 8. EXPONER FUNCIONES GLOBALES
+// 9. EXPONER FUNCIONES GLOBALES
 window.addToCart = addToCart;
 window.removeFromCart = removeFromCart;
 window.clearCart = clearCart;
 window.showCartModal = showCartModal;
 window.hideCartModal = hideCartModal;
 window.checkout = checkout;
+window.openZoom = openZoom;
+window.closeZoom = closeZoom;
