@@ -3,16 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>ALMA Kids | Juegos Inflables en Rancagua</title>
+    
+    <!-- SEO OPTIMIZADO -->
+    <title>ALMA Kids | Juegos Inflables Premium en Rancagua y Machalí 2025</title>
+    <meta name="description" content="Arriendo de castillos inflables premium, plaza blanda y packs todo incluido en Rancagua, Machalí y VI Región. Juegos seguros, estéticos y limpios para cumpleaños infantiles.">
+    <meta name="keywords" content="juegos inflables rancagua, arriendo castillos inflables machali, plaza blanda sexta region, cumpleaños niños, packs todo incluido, ALMA Kids">
+    <meta name="author" content="ALMA Kids Entretenciones Infantiles Ltda.">
+    <meta name="geo.region" content="CL-LI">
+    <meta name="geo.placename" content="Rancagua, Machalí">
+    <meta name="geo.position" content="-34.1701;-70.7406">
+    <meta name="ICBM" content="-34.1701, -70.7406">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ALMA Kids - Juegos Inflables Premium en Rancagua">
+    <meta property="og:description" content="Packs todo incluido desde $90.000. Llegamos a tu evento en Rancagua, Machalí y toda la VI Región.">
+    <meta property="og:image" content="https://www.almakids.cl/imagenes/logo-alma-kids-oficial.png">
+    <meta property="og:url" content="https://www.almakids.cl">
+    
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "ALMA Kids Entretenciones Infantiles",
+      "image": "https://www.almakids.cl/imagenes/logo-alma-kids-oficial.png",
+      "telephone": "+56969073306",
+      "email": "info.almakids@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Machalí",
+        "addressRegion": "O'Higgins",
+        "addressCountry": "CL"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -34.1833,
+        "longitude": -70.6500
+      },
+      "priceRange": "$$",
+      "openingHours": "Mo-Su 08:00-20:00"
+    }
+    </script>
     
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style-apple.css">
 </head>
 <body>
 
-    <nav class="mobile-nav">
+    <!-- Barra de Cobertura -->
+    <div class="coverage-banner">
+        <div class="container">
+            <p><i class="fa-solid fa-location-dot"></i> Llegamos a <strong>Rancagua, Machalí, Graneros, Rengo</strong> y toda la VI Región</p>
+            </div>
+        </div>
+        
+    <!-- Navegación Móvil -->
+            <nav class="mobile-nav">
         <a href="https://wa.me/56969073306" class="nav-item">
             <i class="fa-brands fa-whatsapp"></i>
             <span>Cotizar</span>
@@ -21,7 +69,7 @@
             <div class="icon-wrap">
                 <i class="fa-solid fa-cart-shopping"></i>
                 <span id="cart-badge" class="badge">0</span>
-            </div>
+    </div>
             <span>Carrito</span>
         </div>
         <a href="#catalogo" class="nav-item">
@@ -30,84 +78,190 @@
         </a>
     </nav>
 
+    <!-- Header con Navegación Completa -->
     <header class="site-header">
         <div class="container header-flex">
-            <img src="imagenes/logo-alma-kids-oficial.png" alt="ALMA Kids" class="logo">
-            <a href="#contacto" class="btn-desktop">Contacto</a>
+            <a href="#" class="logo-link">
+                <img src="imagenes/logo-navideño.png" alt="ALMA Kids" class="logo logo-navidad">
+                <img src="imagenes/logo-alma-kids-oficial.png" alt="ALMA Kids" class="logo logo-normal">
+            </a>
+            
+            <!-- Menú Desktop -->
+            <nav class="nav-desktop">
+                <a href="#catalogo" class="nav-link">Catálogo</a>
+                <a href="#beneficios" class="nav-link">Beneficios</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+                <a href="#contacto" class="nav-link">Contacto</a>
+                <a href="https://wa.me/56969073306" target="_blank" class="btn-whatsapp-header">
+                    <i class="fa-brands fa-whatsapp"></i> Cotizar
+                </a>
+            </nav>
+            
+            <!-- Botón Menú Móvil -->
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
+        
+        <!-- Menú Móvil -->
+        <nav class="nav-mobile" id="navMobile">
+            <a href="#catalogo" class="nav-link-mobile" onclick="closeMobileMenu()">Catálogo</a>
+            <a href="#beneficios" class="nav-link-mobile" onclick="closeMobileMenu()">Beneficios</a>
+            <a href="#faq" class="nav-link-mobile" onclick="closeMobileMenu()">FAQ</a>
+            <a href="#contacto" class="nav-link-mobile" onclick="closeMobileMenu()">Contacto</a>
+            <a href="https://wa.me/56969073306" target="_blank" class="btn-whatsapp-mobile" onclick="closeMobileMenu()">
+                <i class="fa-brands fa-whatsapp"></i> Cotizar por WhatsApp
+            </a>
+        </nav>
     </header>
 
-    <section class="hero">
+    <!-- Hero con Animación -->
+    <section class="hero animated-section">
+        <div class="hero-background"></div>
         <div class="container hero-content">
-            <h1>Diversión <span class="highlight">Premium</span><br>en tu casa</h1>
-            <p>Arriendo de Juegos Inflables y Plaza Blanda en Machalí, Rancagua y VI Región.</p>
-            <a href="#catalogo" class="btn-primary">Ver Packs Disponibles</a>
+            <h1 class="fade-in-up">Diversión <span class="highlight">Premium</span><br>en tu casa</h1>
+            <p class="fade-in-up delay-1">Arriendo de Juegos Inflables y Plaza Blanda en Machalí, Rancagua y VI Región.</p>
+            <a href="#catalogo" class="btn-primary fade-in-up delay-2">
+                <span>Ver Packs Disponibles</span>
+                <i class="fa-solid fa-arrow-down"></i>
+                            </a>
+                        </div>
+        <div class="scroll-indicator">
+            <i class="fa-solid fa-chevron-down"></i>
         </div>
     </section>
 
-    <section id="catalogo" class="section">
+    <!-- Catálogo de Productos -->
+    <section id="catalogo" class="section animated-section">
         <div class="container">
-            <h2 class="section-title">Nuestros Packs 2025</h2>
-            <div id="grid-productos" class="grid-productos">
-                </div>
+            <div class="section-header fade-in">
+                <h2 class="section-title">Nuestros Packs 2025</h2>
+                <p class="section-subtitle">Diversión segura y estética para tu evento</p>
+                            </div>
+            <div id="grid-productos" class="grid-productos"></div>
         </div>
     </section>
 
-    <section class="section bg-grey">
+    <!-- Sección de Beneficios -->
+    <section id="beneficios" class="section benefits-section animated-section">
+        <div class="container">
+            <h2 class="section-title text-center">¿Por qué elegir ALMA Kids?</h2>
+                <div class="benefits-grid">
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon"><i class="fa-solid fa-shield-heart"></i></div>
+                    <h3>Seguridad Garantizada</h3>
+                    <p>Materiales de primera calidad y limpieza profunda después de cada evento.</p>
+                        </div>
+                <div class="benefit-card fade-in delay-1">
+                    <div class="benefit-icon"><i class="fa-solid fa-sparkles"></i></div>
+                    <h3>Estética Premium</h3>
+                    <p>Diseños modernos y colores pastel que hacen que tus fotos se vean increíbles.</p>
+                    </div>
+                <div class="benefit-card fade-in delay-2">
+                    <div class="benefit-icon"><i class="fa-solid fa-clock"></i></div>
+                    <h3>Puntualidad</h3>
+                    <p>Llegamos a tiempo y nos encargamos de todo. Tú solo disfruta.</p>
+                        </div>
+                <div class="benefit-card fade-in delay-3">
+                    <div class="benefit-icon"><i class="fa-solid fa-truck-fast"></i></div>
+                    <h3>Cobertura Amplia</h3>
+                    <p>Llegamos a Rancagua, Machalí, Graneros, Rengo y toda la VI Región.</p>
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram -->
+    <section class="section bg-grey animated-section">
         <div class="container text-center">
             <h2 class="section-title"><i class="fa-brands fa-instagram"></i> @alma.kidscl</h2>
             <p>Síguenos para ver nuestros eventos reales</p>
             <div class="insta-grid">
-                <img src="imagenes/set-magic.webp" alt="Evento 1">
-                <img src="imagenes/castillo-rosa.png" alt="Evento 2">
-                <img src="imagenes/set-active.webp" alt="Evento 3">
-                <img src="imagenes/castillo-grand.png" alt="Evento 4">
+                <div class="insta-item" onclick="openInstagram(event)">
+                    <img src="imagenes/set-magic.webp" alt="Evento 1">
+                    <div class="insta-overlay"><i class="fa-brands fa-instagram"></i></div>
+                </div>
+                <div class="insta-item" onclick="openInstagram(event)">
+                    <img src="imagenes/castillo-rosa.png" alt="Evento 2">
+                    <div class="insta-overlay"><i class="fa-brands fa-instagram"></i></div>
+                </div>
+                <div class="insta-item" onclick="openInstagram(event)">
+                    <img src="imagenes/set-active.webp" alt="Evento 3">
+                    <div class="insta-overlay"><i class="fa-brands fa-instagram"></i></div>
+                </div>
+                <div class="insta-item" onclick="openInstagram(event)">
+                    <img src="imagenes/castillo-grand.png" alt="Evento 4">
+                    <div class="insta-overlay"><i class="fa-brands fa-instagram"></i></div>
+                </div>
             </div>
-            <a href="https://instagram.com/alma.kidscl" target="_blank" class="btn-text">Ver perfil completo &rarr;</a>
+            <a href="https://instagram.com/alma.kidscl" target="_blank" rel="noopener noreferrer" class="btn-text" onclick="openInstagram(event)">Ver perfil completo &rarr;</a>
         </div>
     </section>
 
-    <section class="section">
+    <!-- FAQ -->
+    <section id="faq" class="section animated-section">
         <div class="container">
-            <h2 class="section-title">Preguntas Frecuentes</h2>
+            <h2 class="section-title text-center">Preguntas Frecuentes</h2>
             <div class="faq-container">
-                <details>
-                    <summary>¿Van a Machalí y Rancagua?</summary>
+                <details class="fade-in">
+                    <summary>¿Van a Machalí y Rancagua? <i class="fa-solid fa-chevron-down"></i></summary>
                     <p>¡Sí! Cubrimos toda la zona y alrededores. El traslado se calcula según ubicación exacta.</p>
                 </details>
-                <details>
-                    <summary>¿Qué pasa si llueve?</summary>
+                <details class="fade-in delay-1">
+                    <summary>¿Qué pasa si llueve? <i class="fa-solid fa-chevron-down"></i></summary>
                     <p>Puedes reagendar tu fecha sin costo o instalamos bajo techo si tienes espacio.</p>
                 </details>
-                <details>
-                    <summary>¿Cómo reservo?</summary>
+                <details class="fade-in delay-2">
+                    <summary>¿Cómo reservo? <i class="fa-solid fa-chevron-down"></i></summary>
                     <p>Abonando el 50% del valor. El resto se paga el día del evento al instalar.</p>
+                </details>
+                <details class="fade-in delay-3">
+                    <summary>¿Qué espacio necesito? <i class="fa-solid fa-chevron-down"></i></summary>
+                    <p>Cada juego requiere al menos 1 metro adicional por lado. Necesitamos un enchufe a máximo 10 metros.</p>
                 </details>
             </div>
         </div>
     </section>
 
-    <section id="contacto" class="section bg-dark">
+    <!-- Contacto -->
+    <section id="contacto" class="section bg-dark animated-section">
         <div class="container contact-flex">
-            <div class="contact-info">
+            <div class="contact-info fade-in">
                 <h2>Hablemos</h2>
                 <p>¿Tienes dudas específicas? Escríbenos directo.</p>
-                <a href="https://wa.me/56969073306" class="contact-link"><i class="fa-brands fa-whatsapp"></i> +56 9 6907 3306</a>
-                <a href="mailto:info@almakids.cl" class="contact-link"><i class="fa-solid fa-envelope"></i> info@almakids.cl</a>
-            </div>
-            <form class="contact-form" onsubmit="sendForm(event)">
+                <a href="https://wa.me/56969073306" class="contact-link">
+                    <i class="fa-brands fa-whatsapp"></i> +56 9 6907 3306
+                </a>
+                <a href="mailto:info@almakids.cl" class="contact-link">
+                    <i class="fa-solid fa-envelope"></i> info@almakids.cl
+                                </a>
+                            </div>
+            <form class="contact-form fade-in delay-1" onsubmit="sendForm(event)">
                 <input type="text" id="formName" placeholder="Tu Nombre" required>
                 <input type="date" id="formDate" required>
                 <button type="submit">Enviar Consulta</button>
-            </form>
+                    </form>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
         <div class="container">
-            <p>© 2025 ALMA Kids Ltda.</p>
+            <p>© 2025 ALMA Kids Ltda. | Todos los derechos reservados</p>
         </div>
     </footer>
+
+    <!-- Botón Flotante WhatsApp -->
+    <a href="https://wa.me/56969073306?text=Hola%20ALMA%20Kids!%20👋%20Quisiera%20cotizar%20disponibilidad" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       class="whatsapp-float" 
+       aria-label="Contactar por WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">Cotizar ahora</span>
+    </a>
 
     <script src="app.js"></script>
 </body>
