@@ -52,6 +52,13 @@
 </head>
 <body>
 
+    <!-- Elementos Decorativos Pasteles -->
+    <div class="decorative-elements">
+        <div class="decorative-circle"></div>
+        <div class="decorative-circle"></div>
+        <div class="decorative-circle"></div>
+                </div>
+            
     <!-- Barra de Cobertura -->
     <div class="coverage-banner">
         <div class="container">
@@ -81,9 +88,12 @@
     <!-- Header con Navegación Completa -->
     <header class="site-header">
         <div class="container header-flex">
-            <a href="#" class="logo-link">
-                <img src="imagenes/logo-navideño.png" alt="ALMA Kids" class="logo logo-navidad">
-                <img src="imagenes/logo-alma-kids-oficial.png" alt="ALMA Kids" class="logo logo-normal">
+            <a href="#" class="logo-link" aria-label="ALMA Kids - Inicio">
+                <picture class="logo-container">
+                    <source media="(max-width: 768px)" srcset="imagenes/logo-navideño.png">
+                    <img src="imagenes/logo-navideño.png" alt="ALMA Kids - Logo Navideño" class="logo logo-navidad" id="logoNavidad">
+                </picture>
+                <img src="imagenes/logo-alma-kids-oficial.png" alt="ALMA Kids" class="logo logo-normal" id="logoNormal" style="display: none;">
             </a>
             
             <!-- Menú Desktop -->
@@ -114,7 +124,7 @@
             <a href="https://wa.me/56969073306" target="_blank" class="btn-whatsapp-mobile" onclick="closeMobileMenu()">
                 <i class="fa-brands fa-whatsapp"></i> Cotizar por WhatsApp
             </a>
-        </nav>
+            </nav>
     </header>
 
     <!-- Hero con Animación -->
@@ -126,8 +136,8 @@
             <a href="#catalogo" class="btn-primary fade-in-up delay-2">
                 <span>Ver Packs Disponibles</span>
                 <i class="fa-solid fa-arrow-down"></i>
-                            </a>
-                        </div>
+                </a>
+    </div>
         <div class="scroll-indicator">
             <i class="fa-solid fa-chevron-down"></i>
         </div>
@@ -139,8 +149,71 @@
             <div class="section-header fade-in">
                 <h2 class="section-title">Nuestros Packs 2025</h2>
                 <p class="section-subtitle">Diversión segura y estética para tu evento</p>
-                            </div>
+        </div>
             <div id="grid-productos" class="grid-productos"></div>
+        </div>
+    </section>
+
+    <!-- Galería de Imágenes del PDF (Extraer del catálogo) -->
+    <!-- 
+    INSTRUCCIONES PARA EXTRAER IMÁGENES DEL PDF:
+    1. Extraer todas las imágenes del PDF "Catalogo ALMA kids Ltda (4).pdf"
+    2. Guardarlas en la carpeta "imagenes/catalogo-pdf/"
+    3. Las imágenes se mostrarán automáticamente en la galería
+    -->
+    <section class="section gallery-section animated-section" id="galeria-pdf" style="display: none;">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Galería de Productos</h2>
+                <p class="section-subtitle">Conoce todos nuestros juegos y servicios</p>
+                    </div>
+            <div id="gallery-pdf" class="gallery-grid">
+                <!-- Las imágenes del PDF se inyectarán aquí dinámicamente -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Sobre Nosotros / Nuestra Historia -->
+    <section id="nosotros" class="section about-section animated-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <span class="badge-about">Nuestra Historia</span>
+                    <h2 class="section-title">Más que juegos, creamos <span class="highlight">recuerdos mágicos</span></h2>
+                    <div class="story-text">
+                        <p>
+                            <strong>ALMA Kids</strong> nace en 2025 con la llegada de nuestro primer hijo. Como papás, entendimos la importancia de entregar lo mejor para el desarrollo y felicidad de los más pequeños.
+                    </p>
+                    <p>
+                            No solo arrendamos inflables; llevamos <strong>seguridad, higiene y estética</strong> a tu evento. Transformamos cualquier espacio en un mundo de aventura sana en Machalí, Rancagua y toda la VI Región.
+                        </p>
+                        <p>
+                            Cada juego que entregamos pasa por un proceso de limpieza profunda, porque sabemos que la seguridad de tus hijos es lo más importante. Nos especializamos en juegos para niños de <strong>6 meses a 7 años</strong>, con diseños modernos y colores pastel que hacen que tus fotos se vean increíbles.
+                            </p>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">150+</div>
+                            <div class="stat-label">Eventos Realizados</div>
+                </div>
+                        <div class="stat-item">
+                            <div class="stat-number">4.9</div>
+                            <div class="stat-label">⭐ Valoración</div>
+                </div>
+                        <div class="stat-item">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Satisfacción</div>
+            </div>
+        </div>
+                </div>
+                <div class="about-image fade-in delay-1">
+                    <img src="imagenes/set-magic.webp" alt="Familia ALMA Kids" class="about-img">
+                    <div class="image-badge">
+                        <i class="fa-solid fa-heart"></i>
+                        <span>Hecho con amor</span>
+                </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -158,45 +231,78 @@
                     <div class="benefit-icon"><i class="fa-solid fa-sparkles"></i></div>
                     <h3>Estética Premium</h3>
                     <p>Diseños modernos y colores pastel que hacen que tus fotos se vean increíbles.</p>
-                    </div>
+                        </div>
                 <div class="benefit-card fade-in delay-2">
                     <div class="benefit-icon"><i class="fa-solid fa-clock"></i></div>
                     <h3>Puntualidad</h3>
                     <p>Llegamos a tiempo y nos encargamos de todo. Tú solo disfruta.</p>
-                        </div>
+                    </div>
                 <div class="benefit-card fade-in delay-3">
                     <div class="benefit-icon"><i class="fa-solid fa-truck-fast"></i></div>
                     <h3>Cobertura Amplia</h3>
                     <p>Llegamos a Rancagua, Machalí, Graneros, Rengo y toda la VI Región.</p>
-                    </div>
+                </div>
             </div>
-        </div>
+                    </div>
     </section>
 
-    <!-- Instagram -->
-    <section class="section bg-grey animated-section">
+    <!-- Redes Sociales - Instagram y Facebook -->
+    <section class="section social-section animated-section">
         <div class="container text-center">
-            <h2 class="section-title"><i class="fa-brands fa-instagram"></i> @alma.kidscl</h2>
-            <p>Síguenos para ver nuestros eventos reales</p>
-            <div class="insta-grid">
-                <div class="insta-item" onclick="openInstagram(event)">
-                    <img src="imagenes/set-magic.webp" alt="Evento 1">
-                    <div class="insta-overlay"><i class="fa-brands fa-instagram"></i></div>
+            <div class="social-header fade-in">
+                <h2 class="section-title">Síguenos en Redes Sociales</h2>
+                <p>Conoce nuestros eventos reales y mantente al día con nuestras novedades</p>
                 </div>
-                <div class="insta-item" onclick="openInstagram(event)">
-                    <img src="imagenes/castillo-rosa.png" alt="Evento 2">
-                    <div class="insta-overlay"><i class="fa-brands fa-instagram"></i></div>
+                
+            <div class="social-buttons fade-in delay-1">
+                <a href="https://instagram.com/alma.kidscl" target="_blank" rel="noopener noreferrer" class="social-btn instagram-btn" onclick="openInstagram(event)">
+                    <i class="fa-brands fa-instagram"></i>
+                    <span>@alma.kidscl</span>
+                </a>
+                <a href="https://facebook.com/almakidscl" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn" onclick="openFacebook(event)">
+                    <i class="fa-brands fa-facebook"></i>
+                    <span>ALMA Kids</span>
+                </a>
                 </div>
-                <div class="insta-item" onclick="openInstagram(event)">
-                    <img src="imagenes/set-active.webp" alt="Evento 3">
-                    <div class="insta-overlay"><i class="fa-brands fa-instagram"></i></div>
+                
+            <!-- Instagram Feed -->
+            <div class="insta-section fade-in delay-2">
+                <h3 class="insta-title"><i class="fa-brands fa-instagram"></i> Últimas Publicaciones</h3>
+                <p class="insta-subtitle">Haz clic en cualquier foto para ver más en Instagram</p>
+                <div class="insta-grid">
+                    <a href="https://instagram.com/alma.kidscl" target="_blank" rel="noopener noreferrer" class="insta-item" onclick="openInstagram(event)">
+                        <img src="imagenes/set-magic.webp" alt="Evento ALMA Kids 1" loading="lazy">
+                        <div class="insta-overlay">
+                            <i class="fa-brands fa-instagram"></i>
+                            <span>Ver en Instagram</span>
+                    </div>
+                    </a>
+                    <a href="https://instagram.com/alma.kidscl" target="_blank" rel="noopener noreferrer" class="insta-item" onclick="openInstagram(event)">
+                        <img src="imagenes/castillo-rosa.png" alt="Evento ALMA Kids 2" loading="lazy">
+                        <div class="insta-overlay">
+                            <i class="fa-brands fa-instagram"></i>
+                            <span>Ver en Instagram</span>
+                        </div>
+                    </a>
+                    <a href="https://instagram.com/alma.kidscl" target="_blank" rel="noopener noreferrer" class="insta-item" onclick="openInstagram(event)">
+                        <img src="imagenes/set-active.webp" alt="Evento ALMA Kids 3" loading="lazy">
+                        <div class="insta-overlay">
+                            <i class="fa-brands fa-instagram"></i>
+                            <span>Ver en Instagram</span>
+                    </div>
+                </a>
+                    <a href="https://instagram.com/alma.kidscl" target="_blank" rel="noopener noreferrer" class="insta-item" onclick="openInstagram(event)">
+                        <img src="imagenes/castillo-grand.png" alt="Evento ALMA Kids 4" loading="lazy">
+                        <div class="insta-overlay">
+                            <i class="fa-brands fa-instagram"></i>
+                            <span>Ver en Instagram</span>
+                    </div>
+                    </a>
                 </div>
-                <div class="insta-item" onclick="openInstagram(event)">
-                    <img src="imagenes/castillo-grand.png" alt="Evento 4">
-                    <div class="insta-overlay"><i class="fa-brands fa-instagram"></i></div>
-                </div>
+                <a href="https://instagram.com/alma.kidscl" target="_blank" rel="noopener noreferrer" class="btn-instagram-large" onclick="openInstagram(event)">
+                    <i class="fa-brands fa-instagram"></i> Ver todas las fotos en Instagram
+                </a>
             </div>
-            <a href="https://instagram.com/alma.kidscl" target="_blank" rel="noopener noreferrer" class="btn-text" onclick="openInstagram(event)">Ver perfil completo &rarr;</a>
         </div>
     </section>
 
@@ -225,40 +331,143 @@
         </div>
     </section>
 
-    <!-- Contacto -->
-    <section id="contacto" class="section bg-dark animated-section">
-        <div class="container contact-flex">
-            <div class="contact-info fade-in">
-                <h2>Hablemos</h2>
-                <p>¿Tienes dudas específicas? Escríbenos directo.</p>
-                <a href="https://wa.me/56969073306" class="contact-link">
-                    <i class="fa-brands fa-whatsapp"></i> +56 9 6907 3306
-                </a>
-                <a href="mailto:info@almakids.cl" class="contact-link">
-                    <i class="fa-solid fa-envelope"></i> info@almakids.cl
-                                </a>
+    <!-- Contacto Moderno -->
+    <section id="contacto" class="section contact-section-modern animated-section">
+        <div class="container">
+            <div class="contact-header text-center fade-in">
+                <h2 class="section-title">Hablemos de tu Evento</h2>
+                <p class="section-subtitle">Estamos aquí para ayudarte a crear el evento perfecto</p>
+            </div>
+            
+            <div class="contact-grid-modern">
+                <!-- Información de Contacto -->
+                <div class="contact-card-modern fade-in">
+                    <div class="contact-card-header">
+                        <i class="fa-solid fa-phone"></i>
+                        <h3>Contacto Directo</h3>
+            </div>
+                    
+                    <!-- WhatsApp con Estado -->
+                    <div class="whatsapp-status-modern">
+                        <a href="https://wa.me/56969073306" class="whatsapp-card" id="whatsappLink">
+                            <div class="whatsapp-icon-large">
+                                <i class="fa-brands fa-whatsapp"></i>
+                                <span class="whatsapp-status-dot" id="whatsappStatus"></span>
+                    </div>
+                            <div class="whatsapp-details">
+                                <div class="whatsapp-label">WhatsApp</div>
+                                <div class="whatsapp-number">+56 9 6907 3306</div>
+                                <div class="whatsapp-status-text" id="whatsappStatusText">
+                                    <span class="status-indicator"></span> Disponible ahora
+                    </div>
+                    </div>
+                    </a>
+                </div>
+                
+                    <div class="contact-item-modern">
+                        <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div class="contact-details">
+                            <div class="contact-label">Email</div>
+                            <a href="mailto:info@almakids.cl" class="contact-value">info@almakids.cl</a>
+                        </div>
+                        </div>
+                        
+                    <div class="contact-item-modern">
+                        <div class="contact-icon"><i class="fa-solid fa-clock"></i></div>
+                        <div class="contact-details">
+                            <div class="contact-label">Horario de Atención</div>
+                            <div class="contact-value">Lunes a Domingo: 8:00 - 20:00</div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item-modern">
+                        <div class="contact-icon"><i class="fa-solid fa-map-marker-alt"></i></div>
+                        <div class="contact-details">
+                            <div class="contact-label">Cobertura</div>
+                            <div class="contact-value">Rancagua, Machalí, Graneros, Rengo y VI Región</div>
+                        </div>
+                        </div>
+                    </div>
+                    
+                <!-- Formulario de Contacto -->
+                <div class="contact-card-modern fade-in delay-1">
+                    <div class="contact-card-header">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    <h3>Envíanos un Mensaje</h3>
+                    </div>
+                    <form class="contact-form-modern" onsubmit="sendForm(event)">
+                        <div class="form-group-modern">
+                            <label for="formName"><i class="fa-solid fa-user"></i> Tu Nombre</label>
+                            <input type="text" id="formName" placeholder="Ej: María Pérez" required>
                             </div>
-            <form class="contact-form fade-in delay-1" onsubmit="sendForm(event)">
-                <input type="text" id="formName" placeholder="Tu Nombre" required>
-                <input type="date" id="formDate" required>
-                <button type="submit">Enviar Consulta</button>
+                        <div class="form-group-modern">
+                            <label for="formDate"><i class="fa-solid fa-calendar"></i> Fecha del Evento</label>
+                            <input type="date" id="formDate" required>
+                            </div>
+                        <div class="form-group-modern">
+                            <label for="formMessage"><i class="fa-solid fa-comment"></i> Mensaje</label>
+                            <textarea id="formMessage" rows="4" placeholder="Cuéntanos sobre tu evento, cantidad de niños, espacio disponible..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit-modern">
+                            <i class="fa-brands fa-whatsapp"></i> Enviar por WhatsApp
+                                    </button>
                     </form>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>© 2025 ALMA Kids Ltda. | Todos los derechos reservados</p>
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="imagenes/logo-navideño.png" alt="ALMA Kids" class="footer-logo">
+                    <p>Diversión segura y estética para tus eventos</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Enlaces Rápidos</h4>
+                    <a href="#catalogo">Catálogo</a>
+                    <a href="#beneficios">Beneficios</a>
+                    <a href="#nosotros">Sobre Nosotros</a>
+                    <a href="#faq">FAQ</a>
+                    <a href="#contacto">Contacto</a>
+            </div>
+            
+                <div class="footer-social">
+                    <h4>Síguenos</h4>
+                    <div class="social-icons-footer">
+                        <a href="https://instagram.com/alma.kidscl" target="_blank" rel="noopener noreferrer" class="social-icon-footer" onclick="openInstagram(event)" aria-label="Instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://facebook.com/almakidscl" target="_blank" rel="noopener noreferrer" class="social-icon-footer" onclick="openFacebook(event)" aria-label="Facebook">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a>
+                        <a href="https://wa.me/56969073306" target="_blank" rel="noopener noreferrer" class="social-icon-footer" aria-label="WhatsApp">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+                    <p class="footer-contact">
+                        <i class="fa-solid fa-phone"></i> +56 9 6907 3306<br>
+                        <i class="fa-solid fa-envelope"></i> info@almakids.cl
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 ALMA Kids Ltda. | Todos los derechos reservados</p>
+                <p class="footer-location"><i class="fa-solid fa-map-marker-alt"></i> Rancagua, Machalí y VI Región</p>
+            </div>
         </div>
     </footer>
 
-    <!-- Botón Flotante WhatsApp -->
-    <a href="https://wa.me/56969073306?text=Hola%20ALMA%20Kids!%20👋%20Quisiera%20cotizar%20disponibilidad" 
+    <!-- Botón Flotante WhatsApp - Instalación Segura -->
+    <a href="https://wa.me/56969073306?text=Hola%20ALMA%20Kids!%20👋%20Quisiera%20cotizar%20disponibilidad%20y%20precios" 
        target="_blank" 
-       rel="noopener noreferrer"
+       rel="noopener noreferrer nofollow"
        class="whatsapp-float" 
-       aria-label="Contactar por WhatsApp">
+       aria-label="Contactar por WhatsApp - Cotizar ahora"
+       id="whatsappFloat">
         <i class="fa-brands fa-whatsapp"></i>
         <span class="whatsapp-tooltip">Cotizar ahora</span>
     </a>
