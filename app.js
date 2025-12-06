@@ -146,8 +146,24 @@ function cerrarFoto() {
     }
 }
 
+/* === FORMULARIO DE CONTACTO A WHATSAPP === */
+function enviarContacto(e) {
+    e.preventDefault(); // Evitar recarga de página
+    
+    const nombre = document.getElementById('contactName').value;
+    const fecha = document.getElementById('contactDate').value;
+    const mensaje = document.getElementById('contactMessage').value;
+    
+    // Formato limpio para WhatsApp
+    const textoWhatsApp = `Hola ALMA Kids! 👋%0A%0AMi nombre es: *${nombre}*%0AFecha del evento: *${fecha}*%0A%0AConsulta:%0A${mensaje}`;
+    
+    // Abrir WhatsApp
+    window.open(`https://wa.me/56969073306?text=${textoWhatsApp}`, '_blank');
+}
+
 // Exponer funciones globales
 window.agregarAlCarrito = agregarAlCarrito;
 window.toggleCart = toggleCart;
 window.verFoto = verFoto;
 window.cerrarFoto = cerrarFoto;
+window.enviarContacto = enviarContacto;
