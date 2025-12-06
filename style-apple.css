@@ -289,3 +289,276 @@ header img,
     object-fit: contain !important;
     display: block;
 }
+
+/* === ALMA KIDS: APPLE PASTEL THEME === */
+:root {
+    --primary: #FF6B9D; /* Rosa Predominante */
+    --pastel-blue: #E3F2FD;
+    --pastel-yellow: #FFF9C4;
+    --pastel-green: #E8F5E9;
+    --pastel-pink: #FCE4EC;
+    --text-dark: #1D1D1F;
+    --white: #FFFFFF;
+    --radius: 24px;
+    --shadow: 0 10px 40px rgba(0,0,0,0.08);
+}
+
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+    -webkit-tap-highlight-color: transparent; 
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-dark);
+    background: #fff;
+    padding-bottom: 90px; /* Espacio para barra móvil */
+}
+
+/* === HEADER & LOGO === */
+.glass-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding: 15px 0;
+    text-align: center;
+}
+
+.logo-image {
+    height: 50px; /* TAMAÑO CONTROLADO DEL LOGO */
+    width: auto;
+    object-fit: contain;
+}
+
+/* === HERO SECTION === */
+.hero-section {
+    text-align: center;
+    padding: 60px 20px;
+    background: var(--white);
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 15px;
+    letter-spacing: -1px;
+}
+
+.text-gradient {
+    background: linear-gradient(90deg, #FF6B9D, #FFC107);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-carousel img {
+    width: 100%;
+    max-width: 600px;
+    border-radius: var(--radius);
+    margin-top: 30px;
+    box-shadow: var(--shadow);
+}
+
+/* === PRODUCT SECTIONS (COLORES ALTERNOS) === */
+.product-section {
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Alternancia de Colores Pasteles */
+.product-section:nth-child(4n+1) { 
+    background-color: var(--pastel-pink); /* Rosa (Predomina) */
+}
+
+.product-section:nth-child(4n+2) { 
+    background-color: var(--pastel-blue); 
+}
+
+.product-section:nth-child(4n+3) { 
+    background-color: var(--white); 
+}
+
+.product-section:nth-child(4n+4) { 
+    background-color: var(--pastel-yellow); 
+}
+
+.product-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    transition: transform 0.3s;
+}
+
+.product-card:hover { 
+    transform: scale(1.02); 
+}
+
+.card-img-wrapper {
+    height: 300px;
+    background: #f0f0f0;
+    position: relative;
+}
+
+.card-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-body { 
+    padding: 30px; 
+    text-align: center; 
+}
+
+.badge {
+    display: inline-block;
+    background: #FFD700;
+    color: #000;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.price {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--primary);
+    margin: 15px 0;
+    display: block;
+}
+
+/* Botón estilo Apple */
+.btn-add {
+    background: var(--text-dark);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.3s;
+}
+
+.btn-add:hover { 
+    background: var(--primary); 
+}
+
+/* === BARRA MÓVIL === */
+.mobile-app-nav {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 400px;
+    background: rgba(29, 29, 31, 0.9); /* Oscuro estilo iOS */
+    backdrop-filter: blur(20px);
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+    z-index: 2000;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.nav-item {
+    color: white;
+    text-align: center;
+    font-size: 12px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+.nav-item:hover {
+    opacity: 0.8;
+}
+
+.nav-item i { 
+    font-size: 20px; 
+}
+
+/* Badge del carrito en rojo */
+.icon-wrapper { 
+    position: relative; 
+}
+
+.nav-item .badge {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background: #FF3B30;
+    color: white;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    padding: 0;
+    font-weight: bold;
+}
+
+/* === FOOTER === */
+footer {
+    background: var(--text-dark);
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.socials {
+    display: flex;
+    gap: 20px;
+}
+
+.socials a {
+    color: white;
+    font-size: 24px;
+    transition: transform 0.3s;
+}
+
+.socials a:hover {
+    transform: scale(1.2);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-carousel img {
+        max-width: 100%;
+    }
+    
+    .product-section {
+        padding: 40px 15px;
+    }
+}
