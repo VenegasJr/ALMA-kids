@@ -71,9 +71,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="main.css">
-    <!-- Archivos CSS antiguos comentados (por seguridad, no borrados aún) -->
-    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <link rel="stylesheet" href="style-apple.css">
     <!-- SCRIPT DE DIAGNÓSTICO Y FIX INMEDIATO -->
     <script>
         // Ejecutar INMEDIATAMENTE cuando el script carga
@@ -475,69 +473,11 @@
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="nosotros" class="about section-secondary">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2 class="section-title">Sobre Nosotros</h2>
-                    <h3>ALMA Kids Entretenciones Infantiles Ltda.</h3>
-                    <p>
-                        <strong>ALMA Kids</strong> nace en 2025 con la llegada de nuestro primer hijo. Unos papás 
-                        con ganas de entregar lo mejor para el correcto desarrollo, estimulación y crecimiento 
-                        de nuestro bebé.
-                    </p>
-                    <p>
-                        <strong>ALMA Kids</strong> es el alma de la fiesta, el sueño de los peques, la libertad
-                        de movimiento y reconocimiento de nuevas sensaciones. Creamos recuerdos mágicos, únicos
-                        y divertidos para toda la vida, transformando cualquier espacio en un mundo de diversión,
-                        descubrimiento, aventura sana y segura para nuestros pequeños.
-                    </p>
-                    <div class="highlight-box">
-                        <i class="fas fa-heart"></i>
-                        <span>Creando recuerdos mágicos para nuestros pequeños</span>
-                    </div>
-                </div>
-                <div class="about-image">
-                    <picture>
-                        <source srcset="imagenes/logo-alma-kids-oficial.webp" type="image/webp">
-                        <img src="imagenes/logo-alma-kids-oficial.webp" alt="ALMA Kids Entretenciones Infantiles - Logo Oficial" class="about-img" loading="lazy" onclick="openImageModal(this.src, 'ALMA Kids Logo Oficial', 'Logo oficial de ALMA Kids Entretenciones Infantiles Ltda.')" style="cursor: pointer;">
-                    </picture>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Mensaje de Agendamiento Activo -->
-    <section class="proximamente-section">
-        <div class="container">
-            <div class="proximamente-message booking-active">
-                <div class="booking-icon">
-                    <i class="fas fa-calendar-check"></i>
-                </div>
-                <h3>🎉 ¡Ya Estamos Agendando!</h3>
-                <p class="booking-subtitle">Reserva tu fecha ahora y asegura la diversión para tu evento</p>
-                <p class="booking-location">📍 Desde Machalí para toda la Región de O'Higgins</p>
-                <div class="booking-cta">
-                    <a href="#contacto" class="btn btn-primary">Agendar Ahora</a>
-                    <a href="https://wa.me/56969073306?text=Hola%20ALMA%20Kids,%20quiero%20agendar%20mi%20evento" target="_blank" class="btn btn-secondary">
-                        <i class="fab fa-whatsapp"></i> WhatsApp
-                    </a>
-                </div>
-                <div class="booking-features">
-                    <span><i class="fas fa-check-circle"></i> Disponibilidad inmediata</span>
-                    <span><i class="fas fa-check-circle"></i> Cobertura regional</span>
-                    <span><i class="fas fa-check-circle"></i> Atención personalizada</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Catálogo Section - Productos generados dinámicamente -->
     <section id="catalogo" class="section-catalogo">
         <div class="container">
-            <h2 class="section-title">Nuestros Packs y Servicios 2025</h2>
-            <p class="section-subtitle">Diversión segura y estética para tu evento</p>
+            <h2 style="text-align: center; margin-bottom: 10px;">Nuestros Packs y Servicios</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 40px;">Calidad premium y seguridad para tu evento</p>
             
             <div id="catalogo-grid" class="products-grid"></div>
         </div>
@@ -847,9 +787,6 @@
     <!-- Scripts -->
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    
-    <!-- Script principal de la aplicación -->
-    <script src="app.js" defer></script>
     
     <!-- Debug Script for Testing -->
     <script>
@@ -1935,6 +1872,9 @@
             <span>Menú</span>
         </button>
     </nav>
+    
+    <!-- Script principal de la aplicación -->
+    <script src="app.js" defer></script>
 </body>
 <!-- FORCE UPDATE: 2025-01-15-22-35-00 -->
 </html>
