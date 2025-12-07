@@ -8,12 +8,18 @@ const PRODUCTOS = [
         price: 192000,
         image: 'imagenes/Pack-alma-magic.png',
         badge: '🏆 TOP 1',
-        desc: 'Pack Premium completo: Premium Total + Carpa Tipi adicional. La experiencia definitiva para tu evento.',
+        desc: 'Pack Premium completo: Castillo + Piscina + Tipi + Burbujas + Motricidad + Tipi adicional. La experiencia definitiva para tu evento.',
         descCompleta: `La experiencia definitiva para tu evento. Este pack incluye TODO lo necesario para una fiesta inolvidable:
 
-• Pack Premium Total ($177.000) - Castillo + Piscina + Tipi + Burbujas + Motricidad
-• Carpa Tipi adicional ($15.000) - Rincón mágico extra para descansar
+• Castillo Inflable ($90.000) - El centro de la diversión
+• Piscina de Pelotas ($50.000) - Seguridad y entretenimiento
+• Carpa Tipi ($15.000) - Rincón mágico para descansar
+• Máquina de Burbujas ($15.000) - Magia flotante para las fotos
+• Set de Motricidad ($25.000) - Desarrollo motor completo
+• Carpa Tipi adicional ($15.000) - Rincón extra
+• Precio normal: $211.200
 • Ahorro total: $19.200 (10% descuento)
+• Precio final: $192.000
 
 Todo esto por 4 horas de diversión intensa. Requiere espacio de 4x3.5m. Instalación y retiro incluidos.`,
         features: ['4 horas de uso', 'Espacio: 4x3.5m', 'Instalación incluida', 'Ahorro: $19.200']
@@ -24,13 +30,15 @@ Todo esto por 4 horas de diversión intensa. Requiere espacio de 4x3.5m. Instala
         price: 115000,
         image: 'imagenes/Set-alma-active.webp',
         badge: '🔥 POPULAR',
-        desc: 'Soft Play 3x3 m + Motricidad extra + Tipi decorativo. Ideal para espacios medianos y niños activos.',
+        desc: 'Plaza Blanda 3x3 m + Motricidad extra + Tipi decorativo. Ideal para espacios medianos y niños activos.',
         descCompleta: `Diversión activa garantizada. Este pack incluye:
 
-• Soft Play 3x3 m ($55.000) - Zona de juego amplia y segura
-• Motricidad extra ($25.000) - Desarrollo motor completo
-• Tipi decorativo ($15.000) - Rincón mágico para descansar
+• Plaza Blanda 3x3 m ($55.000) - Zona de juego amplia y segura
+• Set de Motricidad extra ($25.000) - Desarrollo motor completo
+• Carpa Tipi decorativo ($15.000) - Rincón mágico para descansar
+• Precio normal: $130.000
 • Ahorro total: $15.000 (15% descuento)
+• Precio final: $115.000
 
 Ideal para niños de 1 a 6 años. 4 horas de uso continuo. Requiere espacio de 3.5x2.5m. Instalación profesional incluida.`,
         features: ['4 horas de uso', 'Espacio: 3.5x2.5m', 'Ideal 1-6 años', 'Ahorro: $15.000']
@@ -41,12 +49,12 @@ Ideal para niños de 1 a 6 años. 4 horas de uso continuo. Requiere espacio de 3
         price: 85000,
         image: 'imagenes/Pack-alma-mini-play-machali.png',
         badge: '👶 BEBÉS',
-        desc: 'Soft Play básico (2x2 m) + Piscina de pelotas. Ideal espacios reducidos. Perfecto para los más pequeños.',
+        desc: 'Plaza Blanda básica (2x2 m) + Piscina de pelotas. Ideal espacios reducidos. Perfecto para los más pequeños.',
         descCompleta: `Pack diseñado especialmente para los más pequeños y espacios reducidos. Incluye:
 
-• Soft Play básico 2x2 m ($35.000) - Zona de juego segura
+• Plaza Blanda básica 2x2 m ($35.000) - Zona de juego segura
 • Piscina de pelotas ($50.000) - Diversión y seguridad
-• Precio especial: $85.000
+• Precio total: $85.000
 
 Perfecto para bebés desde 6 meses. 4 horas de uso. Requiere solo 2.5x2.5m de espacio. Ideal para interiores.`,
         features: ['4 horas de uso', 'Espacio: 2.5x2.5m', 'Ideal bebés', 'Precio especial']
@@ -57,7 +65,7 @@ Perfecto para bebés desde 6 meses. 4 horas de uso. Requiere solo 2.5x2.5m de es
         price: 90000,
         image: 'imagenes/castillo-grand-peque.png',
         badge: '✨ FOTOS',
-        desc: 'El gigante de la familia. Blanco impoluto, ideal para fotos y eventos grandes. Medidas: 5x4x2.8m. Precio: $90.000',
+        desc: 'El gigante de la familia. Blanco impoluto, ideal para fotos y eventos grandes. Medidas: 5x4x2.8m.',
         descCompleta: `El castillo más grande de nuestro catálogo. Perfecto para eventos grandes y fotos espectaculares.
 
 • Medidas: 5m x 4m x 2.8m de altura
@@ -114,7 +122,7 @@ Perfecto para cualquier temática. Los colores neutros hacen que se adapte a cua
         price: 50000,
         image: 'imagenes/Nuestra Plaza blanda/Plaza-Blanda-Pelotas-Azules.png',
         badge: '👶 SEGURO',
-        desc: 'Piscina de espuma segura. Incluye 2 colores de pelotas base. Ideal para los más pequeños. Precio: $50.000',
+        desc: 'Piscina de espuma segura. Incluye 2 colores de pelotas base. Ideal para los más pequeños.',
         descCompleta: `Piscina de espuma segura diseñada especialmente para los más pequeños. Máxima seguridad y diversión.
 
 • Medidas: 1.5m x 1.5m
@@ -133,7 +141,7 @@ Ideal para bebés y niños pequeños. El material de espuma garantiza seguridad 
         price: 15000,
         image: 'imagenes/Maquina-burbuja-.png',
         badge: '✨ MAGIA',
-        desc: 'Magia flotante para tus fotos. Incluye 700ml de líquido. Más de 2000 burbujas por minuto. Precio: $15.000',
+        desc: 'Magia flotante para tus fotos. Incluye 700ml de líquido. Más de 2000 burbujas por minuto.',
         descCompleta: `Agrega magia a tu evento con nuestra máquina de burbujas profesional. Perfecta para fotos increíbles.
 
 • Capacidad: Más de 2000 burbujas por minuto
