@@ -4,60 +4,52 @@
 const PRODUCTOS = [
     {
         id: 'set-alma-magic',
-        name: 'Set ALMA MAGIC',
-        price: 150000,
+        name: 'Pack ALMA MAGIC',
+        price: 192000,
         image: 'imagenes/Pack-alma-magic.png',
         badge: '🏆 TOP 1',
-        desc: 'Pack completo: Castillo (Rosa/Peque) + Piscina + Motricidad + 2 Saltarines + Tipi + Burbujas + Accesorios. La experiencia definitiva para tu evento.',
+        desc: 'Pack Premium completo: Premium Total + Carpa Tipi adicional. La experiencia definitiva para tu evento.',
         descCompleta: `La experiencia definitiva para tu evento. Este pack incluye TODO lo necesario para una fiesta inolvidable:
 
-• Castillo Inflable (Rosa o Peque) - El centro de la diversión
-• Piscina de Pelotas - Seguridad y diversión para los más pequeños
-• Circuito de Motricidad - Desarrollo y entretenimiento
-• 2 Saltarines de Peluche - Diversión adicional
-• Carpa Tipi - Rincón mágico para descansar
-• Máquina de Burbujas - Magia flotante para las fotos
-• Tatami de Seguridad - Protección total
-• Accesorios decorativos - Para que todo se vea perfecto
+• Pack Premium Total ($177.000) - Castillo + Piscina + Tipi + Burbujas + Motricidad
+• Carpa Tipi adicional ($15.000) - Rincón mágico extra para descansar
+• Ahorro total: $19.200 (10% descuento)
 
 Todo esto por 4 horas de diversión intensa. Requiere espacio de 4x3.5m. Instalación y retiro incluidos.`,
-        features: ['4 horas de uso', 'Espacio: 4x3.5m', 'Instalación incluida', 'Todo incluido']
+        features: ['4 horas de uso', 'Espacio: 4x3.5m', 'Instalación incluida', 'Ahorro: $19.200']
     },
     {
         id: 'set-active',
-        name: 'Set ACTIVE',
-        price: 130000,
+        name: 'Pack ALMA ACTIVE',
+        price: 115000,
         image: 'imagenes/Set-alma-active.webp',
         badge: '🔥 POPULAR',
-        desc: 'Diversión activa: Castillo (Peque/Rosa) + Piscina + Motricidad + 2 Saltarines + Tatami. Ideal para niños de 1 a 6 años.',
+        desc: 'Soft Play 3x3 m + Motricidad extra + Tipi decorativo. Ideal para espacios medianos y niños activos.',
         descCompleta: `Diversión activa garantizada. Este pack incluye:
 
-• Castillo Inflable (Peque o Rosa) - Con piscina integrada
-• Piscina de Pelotas - Seguridad y entretenimiento
-• Circuito de Motricidad - Desarrollo motor
-• 2 Saltarines de Peluche - Para saltar y jugar
-• Tatami de Seguridad - Protección en todo momento
+• Soft Play 3x3 m ($55.000) - Zona de juego amplia y segura
+• Motricidad extra ($25.000) - Desarrollo motor completo
+• Tipi decorativo ($15.000) - Rincón mágico para descansar
+• Ahorro total: $15.000 (15% descuento)
 
 Ideal para niños de 1 a 6 años. 4 horas de uso continuo. Requiere espacio de 3.5x2.5m. Instalación profesional incluida.`,
-        features: ['4 horas de uso', 'Espacio: 3.5x2.5m', 'Ideal 1-6 años', 'Instalación incluida']
+        features: ['4 horas de uso', 'Espacio: 3.5x2.5m', 'Ideal 1-6 años', 'Ahorro: $15.000']
     },
     {
         id: 'set-mini-play',
         name: 'Pack ALMA MINI PLAY',
-        price: 90000,
+        price: 85000,
         image: 'imagenes/Pack-alma-mini-play-machali.png',
         badge: '👶 BEBÉS',
-        desc: 'Ideal espacios reducidos. Piscina espuma + Motricidad + Tatami + Cojines. Perfecto para los más pequeños.',
+        desc: 'Soft Play básico (2x2 m) + Piscina de pelotas. Ideal espacios reducidos. Perfecto para los más pequeños.',
         descCompleta: `Pack diseñado especialmente para los más pequeños y espacios reducidos. Incluye:
 
-• Piscina de Espuma - Seguridad total para bebés
-• Circuito de Motricidad - Desarrollo sensorial
-• Tatami de Seguridad - Protección en cada paso
-• Cojines Decorativos - Comodidad y estética
-• Pelotas de Colores - Estimulación visual
+• Soft Play básico 2x2 m ($35.000) - Zona de juego segura
+• Piscina de pelotas ($50.000) - Diversión y seguridad
+• Precio especial: $85.000
 
 Perfecto para bebés desde 6 meses. 4 horas de uso. Requiere solo 2.5x2.5m de espacio. Ideal para interiores.`,
-        features: ['4 horas de uso', 'Espacio: 2.5x2.5m', 'Ideal bebés', 'Seguro 6 meses+']
+        features: ['4 horas de uso', 'Espacio: 2.5x2.5m', 'Ideal bebés', 'Precio especial']
     },
     {
         id: 'castillo-grand-peque',
@@ -65,7 +57,7 @@ Perfecto para bebés desde 6 meses. 4 horas de uso. Requiere solo 2.5x2.5m de es
         price: 90000,
         image: 'imagenes/castillo-grand-peque.png',
         badge: '✨ FOTOS',
-        desc: 'El gigante de la familia. Blanco impoluto, ideal para fotos y eventos grandes. Medidas: 5x4x2.8m.',
+        desc: 'El gigante de la familia. Blanco impoluto, ideal para fotos y eventos grandes. Medidas: 5x4x2.8m. Precio: $90.000',
         descCompleta: `El castillo más grande de nuestro catálogo. Perfecto para eventos grandes y fotos espectaculares.
 
 • Medidas: 5m x 4m x 2.8m de altura
@@ -119,10 +111,10 @@ Perfecto para cualquier temática. Los colores neutros hacen que se adapte a cua
     {
         id: 'piscina-pelotas',
         name: 'Piscina de Pelotas',
-        price: 60000,
+        price: 50000,
         image: 'imagenes/Nuestra Plaza blanda/Plaza-Blanda-Pelotas-Azules.png',
         badge: '👶 SEGURO',
-        desc: 'Piscina de espuma segura. Incluye 2 colores de pelotas base. Ideal para los más pequeños.',
+        desc: 'Piscina de espuma segura. Incluye 2 colores de pelotas base. Ideal para los más pequeños. Precio: $50.000',
         descCompleta: `Piscina de espuma segura diseñada especialmente para los más pequeños. Máxima seguridad y diversión.
 
 • Medidas: 1.5m x 1.5m
@@ -138,10 +130,10 @@ Ideal para bebés y niños pequeños. El material de espuma garantiza seguridad 
     {
         id: 'maquina-burbujas',
         name: 'Máquina de Burbujas',
-        price: 25000,
+        price: 15000,
         image: 'imagenes/Maquina-burbuja-.png',
         badge: '✨ MAGIA',
-        desc: 'Magia flotante para tus fotos. Incluye 700ml de líquido. Más de 2000 burbujas por minuto.',
+        desc: 'Magia flotante para tus fotos. Incluye 700ml de líquido. Más de 2000 burbujas por minuto. Precio: $15.000',
         descCompleta: `Agrega magia a tu evento con nuestra máquina de burbujas profesional. Perfecta para fotos increíbles.
 
 • Capacidad: Más de 2000 burbujas por minuto
