@@ -2351,29 +2351,112 @@ footer {
     position: fixed;
     bottom: 100px;
     right: 25px;
-    width: 60px;
-    height: 60px;
+    z-index: 1999;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 15px;
+}
+
+.whatsapp-btn {
+    width: 75px;
+    height: 75px;
     background: linear-gradient(135deg, #25D366, #128C7E);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
-    font-size: 28px;
+    font-size: 38px;
     box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
-    z-index: 1999;
     transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     animation: pulse-whatsapp 2s ease-in-out infinite;
     text-decoration: none;
 }
 
-.whatsapp-float:hover {
+.whatsapp-btn:hover {
     transform: scale(1.1) rotate(5deg);
     box-shadow: 0 12px 35px rgba(37, 211, 102, 0.6);
 }
 
-.whatsapp-float i {
+.whatsapp-btn i {
     animation: bounce-whatsapp 1.5s ease-in-out infinite;
+}
+
+/* Burbuja de texto arriba del botón */
+.whatsapp-bubble {
+    position: relative;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: white;
+    padding: 12px 18px;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: 600;
+    white-space: nowrap;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+    animation: float-bubble 3s ease-in-out infinite;
+    opacity: 0.95;
+}
+
+.whatsapp-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    right: 20px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 8px 8px 0 8px;
+    border-color: #25D366 transparent transparent transparent;
+}
+
+@keyframes float-bubble {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Responsive para WhatsApp */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        bottom: 80px;
+        right: 15px;
+    }
+    
+    .whatsapp-btn {
+        width: 65px;
+        height: 65px;
+        font-size: 32px;
+    }
+    
+    .whatsapp-bubble {
+        font-size: 13px;
+        padding: 10px 15px;
+        max-width: 200px;
+        white-space: normal;
+        text-align: center;
+    }
+    
+    .whatsapp-bubble::after {
+        right: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .whatsapp-bubble {
+        font-size: 12px;
+        padding: 8px 12px;
+        max-width: 160px;
+    }
+    
+    .whatsapp-btn {
+        width: 60px;
+        height: 60px;
+        font-size: 28px;
+    }
 }
 
 .whatsapp-tooltip {

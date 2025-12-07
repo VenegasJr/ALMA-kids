@@ -6,29 +6,45 @@ const PRODUCTOS = [
         id: 'set-alma-magic',
         name: 'Pack ALMA MAGIC',
         price: 192000,
-        image: 'imagenes/Pack-alma-magic.png',
+        image: 'imagenes/Pack-alma-magic.webp',
         badge: '🏆 TOP 1',
-        desc: 'Pack Premium completo: Castillo + Piscina + Tipi + Burbujas + Motricidad + Tipi adicional. La experiencia definitiva para tu evento.',
-        descCompleta: `La experiencia definitiva para tu evento. Este pack incluye TODO lo necesario para una fiesta inolvidable:
+        desc: 'SET "Alma Magic" Todo Incluido. La experiencia definitiva con 12 componentes premium para tu evento.',
+        descCompleta: `SET "Alma Magic" Todo Incluido - La experiencia definitiva para tu evento:
 
-• Castillo Inflable ($90.000) - El centro de la diversión
-• Piscina de Pelotas ($50.000) - Seguridad y entretenimiento
-• Carpa Tipi ($15.000) - Rincón mágico para descansar
-• Máquina de Burbujas ($15.000) - Magia flotante para las fotos
-• Set de Motricidad ($25.000) - Desarrollo motor completo
-• Carpa Tipi adicional ($15.000) - Rincón extra
-• Precio normal: $211.200
-• Ahorro total: $19.200 (10% descuento)
-• Precio final: $192.000
+1. Castillo Inflable "ROSA" o "PEQUE", con Piscina incluida.
+   L x A x H: 2.8 m x 2.53 m x 2.30 m.
 
-Todo esto por 4 horas de diversión intensa. Requiere espacio de 4x3.5m. Instalación y retiro incluidos.`,
-        features: ['4 horas de uso', 'Espacio: 4x3.5m', 'Instalación incluida', 'Ahorro: $19.200']
+2. Piscina blanca espuma de pelotas.
+   L x A x H: 1.50 m x 1.50 m x 0.40 m.
+
+3. Set Motricidad: Escala + túnel + cuña.
+
+4. Saltarín unicornio.
+
+5. Saltarín caballo café.
+
+6. Carpa Tipi.
+
+7. Cojines (01 und), (02 a elección).
+
+8. Alfombra (01 und), color elección (Celeste, Gris y Rosa).
+
+9. Máquina de burbujas + líquido 700ml.
+
+10. Alfombra Tatami. (Rosa/Blanco)-(Beige/Gris)
+
+11. Rincón zapatero.
+
+12. Montaje y retiro de los juegos.
+
+Todo esto por 4 horas de diversión intensa. Requiere espacio de 4x3.5m. Precio: $192.000`,
+        features: ['4 horas de uso', 'Espacio: 4x3.5m', '12 componentes incluidos', 'Montaje y retiro incluido']
     },
     {
         id: 'set-active',
         name: 'Pack ALMA ACTIVE',
         price: 115000,
-        image: 'imagenes/Set-alma-active.webp',
+        image: 'imagenes/set-active.svg',
         badge: '🔥 POPULAR',
         desc: 'Plaza Blanda 3x3 m + Motricidad extra + Tipi decorativo. Ideal para espacios medianos y niños activos.',
         descCompleta: `Diversión activa garantizada. Este pack incluye:
@@ -47,7 +63,7 @@ Ideal para niños de 1 a 6 años. 4 horas de uso continuo. Requiere espacio de 3
         id: 'set-mini-play',
         name: 'Pack ALMA MINI PLAY',
         price: 85000,
-        image: 'imagenes/Pack-alma-mini-play-machali.png',
+        image: 'imagenes/set-alma-mini-play.svg',
         badge: '👶 BEBÉS',
         desc: 'Plaza Blanda básica (2x2 m) + Piscina de pelotas. Ideal espacios reducidos. Perfecto para los más pequeños.',
         descCompleta: `Pack diseñado especialmente para los más pequeños y espacios reducidos. Incluye:
@@ -63,7 +79,7 @@ Perfecto para bebés desde 6 meses. 4 horas de uso. Requiere solo 2.5x2.5m de es
         id: 'castillo-grand-peque',
         name: 'Castillo Grand-Peque',
         price: 90000,
-        image: 'imagenes/castillo-grand-peque.png',
+        image: 'imagenes/castillo-inflale-gran-peque.svg',
         badge: '✨ FOTOS',
         desc: 'El gigante de la familia. Blanco impoluto, ideal para fotos y eventos grandes. Medidas: 5x4x2.8m.',
         descCompleta: `El castillo más grande de nuestro catálogo. Perfecto para eventos grandes y fotos espectaculares.
@@ -82,7 +98,7 @@ Ideal para eventos al aire libre, cumpleaños grandes y celebraciones especiales
         id: 'castillo-rosa',
         name: 'Castillo Inflable ROSA',
         price: 75000,
-        image: 'imagenes/Castillo-Piscina-redonda.png',
+        image: 'imagenes/castillo-inflale-rosa.svg',
         badge: '💖 ELEGANTE',
         desc: 'Elegante y tierno. Piscina integrada redonda. Perfecto para temáticas delicadas y fotos hermosas.',
         descCompleta: `Castillo elegante con diseño delicado en tonos rosa pastel. Perfecto para temáticas de princesas y eventos estéticos.
@@ -101,7 +117,7 @@ Ideal para cumpleaños de niñas, temáticas de princesas y eventos donde la est
         id: 'castillo-peque',
         name: 'Castillo Inflable PEQUE',
         price: 75000,
-        image: 'imagenes/Castillo, Piscina cuadrada.png',
+        image: 'imagenes/castillo-inflale-peque.svg',
         badge: '🎯 CLÁSICO',
         desc: 'Clásico y seguro. Piscina cuadrada integrada. Colores neutros que combinan con cualquier temática.',
         descCompleta: `El clásico de ALMA Kids. Diseño seguro y versátil que combina con cualquier temática.
@@ -120,7 +136,7 @@ Perfecto para cualquier temática. Los colores neutros hacen que se adapte a cua
         id: 'piscina-pelotas',
         name: 'Piscina de Pelotas',
         price: 50000,
-        image: 'imagenes/Nuestra Plaza blanda/Plaza-Blanda-Pelotas-Azules.png',
+        image: 'imagenes/piscina-pelota-celeste.svg',
         badge: '👶 SEGURO',
         desc: 'Piscina de espuma segura. Incluye 2 colores de pelotas base. Ideal para los más pequeños.',
         descCompleta: `Piscina de espuma segura diseñada especialmente para los más pequeños. Máxima seguridad y diversión.
@@ -180,9 +196,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const grid = document.getElementById('grid-productos');
     if (!grid) return;
     
-    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-    actualizarBadge(carrito.length);
-
     grid.innerHTML = PRODUCTOS.map((p, index) => `
         <article class="card" style="animation-delay: ${index * 0.1}s">
             ${p.badge ? `<span class="badge">${p.badge}</span>` : ''}
@@ -205,9 +218,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     <i class="fa-solid fa-info-circle"></i> Ver descripción completa
                 </button>
                 <div class="price">$${p.price.toLocaleString('es-CL')}</div>
-                <button class="btn-add" onclick="agregar('${p.id}')">
-                    <span>Agregar al Carrito</span>
-                </button>
+                <a href="https://wa.me/56969073306?text=${encodeURIComponent(`Hola ALMA Kids! 👋\n\nMe interesa cotizar:\n\n${p.name}\nPrecio: $${p.price.toLocaleString('es-CL')}\n\nGracias!`)}" target="_blank" rel="noopener noreferrer" class="btn-add">
+                    <i class="fa-brands fa-whatsapp"></i> Cotizar por WhatsApp
+                </a>
             </div>
         </article>
     `).join('');
@@ -247,65 +260,7 @@ function initScrollAnimations() {
     });
 }
 
-// CARRITO
-function agregar(id) {
-    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-    const prod = PRODUCTOS.find(p => p.id === id);
-    
-    if (!prod) return;
-    
-    carrito.push(prod);
-    localStorage.setItem('carrito', JSON.stringify(carrito));
-    actualizarBadge(carrito.length);
-    
-    // Feedback visual
-    const btn = event.target.closest('.btn-add');
-    if (btn) {
-        const originalText = btn.innerHTML;
-        btn.innerHTML = '<span>¡Agregado! ✓</span>';
-        btn.style.background = '#4ecdc4';
-        setTimeout(() => {
-            btn.innerHTML = originalText;
-            btn.style.background = '';
-        }, 1500);
-    }
-}
-
-function actualizarBadge(num) {
-    const badge = document.getElementById('cart-badge');
-    if (badge) {
-        badge.textContent = num;
-        if (num > 0) {
-            badge.style.display = 'flex';
-        } else {
-            badge.style.display = 'none';
-        }
-    }
-}
-
-function toggleCart() {
-    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-    if (carrito.length === 0) {
-        alert('El carrito está vacío 🛒\nAgrega productos para cotizar.');
-        return;
-    }
-    
-    let msg = "Hola ALMA Kids! 👋\n\nQuiero cotizar los siguientes productos:\n\n";
-    let total = 0;
-    
-    carrito.forEach((p, index) => {
-        msg += `${index + 1}. ${p.name} - $${p.price.toLocaleString('es-CL')}\n`;
-        total += p.price;
-    });
-    
-    msg += `\n💰 Total Referencial: $${total.toLocaleString('es-CL')}`;
-    msg += `\n\n📝 Mis datos:\n- Nombre: `;
-    msg += `\n- Fecha del evento: `;
-    msg += `\n- Dirección/Comuna: `;
-    msg += `\n\nQuedo atento a disponibilidad. Gracias! 🙏`;
-    
-    window.open(`https://wa.me/56969073306?text=${encodeURIComponent(msg)}`, '_blank');
-}
+// Funciones eliminadas - Carrito no utilizado
 
 function sendForm(e) {
     e.preventDefault();
@@ -469,9 +424,9 @@ function verDetallesCompletos(productId) {
                 ` : ''}
             </div>
             <div class="details-footer">
-                <button class="btn-add-large" onclick="agregar('${producto.id}'); closeDetailsModal();">
-                    <i class="fa-solid fa-cart-plus"></i> Agregar al Carrito
-                </button>
+                <a href="https://wa.me/56969073306?text=${encodeURIComponent(`Hola ALMA Kids! 👋\n\nMe interesa cotizar:\n\n${producto.name}\nPrecio: $${producto.price.toLocaleString('es-CL')}\n\nGracias!`)}" target="_blank" class="btn-add-large" onclick="closeDetailsModal();">
+                    <i class="fa-brands fa-whatsapp"></i> Cotizar por WhatsApp
+                </a>
             </div>
         </div>
     `;
