@@ -2380,32 +2380,35 @@ footer {
     background: #20BA5A;
 }
 
-/* Burbuja de texto arriba del botón - Estilo moderno */
+/* Burbuja de texto arriba del botón - Estilo profesional como referencia */
 .whatsapp-bubble {
     position: relative;
     background: white;
     color: #333;
-    padding: 10px 16px;
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: 500;
+    padding: 12px 18px;
+    border-radius: 25px;
+    font-size: 15px;
+    font-weight: 600;
     white-space: nowrap;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     animation: fadeInBubble 0.5s ease forwards, float-bubble 3s ease-in-out infinite 0.5s;
-    max-width: 200px;
+    max-width: 220px;
     text-align: center;
+    letter-spacing: 0.3px;
+    line-height: 1.4;
 }
 
 .whatsapp-bubble::after {
     content: '';
     position: absolute;
-    bottom: -8px;
-    right: 20px;
+    bottom: -10px;
+    right: 25px;
     width: 0;
     height: 0;
     border-style: solid;
-    border-width: 8px 8px 0 8px;
+    border-width: 10px 10px 0 10px;
     border-color: white transparent transparent transparent;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
 @keyframes fadeInBubble {
