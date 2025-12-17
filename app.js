@@ -1,15 +1,16 @@
 /* === ALMA KIDS LOGIC 2025 === */
 
-// CATÁLOGO COMPLETO DE PRODUCTOS
+// CATÁLOGO COMPLETO DE PRODUCTOS - ACTUALIZADO SEGÚN PDF
 const PRODUCTOS = [
+    // ========== SETS / PACKS TODO INCLUIDO ==========
     {
         id: 'set-alma-magic',
-        name: 'Pack ALMA MAGIC',
-        price: 192000,
+        name: 'SET "MÁXIMO" Todo Incluido',
+        price: 150000,
         image: 'imagenes/Pack-alma-magic.webp',
         badge: '🏆 TOP 1',
-        desc: 'SET "Alma Magic" Todo Incluido. La experiencia definitiva con 12 componentes premium para tu evento.',
-        descCompleta: `SET "Alma Magic" Todo Incluido - La experiencia definitiva para tu evento:
+        desc: 'SET "MÁXIMO" Todo Incluido. La experiencia definitiva con 12 componentes premium para tu evento.',
+        descCompleta: `SET "MÁXIMO" Todo Incluido - La experiencia definitiva para tu evento:
 
 1. Castillo Inflable "ROSA" o "PEQUE", con Piscina incluida.
    L x A x H: 2.8 m x 2.53 m x 2.30 m.
@@ -37,43 +38,84 @@ const PRODUCTOS = [
 
 12. Montaje y retiro de los juegos.
 
-Todo esto por 4 horas de diversión intensa. Requiere espacio de 4x3.5m. Precio: $192.000`,
-        features: ['4 horas de uso', 'Espacio: 4x3.5m', '12 componentes incluidos', 'Montaje y retiro incluido']
+Todo esto por 4 horas de diversión intensa. Requiere espacio mínimo de 3.5m x 2.5m. Precio: $150.000`,
+        features: ['4 horas de uso', 'Espacio: 3.5m x 2.5m', '12 componentes incluidos', 'Montaje y retiro incluido']
     },
     {
         id: 'set-active',
-        name: 'Pack ALMA ACTIVE',
-        price: 115000,
+        name: 'SET "ALMA ACTIVE"',
+        price: 130000,
         image: 'imagenes/set-active.svg',
         badge: '🔥 POPULAR',
-        desc: 'Plaza Blanda 3x3 m + Motricidad extra + Tipi decorativo. Ideal para espacios medianos y niños activos.',
-        descCompleta: `Diversión activa garantizada. Este pack incluye:
+        desc: 'Castillo + Piscina + Motricidad + Saltarines + Accesorios. Ideal para espacios medianos y niños activos.',
+        descCompleta: `SET "ALMA ACTIVE" - Diversión activa garantizada:
 
-• Plaza Blanda 3x3 m ($55.000) - Zona de juego amplia y segura
-• Set de Motricidad extra ($25.000) - Desarrollo motor completo
-• Carpa Tipi decorativo ($15.000) - Rincón mágico para descansar
-• Precio normal: $130.000
-• Ahorro total: $15.000 (15% descuento)
-• Precio final: $115.000
+1. Piscina blanca espuma de pelotas Largo x Ancho x Altura 1.50 m × 1.50 m × 0.40 m
+2. SET Motricidad: Escala + túnel + cuña
+3. Saltarín unicornio
+4. Saltarín caballo café
+5. Castillo Inflable "PEQUE" o "ROSA" (con piscina integrada)
+6. Alfombra Tatami
+7. Rincón zapatero
+8. Montaje y retiro de los juegos
 
-Ideal para niños de 1 a 6 años. 4 horas de uso continuo. Requiere espacio de 3.5x2.5m. Instalación profesional incluida.`,
-        features: ['4 horas de uso', 'Espacio: 3.5x2.5m', 'Ideal 1-6 años', 'Ahorro: $15.000']
+Ideal para niños de 1 a 6 años. 4 horas de uso continuo. Requiere espacio de 3.5x2.5m. Precio: $130.000`,
+        features: ['4 horas de uso', 'Espacio: 3.5x2.5m', 'Ideal 1-6 años', '8 componentes incluidos']
     },
     {
         id: 'set-mini-play',
-        name: 'Pack ALMA MINI PLAY',
-        price: 85000,
+        name: 'PACK "ALMA MINI PLAY"',
+        price: 90000,
         image: 'imagenes/set-alma-mini-play.svg',
         badge: '👶 BEBÉS',
-        desc: 'Plaza Blanda básica (2x2 m) + Piscina de pelotas. Ideal espacios reducidos. Perfecto para los más pequeños.',
-        descCompleta: `Pack diseñado especialmente para los más pequeños y espacios reducidos. Incluye:
+        desc: 'Motricidad + Piscina + Accesorios. Ideal espacios reducidos. Perfecto para los más pequeños.',
+        descCompleta: `PACK "ALMA MINI PLAY" - Pack diseñado especialmente para los más pequeños:
 
-• Plaza Blanda básica 2x2 m ($35.000) - Zona de juego segura
-• Piscina de pelotas ($50.000) - Diversión y seguridad
-• Precio total: $85.000
+1. SET Motricidad: Escala + túnel + cuña
+2. Piscina blanca espuma de pelotas Largo x Ancho x Altura 1.50 m x 1.50 m x 0.40 m
+3. Alfombra Tatami
+4. Rincón zapatero
+5. Cojines (01 und), (02 a elección)
+6. Alfombra (01 und), color elección (Celeste, Gris y Rosa)
+7. Montaje y retiro de los juegos
 
-Perfecto para bebés desde 6 meses. 4 horas de uso. Requiere solo 2.5x2.5m de espacio. Ideal para interiores.`,
-        features: ['4 horas de uso', 'Espacio: 2.5x2.5m', 'Ideal bebés', 'Precio especial']
+Perfecto para bebés desde 6 meses. 4 horas de uso. Requiere solo 2.5x2.5m de espacio. Precio: $90.000`,
+        features: ['4 horas de uso', 'Espacio: 2.5x2.5m', 'Ideal bebés', '7 componentes incluidos']
+    },
+    {
+        id: 'set-alma-plus',
+        name: 'SET "Alma Plus"',
+        price: 80000,
+        image: 'imagenes/piscina-pelota-celeste.svg',
+        badge: '💫 PLUS',
+        desc: 'Piscina + Accesorios. Ideal para complementar tu evento con elementos básicos.',
+        descCompleta: `SET "Alma Plus" - Pack básico con piscina y accesorios:
+
+1. Piscina blanca espuma de pelotas Largo x Ancho x Altura 1.50 m x 1.50 m x 0.40 m
+2. Alfombra Tatami
+3. Rincón zapatero
+4. Montaje y retiro de los juegos
+
+Ideal para eventos pequeños o como complemento. 4 horas de uso. Requiere espacio de 2m x 2m. Precio: $80.000`,
+        features: ['4 horas de uso', 'Espacio: 2x2m', '4 componentes incluidos', 'Precio accesible']
+    },
+    {
+        id: 'set-alma-party',
+        name: 'SET "Alma Party"',
+        price: 110000,
+        image: 'imagenes/castillo-inflale-rosa.svg',
+        badge: '🎉 PARTY',
+        desc: 'Castillo Rosa + Motricidad + Accesorios. Perfecto para fiestas temáticas.',
+        descCompleta: `SET "Alma Party" - Pack para fiestas temáticas:
+
+1. Castillo Inflable "Rosa", Largo x Ancho x Altura 2.8 m x 2.53 m x 2.30 m
+2. SET Motricidad: Escala + túnel + cuña
+3. Alfombra Tatami
+4. Rincón zapatero
+5. Montaje y retiro de los juegos
+
+Perfecto para cumpleaños temáticos. 4 horas de uso. Requiere espacio de 2.5m x 2.5m. Precio: $110.000`,
+        features: ['4 horas de uso', 'Espacio: 2.5x2.5m', '5 componentes incluidos', 'Temático']
     },
     {
         id: 'castillo-grand-peque',
@@ -135,8 +177,8 @@ Perfecto para cualquier temática. Los colores neutros hacen que se adapte a cua
     {
         id: 'piscina-pelotas',
         name: 'Piscina de Pelotas',
-        price: 50000,
-        image: 'imagenes/piscina-pelota-celeste.svg',
+        price: 60000,
+        image: 'imagenes/Nuestra Plaza blanda/Plaza-Blanda-Pelotas-Azules.png',
         badge: '👶 SEGURO',
         desc: 'Piscina de espuma segura. Incluye 2 colores de pelotas base. Ideal para los más pequeños.',
         descCompleta: `Piscina de espuma segura diseñada especialmente para los más pequeños. Máxima seguridad y diversión.
@@ -148,7 +190,7 @@ Perfecto para cualquier temática. Los colores neutros hacen que se adapte a cua
 • Colores disponibles: Blanco, Rosa, Celeste, Amarillo
 • Edad recomendada: Desde 6 meses
 
-Ideal para bebés y niños pequeños. El material de espuma garantiza seguridad total. Perfecto para interiores y exteriores.`,
+Ideal para bebés y niños pequeños. El material de espuma garantiza seguridad total. Perfecto para interiores y exteriores. Precio: $60.000`,
         features: ['Medidas: 1.5x1.5m', 'Incluye Tatami', 'Colores a elección', 'Seguro 6 meses+']
     },
     {
@@ -174,7 +216,7 @@ Transforma cualquier momento en algo mágico. Las burbujas hacen que las fotos s
         id: 'carpa-tipi',
         name: 'Carpa Tipi',
         price: 15000,
-        image: 'Servicios adicionales/carpa-tipi.jpg',
+        image: 'Servicios adicionales/carpa-tipi.webp',
         badge: '🏕️ RINCÓN',
         desc: 'Rincón de descanso o lectura aesthetic. Altura 160cm, incluye alfombra. Perfecta para crear espacios mágicos.',
         descCompleta: `Crea un rincón mágico para descansar, leer o jugar. Diseño aesthetic que hace que cualquier espacio se vea increíble.
@@ -186,8 +228,144 @@ Transforma cualquier momento en algo mágico. Las burbujas hacen que las fotos s
 • Uso: Interior y exterior (con protección)
 • Capacidad: 2-3 niños cómodamente
 
-Perfecta para crear espacios de descanso, lectura o juego tranquilo. El diseño aesthetic hace que las fotos se vean hermosas.`,
-        features: ['Altura 160cm', 'Incluye alfombra', 'Materiales premium', 'Diseño aesthetic']
+Perfecta para crear espacios de descanso, lectura o juego tranquilo. El diseño aesthetic hace que las fotos se vean hermosas. 3 horas de uso. Precio: $15.000`,
+        features: ['Altura 160cm', 'Incluye alfombra', 'Materiales premium', 'Diseño aesthetic', '3 horas de uso']
+    },
+    // ========== PRODUCTOS INDIVIDUALES ==========
+    {
+        id: 'set-motricidad',
+        name: 'SET Motricidad',
+        price: 25000,
+        image: 'imagenes/otros-servicios.webp',
+        badge: '🧠 DESARROLLO',
+        desc: 'Escala + túnel + cuña. Ideal para desarrollo motor y coordinación. Perfecto para complementar cualquier evento.',
+        descCompleta: `SET Motricidad - Desarrollo motor completo:
+
+• Escala de motricidad
+• Túnel de gateo
+• Cuña de equilibrio
+
+Ideal para desarrollo motor, coordinación y equilibrio. Perfecto para complementar cualquier evento. 4 horas de uso. Precio: $25.000`,
+        features: ['Escala + túnel + cuña', 'Desarrollo motor', '4 horas de uso', 'Complemento ideal']
+    },
+    {
+        id: 'saltarin-unicornio',
+        name: 'Saltarín Unicornio',
+        price: 15000,
+        image: 'Servicios adicionales/Inflable-experiencia-saltarin-de-eluche-carestino-18m.webp',
+        badge: '🦄 MÁGICO',
+        desc: 'Saltarín inflable en forma de unicornio. Divertido y seguro para los más pequeños.',
+        descCompleta: `Saltarín Unicornio - Diversión mágica:
+
+• Diseño: Unicornio inflable
+• Uso: Interior y exterior
+• Edad: Desde 18 meses
+• Capacidad: Hasta 20 kg
+
+Perfecto para fiestas temáticas de unicornios. Divertido y seguro. 3 horas de uso. Precio: $15.000`,
+        features: ['Diseño unicornio', 'Desde 18 meses', 'Hasta 20 kg', '3 horas de uso']
+    },
+    {
+        id: 'saltarin-caballo',
+        name: 'Saltarín Caballo Café',
+        price: 15000,
+        image: 'Servicios adicionales/Inflable-saltarin-de-eluche-carestino-18m.webp',
+        badge: '🐴 AVENTURA',
+        desc: 'Saltarín inflable en forma de caballo café. Ideal para niños activos y aventureros.',
+        descCompleta: `Saltarín Caballo Café - Aventura garantizada:
+
+• Diseño: Caballo café inflable
+• Uso: Interior y exterior
+• Edad: Desde 18 meses
+• Capacidad: Hasta 20 kg
+
+Perfecto para niños activos. Divertido y seguro. 3 horas de uso. Precio: $15.000`,
+        features: ['Diseño caballo', 'Desde 18 meses', 'Hasta 20 kg', '3 horas de uso']
+    },
+    {
+        id: 'liquido-1l',
+        name: 'Líquido Burbujas 1L',
+        price: 5000,
+        image: 'imagenes/Maquina-burbuja-.png',
+        badge: '💧 EXTRA',
+        desc: 'Líquido adicional para máquina de burbujas. Botella de 1 litro. Perfecto para eventos largos.',
+        descCompleta: `Líquido Burbujas 1L - Recarga adicional:
+        
+• Capacidad: 1 litro
+• Compatible: Máquina de burbujas ALMA Kids
+• Uso: Recarga para eventos largos
+• Material: No tóxico, seguro para niños
+
+Ideal para extender la diversión con más burbujas. Precio: $5.000`,
+        features: ['1 litro', 'No tóxico', 'Recarga adicional', 'Seguro']
+    },
+    {
+        id: 'alfombra-tatami',
+        name: 'Alfombra Tatami',
+        price: 10000,
+        image: 'imagenes/Piso-goma-tatami-rosa-blanco.png',
+        badge: '🛡️ SEGURIDAD',
+        desc: 'Alfombra de seguridad Tatami. Colores disponibles: Rosa/Blanco o Beige/Gris.',
+        descCompleta: `Alfombra Tatami - Seguridad y comodidad:
+
+• Material: Goma EVA de alta densidad
+• Colores: Rosa/Blanco o Beige/Gris
+• Uso: Protección y comodidad
+• Fácil limpieza
+
+Ideal para proteger y dar comodidad en cualquier espacio de juego. Precio: $10.000`,
+        features: ['Material EVA', 'Colores disponibles', 'Fácil limpieza', 'Protección']
+    },
+    {
+        id: 'cojines',
+        name: 'Cojines Decorativos',
+        price: 5000,
+        image: 'imagenes/cojin-corazon.jpg',
+        badge: '🪑 DECORACIÓN',
+        desc: 'Cojines decorativos. 01 unidad base, 02 adicionales a elección. Perfectos para decoración y comodidad.',
+        descCompleta: `Cojines Decorativos - Estilo y comodidad:
+
+• Incluye: 01 unidad base
+• Adicionales: 02 a elección
+• Diseños: Varios disponibles
+• Uso: Decoración y comodidad
+
+Perfectos para complementar la decoración de tu evento. Precio: $5.000 (unidad base)`,
+        features: ['01 unidad base', '02 adicionales', 'Varios diseños', 'Decoración']
+    },
+    {
+        id: 'alfombra-decorativa',
+        name: 'Alfombra Decorativa',
+        price: 8000,
+        image: 'imagenes/tatami-rosa.jpg',
+        badge: '🎨 ESTILO',
+        desc: 'Alfombra decorativa. Colores disponibles: Celeste, Gris y Rosa. Perfecta para crear ambientes aesthetic.',
+        descCompleta: `Alfombra Decorativa - Estilo aesthetic:
+
+• Colores: Celeste, Gris y Rosa
+• Material: Suave y cómodo
+• Uso: Decoración y comodidad
+• Fácil limpieza
+
+Perfecta para crear ambientes aesthetic en tu evento. Precio: $8.000`,
+        features: ['3 colores disponibles', 'Material suave', 'Fácil limpieza', 'Estilo aesthetic']
+    },
+    {
+        id: 'rincon-zapatero',
+        name: 'Rincón Zapatero',
+        price: 5000,
+        image: 'imagenes/otros-servicios.webp',
+        badge: '👟 ORGANIZACIÓN',
+        desc: 'Rincón zapatero para mantener el orden. Ideal para organizar zapatos y mantener el espacio limpio.',
+        descCompleta: `Rincón Zapatero - Organización perfecta:
+
+• Función: Organización de zapatos
+• Material: Resistente y fácil limpieza
+• Uso: Mantener orden en el evento
+• Tamaño: Compacto
+
+Ideal para mantener el orden y la organización durante tu evento. Precio: $5.000`,
+        features: ['Organización', 'Fácil limpieza', 'Compacto', 'Práctico']
     }
 ];
 
@@ -218,7 +396,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <i class="fa-solid fa-info-circle"></i> Ver descripción completa
                 </button>
                 <div class="price">$${p.price.toLocaleString('es-CL')}</div>
-                <a href="https://wa.me/56969073306?text=${encodeURIComponent(`Hola ALMA Kids! 👋\n\nMe interesa cotizar:\n\n${p.name}\nPrecio: $${p.price.toLocaleString('es-CL')}\n\nGracias!`)}" target="_blank" rel="noopener noreferrer" class="btn-add">
+                <a href="https://wa.me/56969073306?text=${encodeURIComponent(`💖 *¡Hola ALMA Kids!* 💖\n\n✨ Me encantaría cotizar el siguiente producto:\n\n🎈 *${p.name}*\n💝 Precio: *$${p.price.toLocaleString('es-CL')}*\n\n🌸 ¿Podrían ayudarme con disponibilidad y más información?\n\n💕 ¡Muchas gracias! 💕`)}" target="_blank" rel="noopener noreferrer" class="btn-add">
                     <i class="fa-brands fa-whatsapp"></i> Cotizar por WhatsApp
                 </a>
             </div>
@@ -273,15 +451,18 @@ function sendForm(e) {
         return;
     }
     
-    let msg = `Hola ALMA Kids! 👋\n\n`;
-    msg += `Mi nombre es: *${nombre}*\n`;
-    msg += `Fecha del evento: *${fecha}*\n\n`;
+    let msg = `💖 *¡Hola ALMA Kids!* 💖\n\n`;
+    msg += `✨ Me gustaría solicitar información y cotización para mi evento:\n\n`;
+    msg += `👤 *Nombre:* ${nombre}\n`;
+    msg += `📅 *Fecha del evento:* ${fecha}\n\n`;
     
     if (mensaje) {
-        msg += `Mensaje:\n${mensaje}\n\n`;
+        msg += `💬 *Mensaje adicional:*\n${mensaje}\n\n`;
     }
     
-    msg += `Me gustaría cotizar disponibilidad y precios para esta fecha.\n\nGracias! 🙏`;
+    msg += `🌸 ¿Podrían ayudarme con disponibilidad y precios para esta fecha?\n\n`;
+    msg += `💕 ¡Quedo atento a su respuesta! 💕\n\n`;
+    msg += `_Gracias por su atención_ ✨`;
     
     window.open(`https://wa.me/56969073306?text=${encodeURIComponent(msg)}`, '_blank');
 }
@@ -424,7 +605,7 @@ function verDetallesCompletos(productId) {
                 ` : ''}
             </div>
             <div class="details-footer">
-                <a href="https://wa.me/56969073306?text=${encodeURIComponent(`Hola ALMA Kids! 👋\n\nMe interesa cotizar:\n\n${producto.name}\nPrecio: $${producto.price.toLocaleString('es-CL')}\n\nGracias!`)}" target="_blank" class="btn-add-large" onclick="closeDetailsModal();">
+                <a href="https://wa.me/56969073306?text=${encodeURIComponent(`💖 *¡Hola ALMA Kids!* 💖\n\n✨ Me encantaría cotizar el siguiente producto:\n\n🎈 *${producto.name}*\n💝 Precio: *$${producto.price.toLocaleString('es-CL')}*\n\n${producto.desc ? `📝 *Descripción:*\n${producto.desc}\n\n` : ''}🌸 ¿Podrían ayudarme con disponibilidad y más información?\n\n💕 ¡Muchas gracias! 💕`)}" target="_blank" class="btn-add-large" onclick="closeDetailsModal();">
                     <i class="fa-brands fa-whatsapp"></i> Cotizar por WhatsApp
                 </a>
             </div>
