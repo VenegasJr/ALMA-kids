@@ -529,6 +529,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initWhatsAppFloat();
     initPDFGallery();
     initWhatsAppStatus();
+    initScrollToTop();
 });
 
 // ZOOM DE IMÁGENES
@@ -815,6 +816,29 @@ function openFacebook(e) {
     } catch (error) {
         console.error('Error al validar URL de Facebook:', error);
     }
+}
+
+// INICIALIZAR BOTÓN SCROLL TO TOP
+function initScrollToTop() {
+    const scrollBtn = document.getElementById('scrollToTop');
+    if (!scrollBtn) return;
+    
+    // Mostrar/ocultar botón según scroll
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            scrollBtn.classList.add('show');
+        } else {
+            scrollBtn.classList.remove('show');
+        }
+    });
+    
+    // Scroll suave al hacer clic
+    scrollBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
 }
 
 // Funciones globales para exponer de forma segura
