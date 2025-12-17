@@ -2790,7 +2790,7 @@ footer {
 
 /* CATÁLOGO CANVA EMBEBIDO */
 .catalogo-canva-section {
-    padding: 80px 0;
+    padding: 60px 0;
     background: linear-gradient(135deg, #FFF5F5 0%, #F0F8FF 100%);
     position: relative;
     overflow: hidden;
@@ -2845,13 +2845,13 @@ footer {
 .canva-embed-container {
     position: relative;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
     background: white;
     border-radius: 20px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    padding: 20px;
+    padding: 15px;
 }
 
 .canva-embed-container > div {
@@ -2916,6 +2916,33 @@ footer {
 
 .placeholder-instructions strong {
     color: #FF6B9D;
+}
+
+/* OCULTAR BOTONES FLOTANTES MÓVILES DEBAJO DEL FOOTER */
+.mobile-float-buttons {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* Asegurar que los botones flotantes no aparezcan debajo del footer */
+footer {
+    position: relative;
+    z-index: 1;
+}
+
+.whatsapp-float,
+.scroll-to-top {
+    position: fixed !important;
+    z-index: 1999 !important;
+}
+
+/* Ocultar botones flotantes cuando están cerca del footer */
+@media (min-width: 769px) {
+    .mobile-float-buttons {
+        display: none !important;
+    }
 }
 
 /* Responsive para Catálogo Canva */
