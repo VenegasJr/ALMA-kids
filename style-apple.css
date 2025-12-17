@@ -2787,3 +2787,213 @@ footer {
         padding: 60px 0;
     }
 }
+
+/* CATÁLOGO CANVA EMBEBIDO */
+.catalogo-canva-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #FFF5F5 0%, #F0F8FF 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.catalogo-canva-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="%23FFB6C1" opacity="0.1"/></svg>');
+    pointer-events: none;
+}
+
+.catalogo-header {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+.catalogo-update-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #FFB6C1, #FFC0CB);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 15px;
+    box-shadow: 0 4px 15px rgba(255, 182, 193, 0.3);
+    animation: pulse-badge 2s ease-in-out infinite;
+}
+
+.catalogo-update-badge i {
+    animation: rotate-icon 2s linear infinite;
+}
+
+@keyframes rotate-icon {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.canva-embed-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 20px;
+}
+
+.canva-embed-container > div {
+    border-radius: 15px !important;
+    overflow: hidden !important;
+}
+
+.canva-embed-container iframe {
+    border-radius: 15px !important;
+}
+
+.canva-link {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: #999;
+    font-size: 12px;
+    text-decoration: none;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.canva-link:hover {
+    opacity: 1;
+}
+
+/* Placeholder mientras se agrega el código de Canva */
+.canva-placeholder {
+    padding: 60px 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #FFF5F5, #F0F8FF);
+    border-radius: 15px;
+    border: 3px dashed #FFB6C1;
+}
+
+.canva-placeholder i {
+    font-size: 64px;
+    color: #FFB6C1;
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+.canva-placeholder p {
+    color: #666;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.placeholder-instructions {
+    margin-top: 30px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    text-align: left;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #555;
+}
+
+.placeholder-instructions strong {
+    color: #FF6B9D;
+}
+
+/* Responsive para Catálogo Canva */
+@media(max-width: 768px) {
+    .catalogo-canva-section {
+        padding: 60px 0;
+    }
+    
+    .canva-embed-container {
+        padding: 15px;
+        border-radius: 15px;
+    }
+    
+    .canva-embed-container > div {
+        border-radius: 10px !important;
+    }
+    
+    .canva-embed-container iframe {
+        border-radius: 10px !important;
+    }
+    
+    .catalogo-update-badge {
+        font-size: 12px;
+        padding: 6px 16px;
+    }
+    
+    .canva-placeholder {
+        padding: 40px 15px;
+    }
+    
+    .canva-placeholder i {
+        font-size: 48px;
+    }
+    
+    .canva-placeholder p {
+        font-size: 16px;
+    }
+    
+    .placeholder-instructions {
+        font-size: 13px;
+        padding: 15px;
+    }
+}
+
+@media(max-width: 480px) {
+    .canva-embed-container {
+        padding: 10px;
+    }
+    
+    .canva-embed-container > div {
+        border-radius: 8px !important;
+    }
+    
+    .canva-embed-container iframe {
+        border-radius: 8px !important;
+    }
+    
+    .catalogo-update-badge {
+        font-size: 11px;
+        padding: 5px 12px;
+    }
+    
+    .canva-placeholder {
+        padding: 30px 10px;
+    }
+    
+    .canva-placeholder i {
+        font-size: 40px;
+    }
+    
+    .placeholder-instructions {
+        font-size: 12px;
+        padding: 12px;
+    }
+}
+
+@media(max-width: 375px) {
+    .canva-embed-container iframe {
+        height: 450px;
+    }
+}
