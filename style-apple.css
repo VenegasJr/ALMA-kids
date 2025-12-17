@@ -2355,60 +2355,62 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 12px;
+    gap: 16px;
 }
 
 .whatsapp-btn {
-    width: 60px;
-    height: 60px;
-    background: #25D366;
+    width: 85px;
+    height: 85px;
+    background: linear-gradient(135deg, #25D366, #20BA5A);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
-    font-size: 28px;
-    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.5);
-    transition: all 0.3s ease;
+    font-size: 42px;
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6), 0 0 0 0 rgba(37, 211, 102, 0.4);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     text-decoration: none;
-    border: 3px solid white;
+    border: 4px solid white;
+    animation: pulse-whatsapp 2s ease-in-out infinite;
 }
 
 .whatsapp-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.7);
-    background: #20BA5A;
+    transform: scale(1.1);
+    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.8), 0 0 0 8px rgba(37, 211, 102, 0.2);
+    background: linear-gradient(135deg, #20BA5A, #1DA851);
 }
 
-/* Burbuja de texto arriba del botón - Estilo profesional como referencia */
+/* Burbuja de texto arriba del botón - Estilo profesional mejorado */
 .whatsapp-bubble {
     position: relative;
-    background: white;
-    color: #333;
-    padding: 12px 18px;
-    border-radius: 25px;
-    font-size: 15px;
-    font-weight: 600;
-    white-space: nowrap;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #ffffff, #f8f9fa);
+    color: #25D366;
+    padding: 18px 26px;
+    border-radius: 30px;
+    font-size: 17px;
+    font-weight: 700;
+    white-space: normal;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25), 0 2px 10px rgba(37, 211, 102, 0.15);
     animation: fadeInBubble 0.5s ease forwards, float-bubble 3s ease-in-out infinite 0.5s;
-    max-width: 220px;
+    max-width: 280px;
     text-align: center;
-    letter-spacing: 0.3px;
-    line-height: 1.4;
+    letter-spacing: 0.5px;
+    line-height: 1.6;
+    border: 2px solid rgba(37, 211, 102, 0.1);
 }
 
 .whatsapp-bubble::after {
     content: '';
     position: absolute;
-    bottom: -10px;
-    right: 25px;
+    bottom: -12px;
+    right: 30px;
     width: 0;
     height: 0;
     border-style: solid;
-    border-width: 10px 10px 0 10px;
-    border-color: white transparent transparent transparent;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    border-width: 12px 12px 0 12px;
+    border-color: #ffffff transparent transparent transparent;
+    filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.15));
 }
 
 @keyframes fadeInBubble {
@@ -2436,24 +2438,29 @@ footer {
     .whatsapp-float {
         bottom: 80px;
         right: 15px;
+        gap: 14px;
     }
     
     .whatsapp-btn {
-        width: 65px;
-        height: 65px;
-        font-size: 32px;
+        width: 80px;
+        height: 80px;
+        font-size: 38px;
+        border: 3px solid white;
     }
     
     .whatsapp-bubble {
-        font-size: 13px;
-        padding: 10px 15px;
-        max-width: 200px;
+        font-size: 15px;
+        padding: 14px 20px;
+        max-width: 240px;
         white-space: normal;
         text-align: center;
+        border-radius: 25px;
     }
     
     .whatsapp-bubble::after {
-        right: 15px;
+        right: 25px;
+        bottom: -10px;
+        border-width: 10px 10px 0 10px;
     }
 }
 
@@ -2495,10 +2502,10 @@ footer {
 
 @keyframes pulse-whatsapp {
     0%, 100% {
-        box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+        box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6), 0 0 0 0 rgba(37, 211, 102, 0.4);
     }
     50% {
-        box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4), 0 0 0 10px rgba(37, 211, 102, 0.1);
+        box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6), 0 0 0 12px rgba(37, 211, 102, 0.1);
     }
 }
 
