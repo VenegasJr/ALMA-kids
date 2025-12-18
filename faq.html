@@ -97,15 +97,12 @@
         <div class="header-content">
             <!-- Logo -->
             <a class="navbar-brand" href="index.html">
-                <img src="imagenes/logo-alma-kids-oficial.png" alt="AlmaKids" class="logo-header">
+                <img src="imagenes/logo-navideño.png" alt="AlmaKids" class="logo-header">
             </a>
             
                 <!-- Navigation -->
         <nav class="nav">
                     <a class='nav-link' href='index.html#inicio'>Inicio</a>
-                    <a class='nav-link' href='eventos.html'>Eventos</a>
-                    <a class='nav-link' href='castillos-inflables.html'>Castillos Inflables</a>
-                    <a class='nav-link' href='servicios-adicionales.html'>Servicios Adicionales</a>
                     <a class='nav-link active' href='faq.html'>FAQ</a>
                     
                     <a class='nav-link' href='index.html#contacto'>Contacto</a>
@@ -115,24 +112,24 @@
                 <div class="mobile-icons-container">
                     <!-- Search Button -->
                     <button class="btn btn-search" onclick="toggleSearch()" title="Buscar">
-                        <i class="fas fa-search"></i>
-                    </button>
-                    
-                    <!-- Mobile Menu Toggle -->
+                    <i class="fas fa-search"></i>
+                </button>
+            
+                <!-- Mobile Menu Toggle -->
                     <button class="mobile-menu-toggle navbar-toggler" onclick="toggleMobileMenu()" type="button" aria-label="Toggle navigation" title="Menú">
                         <span class="navbar-toggler-icon">
-                            <span></span>
-                            <span></span>
-                            <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
                         </span>
-                    </button>
+            </button>
                 </div>
-                    
-                    <!-- Search Input (hidden by default) -->
-                    <div class="search-container" id="searchContainer">
-                        <input type="text" id="searchInput" placeholder="Buscar en ALMA Kids..." onkeyup="performSearch()">
-                        <div class="search-results" id="searchResults"></div>
-                    </div>
+                
+                <!-- Search Input (hidden by default) -->
+                <div class="search-container" id="searchContainer">
+                    <input type="text" id="searchInput" placeholder="Buscar en ALMA Kids..." onkeyup="performSearch()">
+                    <div class="search-results" id="searchResults"></div>
+                </div>
             </div>
         </div>
         
@@ -143,51 +140,13 @@
             </button>
             <nav class="mobile-nav">
                 <a class='mobile-link' href='index.html#inicio' onclick='closeMobileMenu()'>Inicio</a>
-                <a class='mobile-link' href='eventos.html' onclick='closeMobileMenu()'>Eventos</a>
-                <a class='mobile-link' href='castillos-inflables.html' onclick='closeMobileMenu()'>Castillos Inflables</a>
-                <a class='mobile-link' href='servicios-adicionales.html' onclick='closeMobileMenu()'>Servicios Adicionales</a>
                 <a class='mobile-link active' href='faq.html' onclick='closeMobileMenu()'>FAQ</a>
                 
                 <a class='mobile-link' href='index.html#contacto' onclick='closeMobileMenu()'>Contacto</a>
             </nav>
-                    </div>
-</header>
-
-    <section class="silo-navigation" aria-label="Explora nuestros servicios principales">
-        <div class="container">
-            <span class="section-label">Descubre ALMA Kids</span>
-            <div class="silo-grid">
-                <a class="silo-card" href="castillos-inflables.html">
-                    <div class="silo-icon">🏰</div>
-                    <h3>Juegos Inflables Premium</h3>
-                    <p>Arriendo de juegos inflables pastel, saltarines seguros y castillos inflables para fiestas infantiles elegantes.</p>
-                    <p class="silo-keywords">arriendo de juegos inflables · arriendo de castillos inflables · juegos para niños elegantes</p>
-                    <span class="silo-link">Ver castillos <i class="fas fa-arrow-right"></i></span>
-                </a>
-                <a class="silo-card" href="index.html#plaza-blanda">
-                    <div class="silo-icon">🎠</div>
-                    <h3>Plaza Blanda & Mobiliario</h3>
-                    <p>Plaza blanda estética pastel, mobiliario infantil y piscina de pelotas para crear ambientaciones delicadas.</p>
-                    <p class="silo-keywords">arriendo de plaza blanda · decoración infantil color pastel · juegos suaves y seguros</p>
-                    <span class="silo-link">Explorar plaza blanda <i class="fas fa-arrow-right"></i></span>
-                </a>
-                <a class="silo-card" href="servicios-adicionales.html">
-                    <div class="silo-icon">🎉</div>
-                    <h3>Servicios & Experiencias</h3>
-                    <p>Animación y juegos infantiles, packs todo incluido y producción de eventos con espuma y máquina de burbujas.</p>
-                    <p class="silo-keywords">animación infantil Machalí · arriendo de espuma para fiestas · packs todo incluido</p>
-                    <span class="silo-link">Ver extras <i class="fas fa-arrow-right"></i></span>
-                </a>
-                <a class="silo-card" href="index.html#contacto">
-                    <div class="silo-icon">📍</div>
-                    <h3>Cobertura & Reservas</h3>
-                    <p>Fiestas infantiles Machalí y Rancagua, arriendo de juegos infantiles en la región de O’Higgins y asesoría directa.</p>
-                    <p class="silo-keywords">entretenciones infantiles Rancagua · arriendo juegos infantiles O’Higgins · fiestas infantiles Machalí</p>
-                    <span class="silo-link">Reservar fecha <i class="fas fa-arrow-right"></i></span>
-                </a>
-            </div>
         </div>
-    </section>
+    </header>
+
 
     <!-- Floating Navigation Buttons (Mobile) -->
     <!-- FAQ Hero Section -->
@@ -492,13 +451,10 @@
                     <h4>Enlaces Rápidos</h4>
                     <ul>
                         <li><a href='index.html#inicio'>Inicio</a></li>
-                        <li><a href='eventos.html'>Eventos</a></li>
-                        <li><a href='castillos-inflables.html'>Castillos Inflables</a></li>
-                        <li><a href='servicios-adicionales.html'>Servicios Adicionales</a></li>
                         <li><a href='faq.html'>FAQ</a></li>
                         <li><a href='index.html#contacto'>Contacto</a></li>
                     </ul>
-                </div>
+            </div>
                 
                 <div class="footer-contact">
                     <h4>Contacto</h4>
