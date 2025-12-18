@@ -6,13 +6,16 @@
 (function() {
     'use strict';
     
+    let fabInitialized = false;
+    let fabContainer = null;
+    
     // Crear el HTML del FAB
     function createFAB() {
-        const fabContainer = document.createElement('div');
-        fabContainer.className = 'fab-container';
-        fabContainer.id = 'fabContainer';
+        const container = document.createElement('div');
+        container.className = 'fab-container';
+        container.id = 'fabContainer';
         
-        fabContainer.innerHTML = `
+        container.innerHTML = `
             <!-- Mensaje de ayuda -->
             <div class="fab-help-message" id="fabHelpMessage">
                 ¿Te ayudo?
@@ -62,103 +65,153 @@
             <div class="fab-overlay" id="fabOverlay"></div>
         `;
         
-        return fabContainer;
+        return container;
     }
     
     // Inicializar el FAB
     function initFAB() {
+        // Evitar múltiples inicializaciones
+        if (fabInitialized) {
+            console.log('FAB ya inicializado, omitiendo...');
+            return;
+        }
+        
         // Remover completamente el botón de WhatsApp antiguo si existe
         const oldWhatsApp = document.querySelector('.whatsapp-float');
         if (oldWhatsApp) {
             oldWhatsApp.remove();
+            console.log('✅ Botón WhatsApp antiguo eliminado');
+        }
+        
+        // Verificar si ya existe un FAB
+        const existingFAB = document.getElementById('fabContainer');
+        if (existingFAB) {
+            existingFAB.remove();
+            console.log('✅ FAB existente eliminado, recreando...');
         }
         
         // Crear y agregar el nuevo FAB
-        const fabContainer = createFAB();
+        fabContainer = createFAB();
         document.body.appendChild(fabContainer);
+        console.log('✅ FAB creado y agregado al DOM');
         
-        // Elementos del FAB
-        const mainBtn = document.getElementById('fabMainBtn');
-        const actions = document.getElementById('fabActions');
-        const overlay = document.getElementById('fabOverlay');
-        const container = document.getElementById('fabContainer');
-        const helpMessage = document.getElementById('fabHelpMessage');
-        
-        // Toggle del menú
-        function toggleFAB() {
-            const isActive = container.classList.contains('active');
+        // Esperar un momento para que el DOM se actualice
+        setTimeout(() => {
+            // Elementos del FAB
+            const mainBtn = document.getElementById('fabMainBtn');
+            const actions = document.getElementById('fabActions');
+            const overlay = document.getElementById('fabOverlay');
+            const container = document.getElementById('fabContainer');
+            const helpMessage = document.getElementById('fabHelpMessage');
             
-            if (isActive) {
-                // Cerrar
-                container.classList.remove('active');
-                overlay.classList.remove('active');
-                const icon = mainBtn.querySelector('i');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-comments');
-            } else {
-                // Abrir
-                container.classList.add('active');
-                overlay.classList.add('active');
-                const icon = mainBtn.querySelector('i');
-                icon.classList.remove('fa-comments');
-                icon.classList.add('fa-times');
+            // Verificar que todos los elementos existan
+            if (!mainBtn || !actions || !overlay || !container) {
+                console.error('❌ Error: No se encontraron todos los elementos del FAB');
+                console.log('mainBtn:', mainBtn);
+                console.log('actions:', actions);
+                console.log('overlay:', overlay);
+                console.log('container:', container);
+                return;
             }
-        }
-        
-        // Event listeners
-        mainBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            toggleFAB();
-        });
-        
-        overlay.addEventListener('click', function() {
-            if (container.classList.contains('active')) {
-                toggleFAB();
-            }
-        });
-        
-        // Cerrar al hacer clic en cualquier botón de acción
-        const actionButtons = actions.querySelectorAll('.fab-action-btn');
-        actionButtons.forEach(btn => {
-            btn.addEventListener('click', function() {
-                // Cerrar el menú después de un pequeño delay para que se vea la acción
-                setTimeout(() => {
-                    if (container.classList.contains('active')) {
-                        toggleFAB();
+            
+            console.log('✅ Todos los elementos del FAB encontrados');
+            
+            // Toggle del menú
+            function toggleFAB() {
+                const isActive = container.classList.contains('active');
+                console.log('🔄 Toggle FAB - Estado actual:', isActive ? 'abierto' : 'cerrado');
+                
+                if (isActive) {
+                    // Cerrar
+                    container.classList.remove('active');
+                    overlay.classList.remove('active');
+                    const icon = mainBtn.querySelector('i');
+                    if (icon) {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-comments');
                     }
-                }, 300);
+                    console.log('✅ FAB cerrado');
+                } else {
+                    // Abrir
+                    container.classList.add('active');
+                    overlay.classList.add('active');
+                    const icon = mainBtn.querySelector('i');
+                    if (icon) {
+                        icon.classList.remove('fa-comments');
+                        icon.classList.add('fa-times');
+                    }
+                    console.log('✅ FAB abierto');
+                }
+            }
+            
+            // Event listeners
+            mainBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('🖱️ Click en botón principal FAB');
+                toggleFAB();
             });
-        });
-        
-        // Cerrar al hacer scroll (opcional)
-        let scrollTimeout;
-        window.addEventListener('scroll', function() {
-            if (container.classList.contains('active')) {
-                clearTimeout(scrollTimeout);
-                scrollTimeout = setTimeout(() => {
-                    if (container.classList.contains('active')) {
-                        toggleFAB();
-                    }
-                }, 100);
-            }
-        });
-        
-        // Cerrar con tecla Escape
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && container.classList.contains('active')) {
-                toggleFAB();
-            }
-        });
+            
+            overlay.addEventListener('click', function(e) {
+                e.stopPropagation();
+                if (container.classList.contains('active')) {
+                    console.log('🖱️ Click en overlay, cerrando FAB');
+                    toggleFAB();
+                }
+            });
+            
+            // Cerrar al hacer clic en cualquier botón de acción
+            const actionButtons = actions.querySelectorAll('.fab-action-btn');
+            console.log('✅ Botones de acción encontrados:', actionButtons.length);
+            actionButtons.forEach((btn, index) => {
+                btn.addEventListener('click', function(e) {
+                    console.log('🖱️ Click en botón de acción:', index);
+                    // Cerrar el menú después de un pequeño delay para que se vea la acción
+                    setTimeout(() => {
+                        if (container.classList.contains('active')) {
+                            toggleFAB();
+                        }
+                    }, 300);
+                });
+            });
+            
+            // Cerrar al hacer scroll (opcional)
+            let scrollTimeout;
+            window.addEventListener('scroll', function() {
+                if (container.classList.contains('active')) {
+                    clearTimeout(scrollTimeout);
+                    scrollTimeout = setTimeout(() => {
+                        if (container.classList.contains('active')) {
+                            toggleFAB();
+                        }
+                    }, 100);
+                }
+            });
+            
+            // Cerrar con tecla Escape
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && container.classList.contains('active')) {
+                    toggleFAB();
+                }
+            });
+            
+            fabInitialized = true;
+            console.log('✅ FAB completamente inicializado y funcional');
+        }, 100);
     }
     
     // Inicializar cuando el DOM esté listo
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initFAB);
-    } else {
-        initFAB();
+    function startFAB() {
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function() {
+                setTimeout(initFAB, 200);
+            });
+        } else {
+            setTimeout(initFAB, 200);
+        }
     }
     
-    // También inicializar después de un pequeño delay para asegurar que todo esté cargado
-    setTimeout(initFAB, 500);
+    // Iniciar
+    startFAB();
 })();
 
