@@ -21,17 +21,18 @@
 
 .hero-background-image {
     position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
+    top: -10% !important;
+    left: -10% !important;
+    width: 120% !important;
+    height: 120% !important;
     background-image: url('imagenes/Castillo-inflable-portadas.png') !important;
-    background-size: cover !important;
+    background-size: contain !important;
     background-position: center center !important;
     background-repeat: no-repeat !important;
     z-index: 0 !important;
-    opacity: 0.25 !important;
-    filter: blur(1px) brightness(1.15) saturate(1.1) !important;
+    opacity: 0.15 !important;
+    filter: blur(3px) brightness(1.2) saturate(0.9) !important;
+    transform: scale(1.1) !important;
 }
 
 /* ==================== OVERLAY TIPO VIDRIO (GLASSMORPHISM) ==================== */
@@ -42,9 +43,9 @@
     left: 0 !important;
     width: 100% !important;
     height: 100% !important;
-    background: rgba(255, 240, 245, 0.85) !important;
-    backdrop-filter: blur(8px) saturate(150%) !important;
-    -webkit-backdrop-filter: blur(8px) saturate(150%) !important;
+    background: rgba(255, 240, 245, 0.92) !important;
+    backdrop-filter: blur(5px) saturate(120%) !important;
+    -webkit-backdrop-filter: blur(5px) saturate(120%) !important;
     z-index: 1 !important;
     pointer-events: none !important;
 }
