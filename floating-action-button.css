@@ -8,11 +8,16 @@
     position: fixed;
     bottom: 30px;
     right: 30px;
-    z-index: 9999;
+    z-index: 99999 !important;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     gap: 15px;
+    pointer-events: none;
+}
+
+.fab-container * {
+    pointer-events: auto;
 }
 
 /* Mensaje de ayuda - Estilo blanco limpio como en las imágenes */
@@ -35,14 +40,16 @@
     line-height: 1.5;
     position: relative;
     border: none;
-    z-index: 1;
+    z-index: 100000 !important;
+    display: block !important;
 }
 
 .fab-container.active .fab-help-message {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0) scale(1);
-    pointer-events: auto;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) scale(1) !important;
+    pointer-events: auto !important;
+    display: block !important;
 }
 
 .fab-help-message::after {
@@ -59,24 +66,25 @@
 
 /* Botones de acción secundarios */
 .fab-actions {
-    display: flex;
+    display: flex !important;
     flex-direction: column;
     gap: 12px;
     align-items: flex-end;
     opacity: 0;
     visibility: hidden;
     transform: translateY(20px) scale(0.8);
-    pointer-events: none;
+    pointer-events: none !important;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
-    z-index: 1;
+    z-index: 100001 !important;
 }
 
 .fab-container.active .fab-actions {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0) scale(1);
-    pointer-events: auto;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) scale(1) !important;
+    pointer-events: auto !important;
+    display: flex !important;
 }
 
 .fab-action-btn {
@@ -84,18 +92,20 @@
     height: 50px;
     border-radius: 50%;
     border: none;
-    display: flex;
+    display: flex !important;
     align-items: center;
     justify-content: center;
     font-size: 20px;
     color: white;
-    cursor: pointer;
+    cursor: pointer !important;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     text-decoration: none;
-    z-index: 2;
+    z-index: 100002 !important;
     pointer-events: auto !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 .fab-action-btn:hover {
@@ -176,14 +186,15 @@
     background: #E91E63;
     color: white;
     font-size: 24px;
-    cursor: pointer;
+    cursor: pointer !important;
     box-shadow: 0 4px 15px rgba(233, 30, 99, 0.4);
-    display: flex;
+    display: flex !important;
     align-items: center;
     justify-content: center;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
-    z-index: 10;
+    z-index: 100003 !important;
+    pointer-events: auto !important;
 }
 
 .fab-main-btn:hover {
@@ -253,12 +264,20 @@
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
-    z-index: 9998;
+    z-index: 99998 !important;
 }
 
 .fab-overlay.active {
     opacity: 1;
     pointer-events: auto;
+}
+
+/* Asegurar que el overlay no bloquee los botones del FAB */
+.fab-overlay.active ~ .fab-help-message,
+.fab-overlay.active ~ .fab-actions,
+.fab-overlay.active ~ .fab-main-btn {
+    pointer-events: auto !important;
+    z-index: 99999 !important;
 }
 
 /* Responsive */
@@ -319,7 +338,7 @@
 
 /* Asegurar que no se superponga con otros elementos */
 .fab-container {
-    z-index: 9999 !important;
+    z-index: 99999 !important;
 }
 
 /* Compatibilidad con el botón de carrito y otros elementos flotantes */

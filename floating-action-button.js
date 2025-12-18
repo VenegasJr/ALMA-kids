@@ -13,9 +13,6 @@
         fabContainer.id = 'fabContainer';
         
         fabContainer.innerHTML = `
-            <!-- Overlay para cerrar -->
-            <div class="fab-overlay" id="fabOverlay"></div>
-            
             <!-- Mensaje de ayuda -->
             <div class="fab-help-message" id="fabHelpMessage">
                 ¿Te ayudo?
@@ -60,6 +57,9 @@
             <button class="fab-main-btn" id="fabMainBtn" aria-label="Abrir menú de contacto">
                 <i class="fas fa-comments"></i>
             </button>
+            
+            <!-- Overlay para cerrar al hacer clic fuera (al final para no bloquear) -->
+            <div class="fab-overlay" id="fabOverlay"></div>
         `;
         
         return fabContainer;
