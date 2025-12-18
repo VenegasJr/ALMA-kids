@@ -2,9 +2,10 @@
 
 /* ==================== MEJORAS GENERALES ==================== */
 
-/* Asegurar que todas las páginas tengan padding-top suficiente */
+/* Eliminar espacios innecesarios arriba del header */
 body {
-    padding-top: 80px;
+    padding-top: 0;
+    margin: 0;
 }
 
 /* Mejorar la visibilidad del logo */
@@ -245,7 +246,7 @@ body {
     }
     
     body {
-        padding-top: 70px;
+        padding-top: 0;
     }
 }
 
@@ -265,7 +266,7 @@ body {
     }
     
     body {
-        padding-top: 65px;
+        padding-top: 0;
     }
 }
 
