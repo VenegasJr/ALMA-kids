@@ -86,17 +86,22 @@
         
         // Toggle del menú
         function toggleFAB() {
-            container.classList.toggle('active');
-            overlay.classList.toggle('active');
+            const isActive = container.classList.contains('active');
             
-            // Cambiar icono del botón principal
-            const icon = mainBtn.querySelector('i');
-            if (container.classList.contains('active')) {
-                icon.classList.remove('fa-comments');
-                icon.classList.add('fa-times');
-            } else {
+            if (isActive) {
+                // Cerrar
+                container.classList.remove('active');
+                overlay.classList.remove('active');
+                const icon = mainBtn.querySelector('i');
                 icon.classList.remove('fa-times');
                 icon.classList.add('fa-comments');
+            } else {
+                // Abrir
+                container.classList.add('active');
+                overlay.classList.add('active');
+                const icon = mainBtn.querySelector('i');
+                icon.classList.remove('fa-comments');
+                icon.classList.add('fa-times');
             }
         }
         
