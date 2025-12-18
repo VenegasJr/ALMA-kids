@@ -100,9 +100,9 @@ function showManualStats() {
     // Ve a Meta Business Suite → Dashboard → Ver estadísticas de Instagram
     // Y actualiza estos números con los valores que ves:
     const manualStats = {
-        followers: 356, // ← Actualizar: Ve a Meta Business Suite y copia "Seguidores" de Instagram
-        posts: 0,      // ← Actualizar: Copia el número de "Publicaciones" 
-        following: 0   // ← Actualizar: Copia el número de "Siguiendo"
+        followers: 356, // ← Actualizado: Seguidores de Instagram
+        posts: 13,      // ← Actualizado: Número de publicaciones en Instagram
+        following: 0    // ← Actualizar: Copia el número de "Siguiendo" desde tu perfil de Instagram
     };
     
     if (followerEl) followerEl.textContent = formatNumber(manualStats.followers);
