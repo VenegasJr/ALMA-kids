@@ -17,12 +17,84 @@
     margin-top: 80px; /* Espacio para el header fijo */
 }
 
+/* Elementos decorativos flotantes - Círculos borrosos pasteles */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255, 182, 193, 0.6) 0%, rgba(255, 192, 203, 0.3) 50%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(60px);
+    top: -100px;
+    left: -100px;
+    animation: floatCircle1 20s ease-in-out infinite;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.hero-section::after {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(173, 216, 230, 0.5) 0%, rgba(176, 224, 230, 0.3) 50%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(80px);
+    bottom: -150px;
+    right: -150px;
+    animation: floatCircle2 25s ease-in-out infinite;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Animaciones para círculos flotantes */
+@keyframes floatCircle1 {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.6;
+    }
+    25% {
+        transform: translate(50px, 80px) scale(1.1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translate(100px, 40px) scale(0.9);
+        opacity: 0.5;
+    }
+    75% {
+        transform: translate(30px, 120px) scale(1.05);
+        opacity: 0.7;
+    }
+}
+
+@keyframes floatCircle2 {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.5;
+    }
+    33% {
+        transform: translate(-80px, -60px) scale(1.15);
+        opacity: 0.7;
+    }
+    66% {
+        transform: translate(-40px, -100px) scale(0.85);
+        opacity: 0.4;
+    }
+}
+
 .hero-content {
     text-align: center;
     max-width: 900px;
     width: 100%;
     z-index: 1;
     position: relative;
+}
+
+/* Asegurar que el contenido esté por encima de los elementos decorativos */
+.hero-content * {
+    position: relative;
+    z-index: 1;
 }
 
 /* Título principal con fuente Fredoka - Efecto envolvente/inflado */
