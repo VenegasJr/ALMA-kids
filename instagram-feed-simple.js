@@ -136,22 +136,60 @@ async function updateStatsInBackground() {
  */
 async function extractStatsFromEmbed() {
     return new Promise((resolve) => {
-        // Esperar a que el embed de Instagram cargue
+        let attempts = 0;
+        const maxAttempts = 15; // Intentar por 15 segundos
+        
+        // Esperar a que el embed de Instagram cargue y procese
         const checkEmbed = setInterval(() => {
-            const embed = document.querySelector('.instagram-media');
+            attempts++;
+            
+            // Intentar encontrar el iframe del embed
+            const embed = document.querySelector('.instagram-media iframe');
             if (embed) {
-                // Intentar extraer datos del embed si están disponibles
-                // Nota: Instagram limita el acceso, pero podemos intentar
+                try {
+                    // Intentar acceder al contenido del iframe (puede estar bloqueado por CORS)
+                    const iframeDoc = embed.contentDocument || embed.contentWindow?.document;
+                    if (iframeDoc) {
+                        // Buscar texto que contenga las estadísticas
+                        const text = iframeDoc.body?.innerText || '';
+                        const followersMatch = text.match(/(\d+)\s*seguidores/i);
+                        const postsMatch = text.match(/(\d+)\s*publicaciones/i);
+                        const followingMatch = text.match(/(\d+)\s*siguiendo/i);
+                        
+                        if (followersMatch || postsMatch || followingMatch) {
+                            const stats = {
+                                followers: followersMatch ? parseInt(followersMatch[1]) : 356,
+                                posts: postsMatch ? parseInt(postsMatch[1]) : 13,
+                                following: followingMatch ? parseInt(followingMatch[1]) : 1146
+                            };
+                            
+                            saveCachedStats(stats);
+                            updateStats(stats.followers, stats.posts, stats.following);
+                            console.log('✅ Estadísticas extraídas del embed de Instagram');
+                            clearInterval(checkEmbed);
+                            resolve();
+                            return;
+                        }
+                    }
+                } catch (error) {
+                    // CORS bloquea el acceso, continuar intentando otros métodos
+                }
+            }
+            
+            // También intentar desde el script de Instagram si está disponible
+            if (window.instgrm && attempts > 5) {
+                // El embed ya debería estar procesado
+                clearInterval(checkEmbed);
+                resolve();
+                return;
+            }
+            
+            // Timeout después de maxAttempts segundos
+            if (attempts >= maxAttempts) {
                 clearInterval(checkEmbed);
                 resolve();
             }
         }, 1000);
-        
-        // Timeout después de 10 segundos
-        setTimeout(() => {
-            clearInterval(checkEmbed);
-            resolve();
-        }, 10000);
     });
 }
 
@@ -209,13 +247,12 @@ function showManualStats() {
     const postEl = document.getElementById('postCount');
     const followingEl = document.getElementById('followingCount');
     
-    // Valores desde Meta Business Suite (actualizar manualmente)
-    // Ve a Meta Business Suite → Dashboard → Ver estadísticas de Instagram
-    // Y actualiza estos números con los valores que ves:
+    // Valores actuales de Instagram (actualizados: 2025-01-26)
+    // Estos valores se usan como fallback si no se pueden obtener automáticamente
     const manualStats = {
-        followers: 356, // ← Actualizado: Seguidores de Instagram
-        posts: 13,      // ← Actualizado: Número de publicaciones en Instagram
-        following: 0    // ← Actualizar: Copia el número de "Siguiendo" desde tu perfil de Instagram
+        followers: 356,  // Seguidores actuales
+        posts: 13,       // Publicaciones actuales
+        following: 1146  // Siguiendo actual
     };
     
     if (followerEl) followerEl.textContent = formatNumber(manualStats.followers);
@@ -271,6 +308,19 @@ function scheduleDailyUpdate() {
             fetchAndUpdateStats();
         }, 24 * 60 * 60 * 1000); // 24 horas
     }, msUntilMidnight);
+    
+    // También intentar actualizar cada vez que alguien visita la página (si el caché tiene más de 6 horas)
+    const cachedData = getCachedStats();
+    if (cachedData) {
+        const sixHours = 6 * 60 * 60 * 1000;
+        const now = new Date().getTime();
+        if ((now - cachedData.timestamp) > sixHours) {
+            console.log('🔄 Caché tiene más de 6 horas, actualizando en segundo plano...');
+            setTimeout(() => {
+                fetchAndUpdateStats();
+            }, 2000);
+        }
+    }
     
     console.log(`⏰ Próxima actualización automática: ${tomorrow.toLocaleString()}`);
 }
