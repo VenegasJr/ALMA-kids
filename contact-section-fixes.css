@@ -1,0 +1,415 @@
+/* ============================================
+   MEJORAS DE CONTRASTE Y LEGIBILIDAD
+   Sección de Contacto - Paleta de Colores Optimizada
+   ============================================ */
+
+/* ==================== SECCIÓN DE CONTACTO ==================== */
+.contact {
+    background: linear-gradient(135deg, #FFFFFF 0%, #F8F9FA 50%, #F0F4F8 100%) !important;
+    padding: 80px 0 !important;
+    position: relative;
+}
+
+.contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(233, 30, 99, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(33, 150, 243, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+/* ==================== CONTENIDO DE CONTACTO ==================== */
+.contact-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* ==================== INFORMACIÓN DE CONTACTO ==================== */
+.contact-info {
+    background: #FFFFFF !important;
+    border-radius: 20px !important;
+    padding: 40px !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08) !important;
+    border: 1px solid rgba(233, 30, 99, 0.1) !important;
+}
+
+.contact-info h3 {
+    color: #E91E63 !important;
+    font-size: 1.8rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 2rem !important;
+    border-bottom: 3px solid #E91E63 !important;
+    padding-bottom: 15px !important;
+}
+
+/* ==================== ITEMS DE CONTACTO ==================== */
+.contact-item {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 1.25rem !important;
+    margin-bottom: 2rem !important;
+    padding: 20px !important;
+    background: #F8F9FA !important;
+    border-radius: 15px !important;
+    border-left: 4px solid #E91E63 !important;
+    transition: all 0.3s ease !important;
+}
+
+.contact-item:hover {
+    background: #FFFFFF !important;
+    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.15) !important;
+    transform: translateX(5px) !important;
+    border-left-color: #C2185B !important;
+}
+
+.contact-item i {
+    font-size: 1.75rem !important;
+    color: #E91E63 !important;
+    background: rgba(233, 30, 99, 0.1) !important;
+    width: 50px !important;
+    height: 50px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 12px !important;
+    flex-shrink: 0 !important;
+    margin-top: 0 !important;
+}
+
+.contact-item:hover i {
+    background: #E91E63 !important;
+    color: #FFFFFF !important;
+    transform: scale(1.1) !important;
+}
+
+.contact-item h4 {
+    color: #1D1D1F !important;
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+    margin: 0 0 0.5rem 0 !important;
+    line-height: 1.4 !important;
+}
+
+.contact-item a {
+    color: #E91E63 !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    font-size: 1rem !important;
+    transition: all 0.3s ease !important;
+    display: inline-block !important;
+}
+
+.contact-item a:hover {
+    color: #C2185B !important;
+    transform: translateX(3px) !important;
+}
+
+.contact-item span {
+    color: #4A4A4A !important;
+    font-size: 0.95rem !important;
+    font-weight: 500 !important;
+    line-height: 1.6 !important;
+}
+
+/* ==================== SECCIÓN DE REDES SOCIALES ==================== */
+.social-media-section {
+    background: linear-gradient(135deg, #E91E63 0%, #C2185B 100%) !important;
+    border-left-color: #C2185B !important;
+}
+
+.social-media-section:hover {
+    background: linear-gradient(135deg, #C2185B 0%, #AD1457 100%) !important;
+}
+
+.social-media-section i {
+    background: rgba(255, 255, 255, 0.2) !important;
+    color: #FFFFFF !important;
+}
+
+.social-media-section h4 {
+    color: #FFFFFF !important;
+}
+
+.social-links {
+    display: flex !important;
+    gap: 1rem !important;
+    margin-top: 1rem !important;
+    flex-wrap: wrap !important;
+}
+
+.social-link {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    padding: 10px 18px !important;
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-radius: 25px !important;
+    color: #FFFFFF !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+.social-link:hover {
+    background: rgba(255, 255, 255, 0.3) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+}
+
+.social-link i {
+    font-size: 1.2rem !important;
+    background: transparent !important;
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+}
+
+.social-cta {
+    margin-top: 1rem !important;
+    padding: 12px !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+    border-radius: 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    color: #FFFFFF !important;
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+}
+
+.social-cta i {
+    background: transparent !important;
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+    color: #FFB6C1 !important;
+}
+
+/* ==================== FORMULARIO DE CONTACTO ==================== */
+.contact-form {
+    background: #FFFFFF !important;
+    border-radius: 20px !important;
+    padding: 40px !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08) !important;
+    border: 1px solid rgba(233, 30, 99, 0.1) !important;
+}
+
+.contact-form h3 {
+    color: #E91E63 !important;
+    font-size: 1.8rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 1.5rem !important;
+    border-bottom: 3px solid #E91E63 !important;
+    padding-bottom: 15px !important;
+}
+
+/* ==================== NOTA DEL FORMULARIO ==================== */
+.form-notice {
+    background: #FFF8E1 !important;
+    border: 2px solid #FFC107 !important;
+    border-radius: 12px !important;
+    padding: 1rem 1.25rem !important;
+    margin-bottom: 2rem !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.75rem !important;
+    color: #F57C00 !important;
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+    box-shadow: 0 2px 8px rgba(255, 193, 7, 0.2) !important;
+}
+
+.form-notice i {
+    color: #FFC107 !important;
+    font-size: 1.2rem !important;
+    flex-shrink: 0 !important;
+}
+
+.form-notice strong {
+    color: #E65100 !important;
+    font-weight: 700 !important;
+}
+
+/* ==================== INPUTS DEL FORMULARIO ==================== */
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100% !important;
+    padding: 14px 18px !important;
+    border: 2px solid #E0E0E0 !important;
+    border-radius: 12px !important;
+    font-family: inherit !important;
+    font-size: 1rem !important;
+    background: #FFFFFF !important;
+    color: #1D1D1F !important;
+    transition: all 0.3s ease !important;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none !important;
+    border-color: #E91E63 !important;
+    background: #FFFFFF !important;
+    box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.1) !important;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #9E9E9E !important;
+    opacity: 0.8 !important;
+}
+
+.form-group textarea {
+    resize: vertical !important;
+    min-height: 120px !important;
+    font-family: inherit !important;
+}
+
+/* ==================== LABELS ==================== */
+.form-label {
+    display: block !important;
+    font-size: 0.9rem !important;
+    color: #616161 !important;
+    font-weight: 600 !important;
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+}
+
+/* ==================== BOTÓN DE ENVÍO ==================== */
+.contact-form .btn-primary,
+.contact-form button[type="submit"] {
+    padding: 16px 32px !important;
+    background: linear-gradient(135deg, #E91E63 0%, #C2185B 100%) !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    border-radius: 12px !important;
+    font-weight: 700 !important;
+    font-size: 1.1rem !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3) !important;
+    width: 100% !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+.contact-form .btn-primary:hover,
+.contact-form button[type="submit"]:hover {
+    background: linear-gradient(135deg, #C2185B 0%, #AD1457 100%) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(233, 30, 99, 0.4) !important;
+}
+
+/* ==================== SECCIÓN DE UBICACIÓN ==================== */
+.location-section {
+    margin-top: 1rem !important;
+}
+
+.location-input-group {
+    display: flex !important;
+    gap: 0.75rem !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.location-input-group input {
+    flex: 1 !important;
+}
+
+.btn-map {
+    padding: 14px 20px !important;
+    background: #2196F3 !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    border-radius: 12px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    white-space: nowrap !important;
+}
+
+.btn-map:hover {
+    background: #1976D2 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3) !important;
+}
+
+.location-help {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    color: #616161 !important;
+    font-size: 0.85rem !important;
+    margin-top: 0.5rem !important;
+}
+
+.location-help i {
+    color: #2196F3 !important;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+    .contact {
+        padding: 60px 0 !important;
+    }
+    
+    .contact-content {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+    
+    .contact-info,
+    .contact-form {
+        padding: 30px 20px !important;
+    }
+    
+    .contact-item {
+        padding: 15px !important;
+        margin-bottom: 1.5rem !important;
+    }
+    
+    .contact-item i {
+        width: 45px !important;
+        height: 45px !important;
+        font-size: 1.5rem !important;
+    }
+    
+    .location-input-group {
+        flex-direction: column !important;
+    }
+    
+    .btn-map {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-info h3,
+    .contact-form h3 {
+        font-size: 1.5rem !important;
+    }
+    
+    .contact-item {
+        padding: 12px !important;
+    }
+    
+    .social-links {
+        flex-direction: column !important;
+    }
+    
+    .social-link {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+}
+
