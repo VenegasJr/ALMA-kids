@@ -130,6 +130,13 @@
                         icon.classList.remove('fa-times');
                         icon.classList.add('fa-comments');
                     }
+                    // Forzar ocultar elementos
+                    actions.style.opacity = '0';
+                    actions.style.visibility = 'hidden';
+                    if (helpMessage) {
+                        helpMessage.style.opacity = '0';
+                        helpMessage.style.visibility = 'hidden';
+                    }
                     console.log('✅ FAB cerrado');
                 } else {
                     // Abrir
@@ -140,7 +147,25 @@
                         icon.classList.remove('fa-comments');
                         icon.classList.add('fa-times');
                     }
-                    console.log('✅ FAB abierto');
+                    // Forzar mostrar elementos
+                    setTimeout(() => {
+                        actions.style.opacity = '1';
+                        actions.style.visibility = 'visible';
+                        actions.style.display = 'flex';
+                        if (helpMessage) {
+                            helpMessage.style.opacity = '1';
+                            helpMessage.style.visibility = 'visible';
+                            helpMessage.style.display = 'block';
+                        }
+                        // Forzar mostrar cada botón
+                        const buttons = actions.querySelectorAll('.fab-action-btn');
+                        buttons.forEach(btn => {
+                            btn.style.opacity = '1';
+                            btn.style.visibility = 'visible';
+                            btn.style.display = 'flex';
+                        });
+                    }, 50);
+                    console.log('✅ FAB abierto - Elementos forzados a visible');
                 }
             }
             

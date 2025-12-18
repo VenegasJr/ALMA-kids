@@ -50,6 +50,8 @@
     transform: translateY(0) scale(1) !important;
     pointer-events: auto !important;
     display: block !important;
+    max-height: 200px !important;
+    overflow: visible !important;
 }
 
 .fab-help-message::after {
@@ -67,16 +69,18 @@
 /* Botones de acción secundarios */
 .fab-actions {
     display: flex !important;
-    flex-direction: column;
-    gap: 12px;
-    align-items: flex-end;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(20px) scale(0.8);
+    flex-direction: column !important;
+    gap: 12px !important;
+    align-items: flex-end !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: translateY(20px) scale(0.8) !important;
     pointer-events: none !important;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    position: relative !important;
     z-index: 100001 !important;
+    max-height: 0 !important;
+    overflow: hidden !important;
 }
 
 .fab-container.active .fab-actions {
@@ -85,27 +89,30 @@
     transform: translateY(0) scale(1) !important;
     pointer-events: auto !important;
     display: flex !important;
+    max-height: 500px !important;
+    overflow: visible !important;
 }
 
 .fab-action-btn {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: none;
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 50% !important;
+    border: none !important;
     display: flex !important;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    color: white;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 20px !important;
+    color: white !important;
     cursor: pointer !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    position: relative !important;
+    text-decoration: none !important;
     z-index: 100002 !important;
     pointer-events: auto !important;
     visibility: visible !important;
     opacity: 1 !important;
+    flex-shrink: 0 !important;
 }
 
 .fab-action-btn:hover {
@@ -223,7 +230,10 @@
 
 /* Animación de entrada para cada botón */
 .fab-container.active .fab-action-btn {
-    animation: fabSlideIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation: fabSlideIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: flex !important;
 }
 
 .fab-container.active .fab-action-btn:nth-child(1) {
@@ -244,12 +254,14 @@
 
 @keyframes fabSlideIn {
     from {
-        opacity: 0;
-        transform: translateX(30px) scale(0.5);
+        opacity: 0 !important;
+        transform: translateX(30px) scale(0.5) !important;
+        visibility: hidden !important;
     }
     to {
-        opacity: 1;
-        transform: translateX(0) scale(1);
+        opacity: 1 !important;
+        transform: translateX(0) scale(1) !important;
+        visibility: visible !important;
     }
 }
 
