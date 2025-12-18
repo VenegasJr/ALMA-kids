@@ -422,11 +422,15 @@
 }
 
 .hero-image-item p {
-    margin-top: 1rem !important;
-    text-align: center !important;
-    font-size: 1rem !important;
+    margin: 1rem 0 !important;
+    padding: 0 1rem 1rem !important;
+    text-align: left !important;
+    font-size: 0.95rem !important;
     font-weight: 600 !important;
-    color: #8B4A6B !important;
+    color: #1a1a1a !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
 }
 
 /* ==================== RESPONSIVE - TABLET ==================== */
