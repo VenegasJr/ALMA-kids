@@ -112,24 +112,24 @@
                 <div class="mobile-icons-container">
                     <!-- Search Button -->
                     <button class="btn btn-search" onclick="toggleSearch()" title="Buscar">
-                    <i class="fas fa-search"></i>
-                </button>
-            
-                <!-- Mobile Menu Toggle -->
+                        <i class="fas fa-search"></i>
+                    </button>
+                    
+                    <!-- Mobile Menu Toggle -->
                     <button class="mobile-menu-toggle navbar-toggler" onclick="toggleMobileMenu()" type="button" aria-label="Toggle navigation" title="Menú">
                         <span class="navbar-toggler-icon">
-                <span></span>
-                <span></span>
-                <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
                         </span>
-            </button>
+                    </button>
                 </div>
-                
-                <!-- Search Input (hidden by default) -->
-                <div class="search-container" id="searchContainer">
-                    <input type="text" id="searchInput" placeholder="Buscar en ALMA Kids..." onkeyup="performSearch()">
-                    <div class="search-results" id="searchResults"></div>
-                </div>
+                    
+                    <!-- Search Input (hidden by default) -->
+                    <div class="search-container" id="searchContainer">
+                        <input type="text" id="searchInput" placeholder="Buscar en ALMA Kids..." onkeyup="performSearch()">
+                        <div class="search-results" id="searchResults"></div>
+                    </div>
             </div>
         </div>
         
@@ -144,8 +144,8 @@
                 
                 <a class='mobile-link' href='index.html#contacto' onclick='closeMobileMenu()'>Contacto</a>
             </nav>
-        </div>
-    </header>
+                    </div>
+</header>
 
 
     <!-- Floating Navigation Buttons (Mobile) -->
@@ -214,165 +214,308 @@
     <!-- FAQ Section -->
     <section class="faq">
         <div class="container">
+            <!-- Categoría: Reserva y Pago -->
+            <div class="faq-category">
+                <h3 class="faq-category-title"><i class="fas fa-calendar-check"></i> Reserva y Pago</h3>
             <div class="faq-grid">
                 <div class="faq-item">
                     <div class="faq-question">
-                        <h3><i class="fas fa-dollar-sign"></i> Condiciones de Pago</h3>
+                            <h3><i class="fas fa-phone"></i> ¿Cómo hago la reserva?</h3>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>50% de reserva al momento de agendar la fecha, y el 50% restante previo a la instalación de los juegos.</p>
+                            <p>Puedes reservar tu fecha de tres formas:</p>
+                            <ul>
+                                <li><strong>WhatsApp:</strong> +56 9 6907 3306</li>
+                                <li><strong>Teléfono:</strong> +56 9 2060 9796</li>
+                                <li><strong>Formulario web:</strong> Completa el formulario de contacto en nuestra página</li>
+                            </ul>
+                            <p>Te responderemos en el menor tiempo posible para confirmar disponibilidad y enviarte la cotización.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3><i class="fas fa-dollar-sign"></i> ¿Cuáles son las condiciones de pago?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Nuestro sistema de pago es simple y seguro:</p>
+                            <ul>
+                                <li><strong>50% de reserva:</strong> Se paga al momento de agendar la fecha para asegurar tu evento</li>
+                                <li><strong>50% restante:</strong> Se paga previo a la instalación de los juegos</li>
+                            </ul>
+                            <p>Aceptamos transferencia bancaria, efectivo y otros medios según disponibilidad. Consulta por opciones de pago.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <h3><i class="fas fa-truck"></i> Traslado</h3>
+                            <h3><i class="fas fa-calendar-alt"></i> ¿Puedo modificar mi reserva?</h3>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>El costo del traslado es adicional al servicio según la ubicación, aunque hay sectores gratuitos, no dudes en consultar.</p>
+                            <p>Las modificaciones de fecha o servicio deben notificarse con al menos <strong>1 semana (7 días)</strong> de anticipación, sujeto a disponibilidad.</p>
+                            <p>Te ayudaremos a encontrar una nueva fecha que se ajuste a tus necesidades. Si la modificación es por causas de fuerza mayor, evaluaremos cada caso de forma especial.</p>
+                        </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                            <h3><i class="fas fa-times-circle"></i> ¿Qué pasa si cancelo mi reserva?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                            <p>Nuestra política de cancelación es la siguiente:</p>
+                            <ul>
+                                <li><strong>Cancelación con menos de 7 días:</strong> No hay devolución del dinero abonado</li>
+                                <li><strong>Cancelación con más de 7 días:</strong> Se devuelve el 50% del abono realizado</li>
+                            </ul>
+                            <p>En caso de condiciones climáticas extremas o emergencias, evaluamos cada situación de forma especial.</p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+            <!-- Categoría: Instalación y Servicio -->
+            <div class="faq-category">
+                <h3 class="faq-category-title"><i class="fas fa-tools"></i> Instalación y Servicio</h3>
+                <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                            <h3><i class="fas fa-cogs"></i> ¿Qué incluye el servicio básico?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                            <p>Nuestro servicio básico incluye:</p>
+                            <ul>
+                                <li>✅ Instalación profesional del equipo</li>
+                                <li>✅ Desinstalación al finalizar el evento</li>
+                                <li>✅ Mantas de protección para el suelo</li>
+                                <li>✅ Limpieza y desinfección del equipo</li>
+                                <li>✅ Asesoría previa sobre el mejor lugar para instalar</li>
+                            </ul>
+                            <p>Todo esto está incluido en el precio base del servicio.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3><i class="fas fa-clock"></i> ¿Cuánto dura el servicio?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Nuestro servicio estándar incluye <strong>4 horas de juego intenso</strong> para que los niños disfruten al máximo.</p>
+                            <p>Si necesitas tiempo adicional, puedes contratar horas extras sujeto a disponibilidad. El costo adicional se cotiza según la extensión requerida.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <h3><i class="fas fa-clock"></i> Duración del Servicio</h3>
+                            <h3><i class="fas fa-stopwatch"></i> ¿Cuánto tiempo se necesita para el montaje y desmontaje?</h3>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Nuestro servicio está diseñado para que los niños disfruten 4 horas de juego intenso. Si necesitas tiempo extra, consulta por disponibilidad y costo asociado.</p>
-                    </div>
+                            <p>Los tiempos aproximados son:</p>
+                            <ul>
+                                <li><strong>Montaje:</strong> 30-45 minutos dependiendo del tipo y cantidad de juegos</li>
+                                <li><strong>Desmontaje:</strong> 20-30 minutos</li>
+                            </ul>
+                            <p>Estos tiempos no se descuentan de las 4 horas de juego. El equipo llega antes del inicio del evento y se retira después de finalizar.</p>
+                        </div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <h3><i class="fas fa-plug"></i> Conexión Eléctrica</h3>
+                            <h3><i class="fas fa-ruler"></i> ¿Qué espacio necesito para instalar un juego inflable?</h3>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>El área de instalación debe contar con un punto de corriente a una distancia máxima de 10 metros.</p>
-                    </div>
+                            <p>Cada juego requiere un espacio adicional de <strong>1 metro en todos los lados</strong> para seguridad y correcta instalación.</p>
+                            <p>Las dimensiones exactas varían según el modelo:</p>
+                            <ul>
+                                <li><strong>Castillo Grand Peque:</strong> Aproximadamente 4x4 metros (más espacio de seguridad)</li>
+                                <li><strong>Plaza Blanda:</strong> 1.5x1.5 metros (más espacio de seguridad)</li>
+                            </ul>
+                            <p>Al hacer tu reserva, te indicaremos las dimensiones exactas según el juego que elijas.</p>
+                        </div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <h3><i class="fas fa-home"></i> Condiciones de Suelo</h3>
+                            <h3><i class="fas fa-plug"></i> ¿Necesito conexión eléctrica?</h3>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>El cliente se compromete a tener el espacio seco, limpio y despejado previo a la instalación. Los implementos no se instalarán en superficies húmedas, rocosas o con desniveles pronunciados.</p>
-                    </div>
+                            <p>Sí, el área de instalación debe contar con un <strong>punto de corriente eléctrica a una distancia máxima de 10 metros</strong> del lugar donde se instalará el juego.</p>
+                            <p>Los juegos inflables requieren un compresor eléctrico para mantenerse inflados. Si no tienes acceso a electricidad, consulta por alternativas (generador con costo adicional).</p>
+                        </div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <h3><i class="fas fa-exclamation-triangle"></i> Reglas en Zona de Juegos</h3>
+                            <h3><i class="fas fa-home"></i> ¿Qué condiciones debe tener el suelo?</h3>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>No se permite ningún tipo de calzado, consumo de alimentos y/o líquidos, elementos punzantes, pinta caritas, ni presencia de mascotas, uso de scotch o cinta adhesiva sobre los juegos.</p>
-                    </div>
+                            <p>El cliente se compromete a tener el espacio en las siguientes condiciones:</p>
+                            <ul>
+                                <li>✅ <strong>Seco:</strong> Sin humedad ni charcos</li>
+                                <li>✅ <strong>Limpio:</strong> Sin objetos, piedras o elementos que puedan dañar el equipo</li>
+                                <li>✅ <strong>Despejado:</strong> Sin obstáculos que impidan la instalación</li>
+                            </ul>
+                            <p><strong>No instalamos en:</strong> superficies húmedas, rocosas, con desniveles pronunciados, o con elementos punzantes visibles.</p>
+                        </div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <h3><i class="fas fa-ban"></i> Incumplimiento de Reglas</h3>
+                            <h3><i class="fas fa-truck"></i> ¿El traslado está incluido?</h3>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>En caso de incumplimiento de las reglas establecidas, <strong>ALMA Kids Entretenciones Limitada</strong> se reserva el derecho de suspender el servicio inmediatamente sin devolución del dinero.</p>
+                            <p>El costo del traslado depende de la ubicación:</p>
+                            <ul>
+                                <li><strong>Zonas gratuitas:</strong> Machalí (base), Rancagua, y algunas comunas cercanas</li>
+                                <li><strong>Zonas con costo:</strong> Otras ubicaciones fuera del área de cobertura estándar</li>
+                            </ul>
+                            <p>Al hacer tu cotización, te indicaremos si hay costo de traslado según tu ubicación. <strong>No dudes en consultar</strong>, siempre buscamos la mejor solución para ti.</p>
+                        </div>
                     </div>
+                    </div>
+                </div>
+
+            <!-- Categoría: Seguridad y Reglas -->
+            <div class="faq-category">
+                <h3 class="faq-category-title"><i class="fas fa-shield-alt"></i> Seguridad y Reglas</h3>
+                <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                            <h3><i class="fas fa-shield-alt"></i> ¿Los juegos son seguros?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                            <p><strong>Sí, absolutamente.</strong> La seguridad es nuestra prioridad:</p>
+                            <ul>
+                                <li>✅ Juegos certificados y cumplen con estándares de seguridad</li>
+                                <li>✅ Inspección regular antes de cada evento</li>
+                                <li>✅ Materiales de primera calidad y no tóxicos</li>
+                                <li>✅ Mantas de protección incluidas</li>
+                                <li>✅ Estructuras reforzadas y resistentes</li>
+                            </ul>
+                            <p>Todos nuestros equipos son revisados antes de cada instalación para garantizar la máxima seguridad.</p>
+                        </div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <h3><i class="fas fa-tools"></i> Daños por Mal Uso</h3>
+                            <h3><i class="fas fa-baby"></i> ¿Cuál es la edad recomendada para los juegos?</h3>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Los daños causados por mal uso o negligencia serán responsabilidad del cliente, quien deberá cubrir los costos de reparación o <strong>reposición completa</strong>.</p>
-                    </div>
+                            <p>Nuestros juegos están diseñados para niños de <strong>6 meses a 7 años</strong>, según las especificaciones técnicas de cada equipo:</p>
+                            <ul>
+                                <li><strong>Plaza Blanda:</strong> Ideal desde 6 meses hasta 7 años</li>
+                                <li><strong>Castillo Grand Peque:</strong> Recomendado de 2 a 7 años</li>
+                            </ul>
+                            <p>Cada juego tiene su rango de edad específico. Al cotizar, te indicaremos cuál es el más adecuado según la edad de los niños que asistirán.</p>
+                        </div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <h3><i class="fas fa-calendar-alt"></i> Modificaciones</h3>
+                            <h3><i class="fas fa-users"></i> ¿Debe haber un adulto responsable presente?</h3>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Las modificaciones de fecha o servicio deben notificarse con al menos <strong>1 semana</strong> de anticipación, sujeto a disponibilidad.</p>
-                    </div>
+                            <p><strong>Sí, es obligatorio.</strong> Debe haber al menos un adulto responsable presente durante todo el evento para:</p>
+                            <ul>
+                                <li>Supervisar a los niños en todo momento</li>
+                                <li>Hacer cumplir las reglas de seguridad</li>
+                                <li>Controlar el número de niños en el juego simultáneamente</li>
+                                <li>Responder ante cualquier situación de emergencia</li>
+                            </ul>
+                            <p>La supervisión profesional es un servicio adicional disponible. Consulta por disponibilidad y costo.</p>
+                        </div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <h3><i class="fas fa-times-circle"></i> Anulación de Servicio</h3>
+                            <h3><i class="fas fa-exclamation-triangle"></i> ¿Cuáles son las reglas en la zona de juegos?</h3>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>La anulación con menos de 1 semana (7 días) de anticipación no tendrá devolución. Cancelaciones con más de 1 semana tendrán devolución del 50% abonado.</p>
-                    </div>
+                            <p>Para garantizar la seguridad de todos, <strong>está estrictamente prohibido:</strong></p>
+                            <ul>
+                                <li>❌ Usar calzado dentro de los juegos</li>
+                                <li>❌ Consumir alimentos o líquidos dentro del área de juego</li>
+                                <li>❌ Ingresar con elementos punzantes, cortantes o peligrosos</li>
+                                <li>❌ Usar pinta caritas o maquillaje que pueda manchar el equipo</li>
+                                <li>❌ Permitir la presencia de mascotas cerca de los juegos</li>
+                                <li>❌ Usar scotch, cinta adhesiva o cualquier elemento que se adhiera al material</li>
+                                <li>❌ Exceder el número máximo de niños recomendado por juego</li>
+                            </ul>
+                            <p>El incumplimiento de estas reglas puede resultar en la suspensión inmediata del servicio.</p>
+                        </div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <h3><i class="fas fa-users"></i> Adulto Responsable</h3>
+                            <h3><i class="fas fa-ban"></i> ¿Qué pasa si no se cumplen las reglas?</h3>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Debe haber un adulto responsable presente durante todo el evento para supervisar a los niños y hacer cumplir las reglas de seguridad.</p>
-                    </div>
+                            <p>En caso de incumplimiento de las reglas establecidas, <strong>ALMA Kids Entretenciones Infantiles Ltda.</strong> se reserva el derecho de:</p>
+                            <ul>
+                                <li>⚠️ Suspender el servicio inmediatamente</li>
+                                <li>⚠️ No realizar devolución del dinero abonado</li>
+                                <li>⚠️ Retirar el equipo antes de tiempo si es necesario</li>
+                            </ul>
+                            <p>Estas medidas son para proteger la integridad del equipo y la seguridad de los niños. Te entregaremos las reglas por escrito al confirmar tu reserva.</p>
+                        </div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <h3><i class="fas fa-cogs"></i> ¿Qué incluye el servicio básico?</h3>
+                            <h3><i class="fas fa-tools"></i> ¿Qué pasa si se daña el equipo por mal uso?</h3>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>El servicio básico incluye: instalación, desinstalación, mantas de protección, y limpieza básica del equipo.</p>
+                            <p>Los daños causados por mal uso, negligencia o incumplimiento de las reglas serán responsabilidad del cliente, quien deberá cubrir:</p>
+                            <ul>
+                                <li>💰 Costos de reparación (si es posible reparar)</li>
+                                <li>💰 <strong>Reposición completa</strong> del equipo (si el daño es irreparable)</li>
+                            </ul>
+                            <p>Realizamos una inspección del equipo antes y después de cada evento para verificar su estado. Cualquier daño será documentado y comunicado inmediatamente.</p>
+                        </div>
+                    </div>
                     </div>
                 </div>
 
+            <!-- Categoría: Servicios y Cobertura -->
+            <div class="faq-category">
+                <h3 class="faq-category-title"><i class="fas fa-map-marked-alt"></i> Servicios y Cobertura</h3>
+                <div class="faq-grid">
                 <div class="faq-item">
                     <div class="faq-question">
-                        <h3><i class="fas fa-stopwatch"></i> ¿Cuánto tiempo se necesita para el montaje?</h3>
+                            <h3><i class="fas fa-map"></i> ¿A qué zonas ofrecen servicio?</h3>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>El montaje toma aproximadamente 30-45 minutos dependiendo del tipo y cantidad de juegos. La desinstalación toma 20-30 minutos.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3><i class="fas fa-ruler"></i> ¿Qué espacio necesito para instalar un juego inflable?</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Cada juego requiere un espacio adicional de 1 metro en todos los lados para seguridad. Las dimensiones exactas varían según el modelo.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3><i class="fas fa-baby"></i> ¿Cuál es la edad recomendada para los juegos?</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Nuestros juegos están diseñados para niños de 6 meses a 7 años, según especificaciones técnicas de cada equipo.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3><i class="fas fa-cloud-rain"></i> ¿Qué pasa si llueve el día del evento?</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>En caso de lluvia, podemos reprogramar el evento sin costo adicional o instalar en espacios cubiertos si están disponibles.</p>
-                    </div>
+                            <p>Cubrimos las siguientes zonas en la Región de O'Higgins:</p>
+                            <ul>
+                                <li>📍 <strong>Machalí</strong> (Base - sin costo de traslado)</li>
+                                <li>📍 <strong>Rancagua</strong></li>
+                                <li>📍 <strong>Rengo</strong></li>
+                                <li>📍 <strong>Coya</strong></li>
+                                <li>📍 <strong>Codegua</strong></li>
+                                <li>📍 <strong>Olivar</strong></li>
+                                <li>📍 <strong>Gultro</strong></li>
+                                <li>📍 <strong>Los Lirios</strong></li>
+                                <li>📍 <strong>Graneros</strong></li>
+                            </ul>
+                            <p>Para otras ubicaciones fuera de nuestra área de cobertura estándar, <strong>consulta disponibilidad</strong>. Evaluamos cada caso según la distancia y logística requerida.</p>
+                        </div>
                 </div>
 
                 <div class="faq-item">
@@ -381,37 +524,69 @@
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>La supervisión es un servicio adicional con + Costo Adicional. Recomendamos tener un adulto responsable presente durante todo el evento.</p>
-                    </div>
+                            <p>La supervisión profesional es un <strong>servicio adicional</strong> disponible con costo extra.</p>
+                            <p>Incluye:</p>
+                            <ul>
+                                <li>✅ Monitoreo constante de los niños</li>
+                                <li>✅ Control de acceso y número de participantes</li>
+                                <li>✅ Aplicación de reglas de seguridad</li>
+                                <li>✅ Asistencia inmediata ante cualquier situación</li>
+                            </ul>
+                            <p>Recomendamos tener al menos un adulto responsable presente durante todo el evento. Consulta por disponibilidad y costo del servicio de supervisión profesional.</p>
+                        </div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <h3><i class="fas fa-phone"></i> ¿Cómo hago la reserva?</h3>
+                            <h3><i class="fas fa-cloud-rain"></i> ¿Qué pasa si llueve el día del evento?</h3>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Puedes reservar escribiendo por WhatsApp al +56 9 6907 3306, llamando al +56 9 2060 9796, o completando el formulario de contacto en nuestra página web.</p>
-                    </div>
+                            <p>En caso de lluvia o condiciones climáticas adversas, tenemos las siguientes opciones:</p>
+                            <ul>
+                                <li>🔄 <strong>Reprogramación sin costo:</strong> Si avisas con anticipación, podemos reagendar tu evento sin costo adicional</li>
+                                <li>🏠 <strong>Instalación en espacio cubierto:</strong> Si tienes un lugar techado disponible (garage, salón, etc.), podemos instalar ahí</li>
+                                <li>⏰ <strong>Esperar a que pase:</strong> Si la lluvia es temporal, podemos esperar y proceder cuando mejore el clima</li>
+                            </ul>
+                            <p>Evaluamos cada situación de forma especial. La seguridad y el bienestar de los niños es nuestra prioridad.</p>
+                        </div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <h3><i class="fas fa-map"></i> ¿Ofrecen servicios en toda la ciudad?</h3>
+                            <h3><i class="fas fa-snowflake"></i> ¿Pueden instalar en espacios interiores?</h3>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Cubrimos Machalí, Rancagua, Rengo, Coya, Codegua, Olivar, Gultro, Los Lirios, Graneros y sectores aledaños. Consulta disponibilidad para otras ubicaciones.</p>
-                    </div>
+                            <p><strong>Sí, absolutamente.</strong> Podemos instalar nuestros juegos en espacios interiores siempre que:</p>
+                            <ul>
+                                <li>✅ Tenga suficiente altura (mínimo 2.5 metros para castillos)</li>
+                                <li>✅ Tenga el espacio necesario según las dimensiones del juego</li>
+                                <li>✅ Tenga acceso para el equipo de instalación</li>
+                                <li>✅ Tenga conexión eléctrica disponible</li>
+                            </ul>
+                            <p>Los espacios interiores son ideales para eventos en días lluviosos o para mayor control del ambiente. Consulta con nosotros para evaluar tu espacio.</p>
+                        </div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <h3><i class="fas fa-shield-alt"></i> ¿Los juegos son seguros?</h3>
+                            <h3><i class="fas fa-palette"></i> ¿Puedo elegir colores específicos para la plaza blanda?</h3>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Sí, todos nuestros juegos cumplen con estándares de seguridad, están certificados y son inspeccionados regularmente. Utilizamos materiales de primera calidad.</p>
+                            <p><strong>Sí, tenemos varias opciones de colores</strong> para las pelotas de la plaza blanda:</p>
+                            <ul>
+                                <li>⚪ Blanco</li>
+                                <li>💙 Celeste Pastel</li>
+                                <li>💗 Rosada Pastel</li>
+                                <li>💛 Amarillo Pastel</li>
+                                <li>💚 Turquesa Pastel</li>
+                                <li>💭 Burbuja (azul muy claro)</li>
+                            </ul>
+                            <p>Puedes combinar colores para crear la temática perfecta para tu evento. Al hacer tu reserva, indícanos tus preferencias y te ayudaremos a crear la combinación ideal.</p>
+                        </div>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -454,7 +629,7 @@
                         <li><a href='faq.html'>FAQ</a></li>
                         <li><a href='index.html#contacto'>Contacto</a></li>
                     </ul>
-            </div>
+                </div>
                 
                 <div class="footer-contact">
                     <h4>Contacto</h4>
