@@ -217,6 +217,15 @@
     }
 }
 
+/* Tablet - Ajuste intermedio */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .hero-title {
+        font-size: 6rem !important;
+        -webkit-text-stroke: 3.5px hotpink !important;
+        text-stroke: 3.5px hotpink !important;
+    }
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .hero-section {
