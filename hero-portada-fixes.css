@@ -1,0 +1,331 @@
+/* ============================================
+   HERO / PORTADA - MEJORAS Y AJUSTES
+   Diseño mejorado y responsive
+   ============================================ */
+
+/* ==================== HERO SECTION GENERAL ==================== */
+
+.hero {
+    position: relative !important;
+    width: 100% !important;
+    min-height: 85vh !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: linear-gradient(135deg, #FFF0F5 0%, #F0F8FF 50%, #E8F5E8 100%) !important;
+    padding: 100px 0 80px !important;
+    overflow: hidden !important;
+}
+
+/* Partículas de fondo */
+.hero-particles-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.6;
+}
+
+/* ==================== CONTENIDO DEL HERO ==================== */
+
+.hero-content {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 4rem !important;
+    align-items: center !important;
+    position: relative !important;
+    z-index: 2 !important;
+    width: 100% !important;
+    max-width: 1400px !important;
+    margin: 0 auto !important;
+    padding: 0 2rem !important;
+}
+
+.hero-text {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+}
+
+/* ==================== TÍTULO DEL HERO ==================== */
+
+.hero-title {
+    font-size: clamp(2.5rem, 5vw, 4.5rem) !important;
+    font-weight: 800 !important;
+    line-height: 1.1 !important;
+    margin-bottom: 1rem !important;
+    color: #8B4A6B !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+}
+
+.title-line-1 {
+    font-size: clamp(2rem, 4vw, 3.5rem) !important;
+    font-weight: 700 !important;
+    color: #E91E63 !important;
+    text-shadow: 0 2px 10px rgba(233, 30, 99, 0.2) !important;
+}
+
+.title-line-2 {
+    font-size: clamp(1.8rem, 3.5vw, 3rem) !important;
+    font-weight: 600 !important;
+    color: #8B4A6B !important;
+    background: linear-gradient(135deg, #E91E63, #FF6B9D) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+.title-line-3 {
+    font-size: clamp(1.6rem, 3vw, 2.5rem) !important;
+    font-weight: 600 !important;
+    color: #8B4A6B !important;
+}
+
+/* ==================== SUBTÍTULO Y DESCRIPCIÓN ==================== */
+
+.hero-subtitle {
+    font-size: clamp(1.3rem, 2.5vw, 1.8rem) !important;
+    font-weight: 600 !important;
+    color: #E91E63 !important;
+    margin-bottom: 1rem !important;
+    text-shadow: 0 2px 8px rgba(233, 30, 99, 0.15) !important;
+}
+
+.hero-description {
+    font-size: clamp(1rem, 1.8vw, 1.2rem) !important;
+    line-height: 1.8 !important;
+    color: #6B4C5C !important;
+    margin-bottom: 2rem !important;
+    max-width: 100% !important;
+}
+
+.hero-description strong {
+    color: #E91E63 !important;
+    font-weight: 700 !important;
+}
+
+/* ==================== BOTONES DEL HERO ==================== */
+
+.hero-buttons {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 1rem !important;
+    margin-top: 1.5rem !important;
+}
+
+.hero-buttons .btn {
+    font-size: clamp(0.95rem, 1.5vw, 1.1rem) !important;
+    padding: 1rem 2rem !important;
+    font-weight: 600 !important;
+    border-radius: 50px !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    text-decoration: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+}
+
+.hero-buttons .btn-primary {
+    background: linear-gradient(135deg, #E91E63, #FF6B9D) !important;
+    color: white !important;
+    box-shadow: 0 6px 20px rgba(233, 30, 99, 0.3) !important;
+}
+
+.hero-buttons .btn-primary:hover {
+    transform: translateY(-3px) scale(1.05) !important;
+    box-shadow: 0 10px 30px rgba(233, 30, 99, 0.4) !important;
+}
+
+.hero-buttons .btn-secondary {
+    background: linear-gradient(135deg, #98D8C8, #87CEEB) !important;
+    color: white !important;
+    box-shadow: 0 6px 20px rgba(152, 216, 200, 0.3) !important;
+}
+
+.hero-buttons .btn-secondary:hover {
+    transform: translateY(-3px) scale(1.05) !important;
+    box-shadow: 0 10px 30px rgba(152, 216, 200, 0.4) !important;
+}
+
+.hero-buttons .btn-outline {
+    background: transparent !important;
+    color: #E91E63 !important;
+    border: 2px solid #E91E63 !important;
+}
+
+.hero-buttons .btn-outline:hover {
+    background: #E91E63 !important;
+    color: white !important;
+    transform: translateY(-3px) scale(1.05) !important;
+}
+
+/* ==================== IMÁGENES DEL HERO ==================== */
+
+.hero-image {
+    position: relative !important;
+    z-index: 2 !important;
+}
+
+.hero-images-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.5rem !important;
+}
+
+.hero-image-item {
+    position: relative !important;
+    border-radius: 20px !important;
+    overflow: hidden !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    background: white !important;
+    padding: 1rem !important;
+}
+
+.hero-image-item:hover {
+    transform: translateY(-8px) scale(1.02) !important;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2) !important;
+}
+
+.hero-image-item img,
+.hero-image-item .hero-img {
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 15px !important;
+    object-fit: cover !important;
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.hero-image-item p {
+    margin-top: 1rem !important;
+    text-align: center !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    color: #8B4A6B !important;
+}
+
+/* ==================== RESPONSIVE - TABLET ==================== */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .hero {
+        min-height: 75vh !important;
+        padding: 80px 0 60px !important;
+    }
+    
+    .hero-content {
+        grid-template-columns: 1fr !important;
+        gap: 3rem !important;
+    }
+    
+    .hero-images-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        max-width: 600px !important;
+        margin: 0 auto !important;
+    }
+}
+
+/* ==================== RESPONSIVE - MÓVIL ==================== */
+
+@media (max-width: 768px) {
+    .hero {
+        min-height: auto !important;
+        padding: 100px 0 60px !important;
+    }
+    
+    .hero-content {
+        grid-template-columns: 1fr !important;
+        gap: 2.5rem !important;
+        padding: 0 1.5rem !important;
+    }
+    
+    .hero-text {
+        text-align: center !important;
+        align-items: center !important;
+    }
+    
+    .hero-title {
+        text-align: center !important;
+        align-items: center !important;
+    }
+    
+    .hero-description {
+        text-align: center !important;
+        max-width: 100% !important;
+    }
+    
+    .hero-buttons {
+        justify-content: center !important;
+        flex-direction: column !important;
+        width: 100% !important;
+    }
+    
+    .hero-buttons .btn {
+        width: 100% !important;
+        max-width: 300px !important;
+        justify-content: center !important;
+    }
+    
+    .hero-images-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+        max-width: 100% !important;
+    }
+    
+    .hero-image-item {
+        max-width: 100% !important;
+    }
+}
+
+/* ==================== MÓVIL PEQUEÑO ==================== */
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 90px 0 50px !important;
+    }
+    
+    .hero-content {
+        padding: 0 1rem !important;
+        gap: 2rem !important;
+    }
+    
+    .hero-buttons .btn {
+        font-size: 0.95rem !important;
+        padding: 0.875rem 1.5rem !important;
+    }
+}
+
+/* ==================== ASEGURAR VISIBILIDAD ==================== */
+
+.hero-content,
+.hero-text,
+.hero-title,
+.hero-subtitle,
+.hero-description,
+.hero-buttons,
+.hero-image,
+.hero-images-grid,
+.hero-image-item {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.hero-content {
+    display: grid !important;
+}
+
+.hero-buttons {
+    display: flex !important;
+}
+
+.hero-images-grid {
+    display: grid !important;
+}
+

@@ -59,8 +59,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Fredoka - Fuente redondeada y divertida para Hero -->
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;700&display=swap" rel="stylesheet">
     
     <!-- Preload imagen crítica del hero -->
     <link rel="preload" as="image" href="imagenes/Castillo-inflable-portadas.png" type="image/png">
@@ -90,8 +88,8 @@
     <link rel="stylesheet" href="floating-action-button.css">
     <!-- HEADER FIXES - Logo y tipografía mejorados -->
     <link rel="stylesheet" href="header-fixes.css">
-    <!-- HERO FREDOKA - Hero section con fuente Fredoka -->
-    <link rel="stylesheet" href="hero-fredoka.css">
+    <!-- HERO / PORTADA FIXES - Mejoras en la portada -->
+    <link rel="stylesheet" href="hero-portada-fixes.css">
     
     <!-- SCRIPT DE DIAGNÓSTICO Y FIX INMEDIATO -->
     <script>
@@ -411,19 +409,7 @@
     </header>
 
     <!-- Hero Section -->
-    <header class="hero-section">
-        <div class="hero-content">
-            <h1 class="hero-title">ALMA Kids</h1>
-            <h2 class="hero-subtitle">Juegos Inflables y Diversión</h2>
-            <div class="hero-buttons">
-                <a href="#servicios" class="btn-primary">Ver Servicios</a>
-                <a href="#contacto" class="btn-secondary">Cotizar</a>
-            </div>
-        </div>
-    </header>
-    
-    <!-- Hero Section Original (mantener para compatibilidad) -->
-    <section id="inicio" class="hero" style="display: none;">
+    <section id="inicio" class="hero">
         <!-- Partículas animadas de fondo -->
         <div class="hero-particles-bg">
             <div class="hero-particle ball"></div>
@@ -439,13 +425,23 @@
         </div>
         
         <div class="container">
-            <div class="hero-content-old">
+            <div class="hero-content">
                 <div class="hero-text">
-                    <h1 class="hero-title hero-title-fredoka">ALMA Kids</h1>
-                    <h2 class="hero-subtitle-fredoka">Juegos Inflables y Diversión</h2>
+                    <h1 class="hero-title">
+                        <span class="title-line-1">ALMA Kids</span>
+                        <span class="title-line-2">Juegos Inflables Rancagua</span>
+                        <span class="title-line-3">Plaza Blanda Machalí</span>
+                    </h1>
+                    <p class="hero-subtitle">¡Donde los sueños se inflan y la diversión nunca termina!</p>
+                    <p class="hero-description">
+                        <strong>ALMA Kids</strong> ofrece arriendo de <strong>juegos inflables en Rancagua</strong> y <strong>plaza blanda en Machalí</strong>. 
+                        Castillos inflables pastel, piscinas de pelotas y entretención segura para fiestas infantiles en toda la Región de O'Higgins. 
+                        Cobertura directa en Rancagua, Machalí y comunas aledañas. Cotiza gratis por WhatsApp.
+                    </p>
                     <div class="hero-buttons">
                         <a href="#servicios" class="btn btn-primary">Ver Nuestros Servicios</a>
-                        <a href="#contacto" class="btn btn-secondary">Solicitar Cotización</a>
+                        <a href="#servicios" class="btn btn-secondary">Ver Todos los Servicios</a>
+                        <a href="#contacto" class="btn btn-outline">Solicitar Cotización</a>
                     </div>
                 </div>
                 <div class="hero-image">
