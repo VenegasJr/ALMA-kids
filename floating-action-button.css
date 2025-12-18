@@ -1,0 +1,300 @@
+/* ============================================
+   FLOATING ACTION BUTTON (FAB) EXPANDIBLE
+   Botón flotante con menú expandible
+   ============================================ */
+
+.fab-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 15px;
+}
+
+/* Mensaje de ayuda */
+.fab-help-message {
+    background: white;
+    color: #333;
+    padding: 12px 18px;
+    border-radius: 25px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(10px) scale(0.8);
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    max-width: 200px;
+    text-align: center;
+    line-height: 1.4;
+    position: relative;
+}
+
+.fab-container.active .fab-help-message {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+
+.fab-help-message::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    right: 30px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid white;
+}
+
+/* Botones de acción secundarios */
+.fab-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-end;
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fab-container.active .fab-actions {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.fab-action-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    text-decoration: none;
+}
+
+.fab-action-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+}
+
+.fab-action-btn:active {
+    transform: scale(0.95);
+}
+
+/* Colores específicos para cada acción */
+.fab-action-btn.whatsapp {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    animation-delay: 0.1s;
+}
+
+.fab-action-btn.phone {
+    background: linear-gradient(135deg, #4CAF50, #388E3C);
+    animation-delay: 0.2s;
+}
+
+.fab-action-btn.email {
+    background: linear-gradient(135deg, #E91E63, #C2185B);
+    animation-delay: 0.3s;
+}
+
+.fab-action-btn.instagram {
+    background: linear-gradient(135deg, #E4405F, #C13584);
+    animation-delay: 0.4s;
+}
+
+/* Tooltip para cada botón */
+.fab-action-btn::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    right: 60px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.fab-action-btn:hover::before {
+    opacity: 1;
+    transform: translateX(-5px);
+}
+
+.fab-action-btn::after {
+    content: '';
+    position: absolute;
+    right: 50px;
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.fab-action-btn:hover::after {
+    opacity: 1;
+}
+
+/* Botón principal (FAB) */
+.fab-main-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    background: linear-gradient(135deg, #E91E63, #C2185B);
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 6px 25px rgba(233, 30, 99, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    z-index: 10;
+}
+
+.fab-main-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 30px rgba(233, 30, 99, 0.5);
+}
+
+.fab-main-btn:active {
+    transform: scale(0.95);
+}
+
+.fab-main-btn.active {
+    transform: rotate(45deg);
+    background: linear-gradient(135deg, #F44336, #D32F2F);
+}
+
+.fab-main-btn i {
+    transition: transform 0.3s ease;
+}
+
+.fab-main-btn.active i.fa-comments::before {
+    content: "\f00d"; /* Cambiar a X cuando está activo */
+}
+
+/* Animación de entrada para cada botón */
+.fab-container.active .fab-action-btn {
+    animation: fabSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes fabSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(20px) scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+/* Overlay para cerrar al hacer clic fuera */
+.fab-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 9998;
+}
+
+.fab-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .fab-container {
+        bottom: 20px;
+        right: 20px;
+        gap: 12px;
+    }
+    
+    .fab-main-btn {
+        width: 56px;
+        height: 56px;
+        font-size: 22px;
+    }
+    
+    .fab-action-btn {
+        width: 48px;
+        height: 48px;
+        font-size: 18px;
+    }
+    
+    .fab-help-message {
+        font-size: 13px;
+        padding: 10px 16px;
+        max-width: 180px;
+    }
+    
+    .fab-action-btn::before {
+        display: none; /* Ocultar tooltips en móvil */
+    }
+}
+
+@media (max-width: 480px) {
+    .fab-container {
+        bottom: 15px;
+        right: 15px;
+    }
+    
+    .fab-main-btn {
+        width: 52px;
+        height: 52px;
+        font-size: 20px;
+    }
+    
+    .fab-action-btn {
+        width: 44px;
+        height: 44px;
+        font-size: 16px;
+    }
+    
+    .fab-help-message {
+        font-size: 12px;
+        padding: 8px 14px;
+        max-width: 160px;
+    }
+}
+
+/* Asegurar que no se superponga con otros elementos */
+.fab-container {
+    z-index: 9999 !important;
+}
+
+/* Compatibilidad con el botón de carrito */
+.cart-float {
+    z-index: 9998 !important;
+}
+

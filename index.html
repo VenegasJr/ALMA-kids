@@ -84,6 +84,8 @@
     <link rel="stylesheet" href="instagram-feed.css">
     <!-- BENEFICIOS SECTION - Fondo unificado pastel -->
     <link rel="stylesheet" href="benefits-section-fixes.css">
+    <!-- FLOATING ACTION BUTTON - Botón flotante expandible -->
+    <link rel="stylesheet" href="floating-action-button.css">
     
     <!-- SCRIPT DE DIAGNÓSTICO Y FIX INMEDIATO -->
     <script>
@@ -1299,8 +1301,8 @@
         </button>
     </div>
 
-    <!-- WhatsApp Float Button -->
-    <div class="whatsapp-float">
+    <!-- WhatsApp Float Button (Oculto - Reemplazado por FAB) -->
+    <div class="whatsapp-float" style="display: none !important;">
         <div class="whatsapp-bubble">
             <span>💬 ¿Necesitas ayuda?<br>¡Escríbenos ahora!</span>
         </div>
@@ -1308,6 +1310,8 @@
             <i class="fab fa-whatsapp"></i>
         </a>
     </div>
+    
+    <!-- Floating Action Button (FAB) - Se crea dinámicamente con JavaScript -->
 
     <!-- Botón Subir (Scroll to Top) -->
     <button id="scrollToTop" class="scroll-to-top" aria-label="Subir al inicio">
@@ -1350,6 +1354,8 @@
     <script src="script.js?v=20250126-01" defer></script>
     <!-- Instagram Feed Script - Versión Simple (sin API) -->
     <script src="instagram-feed-simple.js" defer></script>
+    <!-- Floating Action Button (FAB) - Botón flotante expandible -->
+    <script src="floating-action-button.js" defer></script>
     
     <!-- Debug Script for Testing -->
     <script>
