@@ -17,6 +17,38 @@
     overflow: hidden !important;
 }
 
+/* ==================== IMAGEN DE FONDO DEL CASTILLO ==================== */
+
+.hero-background-image {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-image: url('imagenes/Castillo-inflable-portadas.png') !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    z-index: 0 !important;
+    opacity: 0.4 !important;
+    filter: blur(2px) brightness(1.1) !important;
+}
+
+/* ==================== OVERLAY TIPO VIDRIO (GLASSMORPHISM) ==================== */
+
+.hero-glass-overlay {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(255, 240, 245, 0.7) !important;
+    backdrop-filter: blur(10px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(10px) saturate(180%) !important;
+    z-index: 1 !important;
+    pointer-events: none !important;
+}
+
 /* Partículas de fondo - Más visibles detrás del texto */
 .hero-particles-bg {
     position: absolute !important;
@@ -25,7 +57,7 @@
     width: 100% !important;
     height: 100% !important;
     pointer-events: none !important;
-    z-index: 1 !important;
+    z-index: 2 !important;
     opacity: 1 !important;
     overflow: visible !important;
     filter: blur(0px) !important; /* Sin blur para ver mejor el movimiento */
@@ -123,7 +155,7 @@
     align-items: center !important;
     justify-content: center !important;
     position: relative !important;
-    z-index: 2 !important;
+    z-index: 3 !important;
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 auto !important;
@@ -138,7 +170,7 @@
     justify-content: center !important;
     gap: 2rem !important;
     position: relative !important;
-    z-index: 3 !important;
+    z-index: 4 !important;
     width: 100% !important;
     max-width: 1200px !important;
     margin: 0 auto !important;
@@ -149,7 +181,7 @@
 .hero-welcome {
     margin-bottom: 0.5rem !important;
     position: relative !important;
-    z-index: 3 !important;
+    z-index: 4 !important;
 }
 
 .hero-welcome-text {
@@ -190,7 +222,7 @@
     justify-content: center !important;
     margin: 1rem 0 2rem !important;
     position: relative !important;
-    z-index: 3 !important;
+    z-index: 4 !important;
     width: 100% !important;
 }
 
@@ -247,7 +279,7 @@
     gap: 0.3rem !important;
     margin: 1.5rem 0 2.5rem !important;
     position: relative !important;
-    z-index: 3 !important;
+    z-index: 4 !important;
 }
 
 .hero-subtitle-line-1,
@@ -462,6 +494,17 @@
         min-height: 85vh !important;
         padding: 60px 0 40px !important;
         background: linear-gradient(135deg, #FFF0F5 0%, #FFE4E9 50%, #FFF0F5 100%) !important;
+    }
+    
+    .hero-background-image {
+        opacity: 0.3 !important;
+        filter: blur(3px) brightness(1.2) !important;
+    }
+    
+    .hero-glass-overlay {
+        background: rgba(255, 240, 245, 0.75) !important;
+        backdrop-filter: blur(12px) saturate(180%) !important;
+        -webkit-backdrop-filter: blur(12px) saturate(180%) !important;
     }
     
     /* Mostrar partículas también en móvil */
