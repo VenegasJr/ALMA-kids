@@ -7,12 +7,12 @@
 /* WhatsApp Buttons - Esquina inferior derecha */
 .whatsapp-float {
     position: fixed !important;
-    bottom: 120px !important;
-    right: 25px !important;
+    bottom: 30px !important;
+    right: 30px !important;
     z-index: 1999 !important;
     display: flex !important;
-    flex-direction: column !important;
-    gap: 16px !important;
+    flex-direction: column-reverse !important;
+    gap: 20px !important;
 }
 
 /* Cart Button - Esquina inferior izquierda */
