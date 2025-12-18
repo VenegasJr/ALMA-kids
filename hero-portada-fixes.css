@@ -403,20 +403,18 @@
     display: flex !important;
     flex-direction: column !important;
     padding: 0 !important;
-    background: white !important;
-    padding: 1rem !important;
 }
 
 .hero-image-item:hover {
-    transform: translateY(-8px) scale(1.02) !important;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2) !important;
+    transform: translateY(-5px) !important;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18) !important;
 }
 
 .hero-image-item img,
 .hero-image-item .hero-img {
     width: 100% !important;
-    height: auto !important;
-    border-radius: 15px !important;
+    height: 200px !important;
+    border-radius: 20px 20px 0 0 !important;
     object-fit: cover !important;
     display: block !important;
     opacity: 1 !important;
