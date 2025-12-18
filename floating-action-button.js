@@ -67,10 +67,10 @@
     
     // Inicializar el FAB
     function initFAB() {
-        // Remover el botón de WhatsApp antiguo si existe
+        // Remover completamente el botón de WhatsApp antiguo si existe
         const oldWhatsApp = document.querySelector('.whatsapp-float');
         if (oldWhatsApp) {
-            oldWhatsApp.style.display = 'none';
+            oldWhatsApp.remove();
         }
         
         // Crear y agregar el nuevo FAB
