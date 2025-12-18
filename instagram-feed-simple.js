@@ -70,7 +70,41 @@ async function loadInstagramStatsSimple() {
  * Intentar obtener estadísticas desde Instagram (múltiples métodos)
  */
 async function fetchAndUpdateStats() {
-    // Método 1: Intentar desde el perfil público de Instagram
+    // Método 1: Intentar usar servicio proxy para evitar CORS
+    try {
+        // Usar servicio público que permite obtener datos de Instagram
+        const proxyResponse = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(`https://www.instagram.com/${INSTAGRAM_USERNAME}/`)}`, {
+            method: 'GET'
+        });
+        
+        if (proxyResponse.ok) {
+            const proxyData = await proxyResponse.json();
+            const html = proxyData.contents;
+            
+            // Intentar extraer datos del HTML usando regex
+            const followersMatch = html.match(/"edge_followed_by":{"count":(\d+)}/);
+            const postsMatch = html.match(/"edge_owner_to_timeline_media":{"count":(\d+)}/);
+            const followingMatch = html.match(/"edge_follow":{"count":(\d+)}/);
+            
+            if (followersMatch || postsMatch || followingMatch) {
+                const stats = {
+                    followers: followersMatch ? parseInt(followersMatch[1]) : 356,
+                    posts: postsMatch ? parseInt(postsMatch[1]) : 13,
+                    following: followingMatch ? parseInt(followingMatch[1]) : 1146
+                };
+                
+                // Guardar en caché
+                saveCachedStats(stats);
+                updateStats(stats.followers, stats.posts, stats.following);
+                console.log('✅ Estadísticas actualizadas automáticamente desde Instagram (Método 1)');
+                return;
+            }
+        }
+    } catch (error) {
+        console.log('⚠️ Método 1 falló, intentando método 2...');
+    }
+    
+    // Método 2: Intentar desde el perfil público de Instagram (API directa)
     try {
         const response = await fetch(`https://www.instagram.com/${INSTAGRAM_USERNAME}/?__a=1&__d=dis`, {
             method: 'GET',
@@ -85,30 +119,33 @@ async function fetchAndUpdateStats() {
             if (data.graphql && data.graphql.user) {
                 const user = data.graphql.user;
                 const stats = {
-                    followers: user.edge_followed_by?.count || 0,
-                    posts: user.edge_owner_to_timeline_media?.count || 0,
-                    following: user.edge_follow?.count || 0
+                    followers: user.edge_followed_by?.count || 356,
+                    posts: user.edge_owner_to_timeline_media?.count || 13,
+                    following: user.edge_follow?.count || 1146
                 };
                 
                 // Guardar en caché
                 saveCachedStats(stats);
                 updateStats(stats.followers, stats.posts, stats.following);
-                console.log('✅ Estadísticas actualizadas automáticamente desde Instagram');
+                console.log('✅ Estadísticas actualizadas automáticamente desde Instagram (Método 2)');
                 return;
             }
         }
     } catch (error) {
-        console.log('⚠️ No se pudo obtener datos automáticamente, usando caché o valores manuales');
+        console.log('⚠️ Método 2 falló, intentando método 3...');
     }
     
-    // Método 2: Intentar desde el embed de Instagram (extraer del DOM)
+    // Método 3: Intentar extraer datos del embed de Instagram después de que cargue
     try {
-        await extractStatsFromEmbed();
+        const extracted = await extractStatsFromEmbed();
+        if (extracted) {
+            return; // Si se extrajeron datos, ya se actualizaron
+        }
     } catch (error) {
-        console.log('⚠️ No se pudieron extraer datos del embed');
+        console.log('⚠️ Método 3: No se pudieron extraer datos del embed aún');
     }
     
-    // Método 3: Usar datos en caché si existen (aunque estén vencidos)
+    // Método 4: Usar datos en caché si existen (aunque estén vencidos)
     const cachedData = getCachedStats();
     if (cachedData) {
         console.log('📊 Usando estadísticas en caché (aunque estén vencidas)');
@@ -116,8 +153,8 @@ async function fetchAndUpdateStats() {
         return;
     }
     
-    // Método 4: Fallback a valores manuales
-    console.log('📝 Usando valores manuales como fallback');
+    // Método 5: Fallback a valores manuales actualizados
+    console.log('📝 Usando valores manuales actualizados como fallback');
     showManualStats();
 }
 
@@ -133,6 +170,7 @@ async function updateStatsInBackground() {
 
 /**
  * Extraer estadísticas del embed de Instagram después de que cargue
+ * Retorna true si se extrajeron datos, false si no
  */
 async function extractStatsFromEmbed() {
     return new Promise((resolve) => {
@@ -165,14 +203,38 @@ async function extractStatsFromEmbed() {
                             
                             saveCachedStats(stats);
                             updateStats(stats.followers, stats.posts, stats.following);
-                            console.log('✅ Estadísticas extraídas del embed de Instagram');
+                            console.log('✅ Estadísticas extraídas del embed de Instagram (Método 3)');
                             clearInterval(checkEmbed);
-                            resolve();
+                            resolve(true);
                             return;
                         }
                     }
                 } catch (error) {
-                    // CORS bloquea el acceso, continuar intentando otros métodos
+                    // CORS bloquea el acceso, continuar intentando
+                }
+            }
+            
+            // También intentar buscar en el HTML del embed directamente
+            const embedContainer = document.querySelector('.instagram-media');
+            if (embedContainer) {
+                const embedHTML = embedContainer.innerHTML || '';
+                const followersMatch = embedHTML.match(/(\d+)\s*seguidores/i);
+                const postsMatch = embedHTML.match(/(\d+)\s*publicaciones/i);
+                const followingMatch = embedHTML.match(/(\d+)\s*siguiendo/i);
+                
+                if (followersMatch || postsMatch || followingMatch) {
+                    const stats = {
+                        followers: followersMatch ? parseInt(followersMatch[1]) : 356,
+                        posts: postsMatch ? parseInt(postsMatch[1]) : 13,
+                        following: followingMatch ? parseInt(followingMatch[1]) : 1146
+                    };
+                    
+                    saveCachedStats(stats);
+                    updateStats(stats.followers, stats.posts, stats.following);
+                    console.log('✅ Estadísticas extraídas del HTML del embed (Método 3)');
+                    clearInterval(checkEmbed);
+                    resolve(true);
+                    return;
                 }
             }
             
@@ -180,14 +242,14 @@ async function extractStatsFromEmbed() {
             if (window.instgrm && attempts > 5) {
                 // El embed ya debería estar procesado
                 clearInterval(checkEmbed);
-                resolve();
+                resolve(false);
                 return;
             }
             
             // Timeout después de maxAttempts segundos
             if (attempts >= maxAttempts) {
                 clearInterval(checkEmbed);
-                resolve();
+                resolve(false);
             }
         }, 1000);
     });
