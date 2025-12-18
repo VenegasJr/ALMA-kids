@@ -1,0 +1,245 @@
+/* ============================================
+   FIXES CRÍTICOS - WHATSAPP Y ESPACIOS
+   Este archivo sobrescribe TODOS los estilos anteriores
+   ============================================ */
+
+/* ==================== RESET ESPACIOS ==================== */
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+body {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+/* ==================== HEADER SIN ESPACIOS ==================== */
+.coverage-banner {
+    margin: 0 !important;
+    margin-top: 0 !important;
+    padding-top: 14px !important;
+    padding-bottom: 14px !important;
+}
+
+.site-header {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    top: 0 !important;
+}
+
+/* ==================== FOOTER SIN ESPACIOS ==================== */
+footer {
+    margin: 0 !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 30px !important;
+    width: 100% !important;
+    clear: both !important;
+}
+
+footer::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+/* ==================== WHATSAPP BOTÓN - ESTILOS FINALES ==================== */
+.whatsapp-float {
+    position: fixed !important;
+    bottom: 30px !important;
+    right: 30px !important;
+    z-index: 1999 !important;
+    display: flex !important;
+    flex-direction: column-reverse !important;
+    align-items: flex-end !important;
+    gap: 20px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.whatsapp-btn {
+    width: 70px !important;
+    height: 70px !important;
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%) !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: white !important;
+    font-size: 36px !important;
+    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5),
+                0 0 0 0 rgba(37, 211, 102, 0.7),
+                0 0 0 0 rgba(37, 211, 102, 0.5) !important;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important;
+    text-decoration: none !important;
+    border: none !important;
+    position: relative !important;
+    animation: whatsapp-pulse 2s ease-in-out infinite !important;
+    cursor: pointer !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.whatsapp-btn::before {
+    content: '' !important;
+    position: absolute !important;
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 50% !important;
+    background: rgba(255, 255, 255, 0.3) !important;
+    opacity: 0 !important;
+    transition: opacity 0.3s ease !important;
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.15) translateY(-5px) !important;
+    box-shadow: 0 12px 40px rgba(37, 211, 102, 0.7),
+                0 0 0 10px rgba(37, 211, 102, 0.1),
+                0 0 0 20px rgba(37, 211, 102, 0.05) !important;
+    background: linear-gradient(135deg, #20BA5A 0%, #0F7A6E 100%) !important;
+}
+
+.whatsapp-btn:hover::before {
+    opacity: 1 !important;
+}
+
+.whatsapp-btn i {
+    position: relative !important;
+    z-index: 1 !important;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2)) !important;
+}
+
+/* Burbuja de mensaje - Verde con texto blanco */
+.whatsapp-bubble {
+    position: relative !important;
+    background: #25D366 !important;
+    color: white !important;
+    padding: 16px 22px !important;
+    border-radius: 20px 20px 20px 4px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    white-space: normal !important;
+    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4),
+                0 4px 15px rgba(0, 0, 0, 0.2) !important;
+    animation: whatsapp-bubble-appear 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards,
+               whatsapp-bubble-float 3s ease-in-out infinite 0.6s !important;
+    max-width: 300px !important;
+    text-align: left !important;
+    letter-spacing: 0.3px !important;
+    line-height: 1.5 !important;
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+    margin-bottom: 10px !important;
+    margin: 0 0 10px 0 !important;
+}
+
+.whatsapp-bubble span {
+    display: block !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
+    color: white !important;
+}
+
+.whatsapp-bubble::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: -8px !important;
+    right: 20px !important;
+    width: 0 !important;
+    height: 0 !important;
+    border-style: solid !important;
+    border-width: 8px 8px 0 8px !important;
+    border-color: #25D366 transparent transparent transparent !important;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15)) !important;
+}
+
+/* Animaciones */
+@keyframes whatsapp-pulse {
+    0%, 100% {
+        box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5),
+                    0 0 0 0 rgba(37, 211, 102, 0.7),
+                    0 0 0 0 rgba(37, 211, 102, 0.5);
+    }
+    50% {
+        box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6),
+                    0 0 0 8px rgba(37, 211, 102, 0.1),
+                    0 0 0 16px rgba(37, 211, 102, 0.05);
+    }
+}
+
+@keyframes whatsapp-bubble-appear {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes whatsapp-bubble-float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        bottom: 20px !important;
+        right: 20px !important;
+        gap: 18px !important;
+    }
+    
+    .whatsapp-btn {
+        width: 65px !important;
+        height: 65px !important;
+        font-size: 32px !important;
+    }
+    
+    .whatsapp-bubble {
+        font-size: 14px !important;
+        padding: 14px 18px !important;
+        max-width: 260px !important;
+        border-radius: 18px 18px 18px 4px !important;
+    }
+    
+    .whatsapp-bubble::after {
+        right: 18px !important;
+        bottom: -7px !important;
+        border-width: 7px 7px 0 7px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .whatsapp-float {
+        bottom: 15px !important;
+        right: 15px !important;
+        gap: 16px !important;
+    }
+    
+    .whatsapp-btn {
+        width: 60px !important;
+        height: 60px !important;
+        font-size: 28px !important;
+    }
+    
+    .whatsapp-bubble {
+        font-size: 13px !important;
+        padding: 12px 16px !important;
+        max-width: 220px !important;
+        border-radius: 16px 16px 16px 4px !important;
+    }
+    
+    .whatsapp-bubble::after {
+        right: 16px !important;
+        bottom: -6px !important;
+        border-width: 6px 6px 0 6px !important;
+    }
+}
+
