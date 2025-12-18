@@ -8,12 +8,12 @@
 .hero {
     position: relative !important;
     width: 100% !important;
-    min-height: 85vh !important;
+    min-height: 90vh !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    background: transparent !important;
-    padding: 100px 0 80px !important;
+    background: #FFFFFF !important;
+    padding: 120px 0 100px !important;
     overflow: hidden !important;
 }
 
@@ -110,8 +110,8 @@
 
 .hero-content {
     display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 4rem !important;
+    grid-template-columns: 1.2fr 0.8fr !important;
+    gap: 5rem !important;
     align-items: center !important;
     position: relative !important;
     z-index: 2 !important;
@@ -125,65 +125,75 @@
     display: flex !important;
     flex-direction: column !important;
     gap: 1.5rem !important;
+    position: relative !important;
+    z-index: 3 !important;
+}
+
+/* ==================== BADGE DE LOGRO ==================== */
+
+.hero-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    background: linear-gradient(135deg, #4A90E2, #5BA3F5) !important;
+    color: white !important;
+    padding: 0.5rem 1rem !important;
+    border-radius: 50px !important;
+    font-size: clamp(0.75rem, 1.2vw, 0.9rem) !important;
+    font-weight: 600 !important;
+    margin-bottom: 1.5rem !important;
+    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3) !important;
+    letter-spacing: 0.5px !important;
+}
+
+.hero-badge i {
+    font-size: 1rem !important;
 }
 
 /* ==================== TÍTULO DEL HERO ==================== */
 
 .hero-title {
-    font-size: clamp(2.5rem, 5vw, 4.5rem) !important;
-    font-weight: 800 !important;
-    line-height: 1.1 !important;
-    margin-bottom: 1rem !important;
-    color: #8B4A6B !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 0.5rem !important;
+    font-size: clamp(2.8rem, 6vw, 5.5rem) !important;
+    font-weight: 900 !important;
+    line-height: 1.15 !important;
+    margin-bottom: 1.5rem !important;
+    color: #1a1a1a !important;
+    display: block !important;
+    letter-spacing: -0.02em !important;
 }
 
-.title-line-1 {
-    font-size: clamp(2rem, 4vw, 3.5rem) !important;
-    font-weight: 700 !important;
-    color: #E91E63 !important;
-    text-shadow: 0 2px 10px rgba(233, 30, 99, 0.2) !important;
-}
-
-.title-line-2 {
-    font-size: clamp(1.8rem, 3.5vw, 3rem) !important;
-    font-weight: 600 !important;
-    color: #8B4A6B !important;
-    background: linear-gradient(135deg, #E91E63, #FF6B9D) !important;
+.hero-title .highlight-text {
+    background: linear-gradient(135deg, #FFD700, #ADFF2F) !important;
     -webkit-background-clip: text !important;
     background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
-}
-
-.title-line-3 {
-    font-size: clamp(1.6rem, 3vw, 2.5rem) !important;
-    font-weight: 600 !important;
-    color: #8B4A6B !important;
+    position: relative !important;
+    display: inline-block !important;
+    padding: 0 0.2em !important;
+    font-weight: 900 !important;
 }
 
 /* ==================== SUBTÍTULO Y DESCRIPCIÓN ==================== */
 
 .hero-subtitle {
-    font-size: clamp(1.3rem, 2.5vw, 1.8rem) !important;
-    font-weight: 600 !important;
-    color: #E91E63 !important;
-    margin-bottom: 1rem !important;
-    text-shadow: 0 2px 8px rgba(233, 30, 99, 0.15) !important;
+    font-size: clamp(1.1rem, 2vw, 1.4rem) !important;
+    font-weight: 500 !important;
+    color: #1a1a1a !important;
+    margin-bottom: 1.5rem !important;
+    line-height: 1.6 !important;
+}
+
+.hero-subtitle strong {
+    color: #1a1a1a !important;
+    font-weight: 700 !important;
 }
 
 .hero-description {
-    font-size: clamp(1rem, 1.8vw, 1.2rem) !important;
-    line-height: 1.8 !important;
-    color: #6B4C5C !important;
-    margin-bottom: 2rem !important;
-    max-width: 100% !important;
-}
-
-.hero-description strong {
-    color: #E91E63 !important;
-    font-weight: 700 !important;
+    font-size: clamp(0.95rem, 1.5vw, 1.1rem) !important;
+    line-height: 1.7 !important;
+    color: #666666 !important;
+    margin-bottom: 2.5rem !important;
+    max-width: 600px !important;
 }
 
 /* ==================== BOTONES DEL HERO ==================== */
@@ -207,26 +217,46 @@
     gap: 0.5rem !important;
 }
 
-.hero-buttons .btn-primary {
-    background: linear-gradient(135deg, #E91E63, #FF6B9D) !important;
+.hero-buttons .btn-primary,
+.hero-buttons .btn-cta {
+    background: #1a1a1a !important;
     color: white !important;
-    box-shadow: 0 6px 20px rgba(233, 30, 99, 0.3) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+    border: none !important;
+    font-weight: 600 !important;
+    padding: 1.1rem 2.5rem !important;
+    border-radius: 8px !important;
 }
 
-.hero-buttons .btn-primary:hover {
-    transform: translateY(-3px) scale(1.05) !important;
-    box-shadow: 0 10px 30px rgba(233, 30, 99, 0.4) !important;
+.hero-buttons .btn-primary:hover,
+.hero-buttons .btn-cta:hover {
+    background: #2a2a2a !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+.hero-buttons .btn-primary i,
+.hero-buttons .btn-cta i {
+    margin-left: 0.5rem !important;
+    transition: transform 0.3s ease !important;
+}
+
+.hero-buttons .btn-primary:hover i,
+.hero-buttons .btn-cta:hover i {
+    transform: translateX(5px) !important;
 }
 
 .hero-buttons .btn-secondary {
-    background: linear-gradient(135deg, #98D8C8, #87CEEB) !important;
-    color: white !important;
-    box-shadow: 0 6px 20px rgba(152, 216, 200, 0.3) !important;
+    background: transparent !important;
+    color: #1a1a1a !important;
+    border: 2px solid #e0e0e0 !important;
+    box-shadow: none !important;
 }
 
 .hero-buttons .btn-secondary:hover {
-    transform: translateY(-3px) scale(1.05) !important;
-    box-shadow: 0 10px 30px rgba(152, 216, 200, 0.4) !important;
+    background: #f5f5f5 !important;
+    border-color: #1a1a1a !important;
+    transform: translateY(-2px) !important;
 }
 
 .hero-buttons .btn-outline {
@@ -246,6 +276,7 @@
 .hero-image {
     position: relative !important;
     z-index: 2 !important;
+    display: none !important; /* Ocultar imágenes por ahora para diseño más limpio */
 }
 
 .hero-images-grid {
@@ -310,11 +341,43 @@
 
 /* ==================== RESPONSIVE - MÓVIL ==================== */
 
+/* ==================== ELEMENTOS GRÁFICOS DECORATIVOS ==================== */
+
+.hero::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 300px !important;
+    background: linear-gradient(135deg, 
+        rgba(255, 215, 0, 0.1) 0%, 
+        rgba(173, 255, 47, 0.15) 50%, 
+        rgba(255, 182, 193, 0.1) 100%) !important;
+    clip-path: polygon(0 40%, 100% 20%, 100% 100%, 0 100%) !important;
+    z-index: 0 !important;
+    pointer-events: none !important;
+}
+
+.hero::before {
+    content: '' !important;
+    position: absolute !important;
+    bottom: -50px !important;
+    right: -50px !important;
+    width: 400px !important;
+    height: 400px !important;
+    background: radial-gradient(circle, rgba(255, 182, 193, 0.2) 0%, transparent 70%) !important;
+    border-radius: 50% !important;
+    z-index: 0 !important;
+    pointer-events: none !important;
+    filter: blur(40px) !important;
+}
+
 @media (max-width: 768px) {
     .hero {
         min-height: auto !important;
         padding: 100px 0 60px !important;
-        background: transparent !important;
+        background: #FFFFFF !important;
     }
     
     /* Mostrar partículas también en móvil */
