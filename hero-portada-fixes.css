@@ -30,8 +30,8 @@
     background-position: center center !important;
     background-repeat: no-repeat !important;
     z-index: 0 !important;
-    opacity: 0.4 !important;
-    filter: blur(2px) brightness(1.1) !important;
+    opacity: 0.25 !important;
+    filter: blur(1px) brightness(1.15) saturate(1.1) !important;
 }
 
 /* ==================== OVERLAY TIPO VIDRIO (GLASSMORPHISM) ==================== */
@@ -42,9 +42,9 @@
     left: 0 !important;
     width: 100% !important;
     height: 100% !important;
-    background: rgba(255, 240, 245, 0.7) !important;
-    backdrop-filter: blur(10px) saturate(180%) !important;
-    -webkit-backdrop-filter: blur(10px) saturate(180%) !important;
+    background: rgba(255, 240, 245, 0.85) !important;
+    backdrop-filter: blur(8px) saturate(150%) !important;
+    -webkit-backdrop-filter: blur(8px) saturate(150%) !important;
     z-index: 1 !important;
     pointer-events: none !important;
 }
@@ -150,30 +150,40 @@
 /* ==================== CONTENIDO DEL HERO ==================== */
 
 .hero-content {
-    display: flex !important;
-    flex-direction: column !important;
+    display: grid !important;
+    grid-template-columns: 1.2fr 1fr !important;
+    gap: 4rem !important;
     align-items: center !important;
     justify-content: center !important;
     position: relative !important;
     z-index: 3 !important;
     width: 100% !important;
-    max-width: 100% !important;
+    max-width: 1400px !important;
     margin: 0 auto !important;
     padding: 0 2rem !important;
-    text-align: center !important;
 }
 
 .hero-text {
     display: flex !important;
     flex-direction: column !important;
-    align-items: center !important;
+    align-items: flex-start !important;
     justify-content: center !important;
     gap: 2rem !important;
     position: relative !important;
     z-index: 4 !important;
     width: 100% !important;
-    max-width: 1200px !important;
-    margin: 0 auto !important;
+    text-align: left !important;
+}
+
+.hero-welcome,
+.hero-brand,
+.hero-subtitle-main {
+    width: 100% !important;
+    text-align: left !important;
+}
+
+.hero-buttons {
+    justify-content: flex-start !important;
 }
 
 /* ==================== BIENVENIDOS ==================== */
@@ -371,22 +381,28 @@
 
 .hero-image {
     position: relative !important;
-    z-index: 2 !important;
-    display: none !important; /* Ocultar imágenes por ahora para diseño más limpio */
+    z-index: 4 !important;
+    display: block !important;
+    width: 100% !important;
 }
 
 .hero-images-grid {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 1.5rem !important;
+    width: 100% !important;
 }
 
 .hero-image-item {
     position: relative !important;
+    background: white !important;
     border-radius: 20px !important;
     overflow: hidden !important;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12) !important;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 0 !important;
     background: white !important;
     padding: 1rem !important;
 }
@@ -475,6 +491,26 @@
         padding: 80px 0 !important;
     }
     
+    .hero-content {
+        grid-template-columns: 1fr !important;
+        gap: 3rem !important;
+    }
+    
+    .hero-text {
+        align-items: center !important;
+        text-align: center !important;
+    }
+    
+    .hero-welcome,
+    .hero-brand,
+    .hero-subtitle-main {
+        text-align: center !important;
+    }
+    
+    .hero-buttons {
+        justify-content: center !important;
+    }
+    
     .hero-brand-name-alma {
         font-size: clamp(3.5rem, 10vw, 6rem) !important;
     }
@@ -487,6 +523,12 @@
     .hero-subtitle-line-2 {
         font-size: clamp(1.5rem, 3.5vw, 2.5rem) !important;
     }
+    
+    .hero-images-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        max-width: 600px !important;
+        margin: 0 auto !important;
+    }
 }
 
 @media (max-width: 768px) {
@@ -497,14 +539,25 @@
     }
     
     .hero-background-image {
-        opacity: 0.3 !important;
-        filter: blur(3px) brightness(1.2) !important;
+        opacity: 0.2 !important;
+        filter: blur(2px) brightness(1.2) !important;
     }
     
     .hero-glass-overlay {
-        background: rgba(255, 240, 245, 0.75) !important;
-        backdrop-filter: blur(12px) saturate(180%) !important;
-        -webkit-backdrop-filter: blur(12px) saturate(180%) !important;
+        background: rgba(255, 240, 245, 0.8) !important;
+        backdrop-filter: blur(10px) saturate(150%) !important;
+        -webkit-backdrop-filter: blur(10px) saturate(150%) !important;
+    }
+    
+    .hero-images-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+        max-width: 100% !important;
+    }
+    
+    .hero-image-item img,
+    .hero-image-item .hero-img {
+        height: 180px !important;
     }
     
     /* Mostrar partículas también en móvil */
