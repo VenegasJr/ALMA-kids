@@ -18,7 +18,7 @@
             
             <!-- Mensaje de ayuda -->
             <div class="fab-help-message" id="fabHelpMessage">
-                ¿Necesitas ayuda?
+                ¿Te ayudo?
             </div>
             
             <!-- Botones de acción -->
