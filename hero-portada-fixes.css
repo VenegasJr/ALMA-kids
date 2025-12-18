@@ -8,12 +8,12 @@
 .hero {
     position: relative !important;
     width: 100% !important;
-    min-height: 90vh !important;
+    min-height: 100vh !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    background: #FFFFFF !important;
-    padding: 120px 0 100px !important;
+    background: linear-gradient(135deg, #FFF0F5 0%, #FFE4E9 50%, #FFF0F5 100%) !important;
+    padding: 100px 0 !important;
     overflow: hidden !important;
 }
 
@@ -118,35 +118,46 @@
 /* ==================== CONTENIDO DEL HERO ==================== */
 
 .hero-content {
-    display: grid !important;
-    grid-template-columns: 1.2fr 0.8fr !important;
-    gap: 5rem !important;
+    display: flex !important;
+    flex-direction: column !important;
     align-items: center !important;
+    justify-content: center !important;
     position: relative !important;
     z-index: 2 !important;
     width: 100% !important;
-    max-width: 1400px !important;
+    max-width: 100% !important;
     margin: 0 auto !important;
     padding: 0 2rem !important;
+    text-align: center !important;
 }
 
 .hero-text {
     display: flex !important;
     flex-direction: column !important;
-    gap: 1.5rem !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 2rem !important;
     position: relative !important;
     z-index: 3 !important;
-    text-shadow: 0 2px 10px rgba(255, 255, 255, 0.8) !important; /* Sombra blanca para contraste con partículas */
+    width: 100% !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
 }
 
-.hero-title {
-    text-shadow: 0 2px 15px rgba(255, 255, 255, 0.9), 
-                 0 4px 25px rgba(255, 255, 255, 0.7) !important; /* Doble sombra para mejor legibilidad */
+/* ==================== BIENVENIDOS ==================== */
+
+.hero-welcome {
+    margin-bottom: 0.5rem !important;
+    position: relative !important;
+    z-index: 3 !important;
 }
 
-.hero-subtitle,
-.hero-description {
-    text-shadow: 0 1px 8px rgba(255, 255, 255, 0.8) !important; /* Sombra blanca para contraste */
+.hero-welcome-text {
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem) !important;
+    font-weight: 500 !important;
+    color: #8B4A6B !important;
+    letter-spacing: 0.05em !important;
+    text-shadow: 0 2px 10px rgba(255, 255, 255, 0.9) !important;
 }
 
 /* ==================== BADGE DE LOGRO ==================== */
@@ -170,81 +181,87 @@
     font-size: 1rem !important;
 }
 
-/* ==================== MARCA ALMA KIDS ==================== */
+/* ==================== MARCA ALMA KIDS - PRINCIPAL ==================== */
 
 .hero-brand {
-    text-align: center !important;
-    margin-bottom: 1rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 1rem 0 2rem !important;
     position: relative !important;
     z-index: 3 !important;
+    width: 100% !important;
 }
 
-.hero-brand-name {
-    font-size: clamp(2.5rem, 5vw, 4rem) !important;
+.hero-brand-name-alma {
+    font-size: clamp(4rem, 12vw, 8rem) !important;
     font-weight: 900 !important;
-    letter-spacing: 0.1em !important;
+    letter-spacing: 0.02em !important;
     background: linear-gradient(135deg, #E91E63, #FF6B9D, #E91E63) !important;
     -webkit-background-clip: text !important;
     background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
-    text-shadow: 0 4px 20px rgba(233, 30, 99, 0.3) !important;
-    display: inline-block !important;
-    position: relative !important;
-    padding: 0.5rem 1.5rem !important;
-    border: 3px solid transparent !important;
-    background-image: linear-gradient(135deg, #E91E63, #FF6B9D, #E91E63), 
-                      linear-gradient(135deg, #E91E63, #FF6B9D) !important;
-    background-origin: border-box !important;
-    background-clip: padding-box, border-box !important;
-    border-radius: 15px !important;
-    box-shadow: 0 8px 30px rgba(233, 30, 99, 0.2) !important;
-}
-
-/* ==================== TÍTULO DEL HERO ==================== */
-
-.hero-title {
-    font-size: clamp(2.8rem, 6vw, 5.5rem) !important;
-    font-weight: 900 !important;
-    line-height: 1.15 !important;
-    margin-bottom: 1.5rem !important;
-    color: #1a1a1a !important;
+    text-shadow: 0 0 40px rgba(233, 30, 99, 0.5),
+                 0 0 80px rgba(233, 30, 99, 0.3),
+                 0 4px 20px rgba(233, 30, 99, 0.4) !important;
     display: block !important;
-    letter-spacing: -0.02em !important;
+    line-height: 1 !important;
+    margin-bottom: 0.2rem !important;
+    filter: drop-shadow(0 0 20px rgba(233, 30, 99, 0.4)) !important;
+    animation: glowPulse 3s ease-in-out infinite !important;
 }
 
-.hero-title .highlight-text {
-    background: linear-gradient(135deg, #FFD700, #ADFF2F) !important;
+.hero-brand-name-kids {
+    font-size: clamp(3rem, 9vw, 6rem) !important;
+    font-weight: 900 !important;
+    letter-spacing: 0.02em !important;
+    background: linear-gradient(135deg, #E91E63, #FF6B9D, #E91E63) !important;
     -webkit-background-clip: text !important;
     background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
+    text-shadow: 0 0 40px rgba(233, 30, 99, 0.5),
+                 0 0 80px rgba(233, 30, 99, 0.3),
+                 0 4px 20px rgba(233, 30, 99, 0.4) !important;
+    display: block !important;
+    line-height: 1 !important;
+    filter: drop-shadow(0 0 20px rgba(233, 30, 99, 0.4)) !important;
+    animation: glowPulse 3s ease-in-out infinite 0.5s !important;
+}
+
+@keyframes glowPulse {
+    0%, 100% {
+        filter: drop-shadow(0 0 20px rgba(233, 30, 99, 0.4)) brightness(1) !important;
+    }
+    50% {
+        filter: drop-shadow(0 0 30px rgba(233, 30, 99, 0.6)) brightness(1.1) !important;
+    }
+}
+
+/* ==================== SUBTÍTULO PRINCIPAL ==================== */
+
+.hero-subtitle-main {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0.3rem !important;
+    margin: 1.5rem 0 2.5rem !important;
     position: relative !important;
-    display: inline-block !important;
-    padding: 0 0.2em !important;
-    font-weight: 900 !important;
+    z-index: 3 !important;
 }
 
-/* ==================== SUBTÍTULO Y DESCRIPCIÓN ==================== */
-
-.hero-subtitle {
-    font-size: clamp(1.1rem, 2vw, 1.4rem) !important;
-    font-weight: 500 !important;
-    color: #1a1a1a !important;
-    margin-bottom: 1.5rem !important;
-    line-height: 1.6 !important;
-}
-
-.hero-subtitle strong {
-    color: #1a1a1a !important;
+.hero-subtitle-line-1,
+.hero-subtitle-line-2 {
+    font-size: clamp(1.8rem, 4vw, 3rem) !important;
     font-weight: 700 !important;
+    color: #1a1a1a !important;
+    letter-spacing: 0.02em !important;
+    text-shadow: 0 2px 15px rgba(255, 255, 255, 0.9) !important;
+    display: block !important;
+    line-height: 1.2 !important;
 }
 
-.hero-description {
-    font-size: clamp(0.95rem, 1.5vw, 1.1rem) !important;
-    line-height: 1.7 !important;
-    color: #666666 !important;
-    margin-bottom: 2.5rem !important;
-    max-width: 600px !important;
-}
+/* Subtítulos y descripciones removidos - diseño simplificado */
 
 /* ==================== BOTONES DEL HERO ==================== */
 
@@ -267,46 +284,43 @@
     gap: 0.5rem !important;
 }
 
-.hero-buttons .btn-primary,
-.hero-buttons .btn-cta {
-    background: #1a1a1a !important;
+.hero-buttons .btn-primary {
+    background: linear-gradient(135deg, #E91E63, #FF6B9D) !important;
     color: white !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3) !important;
     border: none !important;
     font-weight: 600 !important;
-    padding: 1.1rem 2.5rem !important;
-    border-radius: 8px !important;
+    padding: 1rem 2rem !important;
+    border-radius: 50px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
 }
 
-.hero-buttons .btn-primary:hover,
-.hero-buttons .btn-cta:hover {
-    background: #2a2a2a !important;
-    transform: translateY(-2px) !important;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3) !important;
+.hero-buttons .btn-primary:hover {
+    background: linear-gradient(135deg, #C2185B, #E91E63) !important;
+    transform: translateY(-2px) scale(1.05) !important;
+    box-shadow: 0 6px 20px rgba(233, 30, 99, 0.4) !important;
 }
 
-.hero-buttons .btn-primary i,
-.hero-buttons .btn-cta i {
-    margin-left: 0.5rem !important;
-    transition: transform 0.3s ease !important;
-}
-
-.hero-buttons .btn-primary:hover i,
-.hero-buttons .btn-cta:hover i {
-    transform: translateX(5px) !important;
+.hero-buttons .btn-primary i {
+    font-size: 0.9rem !important;
 }
 
 .hero-buttons .btn-secondary {
-    background: transparent !important;
-    color: #1a1a1a !important;
-    border: 2px solid #e0e0e0 !important;
-    box-shadow: none !important;
+    background: white !important;
+    color: #E91E63 !important;
+    border: 2px solid #E91E63 !important;
+    box-shadow: 0 2px 10px rgba(233, 30, 99, 0.1) !important;
+    font-weight: 600 !important;
+    padding: 1rem 2rem !important;
+    border-radius: 50px !important;
 }
 
 .hero-buttons .btn-secondary:hover {
-    background: #f5f5f5 !important;
-    border-color: #1a1a1a !important;
-    transform: translateY(-2px) !important;
+    background: rgba(233, 30, 99, 0.05) !important;
+    transform: translateY(-2px) scale(1.05) !important;
+    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.2) !important;
 }
 
 .hero-buttons .btn-outline {
@@ -423,11 +437,31 @@
     filter: blur(40px) !important;
 }
 
+@media (max-width: 1024px) {
+    .hero {
+        min-height: 90vh !important;
+        padding: 80px 0 !important;
+    }
+    
+    .hero-brand-name-alma {
+        font-size: clamp(3.5rem, 10vw, 6rem) !important;
+    }
+    
+    .hero-brand-name-kids {
+        font-size: clamp(2.5rem, 7vw, 4.5rem) !important;
+    }
+    
+    .hero-subtitle-line-1,
+    .hero-subtitle-line-2 {
+        font-size: clamp(1.5rem, 3.5vw, 2.5rem) !important;
+    }
+}
+
 @media (max-width: 768px) {
     .hero {
-        min-height: auto !important;
-        padding: 100px 0 60px !important;
-        background: #FFFFFF !important;
+        min-height: 85vh !important;
+        padding: 60px 0 40px !important;
+        background: linear-gradient(135deg, #FFF0F5 0%, #FFE4E9 50%, #FFF0F5 100%) !important;
     }
     
     /* Mostrar partículas también en móvil */
@@ -441,46 +475,53 @@
     }
     
     .hero-content {
-        grid-template-columns: 1fr !important;
-        gap: 2.5rem !important;
         padding: 0 1.5rem !important;
     }
     
     .hero-text {
-        text-align: center !important;
-        align-items: center !important;
+        gap: 1.5rem !important;
     }
     
-    .hero-title {
-        text-align: center !important;
-        align-items: center !important;
+    .hero-welcome-text {
+        font-size: clamp(1rem, 2vw, 1.4rem) !important;
     }
     
-    .hero-description {
-        text-align: center !important;
-        max-width: 100% !important;
+    .hero-brand {
+        margin: 0.5rem 0 1.5rem !important;
+    }
+    
+    .hero-brand-name-alma {
+        font-size: clamp(3rem, 12vw, 5rem) !important;
+    }
+    
+    .hero-brand-name-kids {
+        font-size: clamp(2.2rem, 9vw, 4rem) !important;
+    }
+    
+    .hero-subtitle-main {
+        margin: 1rem 0 2rem !important;
+    }
+    
+    .hero-subtitle-line-1,
+    .hero-subtitle-line-2 {
+        font-size: clamp(1.3rem, 4vw, 2rem) !important;
     }
     
     .hero-buttons {
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
         justify-content: center !important;
-        flex-direction: column !important;
+        gap: 1rem !important;
         width: 100% !important;
     }
     
     .hero-buttons .btn {
-        width: 100% !important;
-        max-width: 300px !important;
+        flex: 1 1 auto !important;
+        min-width: 140px !important;
+        max-width: 200px !important;
         justify-content: center !important;
-    }
-    
-    .hero-images-grid {
-        grid-template-columns: 1fr !important;
-        gap: 1.5rem !important;
-        max-width: 100% !important;
-    }
-    
-    .hero-image-item {
-        max-width: 100% !important;
+        padding: 0.9rem 1.5rem !important;
+        font-size: 0.95rem !important;
     }
 }
 
@@ -488,17 +529,45 @@
 
 @media (max-width: 480px) {
     .hero {
-        padding: 90px 0 50px !important;
+        min-height: 80vh !important;
+        padding: 50px 0 30px !important;
     }
     
     .hero-content {
         padding: 0 1rem !important;
-        gap: 2rem !important;
+    }
+    
+    .hero-text {
+        gap: 1.2rem !important;
+    }
+    
+    .hero-welcome-text {
+        font-size: 0.9rem !important;
+    }
+    
+    .hero-brand-name-alma {
+        font-size: clamp(2.5rem, 15vw, 4rem) !important;
+    }
+    
+    .hero-brand-name-kids {
+        font-size: clamp(1.8rem, 12vw, 3rem) !important;
+    }
+    
+    .hero-subtitle-line-1,
+    .hero-subtitle-line-2 {
+        font-size: clamp(1.1rem, 5vw, 1.6rem) !important;
+    }
+    
+    .hero-buttons {
+        flex-direction: column !important;
+        width: 100% !important;
     }
     
     .hero-buttons .btn {
-        font-size: 0.95rem !important;
-        padding: 0.875rem 1.5rem !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        font-size: 0.9rem !important;
+        padding: 0.85rem 1.5rem !important;
     }
 }
 
