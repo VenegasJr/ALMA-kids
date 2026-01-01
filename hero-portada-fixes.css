@@ -175,6 +175,7 @@
     width: 100% !important;
     text-align: left !important;
     padding-right: 2rem !important;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
 }
 
 .hero-welcome,
@@ -197,6 +198,7 @@
 }
 
 .hero-welcome-text {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
     font-size: clamp(1.3rem, 2.8vw, 2rem) !important;
     font-weight: 600 !important;
     color: #B84D7A !important;
@@ -240,9 +242,10 @@
 }
 
 .hero-brand-name-alma {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
     font-size: clamp(4.5rem, 13vw, 9rem) !important;
     font-weight: 900 !important;
-    letter-spacing: -0.01em !important;
+    letter-spacing: -0.02em !important;
     background: linear-gradient(135deg, #E91E63 0%, #FF6B9D 50%, #FF4081 100%) !important;
     -webkit-background-clip: text !important;
     background-clip: text !important;
@@ -258,9 +261,10 @@
 }
 
 .hero-brand-name-kids {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
     font-size: clamp(3.2rem, 10vw, 7rem) !important;
     font-weight: 900 !important;
-    letter-spacing: -0.01em !important;
+    letter-spacing: -0.02em !important;
     background: linear-gradient(135deg, #E91E63 0%, #FF6B9D 50%, #FF4081 100%) !important;
     -webkit-background-clip: text !important;
     background-clip: text !important;
@@ -297,10 +301,11 @@
 
 .hero-subtitle-line-1,
 .hero-subtitle-line-2 {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
     font-size: clamp(1.9rem, 4.5vw, 3.2rem) !important;
     font-weight: 700 !important;
     color: #2C2C2C !important;
-    letter-spacing: 0.03em !important;
+    letter-spacing: 0.02em !important;
     text-shadow: 0 2px 18px rgba(255, 255, 255, 0.95),
                  0 1px 5px rgba(255, 255, 255, 0.8) !important;
     display: block !important;
@@ -344,6 +349,7 @@
 }
 
 .hero-tagline-text {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
     font-size: clamp(1rem, 1.8vw, 1.3rem) !important;
     font-weight: 600 !important;
     color: #C2185B !important;
@@ -355,6 +361,7 @@
 /* ==================== MENSAJE INSPIRACIONAL ==================== */
 
 .hero-message {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
     font-size: clamp(1rem, 1.5vw, 1.15rem) !important;
     font-weight: 400 !important;
     color: #4A4A4A !important;
