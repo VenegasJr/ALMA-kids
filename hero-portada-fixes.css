@@ -12,8 +12,8 @@
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    background: linear-gradient(135deg, #FFF0F5 0%, #FFE4E9 50%, #FFF0F5 100%) !important;
-    padding: 100px 0 !important;
+    background: linear-gradient(135deg, #FFF0F5 0%, #FFF8FA 30%, #FFE4E9 70%, #FFF0F5 100%) !important;
+    padding: 120px 0 80px !important;
     overflow: hidden !important;
 }
 
@@ -152,8 +152,8 @@
 
 .hero-content {
     display: grid !important;
-    grid-template-columns: 1.2fr 1fr !important;
-    gap: 4rem !important;
+    grid-template-columns: 1.15fr 1fr !important;
+    gap: 5rem !important;
     align-items: center !important;
     justify-content: center !important;
     position: relative !important;
@@ -161,7 +161,7 @@
     width: 100% !important;
     max-width: 1400px !important;
     margin: 0 auto !important;
-    padding: 0 2rem !important;
+    padding: 0 3rem !important;
 }
 
 .hero-text {
@@ -169,11 +169,12 @@
     flex-direction: column !important;
     align-items: flex-start !important;
     justify-content: center !important;
-    gap: 2rem !important;
+    gap: 2.5rem !important;
     position: relative !important;
     z-index: 4 !important;
     width: 100% !important;
     text-align: left !important;
+    padding-right: 2rem !important;
 }
 
 .hero-welcome,
@@ -196,11 +197,12 @@
 }
 
 .hero-welcome-text {
-    font-size: clamp(1.2rem, 2.5vw, 1.8rem) !important;
-    font-weight: 500 !important;
-    color: #8B4A6B !important;
-    letter-spacing: 0.05em !important;
-    text-shadow: 0 2px 10px rgba(255, 255, 255, 0.9) !important;
+    font-size: clamp(1.3rem, 2.8vw, 2rem) !important;
+    font-weight: 600 !important;
+    color: #B84D7A !important;
+    letter-spacing: 0.08em !important;
+    text-shadow: 0 2px 12px rgba(255, 255, 255, 0.95) !important;
+    opacity: 0.95 !important;
 }
 
 /* ==================== BADGE DE LOGRO ==================== */
@@ -238,37 +240,37 @@
 }
 
 .hero-brand-name-alma {
-    font-size: clamp(4rem, 12vw, 8rem) !important;
+    font-size: clamp(4.5rem, 13vw, 9rem) !important;
     font-weight: 900 !important;
-    letter-spacing: 0.02em !important;
-    background: linear-gradient(135deg, #E91E63, #FF6B9D, #E91E63) !important;
+    letter-spacing: -0.01em !important;
+    background: linear-gradient(135deg, #E91E63 0%, #FF6B9D 50%, #FF4081 100%) !important;
     -webkit-background-clip: text !important;
     background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
-    text-shadow: 0 0 40px rgba(233, 30, 99, 0.5),
-                 0 0 80px rgba(233, 30, 99, 0.3),
-                 0 4px 20px rgba(233, 30, 99, 0.4) !important;
+    text-shadow: 0 0 50px rgba(233, 30, 99, 0.6),
+                 0 0 100px rgba(233, 30, 99, 0.4),
+                 0 4px 25px rgba(233, 30, 99, 0.5) !important;
     display: block !important;
-    line-height: 1 !important;
-    margin-bottom: 0.2rem !important;
-    filter: drop-shadow(0 0 20px rgba(233, 30, 99, 0.4)) !important;
+    line-height: 0.95 !important;
+    margin-bottom: 0.15rem !important;
+    filter: drop-shadow(0 0 25px rgba(233, 30, 99, 0.5)) !important;
     animation: glowPulse 3s ease-in-out infinite !important;
 }
 
 .hero-brand-name-kids {
-    font-size: clamp(3rem, 9vw, 6rem) !important;
+    font-size: clamp(3.2rem, 10vw, 7rem) !important;
     font-weight: 900 !important;
-    letter-spacing: 0.02em !important;
-    background: linear-gradient(135deg, #E91E63, #FF6B9D, #E91E63) !important;
+    letter-spacing: -0.01em !important;
+    background: linear-gradient(135deg, #E91E63 0%, #FF6B9D 50%, #FF4081 100%) !important;
     -webkit-background-clip: text !important;
     background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
-    text-shadow: 0 0 40px rgba(233, 30, 99, 0.5),
-                 0 0 80px rgba(233, 30, 99, 0.3),
-                 0 4px 20px rgba(233, 30, 99, 0.4) !important;
+    text-shadow: 0 0 50px rgba(233, 30, 99, 0.6),
+                 0 0 100px rgba(233, 30, 99, 0.4),
+                 0 4px 25px rgba(233, 30, 99, 0.5) !important;
     display: block !important;
-    line-height: 1 !important;
-    filter: drop-shadow(0 0 20px rgba(233, 30, 99, 0.4)) !important;
+    line-height: 0.95 !important;
+    filter: drop-shadow(0 0 25px rgba(233, 30, 99, 0.5)) !important;
     animation: glowPulse 3s ease-in-out infinite 0.5s !important;
 }
 
@@ -295,13 +297,14 @@
 
 .hero-subtitle-line-1,
 .hero-subtitle-line-2 {
-    font-size: clamp(1.8rem, 4vw, 3rem) !important;
+    font-size: clamp(1.9rem, 4.5vw, 3.2rem) !important;
     font-weight: 700 !important;
-    color: #1a1a1a !important;
-    letter-spacing: 0.02em !important;
-    text-shadow: 0 2px 15px rgba(255, 255, 255, 0.9) !important;
+    color: #2C2C2C !important;
+    letter-spacing: 0.03em !important;
+    text-shadow: 0 2px 18px rgba(255, 255, 255, 0.95),
+                 0 1px 5px rgba(255, 255, 255, 0.8) !important;
     display: block !important;
-    line-height: 1.2 !important;
+    line-height: 1.3 !important;
 }
 
 /* Subtítulos y descripciones removidos - diseño simplificado */
@@ -328,22 +331,25 @@
 }
 
 .hero-buttons .btn-primary {
-    background: linear-gradient(135deg, #E91E63, #FF6B9D) !important;
+    background: linear-gradient(135deg, #E91E63 0%, #FF6B9D 100%) !important;
     color: white !important;
-    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3) !important;
+    box-shadow: 0 5px 20px rgba(233, 30, 99, 0.35),
+                0 2px 8px rgba(233, 30, 99, 0.2) !important;
     border: none !important;
-    font-weight: 600 !important;
-    padding: 1rem 2rem !important;
+    font-weight: 700 !important;
+    padding: 1.1rem 2.5rem !important;
     border-radius: 50px !important;
     display: inline-flex !important;
     align-items: center !important;
-    gap: 0.5rem !important;
+    gap: 0.6rem !important;
+    letter-spacing: 0.3px !important;
 }
 
 .hero-buttons .btn-primary:hover {
-    background: linear-gradient(135deg, #C2185B, #E91E63) !important;
-    transform: translateY(-2px) scale(1.05) !important;
-    box-shadow: 0 6px 20px rgba(233, 30, 99, 0.4) !important;
+    background: linear-gradient(135deg, #C2185B 0%, #E91E63 100%) !important;
+    transform: translateY(-3px) scale(1.03) !important;
+    box-shadow: 0 8px 25px rgba(233, 30, 99, 0.45),
+                0 4px 12px rgba(233, 30, 99, 0.3) !important;
 }
 
 .hero-buttons .btn-primary i {
@@ -353,17 +359,21 @@
 .hero-buttons .btn-secondary {
     background: white !important;
     color: #E91E63 !important;
-    border: 2px solid #E91E63 !important;
-    box-shadow: 0 2px 10px rgba(233, 30, 99, 0.1) !important;
-    font-weight: 600 !important;
-    padding: 1rem 2rem !important;
+    border: 2.5px solid #E91E63 !important;
+    box-shadow: 0 3px 12px rgba(233, 30, 99, 0.15),
+                0 1px 5px rgba(233, 30, 99, 0.1) !important;
+    font-weight: 700 !important;
+    padding: 1.1rem 2.5rem !important;
     border-radius: 50px !important;
+    letter-spacing: 0.3px !important;
 }
 
 .hero-buttons .btn-secondary:hover {
-    background: rgba(233, 30, 99, 0.05) !important;
-    transform: translateY(-2px) scale(1.05) !important;
-    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.2) !important;
+    background: rgba(233, 30, 99, 0.08) !important;
+    transform: translateY(-3px) scale(1.03) !important;
+    box-shadow: 0 6px 20px rgba(233, 30, 99, 0.25),
+                0 3px 10px rgba(233, 30, 99, 0.15) !important;
+    border-color: #C2185B !important;
 }
 
 .hero-buttons .btn-outline {
@@ -397,41 +407,51 @@
 .hero-image-item {
     position: relative !important;
     background: white !important;
-    border-radius: 20px !important;
+    border-radius: 24px !important;
     overflow: hidden !important;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1),
+                0 4px 15px rgba(233, 30, 99, 0.08) !important;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
     display: flex !important;
     flex-direction: column !important;
     padding: 0 !important;
+    border: 1px solid rgba(255, 255, 255, 0.8) !important;
 }
 
 .hero-image-item:hover {
-    transform: translateY(-5px) !important;
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18) !important;
+    transform: translateY(-8px) scale(1.02) !important;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15),
+                0 8px 20px rgba(233, 30, 99, 0.12) !important;
 }
 
 .hero-image-item img,
 .hero-image-item .hero-img {
     width: 100% !important;
-    height: 200px !important;
-    border-radius: 20px 20px 0 0 !important;
+    height: 220px !important;
+    border-radius: 24px 24px 0 0 !important;
     object-fit: cover !important;
     display: block !important;
     opacity: 1 !important;
     visibility: visible !important;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.hero-image-item:hover img,
+.hero-image-item:hover .hero-img {
+    transform: scale(1.05) !important;
 }
 
 .hero-image-item p {
-    margin: 1rem 0 !important;
-    padding: 0 1rem 1rem !important;
+    margin: 1.2rem 0 !important;
+    padding: 0 1.25rem 1.25rem !important;
     text-align: left !important;
-    font-size: 0.95rem !important;
+    font-size: 1rem !important;
     font-weight: 600 !important;
-    color: #1a1a1a !important;
+    color: #2C2C2C !important;
     display: flex !important;
     align-items: center !important;
-    gap: 0.5rem !important;
+    gap: 0.6rem !important;
+    letter-spacing: 0.01em !important;
 }
 
 /* ==================== RESPONSIVE - TABLET ==================== */
@@ -491,17 +511,19 @@
 @media (max-width: 1024px) {
     .hero {
         min-height: 90vh !important;
-        padding: 80px 0 !important;
+        padding: 100px 0 60px !important;
     }
     
     .hero-content {
         grid-template-columns: 1fr !important;
-        gap: 3rem !important;
+        gap: 4rem !important;
+        padding: 0 2.5rem !important;
     }
     
     .hero-text {
         align-items: center !important;
         text-align: center !important;
+        padding-right: 0 !important;
     }
     
     .hero-welcome,
@@ -515,30 +537,31 @@
     }
     
     .hero-brand-name-alma {
-        font-size: clamp(3.5rem, 10vw, 6rem) !important;
+        font-size: clamp(3.8rem, 11vw, 6.5rem) !important;
     }
     
     .hero-brand-name-kids {
-        font-size: clamp(2.5rem, 7vw, 4.5rem) !important;
+        font-size: clamp(2.8rem, 8vw, 5rem) !important;
     }
     
     .hero-subtitle-line-1,
     .hero-subtitle-line-2 {
-        font-size: clamp(1.5rem, 3.5vw, 2.5rem) !important;
+        font-size: clamp(1.6rem, 4vw, 2.8rem) !important;
     }
     
     .hero-images-grid {
         grid-template-columns: repeat(2, 1fr) !important;
-        max-width: 600px !important;
+        max-width: 650px !important;
         margin: 0 auto !important;
+        gap: 1.8rem !important;
     }
 }
 
 @media (max-width: 768px) {
     .hero {
         min-height: 85vh !important;
-        padding: 60px 0 40px !important;
-        background: linear-gradient(135deg, #FFF0F5 0%, #FFE4E9 50%, #FFF0F5 100%) !important;
+        padding: 80px 0 50px !important;
+        background: linear-gradient(135deg, #FFF0F5 0%, #FFF8FA 30%, #FFE4E9 70%, #FFF0F5 100%) !important;
     }
     
     .hero-background-image {
@@ -557,15 +580,58 @@
         -webkit-backdrop-filter: blur(7px) saturate(115%) !important;
     }
     
+    .hero-content {
+        padding: 0 2rem !important;
+        gap: 3.5rem !important;
+    }
+    
+    .hero-text {
+        gap: 2rem !important;
+    }
+    
+    .hero-welcome-text {
+        font-size: clamp(1.1rem, 2.5vw, 1.5rem) !important;
+    }
+    
+    .hero-brand {
+        margin: 0.5rem 0 1.8rem !important;
+    }
+    
+    .hero-brand-name-alma {
+        font-size: clamp(3.2rem, 13vw, 5.5rem) !important;
+    }
+    
+    .hero-brand-name-kids {
+        font-size: clamp(2.4rem, 10vw, 4.2rem) !important;
+    }
+    
+    .hero-subtitle-main {
+        margin: 1.2rem 0 2.2rem !important;
+    }
+    
+    .hero-subtitle-line-1,
+    .hero-subtitle-line-2 {
+        font-size: clamp(1.4rem, 4.5vw, 2.2rem) !important;
+    }
+    
     .hero-images-grid {
         grid-template-columns: 1fr !important;
-        gap: 1.5rem !important;
+        gap: 1.8rem !important;
         max-width: 100% !important;
     }
     
     .hero-image-item img,
     .hero-image-item .hero-img {
-        height: 180px !important;
+        height: 200px !important;
+    }
+    
+    .hero-image-item {
+        border-radius: 20px !important;
+    }
+    
+    .hero-image-item img,
+    .hero-image-item .hero-img {
+        border-radius: 20px 20px 0 0 !important;
     }
     
     /* Mostrar partículas también en móvil */
@@ -578,54 +644,22 @@
         opacity: 0.8 !important;
     }
     
-    .hero-content {
-        padding: 0 1.5rem !important;
-    }
-    
-    .hero-text {
-        gap: 1.5rem !important;
-    }
-    
-    .hero-welcome-text {
-        font-size: clamp(1rem, 2vw, 1.4rem) !important;
-    }
-    
-    .hero-brand {
-        margin: 0.5rem 0 1.5rem !important;
-    }
-    
-    .hero-brand-name-alma {
-        font-size: clamp(3rem, 12vw, 5rem) !important;
-    }
-    
-    .hero-brand-name-kids {
-        font-size: clamp(2.2rem, 9vw, 4rem) !important;
-    }
-    
-    .hero-subtitle-main {
-        margin: 1rem 0 2rem !important;
-    }
-    
-    .hero-subtitle-line-1,
-    .hero-subtitle-line-2 {
-        font-size: clamp(1.3rem, 4vw, 2rem) !important;
-    }
-    
     .hero-buttons {
         flex-direction: row !important;
         flex-wrap: wrap !important;
         justify-content: center !important;
         gap: 1rem !important;
         width: 100% !important;
+        margin-top: 2rem !important;
     }
     
     .hero-buttons .btn {
         flex: 1 1 auto !important;
-        min-width: 140px !important;
-        max-width: 200px !important;
+        min-width: 145px !important;
+        max-width: 210px !important;
         justify-content: center !important;
-        padding: 0.9rem 1.5rem !important;
-        font-size: 0.95rem !important;
+        padding: 1rem 1.8rem !important;
+        font-size: 0.98rem !important;
     }
 }
 
@@ -634,44 +668,68 @@
 @media (max-width: 480px) {
     .hero {
         min-height: 80vh !important;
-        padding: 50px 0 30px !important;
+        padding: 70px 0 40px !important;
     }
     
     .hero-content {
-        padding: 0 1rem !important;
+        padding: 0 1.5rem !important;
+        gap: 3rem !important;
     }
     
     .hero-text {
-        gap: 1.2rem !important;
+        gap: 1.8rem !important;
     }
     
     .hero-welcome-text {
-        font-size: 0.9rem !important;
+        font-size: clamp(1rem, 2.2vw, 1.3rem) !important;
+    }
+    
+    .hero-brand {
+        margin: 0.3rem 0 1.5rem !important;
     }
     
     .hero-brand-name-alma {
-        font-size: clamp(2.5rem, 15vw, 4rem) !important;
+        font-size: clamp(2.8rem, 16vw, 4.5rem) !important;
     }
     
     .hero-brand-name-kids {
-        font-size: clamp(1.8rem, 12vw, 3rem) !important;
+        font-size: clamp(2rem, 13vw, 3.5rem) !important;
+    }
+    
+    .hero-subtitle-main {
+        margin: 1rem 0 2rem !important;
     }
     
     .hero-subtitle-line-1,
     .hero-subtitle-line-2 {
-        font-size: clamp(1.1rem, 5vw, 1.6rem) !important;
+        font-size: clamp(1.2rem, 5.5vw, 1.8rem) !important;
+    }
+    
+    .hero-images-grid {
+        gap: 1.5rem !important;
+    }
+    
+    .hero-image-item img,
+    .hero-image-item .hero-img {
+        height: 180px !important;
+    }
+    
+    .hero-image-item p {
+        font-size: 0.95rem !important;
+        padding: 0 1rem 1rem !important;
     }
     
     .hero-buttons {
         flex-direction: column !important;
         width: 100% !important;
+        gap: 0.9rem !important;
     }
     
     .hero-buttons .btn {
         width: 100% !important;
         max-width: 100% !important;
-        font-size: 0.9rem !important;
-        padding: 0.85rem 1.5rem !important;
+        font-size: 0.95rem !important;
+        padding: 1rem 1.8rem !important;
     }
 }
 
