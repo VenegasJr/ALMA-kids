@@ -935,12 +935,12 @@
     padding-right: 0 !important;
 }
 
-/* Logo en tarjeta blanca - solución definitiva al logo invisible */
+/* Logo en tarjeta rosa pastel - fondo rosado hace visible el texto blanco de "ALMA" */
 .hero-brand {
-    background: white !important;
+    background: #FFE4F0 !important;
     border-radius: 18px !important;
     padding: 0.8rem 1.4rem !important;
-    box-shadow: 0 4px 20px rgba(233, 30, 99, 0.12),
+    box-shadow: 0 4px 20px rgba(233, 30, 99, 0.15),
                 0 2px 8px rgba(0, 0, 0, 0.06) !important;
     margin: 0 0 0.5rem !important;
     align-items: flex-start !important;
