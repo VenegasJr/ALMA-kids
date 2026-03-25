@@ -589,73 +589,6 @@
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="servicios" class="services">
-        <div class="container">
-            <h2 class="section-title">Nuestros Servicios</h2>
-            <p class="section-subtitle">Ofrecemos una amplia gama de servicios para hacer de tu evento una experiencia única e inolvidable</p>
-            
-            <div class="services-grid">
-                <!-- Plaza Blanda -->
-                <div class="service-card service-card-2">
-                    <div class="service-image">
-                        <picture>
-
-                            <source srcset="imagenes/plaza-blanda.webp" type="image/webp">
-
-                            <img src="imagenes/plaza-blanda.webp" alt="Plaza Blanda" class="service-img" onclick="openImageModal(this.src, 'Plaza Blanda', 'Zona de juegos segura para nuestros pequeños desde los 6 meses a 7 años')" style="cursor: pointer;" loading="lazy" decoding="async">
-
-                        </picture>
-                    </div>
-                    <div class="service-content">
-                        <h3>Plaza Blanda</h3>
-                        <p>Zona de juegos segura para nuestros pequeños desde los 6 meses a 7 años</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Materiales seguros</li>
-                            <li><i class="fas fa-check"></i> Colores suaves</li>
-                            <li><i class="fas fa-check"></i> Estimulación sensorial</li>
-                        </ul>
-                        <p class="supervision-note">
-                            <i class="fas fa-exclamation-triangle"></i>
-                            *En todo momento debe estar la supervisión de un adulto responsable.
-                        </p>
-                    </div>
-                </div>
-
-
-                <!-- Castillo Grand Peque -->
-                <div class="service-card service-card-4">
-                    <div class="service-image">
-                        <picture>
-
-                            <source srcset="imagenes/castillo-inflale-gran-peque.svg" type="image/svg+xml">
-                            <img src="imagenes/castillo-inflale-gran-peque.svg" alt="Castillo Grand Peque" class="hero-img" onclick="openImageModal(this.src, 'Castillo Grand Peque', 'Castillo en tonos rosas con piscina de pelotas integrada')" style="cursor: pointer;" decoding="async">
-
-                        </picture>
-                    </div>
-                    <div class="service-content">
-                        <h3>Castillo Grand Peque</h3>
-                        <p>Castillo en tonos rosas con piscina de pelotas integrada</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Tonalidad rosa pastel</li>
-                            <li><i class="fas fa-check"></i> Hasta 4 niños</li>
-                            <li><i class="fas fa-check"></i> Edad: 2 a 7 años</li>
-                            <li><i class="fas fa-check"></i> Materiales seguros</li>
-                        </ul>
-                        <div class="price-block">
-                            <span class="price-label">Precio:</span>
-                            <span class="price-amount">$90.000</span>
-                        </div>
-                        <p class="supervision-note">
-                            <i class="fas fa-exclamation-triangle"></i>
-                            *Supervisión adulta obligatoria. Peso máximo: 200 kg.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Instagram Feed Section -->
     <section id="instagram-feed" class="instagram-section">
         <div class="container">
@@ -917,13 +850,7 @@
                     </div>
                 </div>
             </div>
-
-            <div class="plaza-cta">
-                <h3>¿Quieres agregar Plaza Blanda a tu evento?</h3>
-                <p>Perfecta para complementar cualquier celebración y darle a los más pequeños un espacio seguro para jugar.</p>
-                <a href="#contacto" class="btn btn-primary">Solicitar Presupuesto</a>
-            </div>
-        </div>
+</div>
     </section>
 
     <!-- Coverage Section -->
@@ -1156,99 +1083,7 @@
                         </div>
                     </div>
                 </div>
-                
-                <div class="contact-form">
-                    <h3>Envíanos un Mensaje</h3>
-                    <div class="form-notice">
-                        <i class="fas fa-calendar-alt"></i>
-                        <span><strong>¡Importante!</strong> Recuerda agendar con anticipación para asegurar disponibilidad en tu fecha deseada.</span>
-                    </div>
-                    
-                    <form id="contactForm">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <input type="text" id="name" name="name" placeholder="Tu nombre" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" id="email" name="email" placeholder="Tu email" required>
-                            </div>
-                        </div>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <input type="tel" id="phone" name="phone" placeholder="Tu teléfono" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="date" id="eventDate" name="eventDate" required>
-                                <label for="eventDate" class="form-label">Fecha del evento</label>
-                            </div>
-                        </div>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <input type="time" id="startTime" name="startTime" value="15:00" required>
-                                <label for="startTime" class="form-label">Hora de inicio</label>
-                            </div>
-                            <div class="form-group">
-                                <input type="time" id="endTime" name="endTime" readonly>
-                                <label for="endTime" class="form-label">Hora de término (automática)</label>
-                            </div>
-                        </div>
-                        
-                        
-                        <div class="form-group">
-                            <div class="location-section">
-                                <div class="location-input-group">
-                                    <input type="text" id="location" name="location" placeholder="Ubicación del evento (dirección completa)" required>
-                                    <button type="button" class="btn-map" onclick="openLocationPicker()" title="Seleccionar ubicación en mapa interactivo">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                        <span class="btn-text">Mapa</span>
-                                    </button>
-                                </div>
-                                <div class="location-help">
-                                    <i class="fas fa-info-circle"></i>
-                                    <span>Puedes escribir la dirección o usar el mapa interactivo para mayor precisión</span>
-                                </div>
-                                <div id="selectedLocation" class="selected-location" style="display: none;">
-                                    <div class="location-info">
-                                        <div class="location-icon">
-                                            <i class="fas fa-map-marked-alt"></i>
-                                        </div>
-                                        <div class="location-details">
-                                            <span id="locationText">Ubicación seleccionada en mapa</span>
-                                        </div>
-                                        <button type="button" class="btn-remove-location" onclick="removeLocation()" title="Quitar ubicación seleccionada">
-                                            <i class="fas fa-times"></i>
-                                        </button>
-                                    </div>
-                                    <input type="hidden" id="locationCoords" name="locationCoords">
-                                    <input type="hidden" id="locationUrl" name="locationUrl">
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Oculto temporalmente hasta definir paquetes -->
-                        <div class="form-row" style="display: none;">
-                            <div class="form-group">
-                                <select id="serviceType" name="serviceType">
-                                    <option value="">Selecciona tipo de servicio</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <select id="decoration" name="decoration">
-                                    <option value="">Sin decoración adicional</option>
-                                </select>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <textarea id="additionalMessage" name="additionalMessage" placeholder="Mensaje adicional o comentarios especiales" rows="3"></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn btn-primary">Enviar Cotización</button>
-                    </form>
-                </div>
-            </div>
+</div>
         </div>
     </section>
 
