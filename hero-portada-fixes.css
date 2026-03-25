@@ -916,3 +916,145 @@
     }
 }
 
+
+/* ==================== REORGANIZACIÓN COMPLETA DEL HERO ==================== */
+
+/* Grid: columnas iguales, menos gap */
+.hero-content {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 3rem !important;
+    padding: 0 2rem !important;
+    align-items: center !important;
+}
+
+/* Texto: menos espacio entre elementos */
+.hero-text {
+    gap: 1rem !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+    padding-right: 0 !important;
+}
+
+/* Logo en tarjeta blanca - solución definitiva al logo invisible */
+.hero-brand {
+    background: white !important;
+    border-radius: 18px !important;
+    padding: 0.8rem 1.4rem !important;
+    box-shadow: 0 4px 20px rgba(233, 30, 99, 0.12),
+                0 2px 8px rgba(0, 0, 0, 0.06) !important;
+    margin: 0 0 0.5rem !important;
+    align-items: flex-start !important;
+    align-self: flex-start !important;
+    width: auto !important;
+    display: inline-flex !important;
+}
+
+.hero-brand-logo {
+    width: 260px !important;
+    max-width: 100% !important;
+    height: auto !important;
+    mix-blend-mode: normal !important;
+}
+
+/* Subtítulo más pequeño y proporcional */
+.hero-subtitle-main {
+    margin: 0 !important;
+    align-items: flex-start !important;
+}
+
+.hero-subtitle-line-1,
+.hero-subtitle-line-2 {
+    font-size: clamp(1.4rem, 2.8vw, 2rem) !important;
+    line-height: 1.25 !important;
+}
+
+/* Tagline: menos margen */
+.hero-tagline {
+    margin: 0 !important;
+}
+
+/* Mensaje: alineado a la izquierda, sin margen excesivo */
+.hero-message {
+    text-align: left !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+}
+
+/* Botones: sin margen extra */
+.hero-buttons {
+    margin-top: 0.5rem !important;
+}
+
+/* Imágenes más altas y alineadas al centro verticalmente */
+.hero-image {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.hero-images-grid {
+    width: 100% !important;
+    gap: 1rem !important;
+}
+
+.hero-image-item img,
+.hero-image-item .hero-img {
+    height: 260px !important;
+}
+
+/* ==================== RESPONSIVE TABLET ==================== */
+@media (max-width: 1024px) {
+    .hero-content {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+        padding: 0 1rem !important;
+    }
+
+    .hero-text {
+        align-items: center !important;
+        text-align: center !important;
+    }
+
+    .hero-brand {
+        align-self: center !important;
+    }
+
+    .hero-subtitle-main {
+        align-items: center !important;
+    }
+
+    .hero-message {
+        text-align: center !important;
+    }
+
+    .hero-buttons {
+        justify-content: center !important;
+    }
+
+    .hero-images-grid {
+        max-width: 480px !important;
+        margin: 0 auto !important;
+    }
+}
+
+/* ==================== RESPONSIVE MÓVIL ==================== */
+@media (max-width: 480px) {
+    .hero-brand {
+        padding: 0.6rem 1rem !important;
+    }
+
+    .hero-brand-logo {
+        width: 200px !important;
+    }
+
+    .hero-image-item img,
+    .hero-image-item .hero-img {
+        height: 180px !important;
+    }
+
+    .hero-images-grid {
+        max-width: 340px !important;
+    }
+}
+
