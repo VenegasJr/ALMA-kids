@@ -235,7 +235,7 @@
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
-    margin: 1rem 0 2rem !important;
+    margin: 0 0 1rem !important;
     position: relative !important;
     z-index: 4 !important;
     width: 100% !important;
@@ -897,22 +897,22 @@
 
 .hero-brand-logo {
     width: 100% !important;
-    max-width: 480px !important;
+    max-width: 460px !important;
     height: auto !important;
     display: block !important;
     margin: 0 auto !important;
-    filter: drop-shadow(0 4px 20px rgba(233, 30, 99, 0.15)) !important;
+    mix-blend-mode: multiply !important;
 }
 
 @media (max-width: 768px) {
     .hero-brand-logo {
-        max-width: 320px !important;
+        max-width: 300px !important;
     }
 }
 
 @media (max-width: 480px) {
     .hero-brand-logo {
-        max-width: 260px !important;
+        max-width: 240px !important;
     }
 }
 
