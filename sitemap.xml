@@ -4,90 +4,50 @@
 
     <url>
         <loc>https://www.almakids.cl/</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2026-03-25</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
         <image:image>
-            <image:loc>https://www.almakids.cl/imagenes/ALMA%20kids%20Logo%20web.png</image:loc>
+            <image:loc>https://www.almakids.cl/imagenes/logo-alma-kids-oficial.png</image:loc>
             <image:title>ALMA Kids - Logo Oficial</image:title>
         </image:image>
         <image:image>
-            <image:loc>https://www.almakids.cl/imagenes/castillo-inflable-portadas.png?v=20250115-10</image:loc>
-            <image:title>Castillo inflable pastel ALMA Kids</image:title>
-        </image:image>
-    </url>
-
-    <url>
-        <loc>https://www.almakids.cl/castillos-inflables.html</loc>
-        <lastmod>2025-11-09</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
-        <image:image>
-            <image:loc>https://www.almakids.cl/imagenes/castillo-grand-peque.png</image:loc>
-            <image:title>Castillo Grand Peque</image:title>
+            <image:loc>https://www.almakids.cl/imagenes/Castillo-inflable-portadas.png</image:loc>
+            <image:title>Castillo inflable pastel ALMA Kids Rancagua</image:title>
         </image:image>
         <image:image>
-            <image:loc>https://www.almakids.cl/imagenes/Castillo-Piscina-redonda.png</image:loc>
-            <image:title>Castillo inflable "ROSA"</image:title>
-        </image:image>
-    </url>
-
-    <url>
-        <loc>https://www.almakids.cl/servicios-adicionales.html</loc>
-        <lastmod>2025-11-09</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.85</priority>
-        <image:image>
-            <image:loc>https://www.almakids.cl/imagenes/Maquina-burbuja-.png?v=20250115-11</image:loc>
-            <image:title>Máquina de burbujas ALMA Kids</image:title>
+            <image:loc>https://www.almakids.cl/imagenes/plaza-blanda.webp</image:loc>
+            <image:title>Plaza blanda para fiestas infantiles Machalí</image:title>
         </image:image>
         <image:image>
-            <image:loc>https://www.almakids.cl/Servicios%20adicionales/carpa-tipi.jpg</image:loc>
-            <image:title>Carpa tipi para eventos infantiles</image:title>
-        </image:image>
-    </url>
-
-    <url>
-        <loc>https://www.almakids.cl/globos-metalizados.html</loc>
-        <lastmod>2025-11-09</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-        <image:image>
-            <image:loc>https://www.almakids.cl/imagenes%20globos%20decoracion/globo-metalico-iron-man-31x58cm.png</image:loc>
-            <image:title>Globo metálico Iron Man</image:title>
-        </image:image>
-    </url>
-
-    <url>
-        <loc>https://www.almakids.cl/eventos.html</loc>
-        <lastmod>2025-11-09</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-        <image:image>
-            <image:loc>https://www.almakids.cl/imagenes/eventos-alma-kids.png</image:loc>
-            <image:title>Eventos infantiles ALMA Kids</image:title>
+            <image:loc>https://www.almakids.cl/imagenes/Pack-alma-magic.webp</image:loc>
+            <image:title>SET Alma Magic - Todo incluido para fiestas infantiles</image:title>
         </image:image>
     </url>
 
     <url>
         <loc>https://www.almakids.cl/faq.html</loc>
-        <lastmod>2025-11-09</lastmod>
+        <lastmod>2026-03-25</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
+        <priority>0.8</priority>
         <image:image>
-            <image:loc>https://www.almakids.cl/imagenes/faq-alma-kids.png</image:loc>
-            <image:title>FAQ ALMA Kids</image:title>
+            <image:loc>https://www.almakids.cl/imagenes/logo-alma-kids-pagina.webp</image:loc>
+            <image:title>Preguntas frecuentes ALMA Kids - Juegos inflables Rancagua</image:title>
         </image:image>
     </url>
 
     <url>
         <loc>https://www.almakids.cl/juegos-inflables-rancagua.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2026-03-25</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
         <image:image>
-            <image:loc>https://www.almakids.cl/imagenes/castillo-3d-profesional.png</image:loc>
-            <image:title>Juegos inflables en Rancagua</image:title>
+            <image:loc>https://www.almakids.cl/imagenes/Castillo-inflable-portadas.png</image:loc>
+            <image:title>Juegos inflables en Rancagua - ALMA Kids</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://www.almakids.cl/imagenes/plaza-blanda.webp</image:loc>
+            <image:title>Plaza blanda arriendo Rancagua</image:title>
         </image:image>
     </url>
 
