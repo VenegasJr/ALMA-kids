@@ -17,8 +17,9 @@
     <meta name="rating" content="general">
     <meta name="distribution" content="global">
     
-    <!-- Canonical -->
+    <!-- Canonical / hreflang -->
     <link rel="canonical" href="https://www.almakids.cl/">
+    <link rel="alternate" hreflang="es-CL" href="https://www.almakids.cl/">
 
     <!-- Open Graph / Facebook / WhatsApp -->
     <meta property="og:type" content="website">
@@ -49,7 +50,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     
     <!-- Preload imágenes críticas -->
     <link rel="preload" as="image" href="imagenes/logo-alma-kids-pagina.webp" type="image/webp">
@@ -124,7 +125,7 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "LocalBusiness",
+      "@type": ["LocalBusiness", "EntertainmentBusiness"],
       "@id": "https://www.almakids.cl/#localbusiness",
       "name": "ALMA Kids Entretenciones Infantiles Ltda.",
       "alternateName": "ALMA Kids",
@@ -149,11 +150,17 @@
         "longitude": "-70.6500"
       },
       "areaServed": [
-        { "@type": "Place", "name": "Machalí" },
-        { "@type": "Place", "name": "Rancagua" },
-        { "@type": "Place", "name": "Graneros" },
-        { "@type": "Place", "name": "Región de O'Higgins" }
+        { "@type": "City", "name": "Machalí" },
+        { "@type": "City", "name": "Rancagua" },
+        { "@type": "City", "name": "Graneros" },
+        { "@type": "AdministrativeArea", "name": "Región de O'Higgins" }
       ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "bestRating": "5",
+        "ratingCount": "20"
+      },
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",
@@ -350,7 +357,7 @@
         <div class="header-content">
             <!-- Logo -->
             <a class="navbar-brand" href="index.html">
-                <img src="imagenes/logo-alma-kids-pagina.webp" alt="ALMA Kids Entretenciones Infantiles - Logo" class="logo-header">
+                <img src="imagenes/logo-alma-kids-pagina.webp" alt="ALMA Kids Entretenciones Infantiles - Logo" class="logo-header" width="2528" height="1102">
             </a>
             
                 <!-- Navigation -->
@@ -430,7 +437,7 @@
                 <div class="hero-text">
                     <!-- ALMA Kids - Logo Principal -->
                     <h1 class="hero-brand">
-                        <img src="imagenes/logo-alma-kids-oficial.png" alt="ALMA Kids Entretenciones Infantiles" class="hero-brand-logo">
+                        <img src="imagenes/logo-alma-kids-oficial.png" alt="ALMA Kids Entretenciones Infantiles" class="hero-brand-logo" width="2884" height="1441" fetchpriority="high">
                     </h1>
 
                     <!-- Subtítulo -->
@@ -464,7 +471,7 @@
                         <!-- Imagen 1: Castillo Inflable -->
                         <div class="hero-image-item">
                             <picture>
-                                <img src="imagenes/Castillo-inflable-portadas.png" alt="Castillo Inflable ALMA Kids" class="hero-img" onclick="openImageModal(this.src, 'Castillo Inflable ALMA Kids', 'Castillo inflable blanco con torres, tobogán y piscinas de pelotas laterales')" style="cursor: pointer;" loading="eager">
+                                <img src="imagenes/Castillo-inflable-portadas.png" alt="Castillo Inflable ALMA Kids" class="hero-img" width="1510" height="1381" onclick="openImageModal(this.src, 'Castillo Inflable ALMA Kids', 'Castillo inflable blanco con torres, tobogán y piscinas de pelotas laterales')" style="cursor: pointer;" loading="eager" fetchpriority="high">
                             </picture>
                             <p>🏰 Castillo Inflable Clásico</p>
                         </div>
@@ -472,7 +479,7 @@
                         <div class="hero-image-item">
                             <picture>
                                 <source srcset="imagenes/Pack-alma-magic.webp" type="image/webp">
-                                <img src="imagenes/Pack-alma-magic.webp" alt="SET Alma Magic" class="hero-img" onclick="openImageModal(this.src, 'SET Alma Magic', 'SET Todo Incluido - Castillo + Piscina + Motricidad + Saltarines + Tipi + Accesorios')" style="cursor: pointer;" loading="eager">
+                                <img src="imagenes/Pack-alma-magic.webp" alt="SET Alma Magic" class="hero-img" width="3165" height="2134" onclick="openImageModal(this.src, 'SET Alma Magic', 'SET Todo Incluido - Castillo + Piscina + Motricidad + Saltarines + Tipi + Accesorios')" style="cursor: pointer;" loading="eager" fetchpriority="high">
                             </picture>
                             <p>✨ SET Alma Magic - Todo Incluido</p>
                         </div>
@@ -548,7 +555,7 @@
                 <div class="about-image" data-reveal="right">
                     <picture>
                         <source srcset="imagenes/logo-alma-kids-oficial.png" type="image/png">
-                        <img src="imagenes/logo-alma-kids-oficial.png" alt="ALMA Kids Entretenciones Infantiles - Logo Oficial" class="about-img" loading="lazy" onclick="openImageModal(this.src, 'ALMA Kids Logo Oficial', 'Logo oficial de ALMA Kids Entretenciones Infantiles Ltda.')" style="cursor: pointer;">
+                        <img src="imagenes/logo-alma-kids-oficial.png" alt="ALMA Kids Entretenciones Infantiles - Logo Oficial" class="about-img" width="2884" height="1441" loading="lazy" onclick="openImageModal(this.src, 'ALMA Kids Logo Oficial', 'Logo oficial de ALMA Kids Entretenciones Infantiles Ltda.')" style="cursor: pointer;">
                     </picture>
                 </div>
             </div>

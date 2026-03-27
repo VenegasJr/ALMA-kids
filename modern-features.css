@@ -173,6 +173,11 @@
     transition: opacity 0.2s ease;
 }
 
+/* ==================== VIEW TRANSITIONS API (Chrome 111+) ==================== */
+@view-transition {
+    navigation: auto;
+}
+
 /* ==================== SMOOTH SCROLL NATIVO ==================== */
 html {
     scroll-behavior: smooth;
