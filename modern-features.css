@@ -208,3 +208,117 @@ html {
         transition-duration: 0.01ms !important;
     }
 }
+
+/* ==================== MODAL MEJORADO - MOBILE FIRST ==================== */
+
+/* Spinner de carga */
+#imageModal .modal-spinner {
+    display: none;
+    width: 44px;
+    height: 44px;
+    border: 3px solid rgba(255, 255, 255, 0.25);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: modal-spin 0.7s linear infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+    pointer-events: none;
+}
+#imageModal.loading .modal-spinner {
+    display: block;
+}
+@keyframes modal-spin {
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Fade suave en la imagen al cambiar */
+#imageModal .modal-image {
+    transition: opacity 0.2s ease !important;
+}
+#imageModal.loading .modal-image {
+    opacity: 0 !important;
+}
+
+/* Indicadores de posición (dots) */
+.modal-dots {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0 2px;
+    min-height: 24px;
+}
+.modal-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.35);
+    border: 1.5px solid rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s, border-color 0.2s;
+    padding: 0;
+    flex-shrink: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+.modal-dot.active {
+    background: #fff;
+    border-color: #fff;
+    transform: scale(1.35);
+}
+.modal-dot:hover:not(.active) {
+    background: rgba(255, 255, 255, 0.65);
+}
+
+/* Mejoras de tamaño táctil en móvil */
+@media (max-width: 768px) {
+    #imageModal .modal-nav {
+        width: 44px !important;
+        height: 44px !important;
+        min-width: 44px !important;
+        font-size: 1rem !important;
+    }
+    #imageModal .modal-control-btn,
+    #imageModal .close-modal {
+        width: 44px !important;
+        height: 44px !important;
+        min-width: 44px !important;
+        min-height: 44px !important;
+    }
+    #imageModal .modal-image {
+        max-height: 58vh !important;
+        max-width: 98vw !important;
+    }
+    #imageModal .modal-caption h3 {
+        font-size: 0.95rem !important;
+    }
+    #imageModal .modal-caption p {
+        font-size: 0.82rem !important;
+    }
+    .modal-dot {
+        width: 10px !important;
+        height: 10px !important;
+    }
+    /* Área de toque ampliada para dots */
+    .modal-dot::before {
+        content: '';
+        display: block;
+        position: absolute;
+        inset: -8px;
+    }
+    .modal-dot { position: relative; }
+}
+
+/* iPad / tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+    #imageModal .modal-image {
+        max-height: 70vh !important;
+        max-width: 90vw !important;
+    }
+    #imageModal .modal-nav {
+        width: 48px !important;
+        height: 48px !important;
+    }
+}
