@@ -365,3 +365,189 @@ html {
         height: 48px !important;
     }
 }
+
+/* ==================== FAQ HERO — REDISEÑO ==================== */
+
+.faq-hero {
+    background: linear-gradient(135deg, #F5EEFF 0%, #FFF0F8 50%, #EEF6FF 100%) !important;
+    min-height: auto !important;
+    padding: 90px 0 0 !important;
+    text-align: center !important;
+    position: relative !important;
+}
+
+.faq-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 1rem 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* Badge decorativo superior */
+.faq-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: white;
+    border: 1.5px solid #e8d5f8;
+    border-radius: 50px;
+    padding: 0.4rem 1.1rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #9C27B0;
+    box-shadow: 0 2px 12px rgba(156, 39, 176, 0.1);
+}
+.faq-hero-badge i {
+    color: #E91E63;
+    font-size: 0.75rem;
+}
+
+/* Título principal */
+.faq-hero h1 {
+    font-size: clamp(2rem, 5vw, 3rem) !important;
+    font-weight: 800 !important;
+    background: linear-gradient(135deg, #E91E63 0%, #9C27B0 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    line-height: 1.2 !important;
+    margin: 0 !important;
+    text-shadow: none !important;
+}
+
+/* Subtítulo */
+.faq-hero .hero-subtitle {
+    font-size: 1.05rem !important;
+    color: #666 !important;
+    max-width: 560px !important;
+    margin: 0 auto !important;
+    line-height: 1.65 !important;
+}
+
+/* Badges de características en fila */
+.faq-hero .hero-features {
+    display: flex !important;
+    gap: 0.75rem !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    margin: 0 !important;
+}
+
+.faq-hero .hero-feature {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.45rem !important;
+    background: white !important;
+    border-radius: 50px !important;
+    padding: 0.45rem 1rem !important;
+    font-size: 0.83rem !important;
+    font-weight: 500 !important;
+    color: #444 !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07) !important;
+    border: 1px solid #f0e8f8 !important;
+}
+
+.faq-hero .hero-feature i {
+    color: #E91E63 !important;
+    font-size: 0.85rem !important;
+}
+.faq-hero .hero-feature .fab.fa-whatsapp {
+    color: #25D366 !important;
+}
+
+/* Botones de acción */
+.faq-hero .hero-actions {
+    display: flex !important;
+    gap: 1rem !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+}
+
+.faq-hero .btn-hero {
+    padding: 0.75rem 1.6rem !important;
+    font-size: 0.9rem !important;
+    border-radius: 50px !important;
+    font-weight: 600 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+}
+
+/* Filtros rápidos */
+.faq-hero .quick-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.quick-links-label {
+    font-size: 0.82rem !important;
+    color: #888 !important;
+    font-weight: 500 !important;
+    margin: 0 !important;
+}
+
+.faq-hero .quick-link-buttons {
+    display: flex !important;
+    gap: 0.5rem !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+}
+
+.faq-hero .quick-link {
+    background: white !important;
+    border: 1.5px solid #e2d5f2 !important;
+    color: #7B1FA2 !important;
+    border-radius: 50px !important;
+    padding: 0.4rem 1rem !important;
+    cursor: pointer !important;
+    font-size: 0.83rem !important;
+    font-weight: 500 !important;
+    transition: all 0.2s ease !important;
+    font-family: 'Poppins', sans-serif !important;
+}
+
+.faq-hero .quick-link:hover {
+    background: #9C27B0 !important;
+    color: white !important;
+    border-color: #9C27B0 !important;
+    transform: translateY(-1px) !important;
+}
+
+/* Ola inferior de la sección */
+.hero-wave {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    line-height: 0;
+    z-index: 2;
+}
+.hero-wave svg {
+    display: block;
+    width: 100%;
+    height: 50px;
+}
+
+/* Responsive móvil */
+@media (max-width: 600px) {
+    .faq-hero {
+        padding-top: 80px !important;
+    }
+    .faq-hero h1 {
+        font-size: 1.8rem !important;
+    }
+    .faq-hero .hero-feature {
+        font-size: 0.78rem !important;
+        padding: 0.38rem 0.8rem !important;
+    }
+    .faq-hero .btn-hero {
+        font-size: 0.83rem !important;
+        padding: 0.65rem 1.2rem !important;
+    }
+}
