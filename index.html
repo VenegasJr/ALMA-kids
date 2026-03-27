@@ -1270,7 +1270,9 @@
                 <i class="fas fa-chevron-right"></i>
             </button>
             <img id="modalImage" class="modal-image" src="" alt="" onclick="toggleZoom()">
+            <div id="modal-dots" class="modal-dots" aria-label="Posición en galería"></div>
             <div id="modalCaption" class="modal-caption"></div>
+            <div class="modal-spinner" aria-hidden="true"></div>
         </div>
     </div>
 
@@ -1468,14 +1470,15 @@
                 modalImage.src = '';
                 modalImage.style.display = 'none';
                 modalImage.style.opacity = '0';
-                
+                modal.classList.add('loading');
+
                 // Crear nueva imagen para precargar
                 const imgLoader = new Image();
                 imgLoader.onload = function() {
                     // Una vez cargada, asignar al modal
                 modalImage.src = currentImage.src;
                     modalImage.alt = currentImage.title || '';
-                    
+
                     // Forzar estilos para visibilidad
                     modalImage.style.display = 'block';
                     modalImage.style.opacity = '1';
@@ -1486,10 +1489,11 @@
                     modalImage.style.height = 'auto';
                     modalImage.style.margin = '0 auto';
                     modalImage.style.objectFit = 'contain';
-                    
+                    modal.classList.remove('loading');
+
                     console.log(`✅ Imagen cargada: ${currentImage.src}`);
                 };
-                
+
                 imgLoader.onerror = function() {
                     // Si falla, intentar con fallback
                     const fallbackSrc = currentImage.src.replace('.webp', '.png').replace('.png', '.jpg');
@@ -1497,9 +1501,10 @@
                     modalImage.style.display = 'block';
                     modalImage.style.opacity = '1';
                     modalImage.style.visibility = 'visible';
+                    modal.classList.remove('loading');
                     console.warn(`⚠️ Fallback usado: ${fallbackSrc}`);
                 };
-                
+
                 // Iniciar carga
                 imgLoader.src = currentImage.src;
                 
@@ -1533,13 +1538,13 @@
         function updateNavigationButtons() {
             const prevBtn = document.querySelector('.modal-prev');
             const nextBtn = document.querySelector('.modal-next');
-            
+
             if (prevBtn && nextBtn) {
                 // Mostrar botones solo si hay más de una imagen
                 if (window.currentImageGroup.length > 1) {
                     prevBtn.style.display = 'flex';
                     nextBtn.style.display = 'flex';
-                    
+
                     // Habilitar/deshabilitar según la posición
                     prevBtn.style.opacity = window.currentImageIndex > 0 ? '1' : '0.5';
                     nextBtn.style.opacity = window.currentImageIndex < window.currentImageGroup.length - 1 ? '1' : '0.5';
@@ -1547,6 +1552,28 @@
                     prevBtn.style.display = 'none';
                     nextBtn.style.display = 'none';
                 }
+            }
+            updateModalDots();
+        }
+
+        // Indicadores de posición (dots) para la galería
+        function updateModalDots() {
+            const dotsContainer = document.getElementById('modal-dots');
+            if (!dotsContainer) return;
+            const total = window.currentImageGroup.length;
+            if (total <= 1) { dotsContainer.innerHTML = ''; return; }
+            dotsContainer.innerHTML = '';
+            for (let i = 0; i < total; i++) {
+                const dot = document.createElement('button');
+                dot.className = 'modal-dot' + (i === window.currentImageIndex ? ' active' : '');
+                dot.setAttribute('aria-label', 'Imagen ' + (i + 1) + ' de ' + total);
+                (function(idx) {
+                    dot.addEventListener('click', function() {
+                        window.currentImageIndex = idx;
+                        displayCurrentImage();
+                    });
+                })(i);
+                dotsContainer.appendChild(dot);
             }
         }
         
@@ -1599,6 +1626,31 @@
                 }
             }
         });
+
+        // ========================================
+        // SWIPE TÁCTIL PARA EL MODAL (mobile/tablet)
+        // ========================================
+        (function() {
+            var touchStartX = 0, touchStartY = 0;
+            document.addEventListener('touchstart', function(e) {
+                var modal = document.getElementById('imageModal');
+                if (!modal || !modal.classList.contains('active')) return;
+                touchStartX = e.touches[0].clientX;
+                touchStartY = e.touches[0].clientY;
+            }, { passive: true });
+
+            document.addEventListener('touchend', function(e) {
+                var modal = document.getElementById('imageModal');
+                if (!modal || !modal.classList.contains('active')) return;
+                var dx = e.changedTouches[0].clientX - touchStartX;
+                var dy = e.changedTouches[0].clientY - touchStartY;
+                // Solo swipe horizontal con mínimo 50px de recorrido
+                if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
+                    if (dx < 0) nextImage();
+                    else previousImage();
+                }
+            }, { passive: true });
+        })();
 
         // ========================================
         // CARRUSEL DEL HERO - CASTILLOS
