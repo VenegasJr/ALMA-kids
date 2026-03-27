@@ -83,6 +83,9 @@
     <!-- HERO / PORTADA FIXES - Mejoras en la portada -->
     <link rel="stylesheet" href="hero-portada-fixes.css">
     
+    <!-- MODERN FEATURES 2025 -->
+    <link rel="stylesheet" href="modern-features.css">
+
     <!-- SCRIPT DE DIAGNÓSTICO Y FIX INMEDIATO -->
     <script>
         // Ejecutar INMEDIATAMENTE cuando el script carga
@@ -338,6 +341,9 @@
     </script>
 </head>
 <body>
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress" role="progressbar" aria-label="Progreso de lectura" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
     <!-- Header -->
     <header class="header">
         <div class="container">
@@ -476,12 +482,52 @@
         </div>
     </section>
 
+    <!-- Stats Section - Estadísticas animadas -->
+    <section id="estadisticas" class="stats-section" aria-label="Estadísticas ALMA Kids">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item" data-reveal="scale" data-delay="0">
+                    <span class="stat-icon" aria-hidden="true">🎪</span>
+                    <div class="stat-number-wrap">
+                        <span class="stat-number" data-target="100">0</span>
+                        <span class="stat-suffix">+</span>
+                    </div>
+                    <span class="stat-label">Eventos realizados</span>
+                </div>
+                <div class="stat-item" data-reveal="scale" data-delay="150">
+                    <span class="stat-icon" aria-hidden="true">📍</span>
+                    <div class="stat-number-wrap">
+                        <span class="stat-number" data-target="9">0</span>
+                        <span class="stat-suffix">+</span>
+                    </div>
+                    <span class="stat-label">Comunas atendidas</span>
+                </div>
+                <div class="stat-item" data-reveal="scale" data-delay="300">
+                    <span class="stat-icon" aria-hidden="true">👨‍👩‍👧</span>
+                    <div class="stat-number-wrap">
+                        <span class="stat-number" data-target="500">0</span>
+                        <span class="stat-suffix">+</span>
+                    </div>
+                    <span class="stat-label">Familias felices</span>
+                </div>
+                <div class="stat-item" data-reveal="scale" data-delay="450">
+                    <span class="stat-icon" aria-hidden="true">⭐</span>
+                    <div class="stat-number-wrap">
+                        <span class="stat-number" data-target="5">0</span>
+                        <span class="stat-suffix">/5</span>
+                    </div>
+                    <span class="stat-label">Valoración promedio</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- About Section -->
     <section id="nosotros" class="about">
         <div class="container">
             <div class="about-content">
-                <div class="about-text">
-                    <h2 class="section-title">Sobre Nosotros</h2>
+                <div class="about-text" data-reveal="left">
+                    <h2 class="section-title" data-reveal>Sobre Nosotros</h2>
                     <h3>ALMA Kids Entretenciones Infantiles Ltda.</h3>
                     <p>
                         <strong>ALMA Kids</strong> nace en 2025 con la llegada de nuestro primer hijo. Unos papás 
@@ -499,7 +545,7 @@
                         <span>Creando recuerdos mágicos para nuestros pequeños</span>
                     </div>
                 </div>
-                <div class="about-image">
+                <div class="about-image" data-reveal="right">
                     <picture>
                         <source srcset="imagenes/logo-alma-kids-oficial.png" type="image/png">
                         <img src="imagenes/logo-alma-kids-oficial.png" alt="ALMA Kids Entretenciones Infantiles - Logo Oficial" class="about-img" loading="lazy" onclick="openImageModal(this.src, 'ALMA Kids Logo Oficial', 'Logo oficial de ALMA Kids Entretenciones Infantiles Ltda.')" style="cursor: pointer;">
@@ -538,7 +584,7 @@
     <section id="catalogo-canva" class="catalogo-canva-section">
         <div class="container">
             <div class="catalogo-header">
-                <h2 class="section-title">📋 Catálogo Completo ALMA Kids</h2>
+                <h2 class="section-title" data-reveal>📋 Catálogo Completo ALMA Kids</h2>
                 <p class="section-subtitle">Explora todos nuestros productos y servicios actualizados</p>
                 <div class="catalogo-update-badge">
                     <i class="fas fa-sync-alt"></i>
@@ -590,7 +636,7 @@
                 <div class="instagram-title-wrapper">
                     <i class="fab fa-instagram"></i>
                     <div>
-                        <h2 class="section-title">Síguenos en Instagram</h2>
+                        <h2 class="section-title" data-reveal>Síguenos en Instagram</h2>
                         <p class="instagram-subtitle">@almakids.cl - Comparte la magia de nuestros eventos</p>
                     </div>
                 </div>
@@ -639,7 +685,7 @@
     <!-- Plaza Blanda Section -->
     <section id="plaza-blanda" class="plaza-blanda">
         <div class="container">
-            <h2 class="section-title">Piscina Pelotas - Zona de Juegos Segura</h2>
+            <h2 class="section-title" data-reveal>Piscina Pelotas - Zona de Juegos Segura</h2>
             <p class="section-subtitle">Ideal para nuestros niños desde los 6 meses a 7 años de edad</p>
             <p class="supervision-note">
                 <i class="fas fa-exclamation-triangle"></i>
@@ -850,20 +896,20 @@
     <!-- Reviews / Social Proof Section -->
     <section id="resenas" class="reviews-section">
         <div class="container">
-            <h2 class="section-title">Lo que dicen nuestros clientes</h2>
-            <p class="section-subtitle">Familias de Rancagua y Machalí confían en ALMA Kids para sus fiestas infantiles</p>
+            <h2 class="section-title" data-reveal>Lo que dicen nuestros clientes</h2>
+            <p class="section-subtitle" data-reveal data-delay="100">Familias de Rancagua y Machalí confían en ALMA Kids para sus fiestas infantiles</p>
             <div class="reviews-grid">
-                <div class="review-card">
+                <div class="review-card" data-reveal="scale" data-delay="0">
                     <div class="review-stars">★★★★★</div>
                     <p class="review-text">"Increíble servicio, llegaron puntuales, instalaron todo perfectamente y los niños se divirtieron muchísimo. ¡100% recomendado!"</p>
                     <span class="review-author">— Valentina M., Machalí</span>
                 </div>
-                <div class="review-card">
+                <div class="review-card" data-reveal="scale" data-delay="200">
                     <div class="review-stars">★★★★★</div>
                     <p class="review-text">"La plaza blanda fue el éxito del cumpleaños de mi hija. Los colores pastel son preciosos y los juegos muy seguros para los más pequeños."</p>
                     <span class="review-author">— Catalina R., Rancagua</span>
                 </div>
-                <div class="review-card">
+                <div class="review-card" data-reveal="scale" data-delay="400">
                     <div class="review-stars">★★★★★</div>
                     <p class="review-text">"Excelente atención desde la cotización hasta el retiro. El castillo inflable quedó espectacular en la fiesta. ¡Volvemos a contratar!"</p>
                     <span class="review-author">— Javiera T., Graneros</span>
@@ -881,7 +927,7 @@
     <!-- Coverage Section -->
     <section id="cobertura" class="coverage">
         <div class="container">
-            <h2 class="section-title">Cobertura Regional</h2>
+            <h2 class="section-title" data-reveal>Cobertura Regional</h2>
             <p class="section-subtitle">Llegamos a toda la región con nuestros servicios</p>
             
             <div class="coverage-grid">
@@ -934,7 +980,7 @@
     <!-- FAQ Section -->
     <section id="faq" class="faq-preview">
         <div class="container">
-            <h2 class="section-title">Preguntas Frecuentes ❓</h2>
+            <h2 class="section-title" data-reveal>Preguntas Frecuentes ❓</h2>
             <p class="section-subtitle">¿Tienes dudas sobre nuestros servicios? Encuentra todas las respuestas</p>
             
             <div class="faq-preview-content">
@@ -975,7 +1021,7 @@
 
     <section class="seo-keywords" id="palabras-clave-seo">
         <div class="container">
-            <h2 class="section-title">Palabras Clave Que Nos Definen</h2>
+            <h2 class="section-title" data-reveal>Palabras Clave Que Nos Definen</h2>
             <p class="section-subtitle">Integramos experiencias premium con servicios locales para que encuentres fácilmente el arriendo perfecto para tus celebraciones infantiles.</p>
             <div class="seo-keyword-grid">
                 <div class="seo-keyword-card">
@@ -1048,7 +1094,7 @@
 
     <section id="contacto" class="contact">
         <div class="container">
-            <h2 class="section-title">Conecta con ALMA Kids Entretenciones infantiles Ltda.</h2>
+            <h2 class="section-title" data-reveal>Conecta con ALMA Kids Entretenciones infantiles Ltda.</h2>
             
             <div class="contact-content">
                 <div class="contact-info">
@@ -1231,6 +1277,8 @@
     <script src="instagram-feed-simple.js" defer></script>
     <!-- Floating Action Button (FAB) - Botón flotante expandible -->
     <script src="floating-action-button.js" defer></script>
+    <!-- MODERN FEATURES 2025 -->
+    <script src="modern-features.js" defer></script>
     
     <!-- Debug Script for Testing -->
     <script>
