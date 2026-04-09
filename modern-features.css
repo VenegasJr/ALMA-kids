@@ -366,7 +366,98 @@ html {
     }
 }
 
-/* ==================== FAQ HERO — REDISEÑO ==================== */
+/* ==================== FAQ MEJORADO — TEXTO Y BOTÓN WS ==================== */
+
+/* Botón WhatsApp estilo FAB en hero FAQ */
+.btn-wsp-fab {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.6rem !important;
+    background: #25D366 !important;
+    color: white !important;
+    padding: 0.85rem 2rem !important;
+    border-radius: 50px !important;
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+    box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+    font-family: 'Poppins', sans-serif !important;
+    letter-spacing: 0.01em !important;
+}
+.btn-wsp-fab i {
+    font-size: 1.3rem !important;
+}
+.btn-wsp-fab:hover {
+    transform: translateY(-3px) scale(1.03) !important;
+    box-shadow: 0 10px 32px rgba(37, 211, 102, 0.55) !important;
+    color: white !important;
+    text-decoration: none !important;
+}
+
+/* FAQ accordion — texto más claro y legible */
+.faq-answer {
+    font-size: 0.97rem !important;
+    line-height: 1.75 !important;
+    color: #3a3a3a !important;
+}
+.faq-answer p {
+    margin: 0 0 0.7rem !important;
+    color: #3a3a3a !important;
+}
+.faq-answer ul {
+    margin: 0.4rem 0 0.7rem 0 !important;
+    padding-left: 1.2rem !important;
+}
+.faq-answer li {
+    margin-bottom: 0.35rem !important;
+    color: #3a3a3a !important;
+    line-height: 1.6 !important;
+}
+.faq-answer strong {
+    color: #222 !important;
+    font-weight: 600 !important;
+}
+.faq-answer a {
+    color: #E91E63 !important;
+}
+
+/* Título de pregunta más legible */
+.faq-question h3 {
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    color: #2a2a2a !important;
+    line-height: 1.4 !important;
+}
+.faq-question h3 i {
+    color: #E91E63 !important;
+    margin-right: 0.4rem !important;
+    font-size: 0.9rem !important;
+}
+
+/* Aviso legal inferior */
+.faq-legal-notice {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.75rem !important;
+    background: #FFF9F0 !important;
+    border: 1.5px solid #FFE0B2 !important;
+    border-radius: 14px !important;
+    padding: 1rem 1.4rem !important;
+    margin: 2rem 0 !important;
+    color: #7a5c20 !important;
+    font-size: 0.88rem !important;
+    font-weight: 500 !important;
+}
+.faq-legal-notice i {
+    color: #F57C00 !important;
+    font-size: 1.2rem !important;
+    flex-shrink: 0 !important;
+}
+.faq-legal-notice p {
+    margin: 0 !important;
+    line-height: 1.5 !important;
+}
 
 .faq-hero {
     background: linear-gradient(135deg, #F5EEFF 0%, #FFF0F8 50%, #EEF6FF 100%) !important;
