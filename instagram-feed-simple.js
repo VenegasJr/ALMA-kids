@@ -1,410 +1,118 @@
 /**
- * Instagram Feed - Versión Simple (Sin API)
- * Usa widgets de terceros y scraping básico para mostrar el feed
+ * ALMA Kids — Instagram en vivo
+ * Obtiene datos desde una Netlify Function para mantener el token fuera del navegador.
  */
+(() => {
+  'use strict';
 
-const INSTAGRAM_USERNAME = 'almakids.cl';
+  const endpoint = '/.netlify/functions/instagram-profile';
+  const profileUrl = 'https://www.instagram.com/almakids.cl/';
+  const numberFormatter = new Intl.NumberFormat('es-CL');
 
-/**
- * Cargar feed usando widget embed oficial de Instagram
- */
-function loadInstagramEmbed() {
-    const feedContainer = document.getElementById('instagramFeed');
-    if (!feedContainer) return;
+  const byId = (id) => document.getElementById(id);
 
-    // Widget embed oficial de Instagram (más confiable)
-    const embedHTML = `
-        <div style="max-width: 100%; margin: 0 auto;">
-            <blockquote class="instagram-media" 
-                data-instgrm-permalink="https://www.instagram.com/${INSTAGRAM_USERNAME}/"
-                data-instgrm-version="14"
-                style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:100%; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
-            </blockquote>
-        </div>
-    `;
-    
-    feedContainer.innerHTML = embedHTML;
-    
-    // Cargar script de Instagram embed
-    if (!window.instgrm) {
-        const script = document.createElement('script');
-        script.async = true;
-        script.src = 'https://www.instagram.com/embed.js';
-        script.onload = () => {
-            if (window.instgrm) {
-                window.instgrm.Embeds.process();
-            }
-        };
-        document.body.appendChild(script);
-    } else {
-        window.instgrm.Embeds.process();
-    }
-}
+  function setText(id, value) {
+    const element = byId(id);
+    if (element) element.textContent = value;
+  }
 
-/**
- * Cargar estadísticas con actualización automática diaria
- * Intenta obtener datos automáticamente y los cachea por 24 horas
- */
-async function loadInstagramStatsSimple() {
-    // Verificar si hay datos en caché y si son recientes (menos de 24 horas)
-    const cachedData = getCachedStats();
-    const now = new Date().getTime();
-    const oneDay = 24 * 60 * 60 * 1000; // 24 horas en milisegundos
-    
-    // Si hay datos en caché y tienen menos de 24 horas, usarlos
-    if (cachedData && (now - cachedData.timestamp) < oneDay) {
-        console.log('📊 Usando estadísticas en caché (actualizadas hace menos de 24h)');
-        updateStats(cachedData.followers, cachedData.posts, cachedData.following);
-        
-        // Intentar actualizar en segundo plano sin bloquear la UI
-        updateStatsInBackground();
-        return;
-    }
-    
-    // Si no hay caché o está vencido, intentar obtener datos nuevos
-    console.log('🔄 Actualizando estadísticas de Instagram...');
-    await fetchAndUpdateStats();
-}
+  function formatNumber(value) {
+    return Number.isFinite(Number(value)) ? numberFormatter.format(Number(value)) : '—';
+  }
 
-/**
- * Intentar obtener estadísticas desde Instagram (múltiples métodos)
- */
-async function fetchAndUpdateStats() {
-    // Método 1: Intentar usar servicio proxy para evitar CORS
-    try {
-        // Usar servicio público que permite obtener datos de Instagram
-        const proxyResponse = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(`https://www.instagram.com/${INSTAGRAM_USERNAME}/`)}`, {
-            method: 'GET'
-        });
-        
-        if (proxyResponse.ok) {
-            const proxyData = await proxyResponse.json();
-            const html = proxyData.contents;
-            
-            // Intentar extraer datos del HTML usando regex
-            const followersMatch = html.match(/"edge_followed_by":{"count":(\d+)}/);
-            const postsMatch = html.match(/"edge_owner_to_timeline_media":{"count":(\d+)}/);
-            const followingMatch = html.match(/"edge_follow":{"count":(\d+)}/);
-            
-            if (followersMatch || postsMatch || followingMatch) {
-                const stats = {
-                    followers: followersMatch ? parseInt(followersMatch[1]) : 356,
-                    posts: postsMatch ? parseInt(postsMatch[1]) : 13,
-                    following: followingMatch ? parseInt(followingMatch[1]) : 1146
-                };
-                
-                // Guardar en caché
-                saveCachedStats(stats);
-                updateStats(stats.followers, stats.posts, stats.following);
-                console.log('✅ Estadísticas actualizadas automáticamente desde Instagram (Método 1)');
-                return;
-            }
-        }
-    } catch (error) {
-        console.log('⚠️ Método 1 falló, intentando método 2...');
-    }
-    
-    // Método 2: Intentar desde el perfil público de Instagram (API directa)
-    try {
-        const response = await fetch(`https://www.instagram.com/${INSTAGRAM_USERNAME}/?__a=1&__d=dis`, {
-            method: 'GET',
-            headers: {
-                'Accept': 'application/json',
-            },
-            mode: 'cors'
-        });
-        
-        if (response.ok) {
-            const data = await response.json();
-            if (data.graphql && data.graphql.user) {
-                const user = data.graphql.user;
-                const stats = {
-                    followers: user.edge_followed_by?.count || 356,
-                    posts: user.edge_owner_to_timeline_media?.count || 13,
-                    following: user.edge_follow?.count || 1146
-                };
-                
-                // Guardar en caché
-                saveCachedStats(stats);
-                updateStats(stats.followers, stats.posts, stats.following);
-                console.log('✅ Estadísticas actualizadas automáticamente desde Instagram (Método 2)');
-                return;
-            }
-        }
-    } catch (error) {
-        console.log('⚠️ Método 2 falló, intentando método 3...');
-    }
-    
-    // Método 3: Intentar extraer datos del embed de Instagram después de que cargue
-    try {
-        const extracted = await extractStatsFromEmbed();
-        if (extracted) {
-            return; // Si se extrajeron datos, ya se actualizaron
-        }
-    } catch (error) {
-        console.log('⚠️ Método 3: No se pudieron extraer datos del embed aún');
-    }
-    
-    // Método 4: Usar datos en caché si existen (aunque estén vencidos)
-    const cachedData = getCachedStats();
-    if (cachedData) {
-        console.log('📊 Usando estadísticas en caché (aunque estén vencidas)');
-        updateStats(cachedData.followers, cachedData.posts, cachedData.following);
-        return;
-    }
-    
-    // Método 5: Fallback a valores manuales actualizados
-    console.log('📝 Usando valores manuales actualizados como fallback');
-    showManualStats();
-}
+  function setStatus(message, state = '') {
+    const status = byId('instagramSyncStatus');
+    if (!status) return;
+    status.classList.remove('is-live', 'is-unavailable');
+    if (state) status.classList.add(state);
+    const dot = '<span class="instagram-live-dot" aria-hidden="true"></span>';
+    status.innerHTML = `${dot}${message}`;
+  }
 
-/**
- * Actualizar estadísticas en segundo plano (sin bloquear la UI)
- */
-async function updateStatsInBackground() {
-    // Esperar un poco para no interferir con la carga inicial
-    setTimeout(async () => {
-        await fetchAndUpdateStats();
-    }, 3000);
-}
+  function createPost(media) {
+    const url = media.permalink || profileUrl;
+    const imageUrl = media.thumbnail_url || media.media_url;
+    if (!imageUrl) return null;
 
-/**
- * Extraer estadísticas del embed de Instagram después de que cargue
- * Retorna true si se extrajeron datos, false si no
- */
-async function extractStatsFromEmbed() {
-    return new Promise((resolve) => {
-        let attempts = 0;
-        const maxAttempts = 15; // Intentar por 15 segundos
-        
-        // Esperar a que el embed de Instagram cargue y procese
-        const checkEmbed = setInterval(() => {
-            attempts++;
-            
-            // Intentar encontrar el iframe del embed
-            const embed = document.querySelector('.instagram-media iframe');
-            if (embed) {
-                try {
-                    // Intentar acceder al contenido del iframe (puede estar bloqueado por CORS)
-                    const iframeDoc = embed.contentDocument || embed.contentWindow?.document;
-                    if (iframeDoc) {
-                        // Buscar texto que contenga las estadísticas
-                        const text = iframeDoc.body?.innerText || '';
-                        const followersMatch = text.match(/(\d+)\s*seguidores/i);
-                        const postsMatch = text.match(/(\d+)\s*publicaciones/i);
-                        const followingMatch = text.match(/(\d+)\s*siguiendo/i);
-                        
-                        if (followersMatch || postsMatch || followingMatch) {
-                            const stats = {
-                                followers: followersMatch ? parseInt(followersMatch[1]) : 356,
-                                posts: postsMatch ? parseInt(postsMatch[1]) : 13,
-                                following: followingMatch ? parseInt(followingMatch[1]) : 1146
-                            };
-                            
-                            saveCachedStats(stats);
-                            updateStats(stats.followers, stats.posts, stats.following);
-                            console.log('✅ Estadísticas extraídas del embed de Instagram (Método 3)');
-                            clearInterval(checkEmbed);
-                            resolve(true);
-                            return;
-                        }
-                    }
-                } catch (error) {
-                    // CORS bloquea el acceso, continuar intentando
-                }
-            }
-            
-            // También intentar buscar en el HTML del embed directamente
-            const embedContainer = document.querySelector('.instagram-media');
-            if (embedContainer) {
-                const embedHTML = embedContainer.innerHTML || '';
-                const followersMatch = embedHTML.match(/(\d+)\s*seguidores/i);
-                const postsMatch = embedHTML.match(/(\d+)\s*publicaciones/i);
-                const followingMatch = embedHTML.match(/(\d+)\s*siguiendo/i);
-                
-                if (followersMatch || postsMatch || followingMatch) {
-                    const stats = {
-                        followers: followersMatch ? parseInt(followersMatch[1]) : 356,
-                        posts: postsMatch ? parseInt(postsMatch[1]) : 13,
-                        following: followingMatch ? parseInt(followingMatch[1]) : 1146
-                    };
-                    
-                    saveCachedStats(stats);
-                    updateStats(stats.followers, stats.posts, stats.following);
-                    console.log('✅ Estadísticas extraídas del HTML del embed (Método 3)');
-                    clearInterval(checkEmbed);
-                    resolve(true);
-                    return;
-                }
-            }
-            
-            // También intentar desde el script de Instagram si está disponible
-            if (window.instgrm && attempts > 5) {
-                // El embed ya debería estar procesado
-                clearInterval(checkEmbed);
-                resolve(false);
-                return;
-            }
-            
-            // Timeout después de maxAttempts segundos
-            if (attempts >= maxAttempts) {
-                clearInterval(checkEmbed);
-                resolve(false);
-            }
-        }, 1000);
+    const link = document.createElement('a');
+    link.className = 'instagram-live-post';
+    link.href = url;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.setAttribute('aria-label', 'Abrir publicación de ALMA Kids en Instagram');
+
+    const image = document.createElement('img');
+    image.src = imageUrl;
+    image.alt = media.caption ? media.caption.slice(0, 120) : 'Publicación de ALMA Kids en Instagram';
+    image.loading = 'lazy';
+    image.decoding = 'async';
+
+    const icon = document.createElement('span');
+    icon.innerHTML = media.media_type === 'VIDEO'
+      ? '<i class="fas fa-play" aria-hidden="true"></i>'
+      : '<i class="fab fa-instagram" aria-hidden="true"></i>';
+
+    link.append(image, icon);
+    return link;
+  }
+
+  function renderMedia(items) {
+    const container = byId('instagramFeed');
+    if (!container || !Array.isArray(items) || items.length === 0) return;
+
+    const fragment = document.createDocumentFragment();
+    items.slice(0, 6).forEach((item) => {
+      const post = createPost(item);
+      if (post) fragment.appendChild(post);
     });
-}
 
-/**
- * Guardar estadísticas en localStorage con timestamp
- */
-function saveCachedStats(stats) {
+    if (fragment.childNodes.length) {
+      container.replaceChildren(fragment);
+    }
+  }
+
+  async function loadInstagramProfile() {
+    if (!byId('instagramStats')) return;
+
     try {
-        const data = {
-            ...stats,
-            timestamp: new Date().getTime()
-        };
-        localStorage.setItem('instagram_stats_cache', JSON.stringify(data));
-        console.log('💾 Estadísticas guardadas en caché:', data);
+      const response = await fetch(endpoint, {
+        headers: { Accept: 'application/json' },
+        cache: 'no-store'
+      });
+
+      const payload = await response.json().catch(() => ({}));
+
+      if (!response.ok || payload.configured === false) {
+        setStatus('Perfil enlazado. La actualización automática se activará al conectar la API oficial de Meta.', 'is-unavailable');
+        return;
+      }
+
+      setText('followerCount', formatNumber(payload.followers_count));
+      setText('postCount', formatNumber(payload.media_count));
+      setText('followingCount', formatNumber(payload.follows_count));
+
+      const followingStat = byId('followingStat');
+      if (followingStat && payload.follows_count == null) {
+        followingStat.hidden = true;
+      }
+
+      renderMedia(payload.media);
+
+      const updatedAt = payload.updated_at
+        ? new Intl.DateTimeFormat('es-CL', { dateStyle: 'medium', timeStyle: 'short' }).format(new Date(payload.updated_at))
+        : null;
+
+      setStatus(
+        updatedAt
+          ? `Datos sincronizados automáticamente desde Instagram · ${updatedAt}`
+          : 'Datos sincronizados automáticamente desde Instagram.',
+        'is-live'
+      );
     } catch (error) {
-        console.warn('⚠️ No se pudo guardar en caché (localStorage no disponible)');
+      console.warn('No fue posible sincronizar Instagram:', error);
+      setStatus('No pudimos actualizar las cifras en este momento. El enlace al perfil sigue disponible.', 'is-unavailable');
     }
-}
+  }
 
-/**
- * Obtener estadísticas desde localStorage
- */
-function getCachedStats() {
-    try {
-        const cached = localStorage.getItem('instagram_stats_cache');
-        if (cached) {
-            return JSON.parse(cached);
-        }
-    } catch (error) {
-        console.warn('⚠️ No se pudo leer caché');
-    }
-    return null;
-}
-
-/**
- * Actualizar estadísticas en el DOM
- */
-function updateStats(followers, posts, following) {
-    const followerEl = document.getElementById('followerCount');
-    const postEl = document.getElementById('postCount');
-    const followingEl = document.getElementById('followingCount');
-    
-    if (followerEl) followerEl.textContent = formatNumber(followers);
-    if (postEl) postEl.textContent = formatNumber(posts);
-    if (followingEl) followingEl.textContent = formatNumber(following);
-}
-
-/**
- * Mostrar estadísticas manuales (actualizar desde Meta Business Suite)
- */
-function showManualStats() {
-    // Estos valores puedes actualizarlos manualmente cuando veas las estadísticas en Meta
-    // Por ahora, mostrar valores por defecto con emojis
-    const followerEl = document.getElementById('followerCount');
-    const postEl = document.getElementById('postCount');
-    const followingEl = document.getElementById('followingCount');
-    
-    // Valores actuales de Instagram (actualizados: 2025-01-26)
-    // Estos valores se usan como fallback si no se pueden obtener automáticamente
-    const manualStats = {
-        followers: 356,  // Seguidores actuales
-        posts: 13,       // Publicaciones actuales
-        following: 1146  // Siguiendo actual
-    };
-    
-    if (followerEl) followerEl.textContent = formatNumber(manualStats.followers);
-    if (postEl) postEl.textContent = formatNumber(manualStats.posts);
-    if (followingEl) followingEl.textContent = formatNumber(manualStats.following);
-}
-
-/**
- * Formatear números (ej: 356 → "356", 1000 → "1K")
- */
-function formatNumber(num) {
-    if (!num && num !== 0) return '✨';
-    if (num >= 1000) {
-        return (num / 1000).toFixed(1) + 'K';
-    }
-    return num.toString();
-}
-
-/**
- * Inicializar feed de Instagram
- */
-function initInstagramFeedSimple() {
-    // Cargar estadísticas (con actualización automática diaria)
-    loadInstagramStatsSimple();
-    
-    // Cargar feed embed
-    loadInstagramEmbed();
-    
-    // Programar actualización automática cada 24 horas
-    scheduleDailyUpdate();
-}
-
-/**
- * Programar actualización automática diaria
- */
-function scheduleDailyUpdate() {
-    // Calcular tiempo hasta la próxima medianoche (o 24 horas desde ahora)
-    const now = new Date();
-    const tomorrow = new Date(now);
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    tomorrow.setHours(0, 0, 0, 0); // Medianoche
-    
-    const msUntilMidnight = tomorrow.getTime() - now.getTime();
-    
-    // Actualizar a medianoche y luego cada 24 horas
-    setTimeout(() => {
-        console.log('🔄 Actualización automática diaria de estadísticas de Instagram');
-        fetchAndUpdateStats();
-        
-        // Programar siguiente actualización (cada 24 horas)
-        setInterval(() => {
-            console.log('🔄 Actualización automática diaria de estadísticas de Instagram');
-            fetchAndUpdateStats();
-        }, 24 * 60 * 60 * 1000); // 24 horas
-    }, msUntilMidnight);
-    
-    // También intentar actualizar cada vez que alguien visita la página (si el caché tiene más de 6 horas)
-    const cachedData = getCachedStats();
-    if (cachedData) {
-        const sixHours = 6 * 60 * 60 * 1000;
-        const now = new Date().getTime();
-        if ((now - cachedData.timestamp) > sixHours) {
-            console.log('🔄 Caché tiene más de 6 horas, actualizando en segundo plano...');
-            setTimeout(() => {
-                fetchAndUpdateStats();
-            }, 2000);
-        }
-    }
-    
-    console.log(`⏰ Próxima actualización automática: ${tomorrow.toLocaleString()}`);
-}
-
-// Inicializar cuando el DOM esté listo
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initInstagramFeedSimple);
-} else {
-    initInstagramFeedSimple();
-}
-
-// Re-procesar embeds si se carga después
-window.addEventListener('load', () => {
-    if (window.instgrm) {
-        window.instgrm.Embeds.process();
-    }
-});
-
-// Reintentar cargar embed cada vez que Instagram esté listo
-setInterval(() => {
-    if (window.instgrm && document.getElementById('instagramFeed')) {
-        window.instgrm.Embeds.process();
-    }
-}, 2000);
-
+  document.addEventListener('DOMContentLoaded', loadInstagramProfile, { once: true });
+})();
