@@ -1529,20 +1529,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.style.overflow = 'auto';
         }
     });
-    
-    // Navegación suave
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
+    // La navegación por anclas usa el comportamiento nativo del navegador.
     
     console.log('🎪 ALMA Kids: Sistema funcional principal activado');
     console.log('✅ Menú móvil inicializado');
