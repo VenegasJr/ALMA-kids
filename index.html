@@ -7,7 +7,7 @@
     
     <!-- ACTUALIZADO: 2025-01-27 - SEO Optimizado para ALMA Kids, Rancagua, Machalí -->
     <meta name="description" content="ALMA Kids: Arriendo de juegos inflables en Rancagua y Machalí. Plaza blanda, castillos inflables pastel y piscinas de pelotas para fiestas infantiles. Cobertura Región de O'Higgins. Cotiza gratis por WhatsApp +56 9 6907 3306.">
-    <meta name="keywords" content="ALMA Kids, juegos inflables Rancagua, plaza blanda Machalí, castillos inflables Rancagua, arriendo juegos inflables, plaza blanda Rancagua, juegos inflables Machalí, castillos inflables Machalí, arriendo plaza blanda, piscina de pelotas, fiestas infantiles Rancagua, fiestas infantiles Machalí, entretenciones infantiles, saltarines inflables, juegos para niños O'Higgins, arriendo castillos inflables, arriendo saltarines, mobiliario infantil, juegos seguros para bebés">
+    <meta name="keywords" content="arriendo juegos inflables Rancagua, plaza blanda Machalí, castillos inflables, piscina de pelotas, fiestas infantiles Región de O'Higgins">
     <meta name="author" content="ALMA Kids Entretenciones Infantiles Ltda.">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
     <meta name="geo.region" content="CL-LI">
@@ -86,6 +86,8 @@
     
     <!-- MODERN FEATURES 2025 -->
     <link rel="stylesheet" href="modern-features.css">
+    <!-- Mejoras 2026: calidad, accesibilidad y feedback -->
+    <link rel="stylesheet" href="site-upgrade.css?v=20260630-01">
 
     <!-- SCRIPT DE DIAGNÓSTICO Y FIX INMEDIATO -->
     <script>
@@ -155,12 +157,6 @@
         { "@type": "City", "name": "Graneros" },
         { "@type": "AdministrativeArea", "name": "Región de O'Higgins" }
       ],
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5",
-        "bestRating": "5",
-        "ratingCount": "20"
-      },
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",
@@ -228,7 +224,7 @@
         "@context": "https://schema.org",
         "@type": "EventSeries",
         "name": "Fiestas Infantiles ALMA Kids",
-        "description": "Eventos y fiestas infantiles con juegos inflables, plaza blanda y entretenimiento seguro",
+        "description": "Eventos y fiestas infantiles con juegos inflables, plaza blanda y controles internos de instalación",
         "organizer": {
             "@type": "Organization",
             "name": "ALMA Kids Entretenciones Infantiles Ltda.",
@@ -320,10 +316,10 @@
         },
         {
           "@type": "Question",
-          "name": "¿Los juegos están certificados y son seguros?",
+          "name": "¿Cómo controlan la seguridad y el estado de los equipos?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Sí, utilizamos juegos certificados, materiales reforzados y protocolos de limpieza y desinfección para garantizar seguridad en cada montaje."
+            "text": "Antes de cada servicio revisamos limpieza, estado general, accesorios, funcionamiento y condiciones de instalación. La instalación final depende de la verificación del terreno, acceso, electricidad y clima."
           }
         },
         {
@@ -348,6 +344,7 @@
     </script>
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Saltar al contenido</a>
     <!-- Scroll Progress Bar -->
     <div id="scroll-progress" role="progressbar" aria-label="Progreso de lectura" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
 
@@ -361,10 +358,13 @@
             </a>
             
                 <!-- Navigation -->
-        <nav class="nav">
+        <nav class="nav" aria-label="Navegación principal">
                     <a class='nav-link' href='index.html#inicio'>Inicio</a>
+                    <a class='nav-link' href='index.html#catalogo-canva'>Servicios</a>
+                    <a class='nav-link' href='index.html#proceso-reserva'>Cómo reservar</a>
+                    <a class='nav-link' href='calidad.html'>Calidad y seguridad</a>
+                    <a class='nav-link nav-link-feedback' href='feedback.html'>Evaluar servicio</a>
                     <a class='nav-link' href='faq.html'>FAQ</a>
-                    
                     <a class='nav-link' href='index.html#contacto'>Contacto</a>
             </nav>
             
@@ -398,10 +398,13 @@
             <button class="mobile-menu-close" onclick="closeMobileMenu()" title="Cerrar menú">
                 <i class="fas fa-times"></i>
             </button>
-            <nav class="mobile-nav">
+            <nav class="mobile-nav" aria-label="Navegación móvil">
                 <a class='mobile-link' href='index.html#inicio' onclick='closeMobileMenu()'>Inicio</a>
+                <a class='mobile-link' href='index.html#catalogo-canva' onclick='closeMobileMenu()'>Servicios</a>
+                <a class='mobile-link' href='index.html#proceso-reserva' onclick='closeMobileMenu()'>Cómo reservar</a>
+                <a class='mobile-link' href='calidad.html' onclick='closeMobileMenu()'>Calidad y seguridad</a>
+                <a class='mobile-link mobile-link-feedback' href='feedback.html' onclick='closeMobileMenu()'>Evaluar servicio</a>
                 <a class='mobile-link' href='faq.html' onclick='closeMobileMenu()'>FAQ</a>
-                
                 <a class='mobile-link' href='index.html#contacto' onclick='closeMobileMenu()'>Contacto</a>
             </nav>
         </div>
@@ -454,7 +457,7 @@
                     
                     <!-- Mensaje Inspiracional -->
                     <p class="hero-message">
-                        Creamos recuerdos mágicos e inolvidables para tus pequeños, transformando cualquier espacio en un mundo de diversión, descubrimiento y aventura sana.
+                        Creamos celebraciones infantiles memorables con juegos de estética pastel, coordinación clara y revisión previa del espacio de instalación.
                     </p>
                     
                     <!-- Botones -->
@@ -463,7 +466,7 @@
                             <i class="fas fa-star"></i>
                             <span>Ver Catálogo</span>
                         </a>
-                        <a href="#contacto" class="btn btn-secondary">Cotizar</a>
+                        <a href="#proceso-reserva" class="btn btn-secondary">Cómo reservar</a>
                     </div>
                 </div>
                 <div class="hero-image">
@@ -489,42 +492,35 @@
         </div>
     </section>
 
-    <!-- Stats Section - Estadísticas animadas -->
-    <section id="estadisticas" class="stats-section" aria-label="Estadísticas ALMA Kids">
+<!-- Compromisos verificables -->
+    <section id="compromisos" class="trust-section" aria-labelledby="trust-title">
         <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item" data-reveal="scale" data-delay="0">
-                    <span class="stat-icon" aria-hidden="true">🎪</span>
-                    <div class="stat-number-wrap">
-                        <span class="stat-number" data-target="100">0</span>
-                        <span class="stat-suffix">+</span>
-                    </div>
-                    <span class="stat-label">Eventos realizados</span>
-                </div>
-                <div class="stat-item" data-reveal="scale" data-delay="150">
-                    <span class="stat-icon" aria-hidden="true">📍</span>
-                    <div class="stat-number-wrap">
-                        <span class="stat-number" data-target="9">0</span>
-                        <span class="stat-suffix">+</span>
-                    </div>
-                    <span class="stat-label">Comunas atendidas</span>
-                </div>
-                <div class="stat-item" data-reveal="scale" data-delay="300">
-                    <span class="stat-icon" aria-hidden="true">👨‍👩‍👧</span>
-                    <div class="stat-number-wrap">
-                        <span class="stat-number" data-target="500">0</span>
-                        <span class="stat-suffix">+</span>
-                    </div>
-                    <span class="stat-label">Familias felices</span>
-                </div>
-                <div class="stat-item" data-reveal="scale" data-delay="450">
-                    <span class="stat-icon" aria-hidden="true">⭐</span>
-                    <div class="stat-number-wrap">
-                        <span class="stat-number" data-target="5">0</span>
-                        <span class="stat-suffix">/5</span>
-                    </div>
-                    <span class="stat-label">Valoración promedio</span>
-                </div>
+            <div class="section-heading-compact">
+                <span class="eyebrow">SERVICIO RESPONSABLE</span>
+                <h2 id="trust-title" class="section-title">Compromisos que sí podemos demostrar</h2>
+                <p class="section-subtitle">Cada evento se coordina mediante información previa, controles internos y registros del servicio.</p>
+            </div>
+            <div class="trust-grid">
+                <article class="trust-card">
+                    <span class="trust-icon" aria-hidden="true"><i class="fas fa-camera"></i></span>
+                    <h3>Validación con fotos</h3>
+                    <p>Solicitamos fotografías, video y medidas del espacio antes de evaluar una visita presencial.</p>
+                </article>
+                <article class="trust-card">
+                    <span class="trust-icon" aria-hidden="true"><i class="fas fa-clipboard-check"></i></span>
+                    <h3>Revisión del equipo</h3>
+                    <p>Controlamos limpieza, estado general, accesorios y funcionamiento antes de cada salida.</p>
+                </article>
+                <article class="trust-card">
+                    <span class="trust-icon" aria-hidden="true"><i class="fas fa-file-signature"></i></span>
+                    <h3>Condiciones transparentes</h3>
+                    <p>La cotización, requisitos técnicos, pagos y responsabilidades se informan antes de confirmar.</p>
+                </article>
+                <article class="trust-card">
+                    <span class="trust-icon" aria-hidden="true"><i class="fas fa-comments"></i></span>
+                    <h3>Mejora continua</h3>
+                    <p>Registramos evaluaciones, observaciones y reclamos para definir y verificar acciones de mejora.</p>
+                </article>
             </div>
         </div>
     </section>
@@ -537,15 +533,10 @@
                     <h2 class="section-title" data-reveal>Sobre Nosotros</h2>
                     <h3>ALMA Kids Entretenciones Infantiles Ltda.</h3>
                     <p>
-                        <strong>ALMA Kids</strong> nace en 2025 con la llegada de nuestro primer hijo. Unos papás 
-                        con ganas de entregar lo mejor para el correcto desarrollo, estimulación y crecimiento 
-                        de nuestro bebé.
+                        <strong>ALMA Kids</strong> nace en 2025 a partir de nuestra experiencia como familia y del deseo de crear celebraciones infantiles cuidadas, alegres y con una estética diferente.
                     </p>
                     <p>
-                        <strong>ALMA Kids</strong> es el alma de la fiesta, el sueño de los peques, la libertad
-                        de movimiento y reconocimiento de nuevas sensaciones. Creamos recuerdos mágicos, únicos
-                        y divertidos para toda la vida, transformando cualquier espacio en un mundo de diversión,
-                        descubrimiento, aventura sana y segura para nuestros pequeños.
+                        Trabajamos con una coordinación cercana, requisitos de instalación definidos y revisión del espacio antes del evento. Nuestro propósito es entregar una experiencia ordenada, entretenida y coherente con las condiciones informadas a cada familia.
                     </p>
                     <div class="highlight-box">
                         <i class="fas fa-heart"></i>
@@ -584,6 +575,30 @@
                     <span><i class="fas fa-check-circle"></i> Atención personalizada</span>
                 </div>
             </div>
+        </div>
+    </section>
+
+<!-- Proceso de reserva y validación técnica -->
+    <section id="proceso-reserva" class="booking-process" aria-labelledby="process-title">
+        <div class="container">
+            <div class="section-heading-compact">
+                <span class="eyebrow">ANTES DE RESERVAR</span>
+                <h2 id="process-title" class="section-title">Un proceso claro, con fotos antes de la visita</h2>
+                <p class="section-subtitle">La revisión remota es obligatoria. La visita técnica se agenda únicamente cuando las imágenes y medidas no permiten confirmar la factibilidad.</p>
+            </div>
+            <ol class="process-grid">
+                <li class="process-card"><span class="process-number">1</span><h3>Solicita cotización</h3><p>Indica fecha, comuna, horario y servicios de interés.</p></li>
+                <li class="process-card"><span class="process-number">2</span><h3>Envía el espacio</h3><p>Fotografías actuales, video panorámico, medidas, superficie, enchufe y recorrido desde el estacionamiento.</p></li>
+                <li class="process-card"><span class="process-number">3</span><h3>Revisión remota</h3><p>Evaluamos dimensiones, acceso, electricidad, obstáculos y condiciones generales.</p></li>
+                <li class="process-card"><span class="process-number">4</span><h3>Visita, solo si se requiere</h3><p>Si quedan dudas técnicas, coordinamos una visita después de revisar toda la evidencia enviada.</p></li>
+                <li class="process-card"><span class="process-number">5</span><h3>Confirmación</h3><p>Con factibilidad preliminar, condiciones aceptadas y abono recibido, la fecha queda reservada.</p></li>
+                <li class="process-card"><span class="process-number">6</span><h3>Instalación final</h3><p>El equipo verifica nuevamente el lugar y solo instala cuando las condiciones reales son aptas.</p></li>
+            </ol>
+            <div class="process-actions">
+                <a class="btn btn-primary" href="https://wa.me/56969073306?text=Hola%20ALMA%20Kids.%20Quiero%20cotizar%20y%20enviar%20las%20fotos%20del%20espacio%20para%20evaluaci%C3%B3n." target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Cotizar y enviar fotos</a>
+                <a class="btn btn-secondary" href="calidad.html">Ver calidad y seguridad</a>
+            </div>
+            <p class="process-note"><strong>Importante:</strong> la revisión por fotografías es preliminar y no obliga a instalar si el lugar real difiere de lo informado o presenta riesgos.</p>
         </div>
     </section>
 
@@ -805,29 +820,29 @@
                     </div>
                     
                     <div class="development-section">
-                        <h4>🧠 Este juego permite fortalecer y trabajar:</h4>
+                        <h4>🧠 Posibilidades de juego y exploración:</h4>
                         <ul class="development-list">
-                            <li><i class="fas fa-palette"></i> <strong>Reconocimiento de colores</strong></li>
-                            <li><i class="fas fa-hand-point-up"></i> <strong>Coordinación Óculo/Manual</strong></li>
-                            <li><i class="fas fa-running"></i> <strong>Trabajar Motricidad Gruesa, Vestibular y Propioceptivo</strong></li>
-                            <li><i class="fas fa-brain"></i> <strong>Control de Impulsos</strong></li>
-                            <li><i class="fas fa-hand-paper"></i> <strong>Trabajo Sensorial</strong></li>
+                            <li><i class="fas fa-palette"></i> <strong>Exploración de colores y formas</strong></li>
+                            <li><i class="fas fa-hand-point-up"></i> <strong>Juego con lanzamiento, búsqueda y clasificación</strong></li>
+                            <li><i class="fas fa-running"></i> <strong>Movimiento libre acorde con la edad y supervisión</strong></li>
+                            <li><i class="fas fa-brain"></i> <strong>Juego por turnos y seguimiento de reglas simples</strong></li>
+                            <li><i class="fas fa-hand-paper"></i> <strong>Exploración táctil y juego imaginativo</strong></li>
                         </ul>
                     </div>
                     
                     <div class="additional-benefits">
-                        <h4>✨ Beneficios Adicionales para nuestros pequeños:</h4>
+                        <h4>✨ Experiencias que puede favorecer el juego:</h4>
                         <ul class="additional-benefits-list">
-                            <li><i class="fas fa-heart"></i> <strong>Desarrollo emocional:</strong> Aumenta la confianza y autoestima personal</li>
-                            <li><i class="fas fa-users"></i> <strong>Habilidades sociales:</strong> Fomenta la interacción, cooperación y respeto por turnos</li>
-                            <li><i class="fas fa-smile"></i> <strong>Reducción del estrés:</strong> Actividad relajante y terapéutica que libera tensiones</li>
-                            <li><i class="fas fa-balance-scale"></i> <strong>Equilibrio y balance:</strong> Mejora la estabilidad corporal y coordinación general</li>
-                            <li><i class="fas fa-lightbulb"></i> <strong>Creatividad e imaginación:</strong> Estimula el juego libre y la fantasía</li>
-                            <li><i class="fas fa-battery-full"></i> <strong>Liberación de energía:</strong> Actividad física divertida que combate el sedentarismo</li>
-                            <li><i class="fas fa-clock"></i> <strong>Concentración y atención:</strong> Mejora el enfoque y la persistencia en actividades</li>
-                            <li><i class="fas fa-graduation-cap"></i> <strong>Aprendizaje activo:</strong> Conceptos de causa y efecto, conteo y clasificación</li>
-                            <li><i class="fas fa-shield-alt"></i> <strong>Confianza física:</strong> Desarrolla seguridad en el movimiento corporal</li>
-                            <li><i class="fas fa-laugh"></i> <strong>Bienestar general:</strong> Genera endorfinas y sensación de felicidad</li>
+                            <li><i class="fas fa-heart"></i> <strong>Disfrute:</strong> Un espacio lúdico para compartir y celebrar</li>
+                            <li><i class="fas fa-users"></i> <strong>Interacción:</strong> Oportunidades para compartir y respetar turnos</li>
+                            <li><i class="fas fa-smile"></i> <strong>Recreación:</strong> Actividad de juego sin finalidad terapéutica</li>
+                            <li><i class="fas fa-balance-scale"></i> <strong>Movimiento:</strong> Desplazamientos simples dentro de un espacio delimitado</li>
+                            <li><i class="fas fa-lightbulb"></i> <strong>Imaginación:</strong> Juego libre con colores, pelotas y accesorios</li>
+                            <li><i class="fas fa-battery-full"></i> <strong>Actividad:</strong> Juego activo según la edad y capacidad de cada niño</li>
+                            <li><i class="fas fa-clock"></i> <strong>Participación:</strong> Actividades breves guiadas por el adulto responsable</li>
+                            <li><i class="fas fa-graduation-cap"></i> <strong>Juego educativo:</strong> Posibilidad de contar, agrupar y reconocer colores</li>
+                            <li><i class="fas fa-shield-alt"></i> <strong>Supervisión:</strong> Uso conforme a reglas, capacidad y acompañamiento adulto</li>
+                            <li><i class="fas fa-laugh"></i> <strong>Celebración:</strong> Un entorno preparado para disfrutar el evento</li>
                         </ul>
                     </div>
                 </div>
@@ -846,14 +861,14 @@
             </div>
 
             <div class="benefits-section">
-                <h3>🌟 Beneficios para el Desarrollo</h3>
+                <h3>🌟 Experiencias de juego</h3>
                 <div class="benefits-grid">
                     <div class="benefit-item">
                         <div class="benefit-icon">
                             <i class="fas fa-dumbbell"></i>
                         </div>
                         <h4>Desarrollo motor</h4>
-                        <p>Fortalece músculos, mejora coordinación y equilibrio a través del movimiento seguro.</p>
+                        <p>Invita al movimiento y a la exploración, siempre bajo supervisión adulta.</p>
                     </div>
 
                     <div class="benefit-item">
@@ -861,7 +876,7 @@
                             <i class="fas fa-brain"></i>
                         </div>
                         <h4>Estimulación sensorial</h4>
-                        <p>Colores vibrantes y texturas suaves activan los sentidos y la creatividad.</p>
+                        <p>Los colores, formas y texturas acompañan el juego libre y la imaginación.</p>
                     </div>
 
                     <div class="benefit-item">
@@ -869,7 +884,7 @@
                             <i class="fas fa-users"></i>
                         </div>
                         <h4>Interacción social</h4>
-                        <p>Fomenta el compañerismo, comunicación y respeto por turnos entre niños.</p>
+                        <p>Permite compartir el espacio y practicar reglas simples de convivencia.</p>
                     </div>
 
                     <div class="benefit-item">
@@ -877,7 +892,7 @@
                             <i class="fas fa-bullseye"></i>
                         </div>
                         <h4>Coordinación</h4>
-                        <p>Mejora habilidades motoras finas y gruesas de forma natural y divertida.</p>
+                        <p>Ofrece actividades de alcance, desplazamiento y manipulación de pelotas.</p>
                     </div>
 
                     <div class="benefit-item">
@@ -885,48 +900,35 @@
                             <i class="fas fa-smile"></i>
                         </div>
                         <h4>Diversión garantizada</h4>
-                        <p>Experiencia lúdica que genera sonrisas y recuerdos inolvidables para toda la familia.</p>
+                        <p>Una experiencia lúdica pensada para acompañar celebraciones familiares.</p>
                     </div>
 
                     <div class="benefit-item">
                         <div class="benefit-icon">
                             <i class="fas fa-bolt"></i>
                         </div>
-                        <h4>Energía liberada</h4>
-                        <p>Actividad física divertida que combate el sedentarismo y promueve un estilo de vida saludable.</p>
+                        <h4>Juego activo</h4>
+                        <p>Actividad recreativa adaptada a la edad, capacidad y reglas de cada equipo.</p>
                     </div>
                 </div>
             </div>
 </div>
     </section>
 
-    <!-- Reviews / Social Proof Section -->
-    <section id="resenas" class="reviews-section">
+<!-- Opiniones verificadas y feedback -->
+    <section id="resenas" class="reviews-section verified-reviews" aria-labelledby="reviews-title">
         <div class="container">
-            <h2 class="section-title" data-reveal>Lo que dicen nuestros clientes</h2>
-            <p class="section-subtitle" data-reveal data-delay="100">Familias de Rancagua y Machalí confían en ALMA Kids para sus fiestas infantiles</p>
-            <div class="reviews-grid">
-                <div class="review-card" data-reveal="scale" data-delay="0">
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">"Increíble servicio, llegaron puntuales, instalaron todo perfectamente y los niños se divirtieron muchísimo. ¡100% recomendado!"</p>
-                    <span class="review-author">— Valentina M., Machalí</span>
-                </div>
-                <div class="review-card" data-reveal="scale" data-delay="200">
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">"La plaza blanda fue el éxito del cumpleaños de mi hija. Los colores pastel son preciosos y los juegos muy seguros para los más pequeños."</p>
-                    <span class="review-author">— Catalina R., Rancagua</span>
-                </div>
-                <div class="review-card" data-reveal="scale" data-delay="400">
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">"Excelente atención desde la cotización hasta el retiro. El castillo inflable quedó espectacular en la fiesta. ¡Volvemos a contratar!"</p>
-                    <span class="review-author">— Javiera T., Graneros</span>
-                </div>
+            <span class="eyebrow">OPINIONES VERIFICADAS</span>
+            <h2 id="reviews-title" class="section-title" data-reveal>Tu experiencia nos ayuda a mejorar</h2>
+            <p class="section-subtitle">Las evaluaciones se reciben después del servicio. Solo publicamos testimonios con autorización expresa y sin datos personales de niños o niñas.</p>
+            <div class="quality-feedback-grid">
+                <article class="quality-feedback-card"><i class="fas fa-star"></i><h3>Encuesta breve</h3><p>Medimos satisfacción, puntualidad, limpieza, instalación, trato y recomendación.</p></article>
+                <article class="quality-feedback-card"><i class="fas fa-headset"></i><h3>Seguimiento</h3><p>Las observaciones y reclamos se registran, asignan y cierran con evidencia.</p></article>
+                <article class="quality-feedback-card"><i class="fas fa-user-shield"></i><h3>Privacidad</h3><p>No solicitamos antecedentes personales ni de salud de niños en la encuesta.</p></article>
             </div>
             <div class="reviews-cta">
-                <p>¿Ya usaste nuestros servicios? <strong>¡Tu opinión nos ayuda a crecer!</strong></p>
-                <a href="https://www.google.com/search?q=ALMA+Kids+Entretenciones+Infantiles+Machali" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-                    <i class="fab fa-google"></i> Déjanos tu reseña en Google
-                </a>
+                <a href="feedback.html" class="btn btn-primary"><i class="fas fa-clipboard-list"></i> Evaluar nuestro servicio</a>
+                <a href="calidad.html#reclamos" class="btn btn-secondary"><i class="fas fa-comment-dots"></i> Conocer gestión de reclamos</a>
             </div>
         </div>
     </section>
@@ -999,8 +1001,8 @@
                     </div>
                     <div class="faq-highlight-item faq-item-2">
                         <i class="fas fa-shield-alt"></i>
-                        <h4>Seguridad</h4>
-                        <p>Juegos certificados y seguros</p>
+                        <h4>Control previo</h4>
+                        <p>Equipos revisados antes de cada servicio</p>
                     </div>
                     <div class="faq-highlight-item faq-item-3">
                         <i class="fas fa-baby"></i>
@@ -1026,76 +1028,28 @@
         </div>
     </section>
 
-    <section class="seo-keywords" id="palabras-clave-seo">
-        <div class="container">
-            <h2 class="section-title" data-reveal>Palabras Clave Que Nos Definen</h2>
-            <p class="section-subtitle">Integramos experiencias premium con servicios locales para que encuentres fácilmente el arriendo perfecto para tus celebraciones infantiles.</p>
-            <div class="seo-keyword-grid">
-                <div class="seo-keyword-card">
-                    <h3>🏰 Servicios Estrella</h3>
-                    <p>Somos referencia regional en juegos inflables y soluciones completas para fiestas infantiles.</p>
-                    <ul>
-                        <li>arriendo de juegos inflables</li>
-                        <li>arriendo de castillos inflables</li>
-                        <li>arriendo de plaza blanda</li>
-                        <li>arriendo de mobiliario infantil</li>
-                        <li>arriendo de piscina de pelotas</li>
-                        <li>arriendo de saltarines</li>
-                        <li>arriendo de juegos para niños</li>
-                        </ul>
-                        </div>
-                <div class="seo-keyword-card">
-                    <h3>🎈 Estilo & Diferenciación</h3>
-                    <p>Ambientaciones delicadas, modernas y seguras, pensadas para fotos increíbles y niños felices.</p>
-                    <ul>
-                        <li>juegos inflables pastel</li>
-                        <li>castillos inflables tonos suaves</li>
-                        <li>decoración infantil color pastel</li>
-                        <li>plaza blanda estética pastel</li>
-                        <li>juegos para niños elegantes</li>
-                        <li>fiestas infantiles con estilo</li>
-                        <li>ambientación infantil moderna</li>
-                        <li>decoración de cumpleaños delicada</li>
-                        <li>juegos suaves y seguros</li>
-                        </ul>
-                        </div>
-                <div class="seo-keyword-card">
-                    <h3>💧 Servicios Adicionales</h3>
-                    <p>Complementos que transforman cada evento en una experiencia inolvidable y fotogénica.</p>
-                    <ul>
-                        <li>arriendo de espuma para fiestas</li>
-                        <li>máquina de burbujas infantil</li>
-                        <li>producción de eventos infantiles</li>
-                        <li>animación y juegos infantiles</li>
-                        <li>cumpleaños infantiles completos</li>
-                        <li>SETs todo incluido para fiestas</li>
-                        </ul>
-                        </div>
-                <div class="seo-keyword-card">
-                    <h3>📍 Presencia Local</h3>
-                    <p>Disponibles en Machalí, Rancagua y comunas de la región de O'Higgins con logística profesional.</p>
-                    <ul>
-                        <li>arriendo juegos inflables Rancagua</li>
-                        <li>arriendo plaza blanda Machalí</li>
-                        <li>juegos infantiles región O'Higgins</li>
-                        <li>castillos inflables Rancagua</li>
-                        <li>fiestas infantiles Machalí Rancagua</li>
-                        <li>entretenciones infantiles Rancagua</li>
-                        </ul>
-                        </div>
-                <div class="seo-keyword-card">
-                    <h3>💡 Búsquedas Reales</h3>
-                    <p>Respondemos a las dudas frecuentes de las familias que buscan calidad, estilo y seguridad.</p>
-                    <ul>
-                        <li>dónde arrendar juegos inflables en Rancagua</li>
-                        <li>cuánto cuesta arrendar un castillo inflable pastel</li>
-                        <li>juegos seguros para cumpleaños infantiles</li>
-                        <li>entretenciones para niños pequeños</li>
-                        <li>servicios de arriendo para fiestas de niños</li>
-                        <li>ideas para cumpleaños con plaza blanda</li>
-                        </ul>
+<section class="quality-preview" id="calidad-seguridad" aria-labelledby="quality-preview-title">
+        <div class="container quality-preview-layout">
+            <div>
+                <span class="eyebrow">GESTIÓN DE CALIDAD</span>
+                <h2 id="quality-preview-title" class="section-title">Seguridad, registros y mejora continua</h2>
+                <p class="section-subtitle">Estamos desarrollando un sistema interno para estandarizar la cotización, validación del espacio, preparación, instalación, retiro, mantenimiento y atención posterior.</p>
+                <ul class="quality-check-list">
+                    <li><i class="fas fa-check-circle"></i> Fotografías, video y medidas antes de evaluar una visita.</li>
+                    <li><i class="fas fa-check-circle"></i> Checklist de preparación y revisión de equipos.</li>
+                    <li><i class="fas fa-check-circle"></i> Registro de observaciones, reclamos y acciones correctivas.</li>
+                    <li><i class="fas fa-check-circle"></i> Indicadores de satisfacción basados en respuestas reales.</li>
+                </ul>
+                <div class="quality-preview-actions">
+                    <a href="calidad.html" class="btn btn-primary">Conocer nuestro sistema</a>
+                    <a href="privacidad.html" class="btn btn-secondary">Política de privacidad</a>
                 </div>
             </div>
+            <aside class="certification-note" aria-label="Aclaración sobre certificación">
+                <i class="fas fa-certificate" aria-hidden="true"></i>
+                <h3>Información transparente</h3>
+                <p>ALMA Kids no se presenta actualmente como empresa certificada ISO. Una certificación solo será comunicada cuando exista un certificado vigente, verificable y emitido por un organismo competente.</p>
+            </aside>
         </div>
     </section>
 
@@ -1190,7 +1144,11 @@
                     <h4>Enlaces Rápidos</h4>
                     <ul>
                         <li><a href='index.html#inicio'>Inicio</a></li>
-                        <li><a href='faq.html'>FAQ</a></li>
+                        <li><a href='index.html#proceso-reserva'>Cómo reservar</a></li>
+                        <li><a href='calidad.html'>Calidad y seguridad</a></li>
+                        <li><a href='feedback.html'>Evaluar servicio</a></li>
+                        <li><a href='faq.html'>Preguntas frecuentes</a></li>
+                        <li><a href='privacidad.html'>Privacidad</a></li>
                         <li><a href='index.html#contacto'>Contacto</a></li>
                     </ul>
             </div>
@@ -1217,14 +1175,19 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 ALMA Kids Entretenciones Infantiles Ltda. Todos los derechos reservados.</p>
-                <p class="footer-seo">Juegos inflables Machalí | Plaza blanda Rancagua | Fiestas infantiles | Castillos inflables | Eventos escolares | Cumpleaños niños</p>
+                <p>&copy; 2026 ALMA Kids Entretenciones Infantiles Ltda. Todos los derechos reservados.</p>
+                <p class="footer-seo">Arriendo de juegos inflables y plaza blanda en Machalí, Rancagua y comunas de la Región de O’Higgins.</p>
             </div>
         </div>
     </footer>
 
     <!-- Floating Buttons Stack (organized vertically) -->
     
+
+    <a class="feedback-anchor" href="feedback.html" aria-label="Evaluar el servicio de ALMA Kids">
+        <i class="fas fa-star" aria-hidden="true"></i>
+        <span>Evaluar servicio</span>
+    </a>
 
     <!-- Botones Flotantes Móviles - Logo, Búsqueda y Menú -->
     <div class="mobile-float-buttons">
@@ -1312,7 +1275,7 @@
                 {
                     src: 'imagenes/Castillo-inflable-portadas.png',
                     title: 'Castillo Inflable',
-                    description: 'Diversión garantizada con nuestros castillos inflables certificados y seguros'
+                    description: 'Castillo inflable revisado antes del servicio y sujeto a condiciones aptas de instalación'
                 },
                 {
                     src: 'imagenes/plaza-blanda.webp',
