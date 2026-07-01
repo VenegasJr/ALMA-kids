@@ -1,7 +1,7 @@
 {
   "name": "ALMA Kids Entretenciones Infantiles",
   "short_name": "ALMA Kids",
-  "description": "Juegos inflables, plaza blanda y globos metalizados para fiestas infantiles en Machalí y Rancagua",
+  "description": "Arriendo de juegos inflables y plaza blanda para celebraciones infantiles en Machalí, Rancagua y Región de O’Higgins.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#FFF0F5",
@@ -9,7 +9,11 @@
   "orientation": "portrait-primary",
   "scope": "/",
   "lang": "es-CL",
-  "categories": ["entertainment", "kids", "business"],
+  "categories": [
+    "entertainment",
+    "kids",
+    "business"
+  ],
   "icons": [
     {
       "src": "imagenes/logo-alma-kids-pagina.webp",
@@ -18,7 +22,7 @@
       "purpose": "any maskable"
     },
     {
-      "src": "imagenes/logo-alma-kids-pagina.webp", 
+      "src": "imagenes/logo-alma-kids-pagina.webp",
       "sizes": "512x512",
       "type": "image/webp",
       "purpose": "any maskable"
@@ -26,10 +30,10 @@
   ],
   "screenshots": [
     {
-      "src": "imagenes/castillo-3d-profesional.png",
-      "sizes": "1280x720",
+      "src": "imagenes/Castillo-inflable-portadas.png",
+      "sizes": "1510x1381",
       "type": "image/png",
-      "label": "Página principal de ALMA Kids"
+      "label": "Castillo inflable ALMA Kids"
     }
   ],
   "shortcuts": [
@@ -46,10 +50,10 @@
       ]
     },
     {
-      "name": "Cotizar Servicio",
+      "name": "Cotizar y enviar fotos",
       "short_name": "Cotizar",
-      "description": "Solicitar cotización rápida",
-      "url": "/#contacto",
+      "description": "Solicitar cotización y validar el espacio",
+      "url": "/#proceso-reserva",
       "icons": [
         {
           "src": "imagenes/logo-alma-kids-favicon.webp",
@@ -58,10 +62,10 @@
       ]
     },
     {
-      "name": "Ver Galería",
-      "short_name": "Galería",
-      "description": "Ver productos y servicios",
-      "url": "/#galeria",
+      "name": "Evaluar servicio",
+      "short_name": "Evaluar",
+      "description": "Enviar una evaluación del servicio",
+      "url": "/feedback.html",
       "icons": [
         {
           "src": "imagenes/logo-alma-kids-favicon.webp",

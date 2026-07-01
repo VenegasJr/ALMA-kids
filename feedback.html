@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Evaluar servicio | ALMA Kids</title>
+    <meta name="description" content="Formulario de evaluación del servicio de ALMA Kids. Registra tu satisfacción, sugerencias, observaciones o reclamos.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://www.almakids.cl/feedback.html">
+    <link rel="icon" type="image/webp" href="imagenes/logo-alma-kids-favicon.webp">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.min.css?v=20250126-10">
+    <link rel="stylesheet" href="style-apple.css">
+    <link rel="stylesheet" href="header-fixes.css">
+    <link rel="stylesheet" href="whatsapp-footer-fixes.css">
+    <link rel="stylesheet" href="site-upgrade.css?v=20260630-01">
+</head>
+<body class="quality-page feedback-page">
+    <a class="skip-link" href="#main-content">Saltar al contenido</a>
+    <header class="header simple-header">
+      <div class="container">
+        <div class="header-content">
+          <a class="navbar-brand" href="index.html" aria-label="ALMA Kids, inicio">
+            <img src="imagenes/logo-alma-kids-pagina.webp" alt="ALMA Kids" class="logo-header" width="2528" height="1102">
+          </a>
+          <nav class="nav" aria-label="Navegación principal">
+            <a class="nav-link" href="index.html">Inicio</a>
+            <a class="nav-link" href="index.html#catalogo-canva">Servicios</a>
+            <a class="nav-link" href="index.html#proceso-reserva">Cómo reservar</a>
+            <a class="nav-link" href="calidad.html">Calidad y seguridad</a>
+            <a class="nav-link nav-link-feedback" href="feedback.html">Evaluar servicio</a>
+            <a class="nav-link" href="faq.html">FAQ</a>
+          </nav>
+          <details class="simple-mobile-menu">
+            <summary aria-label="Abrir menú"><i class="fas fa-bars" aria-hidden="true"></i> Menú</summary>
+            <nav aria-label="Navegación móvil">
+              <a href="index.html">Inicio</a>
+              <a href="index.html#catalogo-canva">Servicios</a>
+              <a href="index.html#proceso-reserva">Cómo reservar</a>
+              <a href="calidad.html">Calidad y seguridad</a>
+              <a href="feedback.html">Evaluar servicio</a>
+              <a href="faq.html">FAQ</a>
+            </nav>
+          </details>
+        </div>
+      </div>
+    </header>
+    <main id="main-content">
+      <section class="page-hero page-hero-feedback">
+        <div class="container page-hero-content">
+          <span class="eyebrow">MEJORA CONTINUA</span>
+          <h1>Tu experiencia nos ayuda a mejorar</h1>
+          <p>La encuesta toma aproximadamente 3 minutos. Usamos tus respuestas para medir el servicio, gestionar observaciones y definir acciones de mejora.</p>
+          <div class="hero-trust-row"><span><i class="fas fa-clock"></i> 3 minutos</span><span><i class="fas fa-lock"></i> Uso interno y autorizado</span><span><i class="fas fa-child"></i> No ingreses datos de menores</span></div>
+        </div>
+      </section>
+
+      <section class="form-section">
+        <div class="container form-layout">
+          <form name="feedback-alma-kids" method="POST" action="/gracias-feedback.html" data-netlify="true" netlify-honeypot="bot-field" class="quality-form" id="feedbackForm">
+            <input type="hidden" name="form-name" value="feedback-alma-kids">
+            <input type="hidden" name="fecha_registro" id="fechaRegistro">
+            <p class="sr-only"><label>No completar: <input name="bot-field"></label></p>
+
+            <fieldset>
+              <legend>1. Identificación del servicio</legend>
+              <p class="field-note">Los campos marcados con * son obligatorios.</p>
+              <div class="form-grid two-cols">
+                <div class="form-field"><label for="nombre">Nombre de quien contrató *</label><input id="nombre" name="nombre_cliente" type="text" autocomplete="name" required></div>
+                <div class="form-field"><label for="email">Correo electrónico *</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+                <div class="form-field"><label for="telefono">WhatsApp o teléfono</label><input id="telefono" name="telefono" type="tel" autocomplete="tel" inputmode="tel"></div>
+                <div class="form-field"><label for="fecha-evento">Fecha del evento *</label><input id="fecha-evento" name="fecha_evento" type="date" required></div>
+                <div class="form-field"><label for="comuna">Comuna *</label><select id="comuna" name="comuna" required><option value="">Selecciona</option><option>Machalí</option><option>Rancagua</option><option>Rengo</option><option>Coya</option><option>Codegua</option><option>Olivar</option><option>Gultro</option><option>Los Lirios</option><option>Graneros</option><option>Otra</option></select></div>
+                <div class="form-field"><label for="servicio">Servicio principal *</label><select id="servicio" name="servicio" required><option value="">Selecciona</option><option>Castillo inflable</option><option>Plaza blanda</option><option>Piscina de pelotas</option><option>Set de motricidad</option><option>Pack o set completo</option><option>Otro</option></select></div>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>2. Evaluación del servicio</legend>
+              <div class="rating-group" role="radiogroup" aria-labelledby="satisfaccion-label">
+                <p id="satisfaccion-label" class="group-label">Satisfacción general *</p>
+                <div class="rating-options"><label><input type="radio" name="satisfaccion_general" value="1" required><span>1</span><small>Muy baja</small></label><label><input type="radio" name="satisfaccion_general" value="2" required><span>2</span><small></small></label><label><input type="radio" name="satisfaccion_general" value="3" required><span>3</span><small></small></label><label><input type="radio" name="satisfaccion_general" value="4" required><span>4</span><small></small></label><label><input type="radio" name="satisfaccion_general" value="5" required><span>5</span><small>Excelente</small></label></div>
+              </div>
+              <div class="form-grid two-cols evaluation-grid">
+                <div class="form-field"><label for="comunicacion">Comunicación previa *</label><select id="comunicacion" name="comunicacion_previa" required><option value="">Selecciona</option><option value="1">1 — Muy deficiente</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5 — Excelente</option><option>No aplica</option></select></div>
+                <div class="form-field"><label for="puntualidad">Puntualidad *</label><select id="puntualidad" name="puntualidad" required><option value="">Selecciona</option><option value="1">1 — Muy deficiente</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5 — Excelente</option><option>No aplica</option></select></div>
+                <div class="form-field"><label for="limpieza">Limpieza y presentación *</label><select id="limpieza" name="limpieza_presentacion" required><option value="">Selecciona</option><option value="1">1 — Muy deficiente</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5 — Excelente</option><option>No aplica</option></select></div>
+                <div class="form-field"><label for="estado">Estado y funcionamiento *</label><select id="estado" name="estado_funcionamiento" required><option value="">Selecciona</option><option value="1">1 — Muy deficiente</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5 — Excelente</option><option>No aplica</option></select></div>
+                <div class="form-field"><label for="montaje">Montaje y retiro *</label><select id="montaje" name="montaje_retiro" required><option value="">Selecciona</option><option value="1">1 — Muy deficiente</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5 — Excelente</option><option>No aplica</option></select></div>
+                <div class="form-field"><label for="trato">Trato del personal *</label><select id="trato" name="trato_personal" required><option value="">Selecciona</option><option value="1">1 — Muy deficiente</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5 — Excelente</option><option>No aplica</option></select></div>
+              </div>
+              <div class="form-field"><label for="nps">¿Qué tan probable es que nos recomiendes? (0 a 10) *</label><input id="nps" name="recomendacion_nps" type="range" min="0" max="10" value="8" oninput="npsOutput.value=this.value"><div class="range-output"><span>0 — Nada probable</span><output id="npsOutput" name="npsOutput">8</output><span>10 — Totalmente probable</span></div></div>
+              <div class="form-field"><label for="volveria">¿Volverías a contratar? *</label><select id="volveria" name="volveria_contratar" required><option value="">Selecciona</option><option>Sí</option><option>Tal vez</option><option>No</option></select></div>
+            </fieldset>
+
+            <fieldset>
+              <legend>3. Observaciones o reclamos</legend>
+              <div class="form-field"><span class="group-label">¿Tuviste algún inconveniente? *</span><div class="inline-options"><label><input type="radio" name="tuvo_inconveniente" value="Sí" required> Sí</label><label><input type="radio" name="tuvo_inconveniente" value="No" required> No</label></div></div>
+              <div id="incidentFields" class="incident-fields" hidden>
+                <div class="form-field"><label for="tipo-incidente">Tipo de situación</label><select id="tipo-incidente" name="tipo_inconveniente"><option value="">Selecciona</option><option>Coordinación o comunicación</option><option>Retraso o puntualidad</option><option>Cotización, cobro o pago</option><option>Validación del espacio o acceso</option><option>Limpieza o presentación</option><option>Estado o funcionamiento</option><option>Montaje o retiro</option><option>Seguridad</option><option>Trato del personal</option><option>Otro</option></select></div>
+                <div class="form-field"><label for="detalle-incidente">Describe lo ocurrido</label><textarea id="detalle-incidente" name="detalle_inconveniente" rows="5" placeholder="Indica qué ocurrió, cuándo y cómo afectó el servicio. No ingreses datos de niños o niñas."></textarea></div>
+                <div class="form-field"><label for="solucion">¿Qué respuesta o solución esperas?</label><textarea id="solucion" name="solucion_esperada" rows="3"></textarea></div>
+                <div class="form-field"><label for="contacto-caso">¿Deseas que te contactemos?</label><select id="contacto-caso" name="solicita_contacto"><option value="">Selecciona</option><option>Sí, por WhatsApp o teléfono</option><option>Sí, por correo</option><option>No, solo dejar registro</option></select></div>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>4. Comentarios y autorizaciones</legend>
+              <div class="form-field"><label for="gusto">¿Qué fue lo que más te gustó?</label><textarea id="gusto" name="aspecto_destacado" rows="3"></textarea></div>
+              <div class="form-field"><label for="mejora">¿Qué podríamos mejorar?</label><textarea id="mejora" name="oportunidad_mejora" rows="3"></textarea></div>
+              <div class="form-field"><label for="testimonio">Testimonio opcional</label><textarea id="testimonio" name="testimonio" rows="3" placeholder="Evita incluir nombres o datos de niños y niñas."></textarea></div>
+              <div class="form-field"><span class="group-label">Publicación del testimonio *</span><div class="stacked-options"><label><input type="radio" name="autoriza_testimonio" value="Sí, primer nombre y comuna" required> Sí, autorizo su publicación con mi primer nombre y comuna.</label><label><input type="radio" name="autoriza_testimonio" value="No" required> No autorizo su publicación.</label></div></div>
+              <label class="privacy-consent"><input type="checkbox" name="acepta_privacidad" value="Sí" required><span>He leído la <a href="privacidad.html" target="_blank">política de privacidad</a> y acepto el uso de estos datos para evaluar el servicio, gestionar mi respuesta y mejorar los procesos. *</span></label>
+            </fieldset>
+
+            <div class="form-submit"><button type="submit" class="btn btn-primary btn-large"><i class="fas fa-paper-plane"></i> Enviar evaluación</button><p>Al enviar recibirás una confirmación en pantalla.</p></div>
+          </form>
+          <aside class="form-sidebar">
+            <div class="sidebar-card"><i class="fas fa-info-circle"></i><h2>¿Qué ocurre con tu respuesta?</h2><ol><li>Se registra en el sistema de feedback.</li><li>Se revisan calificaciones y comentarios.</li><li>Si solicitas contacto, se asigna seguimiento.</li><li>Las mejoras se documentan y verifican.</li></ol></div>
+            <div class="sidebar-card"><i class="fas fa-triangle-exclamation"></i><h2>Situación urgente</h2><p>Si existe un riesgo inmediato o un problema durante el evento, comunícate directamente por WhatsApp.</p><a class="btn btn-secondary" href="https://wa.me/56969073306" target="_blank" rel="noopener noreferrer">Abrir WhatsApp</a></div>
+          </aside>
+        </div>
+      </section>
+    </main>
+    <footer class="footer compact-footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-info"><h3>ALMA Kids</h3><p>Entretenciones Infantiles Ltda.</p><p>Machalí, Región de O’Higgins.</p></div>
+          <div class="footer-links"><h4>Información</h4><ul><li><a href="calidad.html">Calidad y seguridad</a></li><li><a href="feedback.html">Evaluar servicio</a></li><li><a href="privacidad.html">Privacidad</a></li><li><a href="faq.html">FAQ</a></li></ul></div>
+          <div class="footer-contact"><h4>Contacto</h4><p><a href="https://wa.me/56969073306" target="_blank" rel="noopener noreferrer">WhatsApp +56 9 6907 3306</a></p><p><a href="mailto:info.almakids@gmail.com">info.almakids@gmail.com</a></p></div>
+        </div>
+        <div class="footer-bottom"><p>© 2026 ALMA Kids Entretenciones Infantiles Ltda.</p></div>
+      </div>
+    </footer>
+    <script src="feedback.js" defer></script>
+</body>
+</html>

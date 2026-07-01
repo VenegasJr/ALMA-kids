@@ -183,7 +183,7 @@ function performSearch() {
         { terms: ['pack', 'packs', 'combo', 'paquete', 'promocion', 'promoción'], title: 'Packs y Promociones', url: 'index.html#ofertas', icon: '📦', category: 'Ofertas' },
         
         // Seguridad
-        { terms: ['seguridad', 'seguro', 'certificado', 'edad', 'supervision', 'supervisión'], title: 'Seguridad y Certificaciones', url: 'faq.html#seguridad', icon: '🛡️', category: 'Información' },
+        { terms: ['seguridad', 'seguro', 'certificado', 'edad', 'supervision', 'supervisión'], title: 'Seguridad y controles internos', url: 'faq.html#seguridad', icon: '🛡️', category: 'Información' },
         
         // Términos generales
         { terms: ['niños', 'niño', 'infantil', 'pequeños', 'bebes', 'bebés'], title: 'Servicios para Niños', url: 'index.html#servicios', icon: '👶', category: 'Servicios' },

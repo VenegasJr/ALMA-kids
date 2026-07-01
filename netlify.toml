@@ -51,6 +51,21 @@
   to = "/index.html#nosotros"
   status = 200
 
+[[redirects]]
+  from = "/feedback"
+  to = "/feedback.html"
+  status = 200
+
+[[redirects]]
+  from = "/calidad"
+  to = "/calidad.html"
+  status = 200
+
+[[redirects]]
+  from = "/privacidad"
+  to = "/privacidad.html"
+  status = 200
+
 # Redirects para SEO
 [[redirects]]
   from = "/juegos-inflables"
@@ -72,11 +87,11 @@
   to = "/index.html"
   status = 301
 
-# Fallback para SPA
+# Página 404 para rutas inexistentes
 [[redirects]]
   from = "/*"
-  to = "/index.html"
-  status = 200
+  to = "/404.html"
+  status = 404
 
 # Configuración de headers
 [[headers]]
