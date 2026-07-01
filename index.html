@@ -54,9 +54,7 @@
     
     <!-- Preload imágenes críticas -->
     <link rel="preload" as="image" href="imagenes/logo-alma-kids-pagina.webp" type="image/webp">
-    <link rel="preload" as="image" href="imagenes/logo-alma-kids-oficial.png" type="image/png">
-    <link rel="preload" as="image" href="imagenes/plaza-blanda.webp" type="image/webp">
-    <link rel="preload" as="image" href="imagenes/Pack-alma-magic.webp" type="image/webp">
+    <link rel="preload" as="image" href="imagenes/castillo-cuadrada.webp" type="image/webp">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -81,43 +79,11 @@
     <link rel="stylesheet" href="floating-action-button.css">
     <!-- HEADER FIXES - Logo y tipografía mejorados -->
     <link rel="stylesheet" href="header-fixes.css">
-    <!-- HERO / PORTADA FIXES - Mejoras en la portada -->
-    <link rel="stylesheet" href="hero-portada-fixes.css">
-    
-    <!-- MODERN FEATURES 2025 -->
+<!-- MODERN FEATURES 2025 -->
     <link rel="stylesheet" href="modern-features.css">
     <!-- Mejoras 2026: calidad, accesibilidad y feedback -->
-    <link rel="stylesheet" href="site-upgrade.css?v=20260630-01">
-
-    <!-- SCRIPT DE DIAGNÓSTICO Y FIX INMEDIATO -->
-    <script>
-        // Ejecutar INMEDIATAMENTE cuando el script carga
-        (function() {
-            function fixCarouselNow() {
-                // Esperar un momento para que el DOM esté listo
-                setTimeout(function() {
-                    const carousel = document.querySelector('.hero-carousel');
-                    if (carousel) {
-                        const activeSlide = carousel.querySelector('.carousel-slide.active');
-                        if (activeSlide) {
-                            const img = activeSlide.querySelector('img');
-                            if (img) {
-                                img.classList.add('loaded');
-                                img.style.cssText = 'opacity: 1 !important; visibility: visible !important; display: block !important; position: relative !important; z-index: 999 !important; max-width: 100% !important; height: auto !important; object-fit: contain !important;';
-                                activeSlide.style.cssText = 'opacity: 1 !important; visibility: visible !important; display: flex !important; z-index: 10 !important;';
-                                console.log('✅ FIX APLICADO - Imagen forzada a visible');
-                            }
-                        }
-                    }
-                }, 100);
-            }
-            fixCarouselNow();
-            document.addEventListener('DOMContentLoaded', fixCarouselNow);
-            window.addEventListener('load', fixCarouselNow);
-        })();
-    </script>
-    
-    <!-- Favicon y PWA -->
+    <link rel="stylesheet" href="site-upgrade.css?v=20260701-02">
+<!-- Favicon y PWA -->
     <link rel="icon" type="image/webp" href="imagenes/logo-alma-kids-favicon.webp">
     <link rel="shortcut icon" type="image/webp" href="imagenes/logo-alma-kids-favicon.webp">
     <link rel="manifest" href="manifest.json">
@@ -412,84 +378,45 @@
 
     <!-- Contenido Principal -->
     <main id="main-content">
+    <!-- Portada renovada: estática, liviana y sin scroll forzado -->
+    <section id="inicio" class="home-hero-v2">
+      <div class="container home-hero-v2-grid">
+        <div class="home-hero-v2-copy">
+          <span class="eyebrow">ENTRETENCIÓN INFANTIL EN O’HIGGINS</span>
+          <h1>Celebraciones infantiles lindas, ordenadas y memorables</h1>
+          <p class="home-hero-v2-lead">Arriendo de castillo inflable, plaza blanda, piscina de pelotas y sets de motricidad con estética pastel para eventos en Machalí, Rancagua y comunas cercanas.</p>
 
-    <!-- Hero Section -->
-    <section id="inicio" class="hero">
-        <!-- Imagen de fondo del castillo inflable -->
-        <div class="hero-background-image"></div>
-        
-        <!-- Overlay tipo vidrio (glassmorphism) -->
-        <div class="hero-glass-overlay"></div>
-        
-        <!-- Partículas animadas de fondo -->
-        <div class="hero-particles-bg">
-            <div class="hero-particle ball"></div>
-            <div class="hero-particle castle"></div>
-            <div class="hero-particle heart"></div>
-            <div class="hero-particle star"></div>
-            <div class="hero-particle block"></div>
-            <div class="hero-particle ball"></div>
-            <div class="hero-particle heart"></div>
-            <div class="hero-particle star"></div>
-            <div class="hero-particle castle"></div>
-            <div class="hero-particle block"></div>
+          <div class="home-hero-v2-actions">
+            <a class="btn btn-primary" href="https://wa.me/56969073306?text=Hola%20ALMA%20Kids.%20Quiero%20cotizar%20un%20servicio%20y%20enviar%20las%20fotograf%C3%ADas%20del%20espacio." target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i> Cotizar por WhatsApp
+            </a>
+            <a class="btn btn-secondary" href="#catalogo-canva">Ver servicios</a>
+          </div>
+
+          <ul class="home-hero-v2-points" aria-label="Características del servicio">
+            <li><i class="fas fa-camera" aria-hidden="true"></i><span>Revisión mediante fotos, video y medidas antes de evaluar una visita.</span></li>
+            <li><i class="fas fa-clipboard-check" aria-hidden="true"></i><span>Equipos revisados antes de cada salida.</span></li>
+            <li><i class="fas fa-location-dot" aria-hidden="true"></i><span>Base en Machalí y cobertura en comunas cercanas.</span></li>
+          </ul>
         </div>
-        
+
+        <div class="home-hero-v2-media">
+          <figure class="home-hero-v2-photo">
+            <img src="imagenes/castillo-cuadrada.webp" alt="Castillo inflable blanco de ALMA Kids instalado al aire libre" width="500" height="500" loading="eager" fetchpriority="high" decoding="async">
+          </figure>
+          <div class="home-hero-v2-badge home-hero-v2-badge-top"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><span>Estética pastel</span></div>
+          <div class="home-hero-v2-badge home-hero-v2-badge-bottom"><strong>4 horas</strong><span>de uso estándar</span></div>
+        </div>
+      </div>
+      <div class="home-hero-v2-strip" aria-label="Resumen del proceso">
         <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <!-- ALMA Kids - Logo Principal -->
-                    <h1 class="hero-brand">
-                        <img src="imagenes/logo-alma-kids-oficial.png" alt="ALMA Kids Entretenciones Infantiles" class="hero-brand-logo" width="2884" height="1441" fetchpriority="high">
-                    </h1>
-
-                    <!-- Subtítulo -->
-                    <p class="hero-subtitle-main">
-                        <span class="hero-subtitle-line-1">Juegos Inflables</span>
-                        <span class="hero-subtitle-line-2">y Diversión</span>
-                    </p>
-                    
-                    <!-- Tagline de Esencia -->
-                    <p class="hero-tagline">
-                        <span class="hero-tagline-icon">✨</span>
-                        <span class="hero-tagline-text">Donde los sueños se inflan y la diversión nunca termina</span>
-                    </p>
-                    
-                    <!-- Mensaje Inspiracional -->
-                    <p class="hero-message">
-                        Creamos celebraciones infantiles memorables con juegos de estética pastel, coordinación clara y revisión previa del espacio de instalación.
-                    </p>
-                    
-                    <!-- Botones -->
-                    <div class="hero-buttons">
-                        <a href="#catalogo-canva" class="btn btn-primary">
-                            <i class="fas fa-star"></i>
-                            <span>Ver Catálogo</span>
-                        </a>
-                        <a href="#proceso-reserva" class="btn btn-secondary">Cómo reservar</a>
-                    </div>
-                </div>
-                <div class="hero-image">
-                    <div class="hero-images-grid">
-                        <!-- Imagen 1: Castillo Inflable -->
-                        <div class="hero-image-item">
-                            <picture>
-                                <img src="imagenes/Castillo-inflable-portadas.png" alt="Castillo Inflable ALMA Kids" class="hero-img" width="1510" height="1381" onclick="openImageModal(this.src, 'Castillo Inflable ALMA Kids', 'Castillo inflable blanco con torres, tobogán y piscinas de pelotas laterales')" style="cursor: pointer;" loading="eager" fetchpriority="high">
-                            </picture>
-                            <p>🏰 Castillo Inflable Clásico</p>
-                        </div>
-                        <!-- Imagen 2: SET Alma Magic -->
-                        <div class="hero-image-item">
-                            <picture>
-                                <source srcset="imagenes/Pack-alma-magic.webp" type="image/webp">
-                                <img src="imagenes/Pack-alma-magic.webp" alt="SET Alma Magic" class="hero-img" width="3165" height="2134" onclick="openImageModal(this.src, 'SET Alma Magic', 'SET Todo Incluido - Castillo + Piscina + Motricidad + Saltarines + Tipi + Accesorios')" style="cursor: pointer;" loading="eager" fetchpriority="high">
-                            </picture>
-                            <p>✨ SET Alma Magic - Todo Incluido</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          <span><strong>1.</strong> Cotiza</span>
+          <i class="fas fa-arrow-right" aria-hidden="true"></i>
+          <span><strong>2.</strong> Envía fotos y medidas</span>
+          <i class="fas fa-arrow-right" aria-hidden="true"></i>
+          <span><strong>3.</strong> Confirmamos factibilidad</span>
         </div>
+      </div>
     </section>
 
 <!-- Compromisos verificables -->
@@ -1615,398 +1542,7 @@
             }, { passive: true });
         })();
 
-        // ========================================
-        // CARRUSEL DEL HERO - CASTILLOS
-        // ========================================
-        
-        let currentHeroSlide = 0;
-        let heroSlides = [];
-        let heroDots = [];
-        let heroCarouselInterval = null;
-        
-        // Función mejorada para verificar y cargar imágenes
-        function verifyImageExists(src, fallbacks) {
-            return new Promise((resolve) => {
-                const img = new Image();
-                img.onload = () => resolve(src);
-                img.onerror = () => {
-                    if (fallbacks && fallbacks.length > 0) {
-                        const nextFallback = fallbacks.shift();
-                        return verifyImageExists(nextFallback, fallbacks).then(resolve);
-                    }
-                    console.warn('⚠️ No se pudo cargar la imagen:', src);
-                    resolve(null);
-                };
-                img.src = src;
-            });
-        }
-        
-        // Función para forzar visualización de imagen en slide activo
-        function forceImageDisplay(slide) {
-            if (!slide) return;
-            const img = slide.querySelector('img');
-            const picture = slide.querySelector('picture');
-            
-            if (img) {
-                // Forzar estilos inline para asegurar visibilidad
-                img.style.display = 'block';
-                img.style.opacity = '1';
-                img.style.visibility = 'visible';
-                img.style.position = 'relative';
-                img.style.zIndex = '3';
-                img.style.width = 'auto';
-                img.style.height = 'auto';
-                img.style.maxWidth = '100%';
-                img.style.maxHeight = '400px';
-                img.style.margin = '0 auto';
-                img.style.objectFit = 'contain';
-                
-                // Agregar clase 'loaded' para que se muestre (necesario por image-optimizer.css)
-                img.classList.add('loaded');
-                
-                // Verificar y cargar la imagen con fallbacks
-                if (!img.complete || img.naturalHeight === 0) {
-                    const currentSrc = img.src || img.getAttribute('src');
-                    const source = picture ? picture.querySelector('source[type="image/webp"]') : null;
-                    const webpSrc = source ? source.getAttribute('srcset') : null;
-                    
-                    // Crear lista de fallbacks
-                    const fallbacks = [];
-                    if (webpSrc) fallbacks.push(webpSrc);
-                    if (currentSrc && !currentSrc.includes('.webp')) fallbacks.push(currentSrc);
-                    if (currentSrc) {
-                        const pngFallback = currentSrc.replace('.webp', '.png');
-                        if (pngFallback !== currentSrc) fallbacks.push(pngFallback);
-                    }
-                    
-                    // Intentar cargar la imagen
-                    const primarySrc = webpSrc || currentSrc;
-                    if (primarySrc) {
-                        verifyImageExists(primarySrc, fallbacks).then(validSrc => {
-                            if (validSrc) {
-                                img.src = validSrc;
-                                img.classList.add('loaded'); // Asegurar clase loaded
-                                img.style.display = 'block';
-                                img.style.opacity = '1';
-                                img.style.visibility = 'visible';
-                                console.log('✅ Imagen del carrusel cargada:', validSrc);
-                            } else {
-                                // Si ninguna imagen funciona, mostrar placeholder
-                                img.style.background = 'linear-gradient(135deg, #f8f9fa, #e9ecef)';
-                                img.style.display = 'flex';
-                                img.style.alignItems = 'center';
-                                img.style.justifyContent = 'center';
-                                img.alt = 'Imagen no disponible';
-                                img.classList.add('loaded'); // Aún así agregar clase loaded
-                                console.error('❌ No se pudo cargar ninguna versión de la imagen');
-                            }
-                        });
-                    }
-                } else {
-                    // Si ya está cargada, solo asegurar visibilidad y clase loaded
-                    img.classList.add('loaded');
-                    img.style.display = 'block';
-                    img.style.opacity = '1';
-                    img.style.visibility = 'visible';
-                }
-                
-                // Asegurar que la imagen se muestre inmediatamente cuando cargue
-                img.onload = function() {
-                    this.classList.add('loaded');
-                    this.style.opacity = '1';
-                    this.style.visibility = 'visible';
-                };
-            }
-            
-            if (picture) {
-                picture.style.display = 'block';
-                picture.style.opacity = '1';
-                picture.style.visibility = 'visible';
-                picture.style.width = '100%';
-                picture.style.height = '100%';
-            }
-        }
-        
-        // Función para inicializar el carrusel
-        function initHeroCarousel() {
-            heroSlides = document.querySelectorAll('.hero-carousel .carousel-slide');
-            heroDots = document.querySelectorAll('.hero-carousel .carousel-dot');
-            
-            if (heroSlides.length > 0) {
-                // Asegurar que el primer slide esté activo
-                heroSlides[0].classList.add('active');
-                if (heroDots.length > 0) {
-                    heroDots[0].classList.add('active');
-                }
-                
-                // Precargar todas las imágenes del carrusel y agregar clase 'loaded'
-                heroSlides.forEach((slide, index) => {
-                    const img = slide.querySelector('img');
-                    if (img) {
-                        // Agregar clase 'loaded' inmediatamente para que se vea
-                        img.classList.add('loaded');
-                        
-                        // Precargar imagen
-                        const source = slide.querySelector('picture source[type="image/webp"]');
-                        const webpSrc = source ? source.getAttribute('srcset') : null;
-                        const imgSrc = img.getAttribute('src') || img.src;
-                        
-                        if (webpSrc) {
-                            const preloadLink = document.createElement('link');
-                            preloadLink.rel = 'preload';
-                            preloadLink.as = 'image';
-                            preloadLink.href = webpSrc;
-                            document.head.appendChild(preloadLink);
-                        }
-                        
-                        // Asegurar que cuando la imagen cargue, tenga la clase 'loaded'
-                        if (img.complete) {
-                            img.classList.add('loaded');
-                        } else {
-                            img.onload = function() {
-                                this.classList.add('loaded');
-                            };
-                        }
-                    }
-                });
-                
-                // Forzar visualización de la primera imagen después de un pequeño delay
-                setTimeout(() => {
-                    forceImageDisplay(heroSlides[0]);
-                }, 100);
-                
-                console.log('✅ Carrusel inicializado con', heroSlides.length, 'slides');
-                
-                // Iniciar auto-play después de asegurar que la primera imagen se vea
-                setTimeout(() => {
-                    startHeroCarousel();
-                }, 500);
-                
-                // Pausar al hacer hover
-                const heroCarousel = document.querySelector('.hero-carousel');
-                if (heroCarousel) {
-                    heroCarousel.addEventListener('mouseenter', function() {
-                        if (heroCarouselInterval) {
-                            clearInterval(heroCarouselInterval);
-                        }
-                    });
-                    
-                    heroCarousel.addEventListener('mouseleave', function() {
-                        startHeroCarousel();
-                    });
-                }
-            } else {
-                console.warn('⚠️ No se encontraron slides del carrusel');
-            }
-        }
-        
-        // Función para precargar imagen del slide
-        function preloadHeroSlideImage(slideIndex) {
-            if (!heroSlides[slideIndex]) return;
-            const img = heroSlides[slideIndex].querySelector('img');
-            const picture = heroSlides[slideIndex].querySelector('picture');
-            if (img && img.loading === 'lazy') {
-                img.loading = 'eager';
-                // Forzar carga de la imagen
-                if (img.complete === false) {
-                    const src = img.src;
-                    img.src = '';
-                    img.src = src;
-                }
-            }
-            // Precargar WebP si existe
-            if (picture) {
-                const source = picture.querySelector('source[type="image/webp"]');
-                if (source) {
-                    const link = document.createElement('link');
-                    link.rel = 'preload';
-                    link.as = 'image';
-                    link.href = source.srcset;
-                    document.head.appendChild(link);
-                }
-            }
-        }
-        
-        // Función para cambiar slide
-        function changeHeroSlide(direction) {
-            if (heroSlides.length === 0) return;
-            
-            if (heroSlides[currentHeroSlide]) {
-                heroSlides[currentHeroSlide].classList.remove('active');
-            }
-            if (heroDots[currentHeroSlide]) {
-                heroDots[currentHeroSlide].classList.remove('active');
-            }
-            
-            currentHeroSlide += direction;
-            
-            if (currentHeroSlide >= heroSlides.length) {
-                currentHeroSlide = 0;
-            } else if (currentHeroSlide < 0) {
-                currentHeroSlide = heroSlides.length - 1;
-            }
-            
-            // Precargar imagen antes de activar
-            preloadHeroSlideImage(currentHeroSlide);
-            
-            if (heroSlides[currentHeroSlide]) {
-                heroSlides[currentHeroSlide].classList.add('active');
-                // Forzar visualización de la imagen con un pequeño delay para asegurar transición
-                setTimeout(() => {
-                    forceImageDisplay(heroSlides[currentHeroSlide]);
-                }, 50);
-            }
-            if (heroDots[currentHeroSlide]) {
-                heroDots[currentHeroSlide].classList.add('active');
-            }
-            
-            // Reiniciar auto-play
-            resetHeroCarousel();
-        }
-        
-        // Función para ir a un slide específico
-        function goToHeroSlide(index) {
-            if (heroSlides.length === 0) return;
-            if (index >= 0 && index < heroSlides.length) {
-                if (heroSlides[currentHeroSlide]) {
-                    heroSlides[currentHeroSlide].classList.remove('active');
-                }
-                if (heroDots[currentHeroSlide]) {
-                    heroDots[currentHeroSlide].classList.remove('active');
-                }
-                
-                currentHeroSlide = index;
-                
-                // Precargar imagen antes de activar
-                preloadHeroSlideImage(currentHeroSlide);
-                
-                if (heroSlides[currentHeroSlide]) {
-                    heroSlides[currentHeroSlide].classList.add('active');
-                    // Forzar visualización de la imagen con un pequeño delay
-                    setTimeout(() => {
-                        forceImageDisplay(heroSlides[currentHeroSlide]);
-                    }, 50);
-                }
-                if (heroDots[currentHeroSlide]) {
-                    heroDots[currentHeroSlide].classList.add('active');
-                }
-                
-                // Reiniciar auto-play
-                resetHeroCarousel();
-            }
-        }
-        
-        // Función para iniciar auto-play
-        function startHeroCarousel() {
-            if (heroSlides.length === 0) return;
-            
-            if (heroCarouselInterval) {
-                clearInterval(heroCarouselInterval);
-            }
-            
-            heroCarouselInterval = setInterval(function() {
-                changeHeroSlide(1);
-            }, 5000); // Cambiar cada 5 segundos
-        }
-        
-        // Función para reiniciar auto-play
-        function resetHeroCarousel() {
-            if (heroCarouselInterval) {
-                clearInterval(heroCarouselInterval);
-            }
-            startHeroCarousel();
-        }
-        
-        // Hacer funciones globales
-        window.changeHeroSlide = changeHeroSlide;
-        window.goToHeroSlide = goToHeroSlide;
-        
-        // Función ULTRA AGRESIVA para forzar visibilidad de imágenes
-        function forceCarouselImagesVisible() {
-            // Todas las imágenes del carrusel
-            const allImgs = document.querySelectorAll('.hero-carousel img');
-            allImgs.forEach(img => {
-                img.classList.add('loaded');
-                img.setAttribute('style', 
-                    'opacity: 1 !important; ' +
-                    'visibility: visible !important; ' +
-                    'display: block !important; ' +
-                    'position: relative !important; ' +
-                    'z-index: 10 !important; ' +
-                    'max-width: 100% !important; ' +
-                    'height: auto !important; ' +
-                    'object-fit: contain !important;'
-                );
-            });
-            
-            // Slide activo específicamente
-            const activeSlide = document.querySelector('.hero-carousel .carousel-slide.active');
-            if (activeSlide) {
-                activeSlide.setAttribute('style', 
-                    'opacity: 1 !important; ' +
-                    'visibility: visible !important; ' +
-                    'display: flex !important; ' +
-                    'z-index: 5 !important;'
-                );
-                const activeImg = activeSlide.querySelector('img');
-                if (activeImg) {
-                    activeImg.classList.add('loaded');
-                    activeImg.setAttribute('style', 
-                        'opacity: 1 !important; ' +
-                        'visibility: visible !important; ' +
-                        'display: block !important; ' +
-                        'position: relative !important; ' +
-                        'z-index: 10 !important; ' +
-                        'max-width: 100% !important; ' +
-                        'height: auto !important; ' +
-                        'max-height: 400px !important; ' +
-                        'object-fit: contain !important;'
-                    );
-                }
-            }
-        }
-        
-        // Ejecutar INMEDIATAMENTE
-        (function() {
-            forceCarouselImagesVisible();
-            setTimeout(forceCarouselImagesVisible, 50);
-            setTimeout(forceCarouselImagesVisible, 200);
-            setTimeout(forceCarouselImagesVisible, 500);
-        })();
-        
-        // Inicializar cuando el DOM esté listo
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', function() {
-                initHeroCarousel();
-                forceCarouselImagesVisible();
-                setTimeout(forceCarouselImagesVisible, 100);
-                setTimeout(forceCarouselImagesVisible, 500);
-                setTimeout(forceCarouselImagesVisible, 1000);
-            });
-        } else {
-            initHeroCarousel();
-            forceCarouselImagesVisible();
-            setTimeout(forceCarouselImagesVisible, 100);
-            setTimeout(forceCarouselImagesVisible, 500);
-            setTimeout(forceCarouselImagesVisible, 1000);
-        }
-        
-        // También forzar cuando la ventana carga completamente
-        window.addEventListener('load', function() {
-            forceCarouselImagesVisible();
-            setTimeout(forceCarouselImagesVisible, 100);
-            setTimeout(forceCarouselImagesVisible, 500);
-        });
-        
-        // Forzar cada vez que cambia el slide
-        const originalChangeSlide = window.changeHeroSlide;
-        if (originalChangeSlide) {
-            window.changeHeroSlide = function(direction) {
-                originalChangeSlide(direction);
-                setTimeout(forceCarouselImagesVisible, 50);
-            };
-        }
-        
+        // Portada renovada: no requiere carrusel ni temporizadores.
     </script>
     
     <!-- PWA Service Worker Registration deshabilitado (sw.js no disponible) -->
