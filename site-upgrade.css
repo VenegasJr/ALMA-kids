@@ -1144,3 +1144,14 @@ a.contact-hub-detail:hover {
     border-radius: 14px;
   }
 }
+
+
+/* Corrección 2026-07-02: las hojas antiguas ocultan todas las imágenes
+   con opacity: 0 !important hasta que reciben la clase .loaded.
+   La galería de portada debe permanecer visible incluso si el script
+   antiguo de carga progresiva no se ejecuta. */
+.home-hero-v2-gallery img {
+  opacity: 1 !important;
+  visibility: visible !important;
+  animation: none !important;
+}
