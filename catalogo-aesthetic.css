@@ -3,6 +3,34 @@
    Paleta Neutra: Arena, Lino, Marfil, Blanco Cálido y Café Caramelo Suave
    ========================================================================= */
 
+/* =========================================================================
+   🚨 REGLA MAESTRA DE VISIBILIDAD DE TODAS LAS IMÁGENES
+   =========================================================================
+   Garantiza que NINGUNA regla antigua heredada de carga progresiva
+   (opacity: 0 !important en styles.min.css) oculte las imágenes del sitio.
+   ========================================================================= */
+img,
+img[src],
+img[loading="lazy"],
+img[loading="eager"] {
+    opacity: 1 !important;
+    visibility: visible !important;
+    filter: none !important;
+}
+
+.catalogo-card-media img,
+.reel-thumbnail-box img,
+.mosaic-item img,
+.plaza-image img,
+.about-img,
+.logo-header,
+.home-hero-v2-gallery img,
+.home-hero-v2-photo img {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+}
+
 :root {
     --ak-bg-warm: #faf7f2;
     --ak-bg-card: #ffffff;

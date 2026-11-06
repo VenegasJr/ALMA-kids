@@ -14,7 +14,7 @@
  * =========================================================================
  */
 
-const CATALOGO_PRODUCTOS = [
+window.CATALOGO_PRODUCTOS = [
     // -------------------------------------------------------------------------
     // 👑 CATEGORÍA: PACKS TODO INCLUIDO
     // -------------------------------------------------------------------------
@@ -336,7 +336,8 @@ const CATALOGO_PRODUCTOS = [
     }
 ];
 
-// Hacer disponible globalmente
+// Hacer disponible globalmente en todos los contextos
 if (typeof window !== 'undefined') {
-    window.CATALOGO_PRODUCTOS = CATALOGO_PRODUCTOS;
+    window.CATALOGO_PRODUCTOS = window.CATALOGO_PRODUCTOS || [];
 }
+var CATALOGO_PRODUCTOS = (typeof window !== 'undefined') ? window.CATALOGO_PRODUCTOS : [];

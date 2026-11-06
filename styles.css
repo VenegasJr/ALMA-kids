@@ -12882,7 +12882,7 @@ img {
 
 /* Carga progresiva de imágenes */
 img {
-    opacity: 0 !important;
+    opacity: 1 !important;
     transition: opacity 0.3s ease !important;
 }
 
@@ -13974,7 +13974,7 @@ img.error {
 
 /* Lazy loading */
 img[loading="lazy"] {
-    opacity: 0;
+    opacity: 1 !important;
     transition: opacity 0.3s;
 }
 

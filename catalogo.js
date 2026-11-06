@@ -48,7 +48,8 @@ Me encantó su catálogo y quisiera cotizar el siguiente servicio:
         const contenedor = document.getElementById('catalogo-grid');
         if (!contenedor) return;
 
-        const productos = (window.CATALOGO_PRODUCTOS || []).filter(p => {
+        const productos = (window.CATALOGO_PRODUCTOS || (typeof CATALOGO_PRODUCTOS !== 'undefined' ? CATALOGO_PRODUCTOS : [])).filter(p => {
+            if (p.activo === false) return false;
             if (categoria === 'todos') return true;
             return p.categoria === categoria;
         });
@@ -81,7 +82,7 @@ Me encantó su catálogo y quisiera cotizar el siguiente servicio:
                 <article class="catalogo-card ${p.destacado ? 'destacado' : ''}" data-id="${p.id}" style="animation-delay: ${index * 0.05}s">
                     <div class="catalogo-card-media" onclick="window.abrirModalDetalles('${p.id}')" title="Click para ver fotos y medidas">
                         ${badgeHtml}
-                        <img src="${p.imagen}" alt="${p.nombre}" loading="lazy" decoding="async" onerror="this.src='imagenes/logo-alma-kids-oficial.png'">
+                        <img src="${p.imagen}" alt="${p.nombre}" class="loaded" loading="eager" decoding="async" onerror="this.src='imagenes/logo-alma-kids-oficial.png'">
                         <div class="catalogo-card-zoom-hint">
                             <i class="fas fa-expand" aria-hidden="true"></i>
                             <span>Ver medidas y detalles</span>
@@ -146,7 +147,8 @@ Me encantó su catálogo y quisiera cotizar el siguiente servicio:
 
     // Modal de Detalles Completos
     window.abrirModalDetalles = function(id) {
-        const producto = (window.CATALOGO_PRODUCTOS || []).find(p => p.id === id);
+        const productos = (window.CATALOGO_PRODUCTOS || (typeof CATALOGO_PRODUCTOS !== 'undefined' ? CATALOGO_PRODUCTOS : []));
+        const producto = productos.find(p => p.id === id);
         if (!producto) return;
 
         const modal = document.getElementById('catalogo-modal') || crearModalEstructura();
@@ -263,12 +265,18 @@ Me encantó su catálogo y quisiera cotizar el siguiente servicio:
         return modal;
     }
 
-    // Inicializar al cargar el DOM
-    document.addEventListener('DOMContentLoaded', () => {
+    // Inicializar al cargar el DOM o inmediatamente si ya está listo
+    function iniciarMotorCatalogo() {
         crearModalEstructura();
         initFiltros();
         renderizarCatalogo('todos');
-    });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', iniciarMotorCatalogo);
+    } else {
+        iniciarMotorCatalogo();
+    }
 
 })();
 
