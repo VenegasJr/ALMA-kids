@@ -26,6 +26,13 @@
     function generarLinkWhatsApp(producto) {
         const telefono = '56969073306';
         const precioFmt = formatearPrecio(producto.precio);
+
+        // Revisar si el cliente tiene un cupón activo de Instagram
+        let promoBloque = '';
+        if (typeof window.obtenerPromoParaWhatsApp === 'function') {
+            promoBloque = window.obtenerPromoParaWhatsApp();
+        }
+
         const mensaje = 
 `💖 *¡Hola ALMA Kids!* 💖
 
@@ -33,7 +40,7 @@ Me encantó su catálogo y quisiera cotizar el siguiente servicio:
 
 🎈 *${producto.nombre}*
 🏷️ Valor referencia: *${precioFmt}*
-⏱️ Tiempo: *${producto.duracion}*
+⏱️ Tiempo: *${producto.duracion}*${promoBloque ? '\n' + promoBloque : ''}
 
 📅 *Fecha de mi evento:* 
 📍 *Comuna:* 

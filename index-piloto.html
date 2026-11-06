@@ -83,8 +83,8 @@
     <link rel="stylesheet" href="modern-features.css">
     <!-- Mejoras 2026: calidad, accesibilidad y feedback -->
     <link rel="stylesheet" href="site-upgrade.css?v=20261106-imgfix">
-    <!-- ESTILOS AESTHETIC & CATÁLOGO DINÁMICO (PILOTO) - Máxima prioridad -->
-    <link rel="stylesheet" href="catalogo-aesthetic.css?v=20261106-v4">
+    <!-- ESTILOS AESTHETIC & CATÁLOGO DINÁMICO & PROMOCIONES -->
+    <link rel="stylesheet" href="catalogo-aesthetic.css?v=20261106-promo01">
 <!-- Favicon y PWA -->
     <link rel="icon" type="image/webp" href="imagenes/logo-alma-kids-favicon.webp">
     <link rel="shortcut icon" type="image/webp" href="imagenes/logo-alma-kids-favicon.webp">
@@ -614,6 +614,22 @@
                 </button>
                 <button type="button" class="catalogo-filter-btn" data-filter="adicionales">
                     <i class="fas fa-wand-magic-sparkles"></i> Adicionales & Magia
+                </button>
+            </div>
+
+            <!-- Banner Interactivo de Códigos & Promociones Instagram -->
+            <div class="catalogo-promo-cta-strip">
+                <div class="catalogo-promo-cta-left">
+                    <div class="catalogo-promo-cta-icon">
+                        <i class="fas fa-ticket-alt"></i>
+                    </div>
+                    <div class="catalogo-promo-cta-text">
+                        <h4>¿Tienes un código de descuento de Instagram?</h4>
+                        <p>Aplica 10% OFF, Traslado Gratis o Líquido de Burbujas de regalo para tu celebración.</p>
+                    </div>
+                </div>
+                <button type="button" class="catalogo-promo-cta-btn" onclick="window.abrirModalPromo()">
+                    <i class="fas fa-gift"></i> Ingresar Código Secreto
                 </button>
             </div>
 
@@ -1280,9 +1296,10 @@
     <script src="instagram-feed-simple.js?v=20260701-03" defer></script>
     <!-- Floating Action Button (FAB) - Botón flotante expandible -->
     
-    <!-- CATÁLOGO EDITABLE & MOTOR DINÁMICO -->
-    <script src="catalogo-datos.js?v=20261106-imgfix"></script>
-    <script src="catalogo.js?v=20261106-imgfix"></script>
+    <!-- CATÁLOGO EDITABLE & MOTOR DINÁMICO & PROMOCIONES -->
+    <script src="catalogo-datos.js?v=20261106-promo01"></script>
+    <script src="promociones.js?v=20261106-promo01"></script>
+    <script src="catalogo.js?v=20261106-promo01"></script>
     <script src="floating-action-button.js" defer></script>
     <!-- MODERN FEATURES 2025 -->
     <script src="modern-features.js" defer></script>

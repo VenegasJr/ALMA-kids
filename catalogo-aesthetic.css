@@ -1263,3 +1263,429 @@ img[loading="eager"] {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+/* =========================================================================
+   🎁 SISTEMA DE PROMOCIONES & CÓDIGOS DE INSTAGRAM
+   ========================================================================= */
+
+/* Barra Superior Sticky de Cupón Activo */
+.alma-promo-sticky-bar {
+    position: sticky;
+    top: 0;
+    z-index: 10000;
+    background: linear-gradient(135deg, #2d2926 0%, #453b34 100%);
+    color: #ffffff;
+    padding: 10px 16px;
+    font-size: 0.88rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.18);
+    border-bottom: 2px solid #c99a67;
+    animation: slideDownPromo 0.4s ease-out;
+}
+
+@keyframes slideDownPromo {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+}
+
+.alma-promo-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.promo-badge-tag {
+    background: #c99a67;
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.promo-text-msg {
+    flex: 1;
+    font-size: 0.9rem;
+}
+
+.promo-text-msg small {
+    color: #e5d6c8;
+    margin-left: 6px;
+}
+
+.promo-info-btn {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.promo-info-btn:hover {
+    background: #ffffff;
+    color: #2d2926;
+}
+
+/* Tira de Activación en el Catálogo */
+.catalogo-promo-cta-strip {
+    margin: 24px 0 32px;
+    background: linear-gradient(135deg, #fff9f2 0%, #f7ede2 100%);
+    border: 2px dashed #d8c2ad;
+    border-radius: 18px;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    box-shadow: 0 4px 14px rgba(163, 124, 88, 0.08);
+}
+
+.catalogo-promo-cta-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.catalogo-promo-cta-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #a37c58;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+}
+
+.catalogo-promo-cta-text h4 {
+    margin: 0 0 3px;
+    font-size: 1.05rem;
+    color: #2d2926;
+    font-weight: 800;
+}
+
+.catalogo-promo-cta-text p {
+    margin: 0;
+    font-size: 0.88rem;
+    color: #6b645c;
+}
+
+.catalogo-promo-cta-btn {
+    background: #a37c58;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(163, 124, 88, 0.25);
+}
+
+.catalogo-promo-cta-btn:hover {
+    background: #8c6745;
+    transform: translateY(-2px);
+}
+
+/* Modal de Promociones */
+.alma-promo-modal-dialog {
+    max-width: 580px;
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 32px;
+    position: relative;
+    box-shadow: 0 24px 60px rgba(45, 41, 38, 0.25);
+}
+
+.promo-celebration-badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 0.78rem;
+    padding: 6px 16px;
+    border-radius: 999px;
+    letter-spacing: 0.06em;
+    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4);
+    animation: bounceBadge 0.6s ease;
+}
+
+@keyframes bounceBadge {
+    0% { transform: translateX(-50%) scale(0.7); }
+    50% { transform: translateX(-50%) scale(1.1); }
+    100% { transform: translateX(-50%) scale(1); }
+}
+
+.promo-modal-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.promo-icon-circle {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 12px;
+    border-radius: 50%;
+    background: #f4efe8;
+    color: #a37c58;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+}
+
+.promo-tag-subtitle {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #a37c58;
+}
+
+.promo-main-title {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: #2d2926;
+    margin: 6px 0 0;
+}
+
+/* Ticket de Descuento */
+.promo-active-ticket {
+    background: #faf7f2;
+    border: 2px dashed #d8c2ad;
+    border-radius: 18px;
+    padding: 20px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.ticket-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.ticket-code-display {
+    font-family: monospace;
+    font-size: 1.35rem;
+    font-weight: 900;
+    color: #2d2926;
+    letter-spacing: 0.08em;
+    background: #ffffff;
+    padding: 4px 12px;
+    border-radius: 8px;
+    border: 1px solid #ede4da;
+}
+
+.ticket-status-pill {
+    background: #e6f7ed;
+    color: #0d8a43;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 999px;
+}
+
+.ticket-detail-text {
+    font-size: 0.98rem;
+    color: #453b34;
+    font-weight: 600;
+    margin: 0 0 14px;
+    line-height: 1.5;
+}
+
+.ticket-meta {
+    font-size: 0.85rem;
+    color: #6b645c;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    border-top: 1px solid #ede4da;
+    padding-top: 12px;
+}
+
+.ticket-token-row code {
+    background: #2d2926;
+    color: #f7ede2;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+/* Caja de Términos / Letra Chica */
+.promo-terms-box {
+    background: #ffffff;
+    border: 1px solid #ede4da;
+    border-radius: 14px;
+    padding: 14px 16px;
+    margin-bottom: 24px;
+}
+
+.promo-terms-box h4 {
+    margin: 0 0 6px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #6b645c;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.promo-terms-box p {
+    margin: 0;
+    font-size: 0.82rem;
+    color: #8c827a;
+    line-height: 1.5;
+}
+
+.promo-modal-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.promo-cta-btn {
+    width: 100%;
+    padding: 13px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 12px;
+    text-align: center;
+    justify-content: center;
+}
+
+.promo-btn-change {
+    width: 100%;
+    background: transparent;
+    border: 1px solid #d8c2ad;
+    color: #6b645c;
+    padding: 10px;
+    border-radius: 12px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.promo-btn-change:hover {
+    background: #faf7f2;
+    color: #2d2926;
+}
+
+/* Formulario para ingresar código */
+.promo-input-card {
+    text-align: center;
+}
+
+.promo-input-desc {
+    font-size: 0.95rem;
+    color: #6b645c;
+    margin-bottom: 18px;
+    line-height: 1.5;
+}
+
+.promo-input-group {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.promo-input-group input {
+    flex: 1;
+    padding: 12px 16px;
+    border: 2px solid #d8c2ad;
+    border-radius: 12px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: #2d2926;
+}
+
+.promo-input-group input:focus {
+    outline: none;
+    border-color: #a37c58;
+}
+
+.promo-error-msg {
+    color: #d32f2f;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin: 6px 0 14px;
+}
+
+.promo-examples-list {
+    margin-top: 24px;
+    border-top: 1px solid #ede4da;
+    padding-top: 18px;
+    text-align: left;
+}
+
+.promo-examples-list span {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #8c827a;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.promo-pills-row {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.promo-pills-row button {
+    background: #faf7f2;
+    border: 1px solid #ede4da;
+    padding: 8px 14px;
+    border-radius: 10px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #2d2926;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s ease;
+}
+
+.promo-pills-row button:hover {
+    background: #f4efe8;
+    border-color: #a37c58;
+}
+
+@media (max-width: 600px) {
+    .catalogo-promo-cta-strip {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .catalogo-promo-cta-btn {
+        width: 100%;
+        text-align: center;
+    }
+    .promo-input-group {
+        flex-direction: column;
+    }
+    .promo-input-group button {
+        width: 100%;
+    }
+}
