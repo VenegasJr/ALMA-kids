@@ -9,6 +9,10 @@
    Garantiza que NINGUNA regla antigua heredada de carga progresiva
    (opacity: 0 !important en styles.min.css) oculte las imágenes del sitio.
    ========================================================================= */
+html, body {
+    overflow-x: hidden !important;
+}
+
 img,
 img[src],
 img[loading="lazy"],
@@ -29,6 +33,65 @@ img[loading="eager"] {
     opacity: 1 !important;
     visibility: visible !important;
     display: block !important;
+}
+
+/* =========================================================================
+   📱 OPTIMIZACIÓN RESPONSIVA MÓVIL (200% PULIDA PARA SMARTPHONES)
+   ========================================================================= */
+@media (max-width: 768px) {
+    .home-hero-v2 {
+        padding-top: 1.5rem !important;
+        padding-bottom: 2rem !important;
+    }
+
+    .home-hero-v2-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1.5rem !important;
+    }
+
+    /* En móviles mostramos las fotos de portada arriba para impacto visual inmediato */
+    .home-hero-v2-media {
+        order: -1 !important;
+        width: 100% !important;
+        max-width: 380px !important;
+        margin: 0 auto 1rem !important;
+    }
+
+    .home-hero-v2-photo {
+        border-width: 6px !important;
+        border-radius: 22px !important;
+    }
+
+    .home-hero-v2-copy h1 {
+        font-size: clamp(1.6rem, 7.2vw, 2.2rem) !important;
+        line-height: 1.15 !important;
+        letter-spacing: -0.025em !important;
+        overflow-wrap: break-word !important;
+        word-break: normal !important;
+        margin-bottom: 0.85rem !important;
+    }
+
+    .home-hero-v2-lead {
+        font-size: 0.95rem !important;
+        line-height: 1.55 !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .home-hero-v2-actions {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 0.75rem !important;
+        width: 100% !important;
+    }
+
+    .home-hero-v2-actions .btn {
+        width: 100% !important;
+        text-align: center !important;
+        justify-content: center !important;
+        padding: 0.9rem 1.4rem !important;
+        font-size: 1rem !important;
+    }
 }
 
 :root {
