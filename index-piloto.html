@@ -454,7 +454,10 @@
             <img class="home-hero-v2-gallery-bottom loaded" src="imagenes/portada-plaza-motricidad.webp" alt="Plaza blanda con piscina de pelotas, túnel y saltarines de ALMA Kids" width="1066" height="1100" loading="lazy" decoding="async">
           </figure>
           <div class="home-hero-v2-badge home-hero-v2-badge-top"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><span>Selección premium</span></div>
-          <div class="home-hero-v2-badge home-hero-v2-badge-bottom"><strong>4 horas</strong><span>de uso estándar</span></div>
+          <a href="#instagram-feed" class="home-hero-v2-badge home-hero-v2-badge-bottom hero-video-pill-btn" title="Ver videos reales en Instagram">
+            <i class="fas fa-play-circle" style="color: #dc2743; font-size: 1.15rem;"></i>
+            <span><strong>Ver Reels en vivo</strong> (Eventos reales)</span>
+          </a>
         </div>
       </div>
       <div class="home-hero-v2-strip" aria-label="Resumen del proceso">
@@ -621,55 +624,123 @@
     </section>
 
     <!-- Instagram: datos oficiales mediante Netlify Function + Meta Graph API -->
-    <section id="instagram-feed" class="instagram-live-section" aria-labelledby="instagram-live-title">
+    <!-- Sección Instagram & Reels Oficiales de ALMA Kids -->
+    <section id="instagram-feed" class="instagram-showcase-section" aria-labelledby="instagram-showcase-title">
         <div class="container">
-            <div class="instagram-live-shell">
-                <header class="instagram-live-header">
-                    <div class="instagram-live-heading">
-                        <span class="instagram-live-icon" aria-hidden="true"><i class="fab fa-instagram"></i></span>
-                        <div>
-                            <span class="eyebrow">COMUNIDAD ALMA KIDS</span>
-                            <h2 id="instagram-live-title" class="section-title">Síguenos en Instagram</h2>
-                            <p>
-                                <a href="https://www.instagram.com/almakids.cl/" target="_blank" rel="noopener noreferrer">@almakids.cl</a>
-                                <span aria-hidden="true">·</span> Comparte la magia de nuestros eventos.
-                            </p>
+            <!-- Tarjeta de Perfil Oficial -->
+            <div class="instagram-profile-card">
+                <div class="instagram-profile-left">
+                    <div class="instagram-avatar-box">
+                        <img src="imagenes/logo-alma-kids-oficial.webp" alt="ALMA Kids Instagram Oficial" width="72" height="72" loading="lazy">
+                    </div>
+                    <div class="instagram-profile-info">
+                        <h3 id="instagram-showcase-title">
+                            almakids.cl
+                            <i class="fas fa-check-circle instagram-verified-badge" title="Cuenta Oficial"></i>
+                        </h3>
+                        <p>✨ Inflables y Plazas Blandas Premium · Tonos Neutros · Machalí y Región de O'Higgins</p>
+                        <div class="instagram-stats-pills">
+                            <span><strong>+350</strong> familias</span>
+                            <span>·</span>
+                            <span><strong>Machalí & Rancagua</strong></span>
+                            <span>·</span>
+                            <span><strong>100%</strong> montajes reales</span>
                         </div>
                     </div>
-                    <a href="https://www.instagram.com/almakids.cl/" target="_blank" rel="noopener noreferrer" class="btn instagram-live-follow">
-                        <i class="fab fa-instagram" aria-hidden="true"></i>
-                        Seguir en Instagram
-                    </a>
-                </header>
-
-                <div class="instagram-live-stats" id="instagramStats" aria-label="Estadísticas actuales de Instagram" aria-live="polite">
-                    <article class="instagram-live-stat">
-                        <strong id="followerCount">—</strong>
-                        <span>Seguidores</span>
-                    </article>
-                    <article class="instagram-live-stat">
-                        <strong id="postCount">—</strong>
-                        <span>Publicaciones</span>
-                    </article>
-                    <article class="instagram-live-stat" id="followingStat">
-                        <strong id="followingCount">—</strong>
-                        <span>Siguiendo</span>
-                    </article>
                 </div>
+                <a href="https://www.instagram.com/almakids.cl/" target="_blank" rel="noopener noreferrer" class="btn-instagram-follow-cta">
+                    <i class="fab fa-instagram" aria-hidden="true"></i>
+                    <span>Seguir en Instagram</span>
+                </a>
+            </div>
 
-                <p class="instagram-live-status" id="instagramSyncStatus">
-                    <span class="instagram-live-dot" aria-hidden="true"></span>
-                    Conectando los datos oficiales de Instagram…
-                </p>
+            <!-- Videos / Reels Destacados -->
+            <div class="reels-showcase-container">
+                <h3 class="reels-section-title">
+                    <i class="fab fa-instagram"></i>
+                    <span>Reels en Acción: Revive nuestros montajes reales</span>
+                </h3>
 
-                <div class="instagram-live-grid" id="instagramFeed" aria-live="polite">
-                    <div class="instagram-live-fallback">
-                        <i class="fab fa-instagram" aria-hidden="true"></i>
-                        <div>
-                            <h3>Conoce nuestros montajes y novedades</h3>
-                            <p>Visita el perfil oficial de ALMA Kids para ver fotografías, reels y próximas fechas.</p>
+                <div class="reels-grid">
+                    <!-- Reel 1 -->
+                    <a href="https://www.instagram.com/p/De0D00Mx1IF/" target="_blank" rel="noopener noreferrer" class="reel-card" title="Ver Reel Set Máximo en Machalí">
+                        <div class="reel-thumbnail-box">
+                            <img src="imagenes/reel-2.jpg" alt="Reel ALMA Kids Set Máximo en Machalí" loading="lazy">
+                            <div class="reel-play-overlay">
+                                <span class="reel-play-icon"><i class="fas fa-play"></i></span>
+                            </div>
+                            <span class="reel-badge-top"><i class="fab fa-instagram"></i> REEL EN VIVO</span>
                         </div>
-                        <a href="https://www.instagram.com/almakids.cl/" target="_blank" rel="noopener noreferrer">Abrir Instagram <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                        <div class="reel-card-info">
+                            <h4>Montaje Set Máximo en Machalí ✨</h4>
+                            <p>Castillo inflable, piscina de pelotas, motricidad, carpa tipi y máquina de burbujas en acción.</p>
+                            <span class="reel-card-link-text">Ver video en Instagram <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- Reel 2 -->
+                    <a href="https://www.instagram.com/p/DeNSi93Ri6i/" target="_blank" rel="noopener noreferrer" class="reel-card" title="Ver Reel Set Alma Magic en Nancagua">
+                        <div class="reel-thumbnail-box">
+                            <img src="imagenes/reel-1.jpg" alt="Reel ALMA Kids Set Magic en Nancagua" loading="lazy">
+                            <div class="reel-play-overlay">
+                                <span class="reel-play-icon"><i class="fas fa-play"></i></span>
+                            </div>
+                            <span class="reel-badge-top"><i class="fab fa-instagram"></i> REEL EN VIVO</span>
+                        </div>
+                        <div class="reel-card-info">
+                            <h4>Set Alma Magic en Nancagua 💕</h4>
+                            <p>Celebrando a Zuri con un espacio dulce y seguro, preparado con amor de padres para padres.</p>
+                            <span class="reel-card-link-text">Ver video en Instagram <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- Reel 3 -->
+                    <a href="https://www.instagram.com/p/DdZ8H0mRuz4/" target="_blank" rel="noopener noreferrer" class="reel-card" title="Ver Reel Espacios Mágicos para Celebrar">
+                        <div class="reel-thumbnail-box">
+                            <img src="imagenes/reel-3.jpg" alt="Reel ALMA Kids Espacios Mágicos" loading="lazy">
+                            <div class="reel-play-overlay">
+                                <span class="reel-play-icon"><i class="fas fa-play"></i></span>
+                            </div>
+                            <span class="reel-badge-top"><i class="fab fa-instagram"></i> REEL EN VIVO</span>
+                        </div>
+                        <div class="reel-card-info">
+                            <h4>Espacios Mágicos para Celebrar 🎈</h4>
+                            <p>Cómo transformamos cualquier rincón en una experiencia inolvidable para niños y familias.</p>
+                            <span class="reel-card-link-text">Ver video en Instagram <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Galería de Fotos Más Hermosas (Mosaico) -->
+            <div class="gallery-mosaic-container">
+                <h3 class="gallery-section-title">📸 Momentos Mágicos ALMA Kids</h3>
+                <p class="gallery-section-sub">Fotografías de montajes reales con estética neutra, tonos pasteles y globos.</p>
+
+                <div class="instagram-mosaic-grid">
+                    <div class="mosaic-item" onclick="openImageModal('imagenes/portada-castillo-blanco.webp', 'Castillo Blanco Impoluto', 'Castillo blanco premium para eventos elegantes')">
+                        <img src="imagenes/portada-castillo-blanco.webp" alt="Castillo Inflable Blanco ALMA Kids" loading="lazy">
+                        <div class="mosaic-overlay"><i class="fab fa-instagram"></i></div>
+                    </div>
+                    <div class="mosaic-item" onclick="openImageModal('Catalogo ALMA kids Ltda/PISCINA DE PELOTAS.png', 'Piscina de Pelotas de Espuma', 'Piscina con pelotas en tonos suaves')">
+                        <img src="Catalogo ALMA kids Ltda/PISCINA DE PELOTAS.png" alt="Piscina de Pelotas ALMA Kids" loading="lazy">
+                        <div class="mosaic-overlay"><i class="fab fa-instagram"></i></div>
+                    </div>
+                    <div class="mosaic-item" onclick="openImageModal('Servicios adicionales/carpa-tipi.webp', 'Carpa Tipi Decorativa', 'Rincón de lectura y descanso aesthetic')">
+                        <img src="Servicios adicionales/carpa-tipi.webp" alt="Carpa Tipi Decorativa" loading="lazy">
+                        <div class="mosaic-overlay"><i class="fab fa-instagram"></i></div>
+                    </div>
+                    <div class="mosaic-item" onclick="openImageModal('Catalogo ALMA kids Ltda/CASTILLO INFLABLE ROSA.png', 'Castillo Inflable Rosa Pastel', 'Castillo con piscina integrada')">
+                        <img src="Catalogo ALMA kids Ltda/CASTILLO INFLABLE ROSA.png" alt="Castillo Rosa Pastel ALMA Kids" loading="lazy">
+                        <div class="mosaic-overlay"><i class="fab fa-instagram"></i></div>
+                    </div>
+                    <div class="mosaic-item" onclick="openImageModal('imagenes/portada-plaza-motricidad.webp', 'Set de Motricidad Infantil', 'Escala, túnel y cuña para estimulación motora')">
+                        <img src="imagenes/portada-plaza-motricidad.webp" alt="Set de Motricidad Sensorial" loading="lazy">
+                        <div class="mosaic-overlay"><i class="fab fa-instagram"></i></div>
+                    </div>
+                    <div class="mosaic-item" onclick="openImageModal('imagenes/set-magic.webp', 'Set Máximo Todo Incluido', 'La experiencia más completa de ALMA Kids')">
+                        <img src="imagenes/set-magic.webp" alt="Set Máximo Todo Incluido" loading="lazy">
+                        <div class="mosaic-overlay"><i class="fab fa-instagram"></i></div>
                     </div>
                 </div>
             </div>

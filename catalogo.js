@@ -271,3 +271,61 @@ Me encantó su catálogo y quisiera cotizar el siguiente servicio:
     });
 
 })();
+
+// =========================================================================
+// 🎥 MODAL REPRODUCTOR DE VIDEO PARA EVENTOS REALES
+// =========================================================================
+window.abrirVideoModal = function(videoSrc, titulo) {
+    let modal = document.getElementById('videoModal');
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'videoModal';
+        modal.className = 'catalogo-modal-overlay';
+        modal.innerHTML = `
+            <div class="catalogo-modal-dialog" style="max-width: 650px; background: #1a1817; padding: 24px;">
+                <button type="button" class="catalogo-modal-close" onclick="window.cerrarVideoModal()" style="background: rgba(255,255,255,0.2); color: #fff;">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div style="margin-bottom: 14px; color: #fff;">
+                    <span style="font-size: 0.78rem; text-transform: uppercase; color: #c99a67; font-weight: 700; letter-spacing: 0.06em;">Evento Real · ALMA Kids</span>
+                    <h3 id="videoModalTitle" style="font-size: 1.25rem; font-weight: 700; margin: 4px 0 0; color: #fff;"></h3>
+                </div>
+                <div style="position: relative; border-radius: 16px; overflow: hidden; background: #000; aspect-ratio: 9/16; max-height: 70vh; margin: 0 auto; display: flex; align-items: center; justify-content: center;">
+                    <video id="videoModalPlayer" controls playsinline autoplay style="width: 100%; height: 100%; object-fit: contain;">
+                        Tu navegador no soporta reproducción de video.
+                    </video>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(modal);
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) window.cerrarVideoModal();
+        });
+    }
+
+    const titleEl = document.getElementById('videoModalTitle');
+    const player = document.getElementById('videoModalPlayer');
+    if (titleEl) titleEl.textContent = titulo || 'Montaje en vivo ALMA Kids';
+    if (player) {
+        player.src = videoSrc;
+        player.play().catch(() => {});
+    }
+
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+};
+
+window.cerrarVideoModal = function() {
+    const modal = document.getElementById('videoModal');
+    if (modal) {
+        const player = document.getElementById('videoModalPlayer');
+        if (player) {
+            player.pause();
+            player.removeAttribute('src');
+            player.load();
+        }
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+};
