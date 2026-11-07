@@ -22,6 +22,15 @@
         }).format(valor);
     }
 
+    function formatearSuplemento(producto) {
+        const suplemento = producto.suplemento;
+        return suplemento ? `${suplemento.nombre}: ${formatearPrecio(suplemento.precio)}` : '';
+    }
+
+    function altImagen(producto) {
+        return (producto.altImagen || producto.nombre).replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;');
+    }
+
     // Generar enlace directo a WhatsApp
     function generarLinkWhatsApp(producto, opciones = {}) {
         const telefono = '56969073306';
@@ -85,6 +94,7 @@ Me encantó su catálogo y quisiera cotizar el siguiente servicio:
 
         contenedor.innerHTML = productos.map((p, index) => {
             const precioFmt = formatearPrecio(p.precio);
+            const suplemento = formatearSuplemento(p);
             const linkWsp = generarLinkWhatsApp(p);
             const badgeHtml = p.badge ? `<span class="catalogo-card-badge">${p.badge}</span>` : '';
 
@@ -101,7 +111,7 @@ Me encantó su catálogo y quisiera cotizar el siguiente servicio:
                 <article class="catalogo-card ${p.destacado ? 'destacado' : ''}" data-id="${p.id}" style="animation-delay: ${index * 0.05}s">
                     <div class="catalogo-card-media" onclick="window.abrirModalDetalles('${p.id}')" title="Click para ver fotos y medidas">
                         ${badgeHtml}
-                        <img src="${p.imagen}" alt="${p.nombre}" class="loaded" loading="eager" decoding="async" onerror="this.src='imagenes/logo-alma-kids-oficial.png'">
+                        <img src="${p.imagen}" alt="${altImagen(p)}" class="loaded" loading="lazy" decoding="async" onerror="this.src='imagenes/logo-alma-kids-oficial.png'">
                         <div class="catalogo-card-zoom-hint">
                             <i class="fas fa-expand" aria-hidden="true"></i>
                             <span>Ver medidas y detalles</span>
@@ -132,15 +142,16 @@ Me encantó su catálogo y quisiera cotizar el siguiente servicio:
 
                         <div class="catalogo-card-footer">
                             <div class="catalogo-card-price-box">
-                                <span class="catalogo-price-label">Valor arriendo</span>
+                                <span class="catalogo-price-label">${p.etiquetaPrecio || 'Valor arriendo'}</span>
                                 <div class="catalogo-price-val">${precioFmt}</div>
+                                ${suplemento ? `<small class="catalogo-price-extra">Opcional · ${suplemento}</small>` : ''}
                             </div>
 
                             <div class="catalogo-card-actions">
                                 <button type="button" class="btn-catalogo-details" onclick="window.abrirModalDetalles('${p.id}')">
                                     <i class="fas fa-info-circle"></i> Detalles
                                 </button>
-                                <a href="${linkWsp}" target="_blank" rel="noopener noreferrer" class="btn-catalogo-wsp">
+                                <a href="${linkWsp}" target="_blank" rel="noopener noreferrer" class="btn-catalogo-wsp" data-catalogo-cotizar="${p.id}">
                                     <i class="fab fa-whatsapp"></i> Cotizar
                                 </a>
                             </div>
@@ -172,6 +183,7 @@ Me encantó su catálogo y quisiera cotizar el siguiente servicio:
 
         const modal = document.getElementById('catalogo-modal') || crearModalEstructura();
         const precioFmt = formatearPrecio(producto.precio);
+        const suplemento = formatearSuplemento(producto);
         const linkWsp = generarLinkWhatsApp(producto);
 
         const modalBody = modal.querySelector('.catalogo-modal-body');
@@ -263,8 +275,9 @@ Me encantó su catálogo y quisiera cotizar el siguiente servicio:
 
                     <div class="catalogo-modal-price-strip">
                         <div class="catalogo-modal-price">
-                            <span>Precio de arriendo:</span>
+                            <span>${producto.etiquetaPrecio || 'Precio de arriendo'}:</span>
                             <strong>${precioFmt}</strong>
+                            ${suplemento ? `<small class="catalogo-price-extra">Opcional · ${suplemento}</small>` : ''}
                         </div>
                         <span class="catalogo-modal-time"><i class="fas fa-clock"></i> ${producto.duracion}</span>
                     </div>
@@ -303,7 +316,7 @@ Me encantó su catálogo y quisiera cotizar el siguiente servicio:
                     ` : ''}
 
                     <div class="catalogo-modal-cta">
-                        <a id="btnModalWspAction" href="${linkInicial}" target="_blank" rel="noopener noreferrer" class="btn-modal-wsp">
+                        <a id="btnModalWspAction" href="${linkInicial}" target="_blank" rel="noopener noreferrer" class="btn-modal-wsp" data-catalogo-cotizar="${producto.id}">
                             <i class="fab fa-whatsapp"></i> Cotizar este juego por WhatsApp
                         </a>
                         <button type="button" class="btn-modal-close-action" onclick="window.cerrarModalDetalles()">
@@ -313,6 +326,16 @@ Me encantó su catálogo y quisiera cotizar el siguiente servicio:
                 </div>
             </div>
         `;
+
+        // Exponer personalización activa para que el diálogo de cotización lo incluya
+        window.obtenerPersonalizacionModal = function() {
+            const lineas = [];
+            if (opciones.castillo) lineas.push(`🏰 Castillo: ${opciones.castillo}`);
+            if (opciones.pelotas) lineas.push(`⚪ Pelotas: ${opciones.pelotas}`);
+            if (opciones.tatami) lineas.push(`🧩 Tatami: ${opciones.tatami}`);
+            if (opciones.tipi) lineas.push(`🏕️ Tipi: ${opciones.tipi}`);
+            return lineas.length > 0 ? `Personalización:\n${lineas.join('\n')}` : '';
+        };
 
         // Activar interactividad de los botones de personalización
         if (tieneOpciones) {

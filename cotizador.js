@@ -11,8 +11,8 @@
     'use strict';
 
     const ADICIONALES = [
-        { id: 'burbujas', nombre: 'Máquina de Burbujas + 700ml Líquido', precio: 17000 },
-        { id: 'liquido_extra', nombre: 'Líquido para Burbujas Extra (1 Litro)', precio: 6000 },
+        { id: 'burbujas', nombre: 'Máquina de Burbujas (Solo arriendo 3 hrs)', precio: 16000 },
+        { id: 'liquido_extra', nombre: 'Líquido para Burbujas (1 Litro)', precio: 6000 },
         { id: 'carpa_tipi', nombre: 'Carpa Tipi Decorativa Aesthetic', precio: 17000 },
         { id: 'cartel', nombre: 'Cartel de Bienvenida Personalizado (60×90 cm)', precio: 25000 },
         { id: 'monitor', nombre: 'Supervisión Profesional por Monitor (4 hrs)', precio: 30000 },

@@ -1,0 +1,399 @@
+.pilot-featured {
+  padding: clamp(2.5rem, 6vw, 5rem) 0;
+  background: #fffcfa;
+}
+
+#destacados,
+#catalogo {
+  scroll-margin-top: 110px;
+}
+
+.pilot-featured-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: .6rem 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.pilot-featured-heading h2,
+.pilot-quote-dialog h2 {
+  margin: 0;
+  color: var(--ak-ink);
+  font-size: clamp(1.7rem, 4vw, 2.6rem);
+  line-height: 1.15;
+  letter-spacing: -.035em;
+}
+
+.pilot-catalog-link,
+.pilot-featured-note a {
+  color: #8d2451;
+  font-weight: 700;
+  text-underline-offset: .25em;
+}
+
+.pilot-catalog-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  min-height: 44px;
+  text-decoration: underline;
+}
+
+.pilot-featured-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.pilot-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border: 1px solid #eadfe3;
+  border-radius: 1.25rem;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(58, 39, 50, .06);
+}
+
+.pilot-card-media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: calc(1.25rem - 1px) calc(1.25rem - 1px) 0 0;
+  background: #f5ebea;
+}
+
+.pilot-card-media .pilot-card-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100% !important; /* Reemplaza el alto automático del CSS general. */
+  object-fit: cover;
+  border-radius: 0 !important;
+}
+
+.pilot-card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: clamp(.85rem, 2vw, 1.25rem);
+}
+
+.pilot-card-label {
+  display: inline-block;
+  margin: 0 0 .45rem;
+  padding: .2rem .6rem;
+  border-radius: 1rem;
+  background: #faecf1;
+  color: #752647;
+  font-size: .75rem;
+  font-weight: 700;
+}
+
+.pilot-card:nth-child(2) .pilot-card-label {
+  background: #e9f4f1;
+  color: #245d54;
+}
+
+.pilot-card:nth-child(3) .pilot-card-label {
+  background: #f8efdc;
+  color: #6e4a27;
+}
+
+.pilot-card h3 {
+  margin: 0 0 .45rem;
+  color: var(--ak-ink);
+  font-size: clamp(1.06rem, 2vw, 1.45rem);
+  line-height: 1.2;
+}
+
+.pilot-card-age,
+.pilot-card-space,
+.pilot-featured-note {
+  margin: 0;
+  color: #575058;
+  font-size: .89rem;
+  line-height: 1.45;
+}
+
+.pilot-card-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: .4rem .65rem;
+  width: 100%;
+  margin-top: auto;
+  padding-top: .75rem;
+}
+
+.pilot-card-price {
+  color: var(--ak-ink);
+  font-size: clamp(1.12rem, 2.2vw, 1.45rem);
+  white-space: nowrap;
+}
+
+.pilot-quote-button {
+  min-height: 44px;
+  padding: .5rem .95rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: #88284f;
+  color: #fff;
+  font: inherit;
+  font-size: .88rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.pilot-quote-button:hover {
+  background: #70203f;
+}
+
+.pilot-featured-note {
+  margin-top: 1rem;
+}
+
+.pilot-booking {
+  padding: clamp(2rem, 5vw, 3.5rem) 0;
+}
+
+.pilot-booking .section-heading-compact {
+  margin-bottom: 1rem;
+}
+
+.pilot-booking .process-card {
+  min-height: auto;
+}
+
+.pilot-quote-dialog {
+  position: fixed;
+  inset: 0;
+  width: min(29rem, calc(100% - 1.5rem));
+  max-height: calc(100% - 1.5rem);
+  margin: auto;
+  padding: 0;
+  overflow: auto;
+  border: 1px solid var(--ak-border);
+  border-radius: 1.25rem;
+  background: #fffafc;
+  color: var(--ak-ink);
+  box-shadow: 0 20px 70px rgba(35, 15, 27, .25);
+}
+
+.pilot-quote-dialog::backdrop {
+  background: rgba(33, 24, 30, .62);
+}
+
+.pilot-quote-dialog form {
+  position: relative;
+  display: grid;
+  gap: .85rem;
+  padding: clamp(1rem, 5vw, 2rem);
+}
+
+.pilot-quote-dialog .eyebrow {
+  margin: 0 2.5rem 0 0;
+}
+
+.pilot-quote-dialog h2 {
+  font-size: clamp(1.55rem, 5vw, 2.1rem);
+}
+
+.pilot-quote-dialog p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+.pilot-quote-product {
+  color: #752647;
+  font-weight: 700;
+}
+
+.pilot-quote-fields {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: .75rem;
+}
+
+.pilot-quote-fields label {
+  display: grid;
+  gap: .35rem;
+  font-size: .85rem;
+  font-weight: 700;
+}
+
+.pilot-quote-fields input {
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  padding: .45rem .55rem;
+  border: 1px solid #aa9ca4;
+  border-radius: .55rem;
+  background: #fff;
+  color: var(--ak-ink);
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.pilot-quote-note {
+  color: #575058;
+  font-size: .82rem;
+}
+
+.pilot-quote-close {
+  position: absolute;
+  top: .5rem;
+  right: .5rem;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ak-ink);
+  font: inherit;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+.pilot-quote-close:hover {
+  background: #faecf1;
+}
+
+@media (max-width: 768px) {
+  .header .mobile-menu-toggle {
+    display: grid !important;
+    place-items: center;
+    width: 44px !important;
+    height: 44px !important;
+    inset: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    color: var(--ak-pink-dark) !important;
+    transform: none !important;
+  }
+
+  .header .pilot-menu-icon {
+    display: block;
+  }
+
+  .feedback-anchor,
+  .fab-container {
+    display: none !important;
+  }
+}
+
+@media (max-width: 690px) {
+  .pilot-featured-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pilot-card {
+    display: grid;
+    grid-template-columns: minmax(0, 36%) minmax(0, 1fr);
+  }
+
+  .pilot-card-media {
+    aspect-ratio: auto;
+    border-radius: calc(1.25rem - 1px) 0 0 calc(1.25rem - 1px);
+  }
+}
+
+@media (max-width: 365px) {
+  .pilot-quote-fields {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mantiene el área de cada foto quieta al pasar el mouse. */
+:is(.catalogo-card, .reel-card) {
+  animation: none;
+  transition: border-color .15s ease;
+}
+
+:is(.catalogo-card, .reel-card, .plaza-item, .plaza-image):hover {
+  transform: none !important;
+  box-shadow: var(--ak-shadow-sm);
+}
+
+.plaza-image::before {
+  content: none;
+}
+
+:is(.catalogo-card-media, .reel-thumbnail-box, .mosaic-item) img {
+  height: 100% !important;
+  border-radius: 0 !important;
+}
+
+.about-img,
+.plaza-images-gallery:hover img,
+:is(.catalogo-card-media, .reel-thumbnail-box, .mosaic-item, .instagram-live-post, .plaza-image) img {
+  transform: none !important;
+  transition: none !important;
+  will-change: auto !important;
+}
+
+.about-image[data-reveal] {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+.catalogo-card .catalogo-card-zoom-hint {
+  transform: none;
+  transition: opacity .15s ease;
+  pointer-events: none;
+}
+
+.modal-image:not(.zoomed):hover {
+  transform: none;
+}
+
+.catalogo-card:is([data-id="cartel-bienvenida"], [data-id="pack-grand-peque"],
+  [data-id="set-alma-magic"], [data-id="set-duo"], [data-id="saltarin-balancin"],
+  [data-id="maquina-burbujas"]) .catalogo-card-media img,
+.catalogo-modal-media img {
+  object-fit: contain !important;
+}
+
+.catalogo-card-media img,
+.catalogo-modal-media img {
+  background: #faf7f2 !important;
+}
+
+.catalogo-card-footer {
+  flex-wrap: wrap;
+}
+
+.catalogo-price-extra,
+.pilot-quote-extra {
+  color: #575058;
+  font-size: .82rem;
+  line-height: 1.35;
+}
+
+.catalogo-price-extra {
+  display: block;
+  margin-top: .3rem;
+}
+
+@media (max-width: 480px) {
+  .catalogo-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .catalogo-card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .catalogo-card-actions {
+    flex-wrap: wrap;
+  }
+}

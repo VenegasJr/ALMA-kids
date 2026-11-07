@@ -85,6 +85,8 @@
     <link rel="stylesheet" href="site-upgrade.css?v=20261106-imgfix">
     <!-- ESTILOS AESTHETIC & CATÁLOGO DINÁMICO & PROMOCIONES -->
     <link rel="stylesheet" href="catalogo-aesthetic.css?v=20261107-perf02">
+    <!-- PILOTO 2: DESTACADOS, MODAL DE COTIZACIÓN Y OPTIMIZACIONES -->
+    <link rel="stylesheet" href="piloto-2.css?v=20261107-01">
 <!-- Favicon y PWA -->
     <link rel="icon" type="image/webp" href="imagenes/logo-alma-kids-favicon.webp">
     <link rel="shortcut icon" type="image/webp" href="imagenes/logo-alma-kids-favicon.webp">
@@ -449,10 +451,10 @@
           </p>
 
           <div class="home-hero-v2-actions">
-            <a class="btn btn-primary" href="https://wa.me/56969073306?text=Hola%20ALMA%20Kids.%20Quiero%20cotizar%20un%20servicio%20y%20enviar%20las%20fotograf%C3%ADas%20del%20espacio." target="_blank" rel="noopener noreferrer">
+            <a class="btn btn-primary" data-pilot-quote href="https://wa.me/56969073306?text=Hola%20ALMA%20Kids.%20Quiero%20cotizar%20un%20servicio%20y%20enviar%20las%20fotograf%C3%ADas%20del%20espacio." target="_blank" rel="noopener noreferrer">
               <i class="fab fa-whatsapp" aria-hidden="true"></i> Cotizar por WhatsApp
             </a>
-            <a class="btn btn-secondary" href="#catalogo">Ver servicios</a>
+            <a class="btn btn-secondary" id="pilot-see-games" href="#destacados">Ver juegos y precios</a>
           </div>
 
           <ul class="home-hero-v2-points" aria-label="Características del servicio">
@@ -484,6 +486,39 @@
         </div>
       </div>
     </section>
+
+    <!-- SECCIÓN DESTACADOS / TRES IDEAS (Piloto 2) -->
+    <section class="pilot-featured" id="destacados" aria-labelledby="pilot-featured-title" hidden>
+        <div class="container">
+            <div class="pilot-featured-heading">
+                <div>
+                    <span class="eyebrow">TRES IDEAS PARA TU CELEBRACIÓN</span>
+                    <h2 id="pilot-featured-title">Encuentra el juego para tu fiesta</h2>
+                </div>
+                <a class="pilot-catalog-link" href="#catalogo">Ver catálogo completo <span aria-hidden="true">→</span></a>
+            </div>
+            <div class="pilot-featured-grid"></div>
+            <p class="pilot-featured-note">Confirmamos el espacio de instalación con fotos y medidas antes de reservar.</p>
+        </div>
+    </section>
+
+    <template id="pilot-featured-card">
+        <article class="pilot-card">
+            <div class="pilot-card-media">
+                <img class="pilot-card-image loaded" loading="lazy" decoding="async" alt="">
+            </div>
+            <div class="pilot-card-body">
+                <p class="pilot-card-label"></p>
+                <h3></h3>
+                <p class="pilot-card-age"></p>
+                <p class="pilot-card-space"></p>
+                <div class="pilot-card-footer">
+                    <strong class="pilot-card-price"></strong>
+                    <button type="button" class="pilot-quote-button" data-pilot-quote>Cotizar</button>
+                </div>
+            </div>
+        </article>
+    </template>
 
 <!-- Compromisos verificables -->
     <section id="compromisos" class="trust-section" aria-labelledby="trust-title">
@@ -1458,6 +1493,8 @@
     <script src="catalogo.js?v=20261107-02"></script>
     <script src="cotizador.js?v=20261107-02"></script>
     <script src="faq-accordion.js?v=20261107-02"></script>
+    <!-- PILOTO 2: LÓGICA DE DESTACADOS Y DIALOG DE COTIZACIÓN -->
+    <script src="piloto-2.js?v=20261107-01" defer></script>
     <script src="floating-action-button.js" defer></script>
     <!-- MODERN FEATURES 2025 -->
     <script src="modern-features.js" defer></script>
@@ -1830,6 +1867,28 @@
     
     <!-- PWA Service Worker Registration deshabilitado (sw.js no disponible) -->
     
+    <!-- MODAL NATIVO DE COTIZACIÓN RÁPIDA (Piloto 2) -->
+    <dialog class="pilot-quote-dialog" id="pilot-quote-dialog" aria-labelledby="pilot-quote-title" aria-describedby="pilot-quote-help">
+        <form id="pilot-quote-form">
+            <button class="pilot-quote-close" type="button" aria-label="Cerrar cotización">×</button>
+            <span class="eyebrow">ALMA KIDS · COTIZACIÓN</span>
+            <h2 id="pilot-quote-title">Consulta disponibilidad</h2>
+            <p class="pilot-quote-product" hidden></p>
+            <p class="pilot-quote-extra" hidden></p>
+            <p id="pilot-quote-help">Completa la fecha y comuna. Te dejaremos el mensaje listo en WhatsApp.</p>
+            <div class="pilot-quote-fields">
+                <label for="pilot-date">Fecha del evento
+                    <input id="pilot-date" name="fecha" type="date" required autofocus>
+                </label>
+                <label for="pilot-commune">Comuna
+                    <input id="pilot-commune" name="comuna" type="text" placeholder="Ej. Machalí" maxlength="70" required>
+                </label>
+            </div>
+            <p class="pilot-quote-note">Si tienes fotos y medidas del espacio, puedes agregarlas al chat.</p>
+            <button type="submit" class="pilot-quote-button">Abrir WhatsApp</button>
+        </form>
+    </dialog>
+
     <!-- Formulario oculto para Netlify Forms -->
     <form name="alma-kids-quotes" netlify netlify-honeypot="bot-field" hidden>
         <input type="text" name="bot-field" />
