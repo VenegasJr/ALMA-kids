@@ -1689,3 +1689,483 @@ img[loading="eager"] {
         width: 100%;
     }
 }
+
+/* =========================================================================
+ * 🎨 PERSONALIZADOR DE COLORES EN MODAL DEL CATÁLOGO
+ * ========================================================================= */
+.catalogo-modal-customizer {
+    background: #fffbfa;
+    border: 1.5px solid #f2dede;
+    border-radius: 18px;
+    padding: 16px 18px;
+    margin: 18px 0;
+    box-shadow: 0 4px 14px rgba(231, 84, 128, 0.05);
+}
+
+.customizer-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    color: #e75480;
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+}
+
+.customizer-group {
+    margin-bottom: 12px;
+}
+
+.customizer-group:last-child {
+    margin-bottom: 0;
+}
+
+.customizer-label {
+    display: block;
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: #4a4542;
+    margin-bottom: 6px;
+}
+
+.customizer-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.customizer-pill {
+    background: #ffffff;
+    border: 1.5px solid #e5ded9;
+    color: #4a4542;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.84rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+}
+
+.customizer-pill:hover {
+    border-color: #e75480;
+    background: #fff5f8;
+    color: #e75480;
+}
+
+.customizer-pill.active {
+    background: #e75480;
+    border-color: #e75480;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(231, 84, 128, 0.35);
+}
+
+/* =========================================================================
+ * 📅 VERIFICADOR RÁPIDO DE DISPONIBILIDAD DE FECHA
+ * ========================================================================= */
+.availability-banner-bar {
+    background: linear-gradient(135deg, #fff7fa 0%, #fffbf2 100%);
+    border: 1.5px solid #fedfe7;
+    border-radius: 20px;
+    padding: 18px 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 6px 20px rgba(231, 84, 128, 0.08);
+}
+
+.availability-banner-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.availability-banner-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.availability-icon-circle {
+    width: 48px;
+    height: 48px;
+    background: #e75480;
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(231, 84, 128, 0.3);
+}
+
+.availability-banner-text h4 {
+    margin: 0 0 3px 0;
+    font-size: 1.05rem;
+    color: #2d2926;
+    font-weight: 700;
+}
+
+.availability-banner-text p {
+    margin: 0;
+    font-size: 0.88rem;
+    color: #6a625d;
+}
+
+.availability-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.availability-input, .availability-select {
+    padding: 10px 14px;
+    border: 1.5px solid #e0d5ce;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-family: inherit;
+    background: #ffffff;
+    color: #2d2926;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.availability-input:focus, .availability-select:focus {
+    border-color: #e75480;
+}
+
+.availability-btn {
+    background: #25D366;
+    color: #ffffff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 12px;
+    font-size: 0.92rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+.availability-btn:hover {
+    background: #20ba5a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
+}
+
+/* =========================================================================
+ * ❓ ACORDEÓN DE PREGUNTAS FRECUENTES Y CONDICIONES CANVA
+ * ========================================================================= */
+.faq-accordion-container {
+    max-width: 860px;
+    margin: 30px auto 0 auto;
+}
+
+.faq-accordion-item {
+    background: #ffffff;
+    border: 1px solid #ebe5df;
+    border-radius: 16px;
+    margin-bottom: 12px;
+    overflow: hidden;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 12px rgba(45, 41, 38, 0.04);
+}
+
+.faq-accordion-item:hover {
+    border-color: #e75480;
+}
+
+.faq-accordion-item.active {
+    border-color: #e75480;
+    box-shadow: 0 8px 24px rgba(231, 84, 128, 0.12);
+}
+
+.faq-accordion-header {
+    width: 100%;
+    padding: 18px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #2d2926;
+    transition: color 0.2s;
+}
+
+.faq-accordion-header i.icon-left {
+    color: #e75480;
+    margin-right: 12px;
+    font-size: 1.15rem;
+}
+
+.faq-accordion-header i.chevron {
+    color: #9c9189;
+    font-size: 0.95rem;
+    transition: transform 0.3s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.faq-accordion-item.active .faq-accordion-header i.chevron {
+    transform: rotate(180deg);
+    color: #e75480;
+}
+
+.faq-accordion-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s cubic-bezier(0.2, 0, 0, 1);
+    background: #fffdfd;
+}
+
+.faq-accordion-body-inner {
+    padding: 0 22px 20px 22px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #55504c;
+    border-top: 1px solid #f7ecee;
+    margin-top: 4px;
+    padding-top: 14px;
+}
+
+.faq-accordion-body-inner strong {
+    color: #2d2926;
+}
+
+/* =========================================================================
+ * 🧮 SIMULADOR / CALCULADORA "ARMA TU CELEBRACIÓN"
+ * ========================================================================= */
+.cotizador-box {
+    background: #ffffff;
+    border: 1.5px solid #ece4dc;
+    border-radius: 24px;
+    padding: 32px;
+    max-width: 900px;
+    margin: 40px auto 0 auto;
+    box-shadow: 0 16px 40px rgba(45, 41, 38, 0.08);
+}
+
+.cotizador-header {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.cotizador-kicker {
+    display: inline-block;
+    color: #e75480;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    background: rgba(231, 84, 128, 0.1);
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 8px;
+}
+
+.cotizador-title {
+    font-size: 1.65rem;
+    font-weight: 800;
+    color: #2d2926;
+    margin: 4px 0 8px 0;
+}
+
+.cotizador-subtitle {
+    color: #6a625d;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.cotizador-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.cotizador-step {
+    background: #faf7f4;
+    border: 1px solid #ebdcd1;
+    border-radius: 18px;
+    padding: 20px;
+}
+
+.cotizador-step-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #2d2926;
+    margin: 0 0 14px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cotizador-step-title span.step-number {
+    width: 26px;
+    height: 26px;
+    background: #e75480;
+    color: #fff;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+}
+
+.cotizador-select, .cotizador-input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1.5px solid #dcd3cb;
+    border-radius: 12px;
+    font-size: 0.92rem;
+    background: #ffffff;
+    color: #2d2926;
+    font-family: inherit;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.cotizador-addons-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cotizador-addon-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+    border: 1.5px solid #ebdcd1;
+    border-radius: 12px;
+    padding: 10px 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.cotizador-addon-item:hover {
+    border-color: #e75480;
+}
+
+.cotizador-addon-item.selected {
+    border-color: #e75480;
+    background: #fff5f8;
+}
+
+.cotizador-addon-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cotizador-addon-left input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #e75480;
+    cursor: pointer;
+}
+
+.cotizador-addon-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #2d2926;
+}
+
+.cotizador-addon-price {
+    font-weight: 700;
+    font-size: 0.88rem;
+    color: #e75480;
+}
+
+.cotizador-summary-card {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, #2d2926 0%, #1e1b19 100%);
+    color: #ffffff;
+    border-radius: 20px;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.cotizador-total-box span.total-label {
+    display: block;
+    font-size: 0.88rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #ffd1dc;
+    margin-bottom: 4px;
+}
+
+.cotizador-total-box strong.total-amount {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: #ffffff;
+}
+
+.cotizador-total-box small.total-notes {
+    display: block;
+    font-size: 0.8rem;
+    color: #d1c7bd;
+    margin-top: 4px;
+}
+
+.cotizador-cta-wsp {
+    background: #25D366;
+    color: #ffffff;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 14px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.25s ease;
+    box-shadow: 0 6px 18px rgba(37, 211, 102, 0.4);
+}
+
+.cotizador-cta-wsp:hover {
+    background: #20ba5a;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.5);
+    color: #ffffff;
+}
+
+@media (max-width: 768px) {
+    .cotizador-grid {
+        grid-template-columns: 1fr;
+    }
+    .cotizador-summary-card {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+    .cotizador-cta-wsp {
+        justify-content: center;
+    }
+    .availability-banner-inner {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .availability-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .availability-btn {
+        justify-content: center;
+    }
+}

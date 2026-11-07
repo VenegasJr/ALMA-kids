@@ -123,8 +123,21 @@
         { "@type": "City", "name": "Machalí" },
         { "@type": "City", "name": "Rancagua" },
         { "@type": "City", "name": "Graneros" },
+        { "@type": "City", "name": "Rengo" },
+        { "@type": "City", "name": "Coya" },
+        { "@type": "City", "name": "Codegua" },
+        { "@type": "City", "name": "Olivar" },
+        { "@type": "City", "name": "Gultro" },
+        { "@type": "City", "name": "Los Lirios" },
         { "@type": "AdministrativeArea", "name": "Región de O'Higgins" }
       ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "32",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",
@@ -605,6 +618,38 @@
                 </div>
             </div>
 
+            <!-- Barra de Verificación Rápida de Disponibilidad -->
+            <div class="availability-banner-bar">
+                <div class="availability-banner-inner">
+                    <div class="availability-banner-left">
+                        <div class="availability-icon-circle">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="availability-banner-text">
+                            <h4>¿Cuándo es tu celebración?</h4>
+                            <p>Ingresa la fecha y comuna para verificar disponibilidad inmediata en nuestra agenda:</p>
+                        </div>
+                    </div>
+                    <div class="availability-form">
+                        <input type="date" id="quickCheckFecha" class="availability-input" aria-label="Fecha del evento">
+                        <select id="quickCheckComuna" class="availability-select" aria-label="Comuna">
+                            <option value="Machalí">Machalí</option>
+                            <option value="Rancagua">Rancagua</option>
+                            <option value="Graneros">Graneros</option>
+                            <option value="Rengo">Rengo</option>
+                            <option value="Coya">Coya</option>
+                            <option value="Codegua">Codegua</option>
+                            <option value="Olivar">Olivar</option>
+                            <option value="Gultro / Los Lirios">Gultro / Los Lirios</option>
+                            <option value="Otra Comuna">Otra Comuna</option>
+                        </select>
+                        <button type="button" class="availability-btn" onclick="window.consultarDisponibilidadExpress()">
+                            <i class="fab fa-whatsapp"></i> Consultar Fecha
+                        </button>
+                    </div>
+                </div>
+            </div>
+
             <!-- Filtros interactivos por Categoría -->
             <div class="catalogo-filters" role="tablist" aria-label="Filtro de productos">
                 <button type="button" class="catalogo-filter-btn active" data-filter="todos">
@@ -643,6 +688,77 @@
             <!-- Grid de Productos (Alimentado por catalogo-datos.js) -->
             <div id="catalogo-grid" class="catalogo-grid" aria-live="polite">
                 <!-- Cargado automáticamente -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Cotizador Rápido Interactivo "Arma tu Celebración" -->
+    <section id="cotizador" class="cotizador-section" style="padding: 60px 0; background: linear-gradient(180deg, #fffaf6 0%, #ffffff 100%);">
+        <div class="container">
+            <div class="cotizador-box">
+                <div class="cotizador-header">
+                    <span class="cotizador-kicker"><i class="fas fa-calculator"></i> Presupuesto en 1 Minuto</span>
+                    <h2 class="cotizador-title">Simulador Rápido: Arma tu Fiesta a Medida</h2>
+                    <p class="cotizador-subtitle">Combina tu juego o Set base con adicionales y obtén el valor total estimado con botón directo a WhatsApp.</p>
+                </div>
+
+                <div class="cotizador-grid">
+                    <!-- Paso 1: Juego Base -->
+                    <div class="cotizador-step">
+                        <h3 class="cotizador-step-title">
+                            <span class="step-number">1</span>
+                            Elige tu Juego o Set Base (4 horas)
+                        </h3>
+                        <select id="cotizadorBaseSelect" class="cotizador-select" aria-label="Juego o Set Base">
+                            <!-- Poblado dinámicamente -->
+                        </select>
+                    </div>
+
+                    <!-- Paso 2: Comuna y Fecha -->
+                    <div class="cotizador-step">
+                        <h3 class="cotizador-step-title">
+                            <span class="step-number">2</span>
+                            Lugar y Fecha del Evento
+                        </h3>
+                        <div style="display:flex; flex-direction:column; gap:10px;">
+                            <select id="cotizadorComunaSelect" class="cotizador-select" aria-label="Comuna del evento">
+                                <option value="Machalí">Machalí (Traslado 100% Gratis con Sets)</option>
+                                <option value="Rancagua">Rancagua (Traslado 100% Gratis con Sets)</option>
+                                <option value="Graneros">Graneros</option>
+                                <option value="Rengo">Rengo</option>
+                                <option value="Coya">Coya</option>
+                                <option value="Codegua">Codegua</option>
+                                <option value="Olivar">Olivar</option>
+                                <option value="Gultro / Los Lirios">Gultro / Los Lirios</option>
+                                <option value="Otra Comuna">Otra Comuna (Consultar traslado)</option>
+                            </select>
+                            <input type="date" id="cotizadorFechaInput" class="cotizador-input" aria-label="Fecha tentativa del evento">
+                        </div>
+                    </div>
+
+                    <!-- Paso 3: Adicionales -->
+                    <div class="cotizador-step" style="grid-column: 1 / -1;">
+                        <h3 class="cotizador-step-title">
+                            <span class="step-number">3</span>
+                            Suma Adicionales Opcionales ¡Haz tu fiesta inolvidable!
+                        </h3>
+                        <div id="cotizadorAddonsList" class="cotizador-addons-list">
+                            <!-- Poblado dinámicamente -->
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta de Resumen y WhatsApp -->
+                    <div class="cotizador-summary-card">
+                        <div class="cotizador-total-box">
+                            <span class="total-label">Total Estimado de Arriendo</span>
+                            <strong id="cotizadorTotalAmount" class="total-amount">$160.000</strong>
+                            <small id="cotizadorTotalNotes" class="total-notes">50% de abono al agendar y 50% previo a la instalación.</small>
+                        </div>
+                        <a id="cotizadorBtnWsp" href="#" target="_blank" rel="noopener noreferrer" class="cotizador-cta-wsp">
+                            <i class="fab fa-whatsapp"></i> Reservar esta combinación por WhatsApp
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1036,44 +1152,102 @@
     </section>
 
 
-    <!-- FAQ Section -->
-    <section id="faq" class="faq-preview">
+    <!-- FAQ Section con Acordeón Interactivo de Condiciones Canva -->
+    <section id="faq" class="faq-preview" style="padding: 70px 0; background: #ffffff;">
         <div class="container">
-            <h2 class="section-title" data-reveal>Preguntas Frecuentes ❓</h2>
-            <p class="section-subtitle">¿Tienes dudas sobre nuestros servicios? Encuentra todas las respuestas</p>
+            <div style="text-align: center; max-width: 700px; margin: 0 auto 30px auto;">
+                <span class="catalogo-eyebrow"><i class="fas fa-shield-heart"></i> Transparencia y Tranquilidad</span>
+                <h2 class="section-title" data-reveal style="margin-top: 6px;">Preguntas Frecuentes & Condiciones</h2>
+                <p class="section-subtitle">Todo lo que necesitas saber antes de contratar, directo y sin letras chicas ocultas.</p>
+            </div>
             
-            <div class="faq-preview-content">
-                <div class="faq-highlights">
-                    <div class="faq-highlight-item faq-item-1">
-                        <i class="fas fa-clock"></i>
-                        <h4>Duración</h4>
-                        <p>4 horas de juego intenso</p>
-                    </div>
-                    <div class="faq-highlight-item faq-item-2">
-                        <i class="fas fa-shield-alt"></i>
-                        <h4>Control previo</h4>
-                        <p>Equipos revisados antes de cada servicio</p>
-                    </div>
-                    <div class="faq-highlight-item faq-item-3">
-                        <i class="fas fa-baby"></i>
-                        <h4>Edad</h4>
-                        <p>De 6 meses a 7 años</p>
-                    </div>
-                    <div class="faq-highlight-item faq-item-4">
-                        <i class="fas fa-dollar-sign"></i>
-                        <h4>Pago</h4>
-                        <p>50% reserva, 50% antes del evento</p>
+            <div class="faq-accordion-container">
+                <!-- FAQ 1: Lluvia -->
+                <div class="faq-accordion-item active">
+                    <button type="button" class="faq-accordion-header" aria-expanded="true">
+                        <span><i class="fas fa-cloud-rain icon-left"></i> ¿Qué pasa si llueve el día del evento?</span>
+                        <i class="fas fa-chevron-down chevron"></i>
+                    </button>
+                    <div class="faq-accordion-body" style="max-height: 500px;">
+                        <div class="faq-accordion-body-inner">
+                            En caso de lluvia o mal tiempo, <strong>se puede reprogramar la fecha sin ningún costo adicional</strong> o instalar en un espacio interior o techado si el lugar lo permite. ¡Tu dinero y tu celebración están protegidos en todo momento!
+                        </div>
                     </div>
                 </div>
-                
-                <div class="faq-cta-main">
-                    <h3>¿Necesitas más información?</h3>
-                    <p>Revisa todas nuestras preguntas frecuentes con respuestas detalladas</p>
-                    <a class='btn btn-primary btn-large' href='faq.html'>
-                        <i class="fas fa-question-circle"></i>
-                        Ver Todas las FAQ
-                    </a>
+
+                <!-- FAQ 2: Pago y Reserva -->
+                <div class="faq-accordion-item">
+                    <button type="button" class="faq-accordion-header" aria-expanded="false">
+                        <span><i class="fas fa-receipt icon-left"></i> ¿Cómo es la forma de pago y reserva?</span>
+                        <i class="fas fa-chevron-down chevron"></i>
+                    </button>
+                    <div class="faq-accordion-body">
+                        <div class="faq-accordion-body-inner">
+                            Para agendar formalmente tu fecha en nuestro calendario se solicita el <strong>50% del valor total como abono de reserva</strong> mediante transferencia bancaria. El <strong>50% restante se cancela previo a la instalación</strong> de los juegos en el domicilio el día del evento.
+                        </div>
+                    </div>
                 </div>
+
+                <!-- FAQ 3: Suelo y Electricidad -->
+                <div class="faq-accordion-item">
+                    <button type="button" class="faq-accordion-header" aria-expanded="false">
+                        <span><i class="fas fa-bolt icon-left"></i> ¿Qué requisitos de suelo y corriente se necesitan?</span>
+                        <i class="fas fa-chevron-down chevron"></i>
+                    </button>
+                    <div class="faq-accordion-body">
+                        <div class="faq-accordion-body-inner">
+                            El espacio debe estar <strong>limpio, seco, plano y nivelado</strong> (pasto corto, baldosas o interior). Para los castillos inflables se requiere un punto de corriente normal de 220V a <strong>máximo 10 metros</strong> de distancia y al menos <strong>1 metro libre por cada lado</strong> por seguridad técnica.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 4: Reglas en la zona de juegos -->
+                <div class="faq-accordion-item">
+                    <button type="button" class="faq-accordion-header" aria-expanded="false">
+                        <span><i class="fas fa-ban icon-left"></i> ¿Cuáles son las reglas dentro de los juegos?</span>
+                        <i class="fas fa-chevron-down chevron"></i>
+                    </button>
+                    <div class="faq-accordion-body">
+                        <div class="faq-accordion-body-inner">
+                            Por higiene y máxima seguridad de los niños <strong>NO se permite:</strong> uso de calzado (solo calcetines), consumo de alimentos o bebidas dentro de los juegos, elementos punzantes, pintacaritas, ni presencia de mascotas. Tampoco se permite adherir cinta adhesiva o scotch sobre las lonas inflables.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 5: Cobertura y Traslado -->
+                <div class="faq-accordion-item">
+                    <button type="button" class="faq-accordion-header" aria-expanded="false">
+                        <span><i class="fas fa-truck-fast icon-left"></i> ¿Qué comunas tienen traslado gratis y qué sectores cubren?</span>
+                        <i class="fas fa-chevron-down chevron"></i>
+                    </button>
+                    <div class="faq-accordion-body">
+                        <div class="faq-accordion-body-inner">
+                            Ofrecemos <strong>traslado 100% gratuito en Machalí y Rancagua</strong> contratando cualquier Set o Pack completo. También cubrimos Graneros, Rengo, Coya, Codegua, Olivar, Gultro, Los Lirios y sectores cercanos (el costo de traslado se calcula según la distancia exacta).
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 6: Duración y Montaje -->
+                <div class="faq-accordion-item">
+                    <button type="button" class="faq-accordion-header" aria-expanded="false">
+                        <span><i class="fas fa-stopwatch icon-left"></i> ¿Cuánto dura el servicio y cuánto demora el montaje?</span>
+                        <i class="fas fa-chevron-down chevron"></i>
+                    </button>
+                    <div class="faq-accordion-body">
+                        <div class="faq-accordion-body-inner">
+                            Todos nuestros servicios incluyen <strong>4 horas de diversión continua</strong>. Nuestro equipo llega con <strong>50 a 60 minutos de anticipación</strong> para instalar, anclar y sanitizar todo sin quitarle ni un minuto a tu horario contratado.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 35px;">
+                <a class="btn btn-primary" href="faq.html" style="margin-right: 12px;">
+                    <i class="fas fa-list-check"></i> Ver Todas las 19 Condiciones en Detalle
+                </a>
+                <a class="btn btn-secondary" href="https://wa.me/56969073306?text=Hola%20ALMA%20Kids%2C%20tengo%20una%20consulta%20sobre%20las%20condiciones%20de%20arriendo" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-whatsapp"></i> Pregúntanos por WhatsApp
+                </a>
             </div>
         </div>
     </section>
@@ -1304,9 +1478,11 @@
     <!-- Floating Action Button (FAB) - Botón flotante expandible -->
     
     <!-- CATÁLOGO EDITABLE & MOTOR DINÁMICO & PROMOCIONES -->
-    <script src="catalogo-datos.js?v=20261106-promo01"></script>
-    <script src="promociones.js?v=20261106-promo01"></script>
-    <script src="catalogo.js?v=20261106-promo01"></script>
+    <script src="catalogo-datos.js?v=20261107-02"></script>
+    <script src="promociones.js?v=20261107-02"></script>
+    <script src="catalogo.js?v=20261107-02"></script>
+    <script src="cotizador.js?v=20261107-02"></script>
+    <script src="faq-accordion.js?v=20261107-02"></script>
     <script src="floating-action-button.js" defer></script>
     <!-- MODERN FEATURES 2025 -->
     <script src="modern-features.js" defer></script>

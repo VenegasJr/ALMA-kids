@@ -23,9 +23,21 @@
     }
 
     // Generar enlace directo a WhatsApp
-    function generarLinkWhatsApp(producto) {
+    function generarLinkWhatsApp(producto, opciones = {}) {
         const telefono = '56969073306';
         const precioFmt = formatearPrecio(producto.precio);
+
+        let personalizacionTexto = '';
+        if (opciones && Object.keys(opciones).length > 0) {
+            const lineas = [];
+            if (opciones.castillo) lineas.push(`   🏰 Castillo elegido: *${opciones.castillo}*`);
+            if (opciones.pelotas) lineas.push(`   ⚪ Pelotas de piscina: *${opciones.pelotas}*`);
+            if (opciones.tatami) lineas.push(`   🧩 Piso Tatami: *${opciones.tatami}*`);
+            if (opciones.tipi) lineas.push(`   🏕️ Alfombra Tipi: *${opciones.tipi}*`);
+            if (lineas.length > 0) {
+                personalizacionTexto = `\n\n🎨 *Mi personalización elegida (gratis):*\n${lineas.join('\n')}`;
+            }
+        }
 
         // Revisar si el cliente tiene un cupón activo de Instagram
         let promoBloque = '';
@@ -40,7 +52,7 @@ Me encantó su catálogo y quisiera cotizar el siguiente servicio:
 
 🎈 *${producto.nombre}*
 🏷️ Valor referencia: *${precioFmt}*
-⏱️ Tiempo: *${producto.duracion}*${promoBloque ? '\n' + promoBloque : ''}
+⏱️ Tiempo: *${producto.duracion}*${personalizacionTexto}${promoBloque ? '\n' + promoBloque : ''}
 
 📅 *Fecha de mi evento:* 
 📍 *Comuna:* 
@@ -165,10 +177,83 @@ Me encantó su catálogo y quisiera cotizar el siguiente servicio:
         const modalBody = modal.querySelector('.catalogo-modal-body');
         const imgPrincipal = producto.imagenModal || producto.imagen;
 
+        // Detectar qué opciones aplican según el juego
+        const tieneOpcionCastillo = (producto.id === 'pack-maximo' || producto.id === 'set-duo');
+        const tieneOpcionPelotas = ['pack-grand-peque', 'pack-maximo', 'set-alma-magic', 'set-alma-active', 'set-duo', 'pack-alma-mini-play', 'piscina-pelotas-espuma', 'castillo-rosa', 'castillo-peque'].includes(producto.id);
+        const tieneOpcionTatami = ['pack-grand-peque', 'pack-maximo', 'set-alma-magic', 'set-alma-active', 'set-duo', 'pack-alma-mini-play', 'castillo-grand-peque', 'castillo-rosa', 'castillo-peque', 'piscina-pelotas-espuma'].includes(producto.id);
+        const tieneOpcionTipi = ['pack-grand-peque', 'pack-maximo', 'set-alma-active', 'carpa-tipi'].includes(producto.id);
+
+        const tieneOpciones = (tieneOpcionCastillo || tieneOpcionPelotas || tieneOpcionTatami || tieneOpcionTipi);
+
+        // Estado inicial de opciones
+        const opciones = {};
+        if (tieneOpcionCastillo) opciones.castillo = 'Castillo "PEQUE" Neutro';
+        if (tieneOpcionPelotas) opciones.pelotas = 'Rosa & Blanco';
+        if (tieneOpcionTatami) opciones.tatami = 'Rosa / Blanco';
+        if (tieneOpcionTipi) opciones.tipi = 'Rosa Pastel';
+
+        const linkInicial = generarLinkWhatsApp(producto, tieneOpciones ? opciones : {});
+
+        // Bloque HTML de personalización interactiva
+        let customizerHtml = '';
+        if (tieneOpciones) {
+            customizerHtml = `
+                <div class="catalogo-modal-customizer">
+                    <div class="customizer-header">
+                        <i class="fas fa-palette"></i>
+                        <span>Personaliza tu celebración (Opciones incluidas gratis):</span>
+                    </div>
+
+                    ${tieneOpcionCastillo ? `
+                        <div class="customizer-group" data-opt="castillo">
+                            <span class="customizer-label">🏰 Elige el modelo de Castillo Inflable:</span>
+                            <div class="customizer-pills">
+                                <button type="button" class="customizer-pill active" data-val='Castillo "PEQUE" Neutro'>Castillo "PEQUE" Neutro</button>
+                                <button type="button" class="customizer-pill" data-val='Castillo "ROSA" Pastel'>Castillo "ROSA" Pastel</button>
+                            </div>
+                        </div>
+                    ` : ''}
+
+                    ${tieneOpcionPelotas ? `
+                        <div class="customizer-group" data-opt="pelotas">
+                            <span class="customizer-label">⚪ Color de pelotas para la piscina:</span>
+                            <div class="customizer-pills">
+                                <button type="button" class="customizer-pill active" data-val="Rosa & Blanco">🌸 Rosa & Blanco</button>
+                                <button type="button" class="customizer-pill" data-val="Celeste & Blanco">☁️ Celeste & Blanco</button>
+                                <button type="button" class="customizer-pill" data-val="Mix Pastel Dulce">✨ Mix Pastel</button>
+                                <button type="button" class="customizer-pill" data-val="Blanco Impoluto">🤍 Blanco Puro</button>
+                            </div>
+                        </div>
+                    ` : ''}
+
+                    ${tieneOpcionTatami ? `
+                        <div class="customizer-group" data-opt="tatami">
+                            <span class="customizer-label">🧩 Paleta del Piso de Goma Tatami:</span>
+                            <div class="customizer-pills">
+                                <button type="button" class="customizer-pill active" data-val="Rosa / Blanco">🌸 Rosa / Blanco</button>
+                                <button type="button" class="customizer-pill" data-val="Beige / Gris">🌾 Beige / Gris Neutro</button>
+                            </div>
+                        </div>
+                    ` : ''}
+
+                    ${tieneOpcionTipi ? `
+                        <div class="customizer-group" data-opt="tipi">
+                            <span class="customizer-label">🏕️ Alfombra para la Carpa Tipi:</span>
+                            <div class="customizer-pills">
+                                <button type="button" class="customizer-pill active" data-val="Rosa Pastel">🎀 Rosa</button>
+                                <button type="button" class="customizer-pill" data-val="Celeste Pastel">☁️ Celeste</button>
+                                <button type="button" class="customizer-pill" data-val="Gris Neutro">🌫️ Gris</button>
+                            </div>
+                        </div>
+                    ` : ''}
+                </div>
+            `;
+        }
+
         modalBody.innerHTML = `
             <div class="catalogo-modal-grid">
                 <div class="catalogo-modal-media">
-                    <img src="${imgPrincipal}" alt="${producto.nombre}" onerror="this.src='${producto.imagen}'">
+                    <img id="modalMediaImg" src="${imgPrincipal}" alt="${producto.nombre}" onerror="this.src='${producto.imagen}'">
                     ${producto.badge ? `<span class="catalogo-modal-badge">${producto.badge}</span>` : ''}
                 </div>
 
@@ -201,6 +286,8 @@ Me encantó su catálogo y quisiera cotizar el siguiente servicio:
                         </div>
                     </div>
 
+                    ${customizerHtml}
+
                     <div class="catalogo-modal-section">
                         <h4><i class="fas fa-check-circle"></i> Todo lo que incluye este servicio:</h4>
                         <ul class="catalogo-modal-list">
@@ -216,7 +303,7 @@ Me encantó su catálogo y quisiera cotizar el siguiente servicio:
                     ` : ''}
 
                     <div class="catalogo-modal-cta">
-                        <a href="${linkWsp}" target="_blank" rel="noopener noreferrer" class="btn-modal-wsp">
+                        <a id="btnModalWspAction" href="${linkInicial}" target="_blank" rel="noopener noreferrer" class="btn-modal-wsp">
                             <i class="fab fa-whatsapp"></i> Cotizar este juego por WhatsApp
                         </a>
                         <button type="button" class="btn-modal-close-action" onclick="window.cerrarModalDetalles()">
@@ -226,6 +313,30 @@ Me encantó su catálogo y quisiera cotizar el siguiente servicio:
                 </div>
             </div>
         `;
+
+        // Activar interactividad de los botones de personalización
+        if (tieneOpciones) {
+            const groups = modalBody.querySelectorAll('.customizer-group');
+            const btnWsp = modalBody.querySelector('#btnModalWspAction');
+
+            groups.forEach(group => {
+                const optKey = group.getAttribute('data-opt');
+                const pills = group.querySelectorAll('.customizer-pill');
+
+                pills.forEach(pill => {
+                    pill.addEventListener('click', () => {
+                        pills.forEach(p => p.classList.remove('active'));
+                        pill.classList.add('active');
+                        opciones[optKey] = pill.getAttribute('data-val');
+
+                        // Actualizar enlace dinámicamente
+                        if (btnWsp) {
+                            btnWsp.href = generarLinkWhatsApp(producto, opciones);
+                        }
+                    });
+                });
+            });
+        }
 
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
