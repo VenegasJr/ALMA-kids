@@ -1,146 +1,183 @@
 /**
  * =========================================================================
- * 🏷️ ALMA KIDS - CATÁLOGO DE PRODUCTOS Y PRECIOS EDITABLE
+ * 🏷️ ALMA KIDS - CATÁLOGO OFICIAL 2026 DE PRODUCTOS Y PRECIOS
  * =========================================================================
+ * Sincronizado 100% con el diseño oficial de Canva:
+ * https://www.canva.com/design/DAG161rnq4Y/lAAt-2ca7zx2ZlUqGP6LKw
  * 
- * 📝 ¿CÓMO CAMBIAR UN PRECIO O EDITAR UN PRODUCTO?
- * 1. Busca el producto que deseas actualizar en la lista de abajo.
- * 2. Modifica el número en "precio: XXXXX".
- *    👉 Ejemplo: si 'precio: 150000' sube a 160 mil, pon 'precio: 160000'.
- *    ⚠️ Importante: Escribe solo números (sin puntos, sin comas y sin el signo $).
- * 3. Si quieres pausar u ocultar un producto temporalmente, cambia 'activo: true' a 'activo: false'.
- * 4. Guarda el archivo (Ctrl+S o Cmd+S) ¡y la web se actualizará sola!
- * 
+ * 📝 ¿CÓMO EDITAR UN PRECIO O PAUSAR UN PRODUCTO?
+ * 1. Busca el producto en la lista.
+ * 2. Modifica el valor numérico en "precio: XXXXX" (solo números, sin puntos ni $).
+ * 3. Para ocultar un juego temporalmente, cambia 'activo: true' por 'activo: false'.
+ * 4. Guarda el archivo ¡y la web se actualizará automáticamente!
  * =========================================================================
  */
 
 window.CATALOGO_PRODUCTOS = [
     // -------------------------------------------------------------------------
-    // 👑 CATEGORÍA: PACKS TODO INCLUIDO
+    // 👑 CATEGORÍA: PACKS Y SETS TODO INCLUIDO
     // -------------------------------------------------------------------------
+    {
+        id: "pack-grand-peque",
+        nombre: 'SET "GRAND-PEQUE" (Tope de Gama)',
+        categoria: "packs",
+        categoriaNombre: "Pack VIP Completo",
+        precio: 210000,
+        badge: "👑 EXPERIENCIA MÁXIMA GRAND",
+        destacado: true,
+        imagen: "imagenes/producto-castillo-grand-peque-real.jpg",
+        imagenModal: "imagenes/producto-castillo-grand-peque-real.jpg",
+        duracion: "4 horas de uso continuo",
+        medidasEspacio: "6.0m × 6.0m mínimo (Castillo: 5.0m × 4.0m × 2.80m)",
+        edadesRecomendadas: "2 a 7 años",
+        resumen: "El set más grande, majestuoso y fotografiable de ALMA Kids. Combina el imponente Castillo Grand-Peque blanco con plaza blanda completa, motricidad, saltarines, tipi y máquina de burbujas.",
+        incluye: [
+            "1. Castillo Inflable 'GRAND-PEQUE' (5.0m × 4.0m × 2.80m)",
+            "2. Piscina blanca de espuma con pelotas (1.50m × 1.50m × 0.40m)",
+            "3. Set de Motricidad sensorial (Escala + túnel + cuña)",
+            "4. Saltarín o Balancín Unicornio",
+            "5. Saltarín o Balancín Caballo café",
+            "6. Carpa Tipi decorativa aesthetic",
+            "7. Cojines decorativos (01 und, 02 a elección)",
+            "8. Alfombra para carpa tipi (Celeste, Gris o Rosa)",
+            "9. Máquina de burbujas profesional + líquido 700ml",
+            "10. Alfombra Tatami protectora 8.64 m² (Rosa/Blanco o Beige/Gris)",
+            "11. Rincón zapatero para mantener el orden",
+            "12. Montaje y retiro puntual a cargo del equipo"
+        ],
+        requisitos: "Superficie amplia nivelada de 6x6m limpia y seca. Conexión eléctrica a ≤10m. No incluye decoración."
+    },
     {
         id: "pack-maximo",
         nombre: 'SET "MÁXIMO" Todo Incluido',
         categoria: "packs",
         categoriaNombre: "Pack Todo Incluido",
-        precio: 150000,
+        precio: 160000,
         badge: "🏆 EL MÁS COMPLETO",
         destacado: true,
-        // Foto real de montaje limpio sin textos de catálogo
         imagen: "imagenes/producto-pack-maximo-real.jpg",
         imagenModal: "imagenes/producto-pack-maximo-real.jpg",
-        duracion: "4 horas de diversión",
+        duracion: "4 horas de uso continuo",
         medidasEspacio: "3.5m × 2.5m mínimo",
         edadesRecomendadas: "1 a 6 años",
-        resumen: "La experiencia definitiva con 12 componentes premium: castillo inflable con piscina, piscina de pelotas blanca, motricidad, saltarines, tipi y máquina de burbujas.",
+        resumen: "La experiencia favorita de las familias: incluye 12 componentes premium combinando castillo inflable con piscina, piscina de espuma independiente, motricidad, saltarines, tipi y burbujas.",
         incluye: [
-            "Castillo Inflable a elección (Rosa o Peque) con piscina",
-            "Piscina blanca de espuma con pelotas a elección",
-            "Set de Motricidad sensorial (escala + túnel + cuña)",
-            "2 Saltarines (unicornio blanco y caballito café)",
-            "Carpa Tipi decorativa con alfombra suave",
-            "Máquina de burbujas profesional + 700ml de líquido",
-            "Cojines decorativos suaves",
-            "Alfombra Tatami protectora (Rosa/Blanco o Beige/Gris)",
-            "Rincón zapatero para mantener el orden",
-            "Montaje, sanitización y retiro puntual incluidos"
+            "1. Castillo Inflable 'ROSA' o 'PEQUE' con piscina incluida (2.8m × 2.53m × 2.30m)",
+            "2. Piscina blanca de espuma con pelotas (1.50m × 1.50m × 0.40m)",
+            "3. Set de Motricidad sensorial (Escala + túnel + cuña)",
+            "4. Saltarín o Balancín Unicornio (a elección)",
+            "5. Saltarín o Balancín Caballo café (a elección)",
+            "6. Carpa Tipi decorativa",
+            "7. Cojines decorativos (01 und, 02 a elección)",
+            "8. Alfombra para tipi (Celeste, Gris o Rosa)",
+            "9. Máquina de burbujas profesional + líquido 700ml",
+            "10. Alfombra Tatami 8.64 m² (Rosa/Blanco o Beige/Gris)",
+            "11. Rincón zapatero para calzado",
+            "12. Montaje, sanitización y retiro incluidos"
         ],
-        requisitos: "Terreno plano y limpio, conexión eléctrica a máximo 10 metros."
+        requisitos: "Superficie limpia, seca y nivelada. Punto de corriente a ≤10m. No incluye decoración."
+    },
+    {
+        id: "set-alma-magic",
+        nombre: 'SET "ALMA MAGIC"',
+        categoria: "packs",
+        categoriaNombre: "Pack Inflable + Plaza",
+        precio: 150000,
+        badge: "✨ DIVERSIÓN MÁGICA",
+        destacado: true,
+        imagen: "imagenes/producto-castillo-peque-real.jpg",
+        imagenModal: "imagenes/producto-castillo-peque-real.jpg",
+        duracion: "4 horas de uso continuo",
+        medidasEspacio: "3.5m × 2.5m mínimo",
+        edadesRecomendadas: "1 a 6 años",
+        resumen: "Diversión mágica con castillo inflable 'PEQUE' con piscina integrada, piscina blanca de espuma independiente, motricidad suave sensorial, saltarines y tatami extendido.",
+        incluye: [
+            "1. Piscina blanca de espuma de pelotas (1.50m × 1.50m × 0.40m)",
+            "2. Set de Motricidad: Escala + túnel + cuña",
+            "3. Saltarín o Balancín Unicornio",
+            "4. Saltarín o Balancín Caballo café",
+            "5. Castillo Inflable 'PEQUE' con piscina incluida",
+            "6. Alfombra Tatami 8.64 m² incluida (Rosa/Blanco o Beige/Gris)",
+            "7. Rincón zapatero",
+            "8. Montaje y retiro de los juegos"
+        ],
+        requisitos: "Punto de corriente a ≤10m. Superficie limpia, seca y nivelada. No incluye decoración."
     },
     {
         id: "set-alma-active",
         nombre: 'SET "ALMA ACTIVE"',
         categoria: "packs",
-        categoriaNombre: "Pack Todo Incluido",
+        categoriaNombre: "Pack Plaza Blanda & Tipi",
         precio: 130000,
-        badge: "🔥 MÁS POPULAR",
+        badge: "🔥 FAVORITO PLAZA BLANDA",
         destacado: true,
         imagen: "imagenes/producto-set-active-real.jpg",
         imagenModal: "imagenes/producto-set-active-real.jpg",
-        duracion: "4 horas de diversión",
+        duracion: "4 horas de uso continuo",
         medidasEspacio: "3.5m × 2.5m mínimo",
-        edadesRecomendadas: "1 a 6 años",
-        resumen: "Diversión activa garantizada: combina castillo con piscina, set de motricidad suave, saltarines y tatami en un solo montaje estético.",
+        edadesRecomendadas: "6 meses a 5 años",
+        resumen: "El set sensorial más completo sin necesidad de turbina eléctrica: piscina de pelotas blanca, set de motricidad, saltarines, carpa tipi con cojines y alfombra tatami.",
         incluye: [
-            "Castillo Inflable 'PEQUE' o 'ROSA' con piscina integrada",
-            "Piscina blanca de espuma con pelotas (1.50m × 1.50m × 0.40m)",
-            "Set de Motricidad sensorial (escala + túnel + cuña)",
-            "Saltarín unicornio",
-            "Saltarín caballo café",
-            "Alfombra Tatami protectora",
-            "Rincón zapatero",
-            "Montaje y retiro a cargo de ALMA Kids"
+            "1. Piscina blanca de espuma con pelotas (1.50m × 1.50m × 0.40m)",
+            "2. Set de Motricidad sensorial (Escala + túnel + cuña)",
+            "3. Saltarín unicornio",
+            "4. Saltarín caballo café",
+            "5. Carpa Tipi decorativa",
+            "6. Cojines decorativos (01 und, 02 a elección)",
+            "7. Alfombra para carpa tipi (Celeste, Gris o Rosa)",
+            "8. Alfombra Tatami 8.64 m² incluida (Rosa/Blanco o Beige/Gris)",
+            "9. Rincón zapatero",
+            "10. Montaje y retiro de los juegos"
         ],
-        requisitos: "Conexión eléctrica a máx 10m. Espacio libre nivelado."
+        requisitos: "Superficie limpia, seca y nivelada. No requiere conexión eléctrica. No incluye decoración."
     },
     {
-        id: "set-alma-party",
-        nombre: 'SET "ALMA PARTY"',
+        id: "set-duo",
+        nombre: 'SET "DUO" (Castillo + Piscina)',
         categoria: "packs",
-        categoriaNombre: "Pack Todo Incluido",
-        precio: 110000,
-        badge: "🎉 PACK FIESTA",
+        categoriaNombre: "Pack Dúo Clásico",
+        precio: 120000,
+        badge: "🎈 DÚO FAVORITO",
         destacado: false,
-        imagen: "imagenes/castillo-rosa.png",
-        imagenModal: "imagenes/castillo-rosa.png",
-        duracion: "4 horas de diversión",
-        medidasEspacio: "3.0m × 3.0m mínimo",
+        imagen: "imagenes/producto-castillo-blanco-exterior.jpg",
+        imagenModal: "imagenes/producto-castillo-blanco-exterior.jpg",
+        duracion: "4 horas de uso continuo",
+        medidasEspacio: "3.5m × 2.5m mínimo",
         edadesRecomendadas: "1 a 6 años",
-        resumen: "Especial para celebraciones delicadas: Castillo inflable rosa pastel con piscina integrada, set de motricidad y tatami protector.",
+        resumen: "La combinación clásica más cotizada: Castillo inflable a elección ('PEQUE' o 'ROSA') con piscina integrada más una piscina de espuma blanca independiente con tatami y zapatero.",
         incluye: [
-            "Castillo Inflable Rosa Pastel (2.8m × 2.53m × 2.30m)",
-            "Set de Motricidad sensorial (escala + túnel + cuña)",
-            "Alfombra Tatami protectora",
-            "Rincón zapatero",
-            "Montaje y retiro incluidos"
+            "1. Castillo Inflable modelo 'PEQUE' o 'ROSA' con piscina incluida",
+            "2. Piscina de pelotas de espuma blanca (1.50m × 1.50m × 0.40m)",
+            "3. Alfombra Tatami 4.32 m² incluida (Rosa/Blanco o Beige/Gris)",
+            "4. Rincón zapatero",
+            "5. Montaje y retiro de los juegos incluidos"
         ],
-        requisitos: "Punto de corriente normal de 220V."
+        requisitos: "Conexión eléctrica a ≤10m. Superficie limpia, seca y nivelada. No incluye decoración."
     },
     {
         id: "pack-alma-mini-play",
-        nombre: 'PACK "ALMA MINI PLAY"',
+        nombre: 'SET "ALMA MINI PLAY"',
         categoria: "packs",
-        categoriaNombre: "Pack Todo Incluido",
-        precio: 90000,
+        categoriaNombre: "Especial Primera Infancia",
+        precio: 100000,
         badge: "👶 ESPECIAL BEBÉS",
         destacado: true,
         imagen: "imagenes/producto-set-mini-play-real.jpg",
         imagenModal: "imagenes/producto-set-mini-play-real.jpg",
-        duracion: "4 horas de uso",
+        duracion: "4 horas de uso continuo",
         medidasEspacio: "2.5m × 2.5m mínimo",
         edadesRecomendadas: "6 meses a 3 años",
-        resumen: "Diseñado especialmente para los más pequeñitos, cumpleaños de 1 año y baby showers. 100% espuma suave y seguridad sensorial.",
+        resumen: "Diseñado especialmente para cumpleaños de 1 a 3 años y baby showers: piscina blanca de espuma, motricidad sensorial, cojines y alfombra tatami acolchada de 8.64m².",
         incluye: [
-            "Piscina blanca de espuma suave con pelotas (1.50m × 1.50m)",
-            "Set de Motricidad suave (escala de gateo + túnel + cuña)",
-            "Alfombra Tatami protectora",
-            "Rincón zapatero",
-            "Cojines decorativos y alfombra suave",
-            "Montaje y retiro incluido"
+            "1. Set de Motricidad sensorial (Escala + túnel + cuña)",
+            "2. Piscina blanca de espuma con pelotas (1.50m × 1.50m × 0.40m)",
+            "3. Alfombra Tatami 8.64 m² incluida (Rosa/Blanco o Beige/Gris)",
+            "4. Rincón zapatero",
+            "5. Cojines decorativos (01 und, 02 a elección)",
+            "6. Alfombra suave (Celeste, Gris o Rosa)",
+            "7. Montaje y retiro de los juegos"
         ],
-        requisitos: "Espacio techado o al aire libre en piso plano."
-    },
-    {
-        id: "set-alma-plus",
-        nombre: 'SET "ALMA PLUS"',
-        categoria: "packs",
-        categoriaNombre: "Pack Básico",
-        precio: 80000,
-        badge: "💫 BÁSICO PLUS",
-        destacado: false,
-        imagen: "imagenes/producto-piscina-celeste-clean.jpg",
-        imagenModal: "imagenes/producto-piscina-celeste-clean.jpg",
-        duracion: "4 horas de diversión",
-        medidasEspacio: "2.0m × 2.0m",
-        edadesRecomendadas: "6 meses a 4 años",
-        resumen: "Piscina de pelotas con tatami y zapatero. Ideal como rincón de juegos seguro o complemento de espacios pequeños.",
-        incluye: [
-            "Piscina de espuma blanca con pelotas (1.50m × 1.50m)",
-            "Alfombra Tatami protectora",
-            "Rincón zapatero",
-            "Montaje y retiro incluido"
-        ],
-        requisitos: "Espacio limpio de 2x2 metros."
+        requisitos: "Espacio de 2.5m × 2.5m limpio y nivelado. No requiere electricidad. No incluye decoración."
     },
 
     // -------------------------------------------------------------------------
@@ -148,7 +185,7 @@ window.CATALOGO_PRODUCTOS = [
     // -------------------------------------------------------------------------
     {
         id: "castillo-grand-peque",
-        nombre: "Castillo Grand-Peque Blanco Impoluto",
+        nombre: "Castillo Inflable GRAND-PEQUE Blanco",
         categoria: "castillos",
         categoriaNombre: "Castillo Inflable",
         precio: 90000,
@@ -157,18 +194,17 @@ window.CATALOGO_PRODUCTOS = [
         imagen: "imagenes/producto-castillo-grand-peque-real.jpg",
         imagenModal: "imagenes/producto-castillo-grand-peque-real.jpg",
         duracion: "4 horas de uso continuo",
-        medidasEspacio: "Juego: 5.0m × 4.0m × 2.8m (Requiere espacio 6m × 6m)",
+        medidasEspacio: "Juego: 5.0m × 4.0m × 2.80m (Espacio mín: 6m × 6m)",
         edadesRecomendadas: "2 a 7 años",
-        resumen: "El castillo más grande e impactante de nuestro catálogo. Blanco impoluto neutral, perfecto para decoraciones chic, guirnaldas de globos y fotos de revista.",
+        resumen: "El castillo más amplio e imponente. Blanco impoluto neutral, ideal para guirnaldas de globos, decoraciones chic y fotografías inolvidables.",
         incluye: [
-            "Castillo Inflable Blanco Impoluto premium",
-            "Turbina eléctrica de inflado silenciosa y segura",
-            "Pelotas de colores a elección",
-            "Alfombra Tatami protectora",
-            "Rincón zapatero",
-            "Montaje y retiro a cargo del equipo"
+            "1. Castillo Inflable 'GRAND-PEQUE' (5m × 4m × 2.80m)",
+            "2. Turbina eléctrica de inflado continuo y silencioso",
+            "3. Alfombra Tatami 4.32 m² incluida (Rosa/Blanco o Beige/Gris)",
+            "4. Rincón zapatero",
+            "5. Montaje y retiro puntual a cargo del equipo"
         ],
-        requisitos: "Conexión eléctrica de 220V a máximo 10 metros. Espacio libre de ramas o cables."
+        requisitos: "Conexión eléctrica de 220V a ≤10m. Superficie limpia, seca y nivelada de 6x6m. No incluye decoración."
     },
     {
         id: "castillo-rosa",
@@ -181,17 +217,18 @@ window.CATALOGO_PRODUCTOS = [
         imagen: "imagenes/castillo-rosa.png",
         imagenModal: "imagenes/castillo-rosa.png",
         duracion: "4 horas de uso continuo",
-        medidasEspacio: "Juego: 2.8m × 2.5m × 2.3m (Requiere espacio 3.5m × 3.5m)",
+        medidasEspacio: "Juego: 2.8m × 2.53m × 2.30m (Espacio mín: 2.5m × 2.5m)",
         edadesRecomendadas: "1 a 6 años",
-        resumen: "Diseño tierno y sofisticado en tono rosa pastel con piscina integrada redonda. Muy fotogénico para temáticas delicadas y princesas.",
+        resumen: "El favorito de las niñas: diseño sofisticado en rosa pastel con piscina de pelotas integrada. Muy fotogénico y seguro para capturar recuerdos mágicos.",
         incluye: [
-            "Castillo Inflable en tono rosa pastel",
-            "Piscina integrada redonda con pelotas",
-            "Turbina eléctrica y anclajes",
-            "Alfombra Tatami y Rincón zapatero",
-            "Montaje y retiro incluidos"
+            "1. Castillo Inflable 'ROSA' con piscina integrada",
+            "2. Pelotas a elección en tonos pastel",
+            "3. Turbina eléctrica y protecciones de seguridad",
+            "4. Alfombra Tatami 4.32 m² incluida (Rosa/Blanco o Beige/Gris)",
+            "5. Rincón zapatero",
+            "6. Montaje y retiro de castillo"
         ],
-        requisitos: "Conexión eléctrica a máx 10m."
+        requisitos: "Punto de corriente a ≤10m. Espacio limpio y nivelado de 2.5x2.5m. No incluye decoración."
     },
     {
         id: "castillo-peque",
@@ -204,17 +241,18 @@ window.CATALOGO_PRODUCTOS = [
         imagen: "imagenes/producto-castillo-peque-real.jpg",
         imagenModal: "imagenes/producto-castillo-peque-real.jpg",
         duracion: "4 horas de uso continuo",
-        medidasEspacio: "Juego: 2.9m × 2.8m × 2.3m (Requiere espacio 3.5m × 3.5m)",
+        medidasEspacio: "Juego: 2.90m × 2.80m × 2.30m (Espacio mín: 2.5m × 2.5m)",
         edadesRecomendadas: "1 a 6 años",
-        resumen: "Tonos neutros suaves (blanco, gris y beige) con piscina cuadrada integrada. Combina perfecto con cualquier temática de fiesta.",
+        resumen: "Tonos neutros elegantes (blanco y beige) con piscina cuadrada integrada. Combina perfecto con cualquier paleta o temática de celebración.",
         incluye: [
-            "Castillo Inflable Peque neutro",
-            "Piscina cuadrada integrada con pelotas",
-            "Turbina eléctrica y protecciones",
-            "Alfombra Tatami y Rincón zapatero",
-            "Montaje y retiro incluidos"
+            "1. Castillo Inflable 'PEQUE' con piscina cuadrada incluida",
+            "2. Pelotas a elección",
+            "3. Turbina eléctrica y anclajes",
+            "4. Alfombra Tatami 4.32 m² incluida (Rosa/Blanco o Beige/Gris)",
+            "5. Rincón zapatero",
+            "6. Montaje y retiro de castillo"
         ],
-        requisitos: "Punto de corriente a máx 10m."
+        requisitos: "Punto de corriente a ≤10m. Superficie limpia y nivelada. No incluye decoración."
     },
 
     // -------------------------------------------------------------------------
@@ -222,48 +260,48 @@ window.CATALOGO_PRODUCTOS = [
     // -------------------------------------------------------------------------
     {
         id: "piscina-pelotas-espuma",
-        nombre: "Piscina de Pelotas de Espuma Blanca",
+        nombre: "Piscina de Pelotas Blanca de Espuma",
         categoria: "plaza",
         categoriaNombre: "Plaza Blanda",
-        precio: 60000,
+        precio: 65000,
         badge: "👶 100% ESPUMA SEGURA",
         destacado: false,
         imagen: "imagenes/producto-piscina-rosa-clean.jpg",
         imagenModal: "imagenes/producto-piscina-rosa-clean.jpg",
-        duracion: "4 horas de juego",
-        medidasEspacio: "1.50m × 1.50m × 0.40m",
+        duracion: "4 horas de uso continuo",
+        medidasEspacio: "1.50m × 1.50m × 0.40m (Espacio mín: 2m × 2m)",
         edadesRecomendadas: "Desde 6 meses",
-        resumen: "Piscina de espuma suave de alta densidad, no tóxica y segura. Incluye 2 colores base de pelotas a elección (blancas, celestes, rosadas o transparentes).",
+        resumen: "Transforma cualquier celebración en un espacio de diversión segura y encantadora con nuestra piscina de pelotas blanca de espuma suave de alta densidad.",
         incluye: [
-            "Piscina de espuma de alta densidad lavable",
-            "Pelotas no tóxicas en 2 colores base a elección",
-            "Piso Tatami de protección acolchado",
-            "Rincón zapatero",
-            "Montaje y retiro incluidos"
+            "1. Piscina blanca de espuma de pelotas (1.50m × 1.50m × 0.40m)",
+            "2. Pelotas no tóxicas en colores a elección (Rosa, Celeste, Blanco, Transparentes)",
+            "3. Alfombra Tatami 4.32 m² incluida (Rosa/Blanco o Beige/Gris)",
+            "4. Rincón zapatero",
+            "5. Montaje y retiro de piscina"
         ],
-        requisitos: "Espacio plano y seco."
+        requisitos: "Superficie limpia, seca y nivelada. No incluye decoración."
     },
     {
         id: "set-motricidad",
-        nombre: "Set de Motricidad Infantil Sensorial",
+        nombre: "Set Túnel de Motricidad Sensorial",
         categoria: "plaza",
         categoriaNombre: "Plaza Blanda",
-        precio: 25000,
-        badge: "🧠 DESARROLLO MOTOR",
+        precio: 30000,
+        badge: "🧠 ESTIMULACIÓN TEMPRANA",
         destacado: false,
         imagen: "imagenes/portada-plaza-motricidad.webp",
         imagenModal: "imagenes/portada-plaza-motricidad.webp",
         duracion: "4 horas de juego",
         medidasEspacio: "2.0m × 1.5m",
         edadesRecomendadas: "1 a 4 años",
-        resumen: "Favorece el gateo, equilibrio y exploración segura de los más pequeños en un entorno 100% acolchado.",
+        resumen: "Favorece el gateo, equilibrio, coordinación y exploración segura de los más pequeños en un entorno 100% acolchado y lavable.",
         incluye: [
-            "Escala de motricidad acolchada",
-            "Túnel de gateo sensorial",
-            "Cuña de equilibrio y deslizamiento",
-            "Montaje y retiro incluidos"
+            "1. Escala de gateo acolchada",
+            "2. Túnel sensorial de motricidad",
+            "3. Cuña de equilibrio y deslizamiento",
+            "4. Montaje y retiro incluidos"
         ],
-        requisitos: "Superficie plana."
+        requisitos: "Superficie plana y limpia."
     },
 
     // -------------------------------------------------------------------------
@@ -271,10 +309,10 @@ window.CATALOGO_PRODUCTOS = [
     // -------------------------------------------------------------------------
     {
         id: "maquina-burbujas",
-        nombre: "Máquina de Burbujas Profesional",
+        nombre: "Máquina de Burbujas + 700ml Líquido",
         categoria: "adicionales",
         categoriaNombre: "Efectos & Magia",
-        precio: 15000,
+        precio: 17000,
         badge: "🫧 EFECTO MÁGICO",
         destacado: false,
         imagen: "imagenes/Maquina-burbuja.webp",
@@ -282,20 +320,20 @@ window.CATALOGO_PRODUCTOS = [
         duracion: "Disponible durante todo el evento",
         medidasEspacio: "Compacto",
         edadesRecomendadas: "Todas las edades",
-        resumen: "Más de 2.000 burbujas por minuto para fotos increíbles y momentos mágicos que fascinan a los niños.",
+        resumen: "Más de 2.000 burbujas por minuto para fotos increíbles y momentos mágicos que fascinan a grandes y chicos.",
         incluye: [
-            "Máquina de burbujas automática",
-            "700ml de líquido especial no tóxico e hipoalergénico",
+            "Máquina de burbujas automática de alto caudal",
+            "700ml de líquido especial profesional hipoalergénico",
             "Instalación y prueba operativa"
         ],
-        requisitos: "Enchufe eléctrico cercano."
+        requisitos: "Enchufe eléctrico a ≤10m."
     },
     {
         id: "carpa-tipi",
         nombre: "Carpa Tipi Decorativa Aesthetic",
         categoria: "adicionales",
         categoriaNombre: "Rincón Boho",
-        precio: 15000,
+        precio: 17000,
         badge: "🏕️ RINCÓN BOHO",
         destacado: false,
         imagen: "imagenes/producto-carpa-tipi-real.jpg",
@@ -303,14 +341,58 @@ window.CATALOGO_PRODUCTOS = [
         duracion: "4 horas de uso",
         medidasEspacio: "1.60m de altura × 1.20m de base",
         edadesRecomendadas: "1 a 6 años",
-        resumen: "Rincón cálido de descanso, lectura o fotos aesthetic con telas en lino natural, cojines y alfombra suave.",
+        resumen: "Rincón cálido de descanso, lectura o fotos aesthetic con estructura en madera natural, telas con estrellas, cojines y alfombra suave.",
         incluye: [
-            "Carpa Tipi en madera natural y lino",
-            "Alfombra suave de piso",
+            "Carpa Tipi en madera natural y lino estampado",
+            "Alfombra suave a elección (Celeste, Gris o Rosa)",
             "Cojines decorativos a tono",
-            "Montaje y retiro"
+            "Montaje y retiro incluidos"
         ],
-        requisitos: "Espacio interior o exterior protegido del viento."
+        requisitos: "Espacio protegido del viento."
+    },
+    {
+        id: "saltarin-balancin",
+        nombre: "Saltarines & Balancines Infantiles",
+        categoria: "adicionales",
+        categoriaNombre: "Juegos Individuales",
+        precio: 16000,
+        badge: "🦄 DIVERSIÓN PURA",
+        destacado: false,
+        imagen: "imagenes/producto-set-active-real.jpg",
+        imagenModal: "imagenes/producto-set-active-real.jpg",
+        duracion: "4 horas de uso continuo",
+        medidasEspacio: "Compacto",
+        edadesRecomendadas: "1 a 4 años",
+        resumen: "Juguetes ergonómicos y seguros para estimular el equilibrio y la motricidad: Caballo saltarín café ($16.000), Unicornio balancín ($18.000) o Caballo balancín café ($18.000).",
+        incluye: [
+            "Saltarín o Balancín a elección limpio y sanitizado",
+            "Material suave y de alta resistencia",
+            "Uso durante toda la duración del arriendo"
+        ],
+        requisitos: "Superficie plana."
+    },
+    {
+        id: "cartel-bienvenida",
+        nombre: "Cartel de Bienvenida Personalizado",
+        categoria: "adicionales",
+        categoriaNombre: "Papelería & Deco",
+        precio: 25000,
+        badge: "🎨 PERSONALIZADO",
+        destacado: false,
+        imagen: "imagenes/otros-servicios.webp",
+        imagenModal: "imagenes/otros-servicios.webp",
+        duracion: "Recuerdo para la familia",
+        medidasEspacio: "60×90 cm / 80×120 cm / 100×150 cm",
+        edadesRecomendadas: "Todas las edades",
+        resumen: "Personaliza el cartel de tu evento con nombre, temática y colores exclusivos (Princesas, Dinosaurios, Safari, Autos, Espacio, etc.).",
+        incluye: [
+            "Diseño temático exclusivo con el nombre y datos del festejado",
+            "Opción Pequeño 60 × 90 cm ($25.000)",
+            "Opción Mediano 80 × 120 cm ($35.000)",
+            "Opción Grande 100 × 150 cm ($45.000)",
+            "Confirmación previa de diseño y tiempos de entrega"
+        ],
+        requisitos: "Solicitar con al menos 10 días de anticipación."
     },
     {
         id: "supervision-monitor",
@@ -325,11 +407,11 @@ window.CATALOGO_PRODUCTOS = [
         duracion: "4 horas de evento",
         medidasEspacio: "No aplica",
         edadesRecomendadas: "Todas las edades",
-        resumen: "Monitor dedicado exclusivamente a cuidar la seguridad, turnos y orden de los niños en los juegos.",
+        resumen: "¿Quieres relajarte? Agrega supervisión profesional con un monitor dedicado exclusivamente a velar por el orden, turnos y seguridad de los niños.",
         incluye: [
-            "Personal capacitado en cuidado infantil",
-            "Control de turnos y capacidad máxima",
-            "Asistencia a los niños al subir y bajar",
+            "Personal capacitado y comprometido",
+            "Control de capacidad máxima y turnos en los juegos",
+            "Asistencia a los más pequeños al subir y bajar",
             "Acompañamiento continuo durante 4 horas"
         ],
         requisitos: "Coordinar con anticipación a la fecha del evento."

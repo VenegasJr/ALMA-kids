@@ -36,18 +36,18 @@
             resumen: 'Ahorra el costo de traslado e instalación en Machalí y Rancagua contratando cualquier Set.',
             badge: '🚚 TRASLADO GRATIS',
             tipo: 'envio_gratis',
-            aplicaA: 'Contratando cualquier Set o Pack (Set Máximo, Alma Active, Alma Party o Mini Play)',
+            aplicaA: 'Contratando cualquier Set o Pack (Set Máximo, Grand-Peque, Alma Active, Alma Magic, Set Dúo o Mini Play)',
             condiciones: 'Aplica exclusivamente en la contratación de cualquier Set o Pack completo para las comunas de Machalí y Rancagua. Válido por 7 días desde su activación. No acumulable con otros cupones o promociones. Sujeto a disponibilidad.'
         },
         'BURBUJAS': {
             codigo: 'BURBUJAS',
             alias: ['BURBUJASMAX', 'BURBUJASVIP', 'LIQUIDOGRATIS'],
             titulo: '1 Litro de Líquido de Burbujas Gratis',
-            resumen: 'Llévate 1 Litro extra de líquido profesional hipoalergénico gratis al contratar el Set MÁXIMO.',
+            resumen: 'Llévate 1 Litro extra de líquido profesional hipoalergénico gratis al contratar el Set MÁXIMO o GRAND-PEQUE.',
             badge: '🫧 BURBUJAS GRATIS',
             tipo: 'regalo_producto',
-            aplicaA: 'Al contratar el SET "MÁXIMO" Todo Incluido',
-            condiciones: 'Aplica exclusivamente al contratar el Set "MÁXIMO" Todo Incluido. Incluye 1 litro de líquido premium no tóxico para la máquina de burbujas. Válido por 7 días desde su activación. No acumulable con otras promociones.'
+            aplicaA: 'Al contratar el SET "MÁXIMO" o "GRAND-PEQUE"',
+            condiciones: 'Aplica exclusivamente al contratar el Set "MÁXIMO" o "GRAND-PEQUE". Incluye 1 litro de líquido premium no tóxico para la máquina de burbujas. Válido por 7 días desde su activación. No acumulable con otras promociones.'
         }
     };
 
