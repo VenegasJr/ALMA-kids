@@ -261,8 +261,24 @@ img[loading="eager"] {
     animation: catalogoFadeIn 0.4s ease forwards;
 }
 
+.catalogo-card {
+    background: #ffffff;
+    border-radius: var(--ak-radius-md);
+    overflow: hidden;
+    box-shadow: var(--ak-shadow-sm);
+    border: 1px solid var(--ak-border);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+    position: relative;
+    animation: catalogoFadeIn 0.4s ease forwards;
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
 .catalogo-card:hover {
-    transform: translateY(-6px);
+    transform: translateY(-4px) translateZ(0);
     box-shadow: var(--ak-shadow-md);
     border-color: var(--ak-border-hover);
 }
@@ -290,6 +306,7 @@ img[loading="eager"] {
     background: var(--ak-bg-soft);
     cursor: pointer;
     overflow: hidden;
+    contain: paint;
 }
 
 .catalogo-card-media img {
@@ -297,11 +314,14 @@ img[loading="eager"] {
     height: 100%;
     object-fit: cover;
     object-position: center;
-    transition: transform 0.5s ease;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
 }
 
 .catalogo-card:hover .catalogo-card-media img {
-    transform: scale(1.06);
+    transform: scale(1.05) translateZ(0);
 }
 
 .catalogo-card-badge {
@@ -319,6 +339,7 @@ img[loading="eager"] {
     letter-spacing: 0.04em;
     z-index: 2;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    pointer-events: none;
 }
 
 .catalogo-card-zoom-hint {
@@ -337,7 +358,8 @@ img[loading="eager"] {
     gap: 6px;
     opacity: 0;
     transform: translateY(10px);
-    transition: all 0.25s ease;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    pointer-events: none;
 }
 
 .catalogo-card:hover .catalogo-card-zoom-hint {
@@ -1078,6 +1100,7 @@ img[loading="eager"] {
     align-items: center;
     justify-content: center;
     transition: background 0.3s ease;
+    pointer-events: none;
 }
 
 .reel-card:hover .reel-play-overlay {
@@ -1180,17 +1203,21 @@ img[loading="eager"] {
     background: var(--ak-bg-soft);
     cursor: pointer;
     box-shadow: var(--ak-shadow-sm);
+    contain: paint;
 }
 
 .mosaic-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.4s ease;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
 }
 
 .mosaic-item:hover img {
-    transform: scale(1.08);
+    transform: scale(1.05) translateZ(0);
 }
 
 .mosaic-overlay {
@@ -1206,7 +1233,8 @@ img[loading="eager"] {
     color: #ffffff;
     font-size: 1.4rem;
     opacity: 0;
-    transition: opacity 0.25s ease;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
 }
 
 .mosaic-item:hover .mosaic-overlay {
@@ -2168,4 +2196,52 @@ img[loading="eager"] {
     .availability-btn {
         justify-content: center;
     }
+}
+
+/* =========================================================================
+ * 🚀 MOUSE & IMAGE INTERACTION PERFORMANCE (Anti-Sticking & Smooth 60 FPS)
+ * ========================================================================= */
+img {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+/* Prevenir que imágenes sueltas cambien de tamaño o reboten bajo el cursor */
+.about-img,
+.hero-img,
+.service-img,
+.plaza-image img,
+.divertete-image img,
+.highlight-img,
+.galeria-img {
+    transform: translateZ(0) !important;
+    will-change: auto;
+}
+
+.about-img:hover,
+.hero-img:hover,
+.service-img:hover,
+.plaza-image img:hover,
+.divertete-image img:hover,
+.highlight-img:hover,
+.galeria-img:hover {
+    transform: translateZ(0) !important;
+    filter: brightness(1.02);
+}
+
+/* Evitar que overlays o textos flotantes roben el foco del mouse */
+.mosaic-overlay,
+.mosaic-overlay *,
+.catalogo-card-zoom-hint,
+.catalogo-card-zoom-hint *,
+.catalogo-card-badge,
+.reel-play-overlay,
+.reel-play-overlay *,
+.zoom-overlay,
+.zoom-overlay *,
+.gallery-overlay,
+.gallery-overlay *,
+.insta-overlay,
+.insta-overlay * {
+    pointer-events: none !important;
 }

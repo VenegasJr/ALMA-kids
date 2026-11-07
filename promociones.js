@@ -13,8 +13,8 @@
     'use strict';
 
     const STORAGE_KEY = 'almakids_active_promo';
-    const DURACION_DIAS = 7;
-    const DURACION_MS = DURACION_DIAS * 24 * 60 * 60 * 1000;
+    const DURACION_HORAS = 6;
+    const DURACION_MS = DURACION_HORAS * 60 * 60 * 1000;
 
     // Catálogo de Códigos y Beneficios Oficiales
     const PROMOCIONES = {
@@ -27,7 +27,7 @@
             tipo: 'porcentaje_tope',
             tope: 10000,
             aplicaA: 'Cualquier servicio o pack del catálogo',
-            condiciones: 'Válido por 7 días desde su activación. No acumulable con otras promociones o convenios. Aplica para eventos en Machalí, Rancagua y comunas con cobertura. Sujeto a disponibilidad de fecha y factibilidad técnica.'
+            condiciones: 'Válido por 6 horas desde su activación. No acumulable con otras promociones o convenios. Aplica para eventos en Machalí, Rancagua y comunas con cobertura. Sujeto a disponibilidad de fecha y factibilidad técnica.'
         },
         'TRASLADO': {
             codigo: 'TRASLADO',
@@ -37,7 +37,7 @@
             badge: '🚚 TRASLADO GRATIS',
             tipo: 'envio_gratis',
             aplicaA: 'Contratando cualquier Set o Pack (Set Máximo, Grand-Peque, Alma Active, Alma Magic, Set Dúo o Mini Play)',
-            condiciones: 'Aplica exclusivamente en la contratación de cualquier Set o Pack completo para las comunas de Machalí y Rancagua. Válido por 7 días desde su activación. No acumulable con otros cupones o promociones. Sujeto a disponibilidad.'
+            condiciones: 'Aplica exclusivamente en la contratación de cualquier Set o Pack completo para las comunas de Machalí y Rancagua. Válido por 6 horas desde su activación. No acumulable con otros cupones o promociones. Sujeto a disponibilidad.'
         },
         'BURBUJAS': {
             codigo: 'BURBUJAS',
@@ -47,7 +47,7 @@
             badge: '🫧 BURBUJAS GRATIS',
             tipo: 'regalo_producto',
             aplicaA: 'Al contratar el SET "MÁXIMO" o "GRAND-PEQUE"',
-            condiciones: 'Aplica exclusivamente al contratar el Set "MÁXIMO" o "GRAND-PEQUE". Incluye 1 litro de líquido premium no tóxico para la máquina de burbujas. Válido por 7 días desde su activación. No acumulable con otras promociones.'
+            condiciones: 'Aplica exclusivamente al contratar el Set "MÁXIMO" o "GRAND-PEQUE". Incluye 1 litro de líquido premium no tóxico para la máquina de burbujas. Válido por 6 horas desde su activación. No acumulable con otras promociones.'
         }
     };
 
@@ -71,14 +71,19 @@
         return `ALMA-${codigo}-${datePart}-${randomPart}`;
     }
 
-    // Formatear Fecha en Español (Ej: 13 de Noviembre, 2026)
+    // Formatear Fecha y Hora en Español (Ej: 07 nov a las 22:30 hrs)
     function formatearFecha(timestamp) {
         const d = new Date(timestamp);
-        return d.toLocaleDateString('es-CL', {
+        const fecha = d.toLocaleDateString('es-CL', {
             day: '2-digit',
-            month: 'long',
-            year: 'numeric'
+            month: 'short'
         });
+        const hora = d.toLocaleTimeString('es-CL', {
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: false
+        });
+        return `${fecha} a las ${hora} hrs`;
     }
 
     // Guardar promo activa en localStorage
@@ -119,16 +124,16 @@
         }
     }
 
-    // Calcular días y horas restantes
+    // Calcular horas y minutos restantes (validez 6 horas)
     function tiempoRestanteTexto(venceEn) {
         const ms = venceEn - Date.now();
         if (ms <= 0) return 'Expirado';
-        const dias = Math.floor(ms / (24 * 60 * 60 * 1000));
-        const horas = Math.floor((ms % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000));
-        if (dias > 0) {
-            return `${dias} ${dias === 1 ? 'día' : 'días'} y ${horas}h restantes`;
+        const horas = Math.floor(ms / (60 * 60 * 1000));
+        const minutos = Math.floor((ms % (60 * 60 * 1000)) / (60 * 1000));
+        if (horas > 0) {
+            return `${horas}h ${minutos}m restantes`;
         }
-        return `${horas} horas restantes`;
+        return `${minutos} min restantes`;
     }
 
     // Crear o actualizar la barra superior flotante si hay promo activa
@@ -317,7 +322,7 @@
         return `
 🎁 *CÓDIGO DE DESCUENTO INSTAGRAM:*
 🎟️ Cupón: *${promo.codigo}* (${promo.titulo})
-⏳ Activado: ${fechaAct} · Válido hasta: ${fechaVen} (7 días)
+⏳ Activado: ${fechaAct} · Válido por 6 horas (vence: ${fechaVen})
 🔐 Verificación: #${promo.token}
 📌 *Letra chica:* No acumulable con otras promociones.`;
     };
@@ -343,6 +348,9 @@
 
         // 2. Si ya tenía una promo guardada y vigente, refrescar el banner
         actualizarBannerPromo();
+
+        // 3. Mantener el contador actualizado cada 60 segundos
+        setInterval(actualizarBannerPromo, 60000);
     }
 
     if (document.readyState === 'loading') {

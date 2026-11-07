@@ -13099,12 +13099,12 @@ body {
     object-position: center; /* Centra la imagen */
     border-radius: 12px;
     box-shadow: 0 8px 25px rgba(233, 30, 99, 0.15);
-    transition: all 0.3s ease;
+    transition: filter 0.2s ease;
     background: linear-gradient(135deg, #fff0f5, #ffe0e6);
     display: block; /* Asegurar que sea bloque */
 }
 
-/* Hover effect unificado */
+/* Hover effect unificado y optimizado para evitar bloqueos del mouse */
 .hero-img:hover,
 .about-img:hover,
 .service-img:hover,
@@ -13112,8 +13112,8 @@ body {
 .divertete-image img:hover,
 .highlight-img:hover,
 .galeria-img:hover {
-    transform: scale(1.03);
-    box-shadow: 0 12px 35px rgba(233, 30, 99, 0.25);
+    transform: none !important;
+    filter: brightness(1.03);
 }
 
 /* ============================================

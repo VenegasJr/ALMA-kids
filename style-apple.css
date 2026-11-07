@@ -694,9 +694,10 @@ a { text-decoration: none; color: inherit; }
     align-items: center;
     justify-content: center;
     opacity: 0;
-    transition: all 0.3s ease;
+    transition: opacity 0.2s ease;
     color: white;
     gap: 10px;
+    pointer-events: none;
 }
 
 .zoom-overlay i {
@@ -1068,9 +1069,9 @@ a { text-decoration: none; color: inherit; }
     align-items: center;
     justify-content: center;
     opacity: 0;
-    transition: all 0.3s ease;
-    cursor: pointer;
+    transition: opacity 0.2s ease;
     gap: 10px;
+    pointer-events: none;
 }
 
 .insta-overlay i {
@@ -2658,7 +2659,8 @@ footer {
     align-items: center;
     justify-content: center;
     opacity: 0;
-    transition: all 0.3s ease;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
 }
 
 .gallery-overlay i {
