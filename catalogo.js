@@ -12,6 +12,7 @@
     'use strict';
 
     let currentCategory = 'todos';
+    let currentSpace = 'todos';
 
     // Formateador de moneda chilena
     function formatearPrecio(valor) {
@@ -72,21 +73,27 @@ Me encantó su catálogo y quisiera cotizar el siguiente servicio:
     }
 
     // Renderizar las tarjetas de producto
-    function renderizarCatalogo(categoria = 'todos') {
+    function renderizarCatalogo() {
         const contenedor = document.getElementById('catalogo-grid');
         if (!contenedor) return;
 
         const productos = (window.CATALOGO_PRODUCTOS || (typeof CATALOGO_PRODUCTOS !== 'undefined' ? CATALOGO_PRODUCTOS : [])).filter(p => {
             if (p.activo === false) return false;
-            if (categoria === 'todos') return true;
-            return p.categoria === categoria;
+            const matchCat = (currentCategory === 'todos' || p.categoria === currentCategory);
+            const itemSpace = p.tamanoEspacio || 'compacto';
+            const matchSpace = (currentSpace === 'todos' || itemSpace === currentSpace);
+            return matchCat && matchSpace;
         });
 
         if (productos.length === 0) {
             contenedor.innerHTML = `
-                <div class="catalogo-empty">
-                    <i class="fas fa-search"></i>
-                    <p>No hay productos en esta categoría por el momento.</p>
+                <div class="catalogo-empty" style="padding: 3.5rem 1.5rem; text-align: center; grid-column: 1 / -1; background: #faf8f9; border-radius: 20px; border: 1px dashed #e2d5dc;">
+                    <i class="fas fa-ruler-combined" style="font-size: 2.5rem; color: #ff6b9d; margin-bottom: 1rem; opacity: 0.7;"></i>
+                    <h3 style="color: #2d2926; margin-bottom: 0.5rem; font-size: 1.25rem;">No hay juegos para este espacio en esta categoría</h3>
+                    <p style="color: #666; max-width: 480px; margin: 0 auto 1.5rem auto; font-size: 0.95rem;">Prueba seleccionando <strong>"Todos los tamaños"</strong> o cambia de categoría para ver todos los sets disponibles.</p>
+                    <button type="button" class="btn btn-secondary" onclick="window.restablecerFiltrosCatalogo()" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.65rem 1.25rem; font-size: 0.9rem; cursor: pointer;">
+                        <i class="fas fa-rotate-left"></i> Restablecer filtros
+                    </button>
                 </div>
             `;
             return;
@@ -162,7 +169,7 @@ Me encantó su catálogo y quisiera cotizar el siguiente servicio:
         }).join('');
     }
 
-    // Configurar botones de filtro
+    // Configurar botones de filtro por categoría y espacio
     function initFiltros() {
         const botones = document.querySelectorAll('.catalogo-filter-btn');
         botones.forEach(btn => {
@@ -170,10 +177,33 @@ Me encantó su catálogo y quisiera cotizar el siguiente servicio:
                 botones.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
                 currentCategory = btn.getAttribute('data-filter') || 'todos';
-                renderizarCatalogo(currentCategory);
+                renderizarCatalogo();
+            });
+        });
+
+        const spacePills = document.querySelectorAll('.space-pill-btn');
+        spacePills.forEach(pill => {
+            pill.addEventListener('click', () => {
+                spacePills.forEach(p => p.classList.remove('active'));
+                pill.classList.add('active');
+                currentSpace = pill.getAttribute('data-space') || 'todos';
+                renderizarCatalogo();
             });
         });
     }
+
+    // Helper global para restablecer filtros
+    window.restablecerFiltrosCatalogo = function() {
+        currentCategory = 'todos';
+        currentSpace = 'todos';
+        document.querySelectorAll('.catalogo-filter-btn').forEach((b, i) => {
+            b.classList.toggle('active', i === 0);
+        });
+        document.querySelectorAll('.space-pill-btn').forEach((b, i) => {
+            b.classList.toggle('active', i === 0);
+        });
+        renderizarCatalogo();
+    };
 
     // Modal de Detalles Completos
     window.abrirModalDetalles = function(id) {
@@ -412,7 +442,7 @@ Me encantó su catálogo y quisiera cotizar el siguiente servicio:
     function iniciarMotorCatalogo() {
         crearModalEstructura();
         initFiltros();
-        renderizarCatalogo('todos');
+        renderizarCatalogo();
     }
 
     if (document.readyState === 'loading') {

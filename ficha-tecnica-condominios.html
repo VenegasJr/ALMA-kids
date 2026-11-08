@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha Técnica y Protocolo de Instalación para Condominios | ALMA Kids</title>
+    <meta name="description" content="Ficha técnica oficial de ALMA Kids para administración de condominios, salones de eventos y quinchos. Especificaciones eléctricas (220V/1.1kW), medidas de seguridad, protección de pisos y protocolos de montaje.">
+    <link rel="canonical" href="https://www.almakids.cl/ficha-tecnica-condominios.html">
+    <link rel="icon" type="image/webp" href="imagenes/logo-alma-kids-favicon.webp">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #ff6b9d;
+            --primary-dark: #e05587;
+            --secondary: #4a90e2;
+            --dark: #2d2926;
+            --gray-bg: #f9f7f8;
+            --border: #e8e2e5;
+            --text-muted: #666;
+            --success: #28a745;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--gray-bg);
+            color: var(--dark);
+            line-height: 1.6;
+            font-size: 15px;
+            padding: 2rem 1rem;
+        }
+
+        .screen-toolbar {
+            max-width: 900px;
+            margin: 0 auto 1.5rem auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            background: #ffffff;
+            padding: 1rem 1.5rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        .btn-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+        }
+
+        .btn-print {
+            background-color: var(--primary);
+            color: #ffffff;
+        }
+
+        .btn-print:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-back {
+            background-color: #f0f0f0;
+            color: var(--dark);
+        }
+
+        .btn-back:hover {
+            background-color: #e4e4e4;
+        }
+
+        .btn-whatsapp {
+            background-color: #25d366;
+            color: #ffffff;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #1ebc59;
+        }
+
+        .sheet-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.07);
+            border: 1px solid var(--border);
+        }
+
+        .sheet-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 2rem;
+            margin-bottom: 2rem;
+            gap: 1.5rem;
+        }
+
+        .header-logo-group img {
+            max-height: 70px;
+            width: auto;
+        }
+
+        .header-company-info {
+            text-align: right;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .header-company-info strong {
+            color: var(--dark);
+            font-size: 1.05rem;
+            display: block;
+        }
+
+        .sheet-badge {
+            display: inline-block;
+            background: rgba(255, 107, 157, 0.1);
+            color: var(--primary);
+            font-weight: 700;
+            padding: 0.35rem 0.85rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.75rem;
+        }
+
+        .sheet-title {
+            font-size: 1.6rem;
+            color: var(--dark);
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 0.5rem;
+        }
+
+        .sheet-intro {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--primary);
+            padding-left: 1rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-box {
+            background: #faf8f9;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1.25rem;
+        }
+
+        .card-box h3 {
+            font-size: 1.05rem;
+            color: var(--dark);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card-box h3 i {
+            color: var(--primary);
+        }
+
+        .data-list {
+            list-style: none;
+            font-size: 0.9rem;
+        }
+
+        .data-list li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dashed #eedce4;
+            padding-bottom: 0.3rem;
+        }
+
+        .data-list li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .data-label {
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .data-value {
+            font-weight: 600;
+            color: var(--dark);
+            text-align: right;
+        }
+
+        .section-block {
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .section-title i {
+            color: var(--secondary);
+        }
+
+        .bullet-checks {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+        }
+
+        .bullet-checks li {
+            font-size: 0.9rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .bullet-checks li i {
+            color: var(--success);
+            margin-top: 0.2rem;
+            flex-shrink: 0;
+        }
+
+        .table-custom {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .table-custom th, .table-custom td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border: 1px solid var(--border);
+        }
+
+        .table-custom th {
+            background-color: #faf5f8;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .signature-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 2px dashed var(--border);
+        }
+
+        .sign-col {
+            text-align: center;
+            padding: 1.5rem 1rem;
+            background: #faf8f9;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .sign-line {
+            width: 80%;
+            margin: 2.5rem auto 0.75rem auto;
+            border-top: 1px solid #999;
+        }
+
+        .sign-name {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--dark);
+        }
+
+        .sign-role {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .badge-stamp {
+            display: inline-block;
+            border: 2px solid #28a745;
+            color: #28a745;
+            font-weight: 700;
+            padding: 0.3rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 0.5rem;
+        }
+
+        /* Reglas de Impresión A4 / Carta */
+        @media print {
+            body {
+                background: #ffffff !important;
+                padding: 0 !important;
+                font-size: 11pt !important;
+                color: #000000 !important;
+            }
+
+            .screen-toolbar {
+                display: none !important;
+            }
+
+            .sheet-container {
+                box-shadow: none !important;
+                border: none !important;
+                padding: 0 !important;
+                max-width: 100% !important;
+            }
+
+            .card-box {
+                background: #ffffff !important;
+                border: 1px solid #ccc !important;
+            }
+
+            .sheet-badge {
+                border: 1px solid #999 !important;
+                color: #000 !important;
+                background: none !important;
+            }
+
+            a {
+                text-decoration: none !important;
+                color: inherit !important;
+            }
+
+            @page {
+                size: letter portrait;
+                margin: 1.2cm 1.5cm;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sheet-container {
+                padding: 1.5rem;
+            }
+
+            .sheet-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-company-info {
+                text-align: center;
+            }
+
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .bullet-checks {
+                grid-template-columns: 1fr;
+            }
+
+            .signature-box {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barra de acciones en pantalla -->
+    <div class="screen-toolbar">
+        <div>
+            <a href="index.html" class="btn-action btn-back">
+                <i class="fas fa-arrow-left"></i> Volver a ALMA Kids
+            </a>
+        </div>
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+            <a href="https://wa.me/56969073306?text=Hola%20Carlos!%20Tengo%20una%20consulta%20sobre%20la%20ficha%20técnica%20para%20un%20condominio." class="btn-action btn-whatsapp" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp"></i> Contactar Soporte
+            </a>
+            <button onclick="window.print()" class="btn-action btn-print">
+                <i class="fas fa-print"></i> Imprimir / Guardar en PDF
+            </button>
+        </div>
+    </div>
+
+    <!-- Documento Formal Imprimible -->
+    <main class="sheet-container">
+        
+        <!-- Encabezado Oficial -->
+        <header class="sheet-header">
+            <div class="header-logo-group">
+                <img src="imagenes/logo-alma-kids-pagina.webp" alt="ALMA Kids Entretenciones Infantiles Ltda." onerror="this.src='imagenes/logo-alma-kids-oficial.png'">
+            </div>
+            <div class="header-company-info">
+                <strong>ALMA Kids Entretenciones Infantiles Ltda.</strong>
+                <span>RUT: Empresa Formal Constituida</span><br>
+                <span>Giro: Arriendo de juegos infantiles y entretención</span><br>
+                <span>Base: Machalí, Región de O'Higgins, Chile</span><br>
+                <span>Contacto oficial: +56 9 6907 3306 · info.almakids@gmail.com</span>
+            </div>
+        </header>
+
+        <span class="sheet-badge">DOCUMENTO OFICIAL DE INSTALACIÓN</span>
+        <h1 class="sheet-title">Ficha Técnica y Protocolo de Seguridad para Condominios, Salones y Quinchos</h1>
+        <p class="sheet-intro">
+            Este documento certifica las condiciones técnicas, requerimientos de energía, cuidado de pavimentos y protocolos de seguridad que cumple <strong>ALMA Kids</strong> al prestar servicios en espacios comunes, salones multiuso, quinchos o recintos privados.
+        </p>
+
+        <!-- Bloque 1: Resumen Eléctrico y Logístico -->
+        <div class="grid-2">
+            <div class="card-box">
+                <h3><i class="fas fa-bolt"></i> Requerimientos Eléctricos</h3>
+                <ul class="data-list">
+                    <li>
+                        <span class="data-label">Voltaje requerido:</span>
+                        <span class="data-value">220V AC estándar domiciliario</span>
+                    </li>
+                    <li>
+                        <span class="data-label">Consumo motor / turbina:</span>
+                        <span class="data-value">950W a 1.100W (~4.8 Amperes)</span>
+                    </li>
+                    <li>
+                        <span class="data-label">Impacto circuito:</span>
+                        <span class="data-value">Seguro (no activa automáticos 10A/16A)</span>
+                    </li>
+                    <li>
+                        <span class="data-label">Cableado de extensión:</span>
+                        <span class="data-value">Vulcanizado de 3 hilos con tierra</span>
+                    </li>
+                    <li>
+                        <span class="data-label">Punto de corriente:</span>
+                        <span class="data-value">Enchufe estándar a menos de 15 metros</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card-box">
+                <h3><i class="fas fa-clock"></i> Tiempos y Logística</h3>
+                <ul class="data-list">
+                    <li>
+                        <span class="data-label">Llegada del equipo:</span>
+                        <span class="data-value">45 a 60 min previos al evento</span>
+                    </li>
+                    <li>
+                        <span class="data-label">Tiempo de montaje:</span>
+                        <span class="data-value">Aprox. 30 a 40 minutos</span>
+                    </li>
+                    <li>
+                        <span class="data-label">Duración del arriendo:</span>
+                        <span class="data-value">4 horas continuas de servicio</span>
+                    </li>
+                    <li>
+                        <span class="data-label">Tiempo de retiro:</span>
+                        <span class="data-value">30 a 40 min al concluir</span>
+                    </li>
+                    <li>
+                        <span class="data-label">Personal a cargo:</span>
+                        <span class="data-value">Técnicos identificados de ALMA Kids</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Bloque 2: Cuidado de Pisos e Infraestructura del Recinto -->
+        <section class="section-block">
+            <h2 class="section-title"><i class="fas fa-shield-halved"></i> Protección de Instalaciones y Pisos del Condominio</h2>
+            <p style="margin-bottom: 0.75rem; font-size: 0.95rem; color: #444;">
+                Para garantizar que los salones multiuso, cerámicas, porcelanatos o áreas verdes del condominio no sufran ningún tipo de daño, raya o desgaste:
+            </p>
+            <ul class="bullet-checks">
+                <li><i class="fas fa-check-circle"></i> <strong>Alfombra Tatami EVA protectora:</strong> Se instala una base de tatami amortiguador de alta densidad bajo las zonas de mayor tránsito, absorbiendo impactos y aislando el piso original.</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Superficies 100% compatibles:</strong> Porcelanato, cerámica antideslizante, piso flotante, radier alisado, pasto sintético y pasto natural nivelado.</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Rincón Zapatero incluido:</strong> Prohibido el ingreso con calzado exterior; los niños y monitores ingresan únicamente con calcetines limpios.</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Cero residuos:</strong> Al finalizar el desmontaje, el equipo entrega la zona totalmente limpia, seca y en el mismo estado en que fue recibida.</li>
+            </ul>
+        </section>
+
+        <!-- Bloque 3: Tabla Técnica de Modelos Disponibles -->
+        <section class="section-block">
+            <h2 class="section-title"><i class="fas fa-ruler-combined"></i> Medidas y Espacio Mínimo Requerido por Modelo</h2>
+            <table class="table-custom">
+                <thead>
+                    <tr>
+                        <th>Juego / Set</th>
+                        <th>Dimensiones Juego</th>
+                        <th>Espacio Mínimo Sugerido</th>
+                        <th>Tipo de Conexión</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Set Grand-Peque (Tope Gama)</strong></td>
+                        <td>5.0m × 4.0m × 2.80m alt.</td>
+                        <td>6.0m × 6.0m</td>
+                        <td>220V continuo (1 turbina)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Set Máximo / Set Dúo</strong></td>
+                        <td>2.8m × 2.53m × 2.30m alt.</td>
+                        <td>3.5m × 2.5m</td>
+                        <td>220V continuo (1 turbina)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Castillos Peque / Rosa</strong></td>
+                        <td>2.9m × 2.8m × 2.30m alt.</td>
+                        <td>3.0m × 3.0m</td>
+                        <td>220V continuo (1 turbina)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Set Alma Active / Mini Play</strong></td>
+                        <td>Plaza blanda modular</td>
+                        <td>2.5m × 2.5m</td>
+                        <td><span style="color: #28a745; font-weight: 600;">No requiere electricidad</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Piscina de Pelotas de Espuma</strong></td>
+                        <td>1.50m × 1.50m × 0.40m</td>
+                        <td>2.0m × 2.0m</td>
+                        <td><span style="color: #28a745; font-weight: 600;">No requiere electricidad</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Bloque 4: Protocolos de Sanitización y Normas de Uso -->
+        <section class="section-block">
+            <h2 class="section-title"><i class="fas fa-pump-medical"></i> Higiene, Sanitización y Reglas de Uso</h2>
+            <ul class="bullet-checks">
+                <li><i class="fas fa-check-circle"></i> <strong>Sanitización previa:</strong> Pelotas, módulos de espuma y castillos desinfectados antes de cada montaje con productos biodegradables no tóxicos.</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Prohibición estricta de alimentos:</strong> No se permite el ingreso con bebidas, confites, chicles, vasos o comida dentro de los juegos.</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Sin elementos punzantes:</strong> Accesorios como hebillas metálicas, juguetes rígidos o lápices quedan fuera del área de juego.</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Garantía de Reprogramación:</strong> En caso de lluvia o viento severo para eventos al aire libre, se ofrece reprogramación sin costo.</li>
+            </ul>
+        </section>
+
+        <!-- Bloque 5: Validación y Firmas -->
+        <div class="signature-box">
+            <div class="sign-col">
+                <img src="imagenes/logo-alma-kids-oficial.png" alt="Sello ALMA Kids" style="max-height: 45px; opacity: 0.85; margin-bottom: 0.25rem;">
+                <div class="sign-line"></div>
+                <div class="sign-name">Carlos Venegas Rubilar</div>
+                <div class="sign-role">Representante Legal & Operaciones</div>
+                <div class="sign-role">ALMA Kids Entretenciones Infantiles Ltda.</div>
+                <div class="badge-stamp"><i class="fas fa-certificate"></i> Proveedor Certificado</div>
+            </div>
+
+            <div class="sign-col">
+                <i class="fas fa-building" style="font-size: 2rem; color: #aaa; margin-top: 0.5rem;"></i>
+                <div class="sign-line"></div>
+                <div class="sign-name">Recepción Administración / Conserjería</div>
+                <div class="sign-role">Condominio / Salón de Eventos</div>
+                <div class="sign-role">Firma, Fecha y RUT de Recepción</div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer style="text-align: center; margin-top: 2rem; font-size: 0.85rem; color: #888;">
+        <p>&copy; 2026 ALMA Kids Entretenciones Infantiles Ltda. · Machalí, Chile · www.almakids.cl</p>
+    </footer>
+
+</body>
+</html>

@@ -1155,3 +1155,100 @@ a.contact-hub-detail:hover {
   visibility: visible !important;
   animation: none !important;
 }
+
+/* =========================================================================
+   📐 FILTRO INTERACTIVO DE ESPACIO EN CATÁLOGO (ALMA KIDS 2026)
+   ========================================================================= */
+.catalogo-space-filter-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 1rem auto 1.5rem auto;
+  max-width: 900px;
+  background: #ffffff;
+  padding: 0.75rem 1.25rem;
+  border-radius: 50px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  border: 1px solid #f2e6ee;
+}
+
+.catalogo-space-filter-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #ff6b9d;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.catalogo-space-filter-label i {
+  font-size: 1rem;
+}
+
+.catalogo-space-pills {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.space-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: #faf8f9;
+  border: 1px solid #ebdbe3;
+  color: #555;
+  padding: 0.45rem 0.95rem;
+  border-radius: 50px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.space-pill-btn:hover {
+  background: #fff0f5;
+  border-color: #ffb8d1;
+  color: #e05587;
+  transform: translateY(-1px);
+}
+
+.space-pill-btn.active {
+  background: linear-gradient(135deg, #ff6b9d 0%, #ff8fab 100%);
+  color: #ffffff;
+  border-color: #ff6b9d;
+  box-shadow: 0 4px 12px rgba(255, 107, 157, 0.3);
+}
+
+.space-pill-btn .pill-meta {
+  font-weight: 400;
+  opacity: 0.85;
+  font-size: 0.75rem;
+}
+
+@media (max-width: 768px) {
+  .catalogo-space-filter-container {
+    border-radius: 18px;
+    padding: 0.85rem 1rem;
+    flex-direction: column;
+    gap: 0.65rem;
+    align-items: stretch;
+    text-align: center;
+  }
+  .catalogo-space-filter-label {
+    justify-content: center;
+  }
+  .catalogo-space-pills {
+    justify-content: center;
+  }
+  .space-pill-btn {
+    font-size: 0.78rem;
+    padding: 0.4rem 0.75rem;
+  }
+}

@@ -19,6 +19,7 @@ window.CATALOGO_PRODUCTOS = [
     // -------------------------------------------------------------------------
     {
         id: "pack-grand-peque",
+        tamanoEspacio: "amplio",
         nombre: 'SET "GRAND-PEQUE" (Tope de Gama)',
         categoria: "packs",
         categoriaNombre: "Pack VIP Completo",
@@ -50,6 +51,7 @@ window.CATALOGO_PRODUCTOS = [
     },
     {
         id: "pack-maximo",
+        tamanoEspacio: "mediano",
         nombre: 'SET "MÁXIMO" Todo Incluido',
         categoria: "packs",
         categoriaNombre: "Pack Todo Incluido",
@@ -160,6 +162,7 @@ window.CATALOGO_PRODUCTOS = [
     },
     {
         id: "pack-alma-mini-play",
+        tamanoEspacio: "compacto",
         nombre: 'SET "ALMA MINI PLAY"',
         categoria: "packs",
         categoriaNombre: "Especial Primera Infancia",
