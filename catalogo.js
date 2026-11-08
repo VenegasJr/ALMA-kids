@@ -327,8 +327,9 @@ Me encantó su catálogo y quisiera cotizar el siguiente servicio:
             </div>
         `;
 
-        // Exponer personalización activa para que el diálogo de cotización lo incluya
-        window.obtenerPersonalizacionModal = function() {
+        // Exponer personalización activa únicamente para el producto correspondiente
+        window.obtenerPersonalizacionModal = function(targetProductId) {
+            if (targetProductId && targetProductId !== producto.id) return '';
             const lineas = [];
             if (opciones.castillo) lineas.push(`🏰 Castillo: ${opciones.castillo}`);
             if (opciones.pelotas) lineas.push(`⚪ Pelotas: ${opciones.pelotas}`);
@@ -366,6 +367,7 @@ Me encantó su catálogo y quisiera cotizar el siguiente servicio:
     };
 
     window.cerrarModalDetalles = function() {
+        window.obtenerPersonalizacionModal = null;
         const modal = document.getElementById('catalogo-modal');
         if (modal) {
             modal.classList.remove('active');

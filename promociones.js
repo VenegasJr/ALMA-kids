@@ -86,8 +86,13 @@
         return `${fecha} a las ${hora} hrs`;
     }
 
-    // Guardar promo activa en localStorage
-    function guardarPromoActiva(promo) {
+    // Guardar promo activa en localStorage (mantiene vencimiento si ya está activa)
+    function guardarPromoActiva(promo, forzarNuevo = false) {
+        const actual = obtenerPromoActiva();
+        if (!forzarNuevo && actual && actual.codigo === promo.codigo) {
+            return actual; // Mantiene el plazo y token original sin reiniciar las 6 horas
+        }
+
         const ahora = Date.now();
         const payload = {
             codigo: promo.codigo,
@@ -261,16 +266,21 @@
 
     // Funciones Globales para UI y Catálogo
     window.abrirModalPromo = function(codigo) {
+        const actual = obtenerPromoActiva();
         if (codigo) {
+            if (actual && actual.codigo === codigo) {
+                renderizarModalPromo(actual, false);
+                return;
+            }
             const promo = buscarPromoPorTexto(codigo);
             if (promo) {
-                const activa = guardarPromoActiva(promo);
+                const activa = guardarPromoActiva(promo, false);
                 actualizarBannerPromo();
                 renderizarModalPromo(activa, false);
                 return;
             }
         }
-        renderizarModalPromo(obtenerPromoActiva(), false);
+        renderizarModalPromo(actual, false);
     };
 
     window.cerrarModalPromo = function() {
@@ -286,7 +296,7 @@
     window.activarPromoDirecta = function(codigo) {
         const promo = buscarPromoPorTexto(codigo);
         if (promo) {
-            const activa = guardarPromoActiva(promo);
+            const activa = guardarPromoActiva(promo, true);
             actualizarBannerPromo();
             renderizarModalPromo(activa, true);
         }
@@ -300,7 +310,7 @@
 
         const promo = buscarPromoPorTexto(input.value);
         if (promo) {
-            const activa = guardarPromoActiva(promo);
+            const activa = guardarPromoActiva(promo, true);
             actualizarBannerPromo();
             renderizarModalPromo(activa, true);
         } else {

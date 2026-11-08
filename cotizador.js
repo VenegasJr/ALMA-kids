@@ -96,6 +96,12 @@
             let total = basePrecio + sumaAdicionales;
             let descuento = 0;
             let promoMsg = '';
+            const comuna = selectComuna ? selectComuna.value : 'Machalí';
+            const fecha = (inputFecha && inputFecha.value) ? inputFecha.value : 'Por definir';
+
+            const esMachaliRancagua = ['machalí', 'machali', 'rancagua'].includes(comuna.toLowerCase().trim());
+            const esSet = productoBase && (productoBase.categoria === 'packs' || ['pack-maximo', 'pack-grand-peque', 'set-alma-magic', 'set-alma-active', 'set-duo', 'pack-alma-mini-play'].includes(productoBase.id));
+            const esMaximoOGrandPeque = productoBase && ['pack-maximo', 'pack-grand-peque'].includes(productoBase.id);
 
             // Revisar si hay promo activa
             let promoActiva = null;
@@ -104,15 +110,39 @@
                 if (raw) promoActiva = JSON.parse(raw);
             } catch (e) {}
 
+            let promoValidaParaWhatsApp = true;
+            let promoAclaracionWhatsApp = '';
+
             if (promoActiva && promoActiva.venceEn > Date.now()) {
                 if (promoActiva.codigo === 'INSTALMA') {
                     descuento = Math.min(10000, Math.round(total * 0.10));
                     total = total - descuento;
                     promoMsg = `🎉 Cupón ${promoActiva.codigo} aplicado: -${formatearCLP(descuento)} (10% OFF)`;
                 } else if (promoActiva.codigo === 'TRASLADO') {
-                    promoMsg = `🚚 Cupón ${promoActiva.codigo} activo: Traslado 100% Gratis en Machalí/Rancagua`;
+                    if (esMachaliRancagua && esSet) {
+                        promoMsg = `🚚 Cupón ${promoActiva.codigo} aplicado: ¡Traslado 100% Gratis en ${comuna}!`;
+                        promoAclaracionWhatsApp = `🚚 Beneficio: Traslado gratis en ${comuna} contratando Set.`;
+                    } else if (!esMachaliRancagua && esSet) {
+                        promoMsg = `ℹ️ Cupón TRASLADO: Válido en Machalí/Rancagua (hacia ${comuna} aplica tarifa de traslado estándar).`;
+                        promoValidaParaWhatsApp = false;
+                        promoAclaracionWhatsApp = `⚠️ Nota: Cupón TRASLADO aplica solo en Machalí/Rancagua (evento en ${comuna}).`;
+                    } else if (esMachaliRancagua && !esSet) {
+                        promoMsg = `ℹ️ Cupón TRASLADO: Aplica exclusivamente contratando un Set o Pack completo (con juego individual aplica traslado).`;
+                        promoValidaParaWhatsApp = false;
+                        promoAclaracionWhatsApp = `⚠️ Nota: Cupón TRASLADO aplica contratando un Set o Pack completo.`;
+                    } else {
+                        promoMsg = `ℹ️ Cupón TRASLADO: Válido contratando un Set en Machalí o Rancagua.`;
+                        promoValidaParaWhatsApp = false;
+                    }
                 } else if (promoActiva.codigo === 'BURBUJAS') {
-                    promoMsg = `🫧 Cupón ${promoActiva.codigo} activo: 1 Litro de líquido gratis incluido`;
+                    if (esMaximoOGrandPeque) {
+                        promoMsg = `🫧 Cupón ${promoActiva.codigo} aplicado: ¡1 Litro de líquido extra gratis incluido!`;
+                        promoAclaracionWhatsApp = `🫧 Beneficio: 1 Litro de líquido de burbujas gratis incluido con ${baseNombre}.`;
+                    } else {
+                        promoMsg = `ℹ️ Cupón BURBUJAS: Aplica exclusivamente contratando Set "MÁXIMO" o "GRAND-PEQUE".`;
+                        promoValidaParaWhatsApp = false;
+                        promoAclaracionWhatsApp = `⚠️ Nota: Cupón BURBUJAS aplica al contratar Set MÁXIMO o GRAND-PEQUE.`;
+                    }
                 }
             }
 
@@ -124,9 +154,6 @@
             }
 
             // Construir mensaje WhatsApp
-            const comuna = selectComuna ? selectComuna.value : 'Machalí';
-            const fecha = (inputFecha && inputFecha.value) ? inputFecha.value : 'Por definir';
-
             let textoAdicionales = '';
             if (adicionalesElegidos.length > 0) {
                 textoAdicionales = '\n➕ *Adicionales elegidos:*\n' + adicionalesElegidos.map(a => `   • ${a.nombre} (+${formatearCLP(a.precio)})`).join('\n');
@@ -135,6 +162,9 @@
             let promoTexto = '';
             if (typeof window.obtenerPromoParaWhatsApp === 'function') {
                 promoTexto = window.obtenerPromoParaWhatsApp();
+                if (promoAclaracionWhatsApp) {
+                    promoTexto += `\n${promoAclaracionWhatsApp}`;
+                }
             }
 
             const mensaje = 

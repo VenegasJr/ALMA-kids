@@ -118,7 +118,7 @@
         const service = selectedProduct
             ? `Quiero cotizar ${selectedProduct.nombre} (${priceLabel}: ${price.format(selectedProduct.precio)}).`
             : 'Quiero cotizar juegos para mi celebración.';
-        const personalizacion = window.obtenerPersonalizacionModal?.() || '';
+        const personalizacion = window.obtenerPersonalizacionModal?.(selectedProduct?.id) || '';
         const promo = window.obtenerPromoParaWhatsApp?.() || '';
         const message = [
             `¡Hola, ALMA Kids! ${service}`,
