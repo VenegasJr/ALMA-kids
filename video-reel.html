@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creador de Video Reel - ¡ALMA Kids volvió al mapa!</title>
+    <link rel="icon" type="image/webp" href="imagenes/logo-alma-kids-favicon.webp">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #ff6b9d;
+            --primary-dark: #e05587;
+            --dark: #1a1a24;
+            --bg: #0f0f14;
+            --accent: #ffd166;
+            --success: #25d366;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg);
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 1.5rem 1rem;
+        }
+
+        header.app-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            max-width: 600px;
+        }
+
+        .badge {
+            background: linear-gradient(135deg, #ff6b9d, #ff8fab);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.35rem 0.85rem;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+
+        h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 0.35rem;
+        }
+
+        p.subtitle {
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        .studio-container {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 1050px;
+            width: 100%;
+        }
+
+        /* Phone mockup wrapper */
+        .phone-mockup {
+            width: 360px;
+            height: 640px;
+            background: #000000;
+            border-radius: 36px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.8), 0 0 0 8px #2b2b36;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        canvas#videoCanvas {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            background: #000000;
+        }
+
+        /* Controls sidebar */
+        .controls-panel {
+            background: #1a1a24;
+            padding: 2rem;
+            border-radius: 24px;
+            border: 1px solid #2e2e3d;
+            max-width: 420px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .controls-panel h2 {
+            font-size: 1.25rem;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .controls-panel h2 i {
+            color: var(--primary);
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            height: 8px;
+            background: #2a2a38;
+            border-radius: 4px;
+            overflow: hidden;
+            cursor: pointer;
+            margin-top: 0.5rem;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #ff6b9d, #ffd166);
+            transition: width 0.1s linear;
+        }
+
+        .time-display {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: #888;
+            font-family: monospace;
+            margin-top: 0.35rem;
+        }
+
+        .btn-group-primary {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.85rem 1.25rem;
+            border-radius: 14px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s ease;
+            font-family: inherit;
+            flex: 1;
+        }
+
+        .btn-play {
+            background: linear-gradient(135deg, #ff6b9d, #ff8fab);
+            color: white;
+            box-shadow: 0 6px 20px rgba(255,107,157,0.3);
+        }
+
+        .btn-play:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255,107,157,0.45);
+        }
+
+        .btn-secondary {
+            background: #2b2b3a;
+            color: #eee;
+        }
+
+        .btn-secondary:hover {
+            background: #37374a;
+        }
+
+        .btn-download {
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            color: white;
+            padding: 1.1rem;
+            font-size: 1.05rem;
+            box-shadow: 0 8px 25px rgba(37,211,102,0.3);
+        }
+
+        .btn-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(37,211,102,0.45);
+        }
+
+        .recording-status {
+            display: none;
+            background: rgba(255, 107, 157, 0.15);
+            border: 1px solid var(--primary);
+            padding: 0.75rem 1rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            color: #ff8fab;
+            text-align: center;
+        }
+
+        .recording-status i {
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.4; }
+            50% { opacity: 1; }
+            100% { opacity: 0.4; }
+        }
+
+        .tips-card {
+            background: #232330;
+            border-radius: 14px;
+            padding: 1rem;
+            font-size: 0.82rem;
+            color: #bbb;
+            line-height: 1.5;
+        }
+
+        .tips-card strong {
+            color: #fff;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .tips-card ul {
+            padding-left: 1.25rem;
+            margin-top: 0.5rem;
+        }
+
+        .tips-card li {
+            margin-bottom: 0.3rem;
+        }
+
+        @media (max-width: 800px) {
+            .studio-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .phone-mockup {
+                width: 320px;
+                height: 568px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="app-header">
+        <span class="badge"><i class="fas fa-video"></i> GENERADOR OFICIAL DE VIDEO REEL</span>
+        <h1>¡ALMA Kids está de vuelta!</h1>
+        <p class="subtitle">Video en formato vertical 9:16 con narración, la captura real de Google Maps y oferta de reactivación.</p>
+    </header>
+
+    <div class="studio-container">
+        
+        <!-- Vista previa formato celular vertical (Instagram Reels / TikTok) -->
+        <div class="phone-mockup">
+            <canvas id="videoCanvas" width="1080" height="1920"></canvas>
+        </div>
+
+        <!-- Panel de control y descarga -->
+        <div class="controls-panel">
+            <h2><i class="fas fa-sliders"></i> Controles del Video</h2>
+            
+            <div>
+                <div class="progress-bar-container" id="progressBar">
+                    <div class="progress-bar-fill" id="progressFill"></div>
+                </div>
+                <div class="time-display">
+                    <span id="currentTime">00:00</span>
+                    <span id="totalTime">00:38</span>
+                </div>
+            </div>
+
+            <div class="btn-group-primary">
+                <button class="btn btn-play" id="btnPlayPause">
+                    <i class="fas fa-play" id="playIcon"></i> <span id="playText">Reproducir</span>
+                </button>
+                <button class="btn btn-secondary" id="btnRestart">
+                    <i class="fas fa-rotate-left"></i> Reiniciar
+                </button>
+            </div>
+
+            <button class="btn btn-download" id="btnDownload">
+                <i class="fas fa-download"></i> Descargar Video para Redes
+            </button>
+
+            <div class="recording-status" id="recordingStatus">
+                <i class="fas fa-circle-dot"></i> Grabando video en alta calidad... Espera unos segundos.
+            </div>
+
+            <div class="tips-card">
+                <strong>📲 ¿Dónde publicar este video?</strong>
+                <ul>
+                    <li><strong>Instagram Reels</strong>: Pega el copy oficial y agrega música en tendencia de fondo si quieres.</li>
+                    <li><strong>TikTok</strong>: Excelente para el algoritmo de pymes chilenas.</li>
+                    <li><strong>Estados de WhatsApp</strong>: Compártelo hoy mismo para que todos tus contactos sepan que estás abierto.</li>
+                </ul>
+            </div>
+
+            <div style="text-align: center; margin-top: 0.5rem;">
+                <a href="index.html" style="color: #888; font-size: 0.85rem; text-decoration: none;">
+                    <i class="fas fa-arrow-left"></i> Volver a la página web
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Audio de locución oficial -->
+    <audio id="audioNarration" preload="auto">
+        <source src="audio-locucion.m4a" type="audio/mp4">
+        <source src="audio-locucion.wav" type="audio/wav">
+    </audio>
+
+    <script>
+        (function() {
+            const canvas = document.getElementById('videoCanvas');
+            const ctx = canvas.getContext('2d');
+            const audio = document.getElementById('audioNarration');
+            const btnPlayPause = document.getElementById('btnPlayPause');
+            const playIcon = document.getElementById('playIcon');
+            const playText = document.getElementById('playText');
+            const btnRestart = document.getElementById('btnRestart');
+            const btnDownload = document.getElementById('btnDownload');
+            const progressFill = document.getElementById('progressFill');
+            const currentTimeEl = document.getElementById('currentTime');
+            const totalTimeEl = document.getElementById('totalTime');
+            const recordingStatus = document.getElementById('recordingStatus');
+
+            const TOTAL_DURATION = 38.2; // Segundos
+            let isPlaying = false;
+            let animFrameId = null;
+            let startTime = 0;
+            let pausedAt = 0;
+
+            // Cargar imágenes
+            const assets = {
+                maps: new Image(),
+                packMaximo: new Image(),
+                setDuo: new Image(),
+                castilloRosa: new Image(),
+                piscina: new Image(),
+                tipi: new Image(),
+                logo: new Image()
+            };
+
+            assets.maps.src = 'imagenes/google-maps-cerrado.png';
+            assets.packMaximo.src = 'imagenes/producto-pack-maximo-real.jpg';
+            assets.setDuo.src = 'imagenes/producto-set-duo-real.jpg';
+            assets.castilloRosa.src = 'imagenes/castillo-rosa.png';
+            assets.piscina.src = 'imagenes/producto-piscina-rosa-clean.jpg';
+            assets.tipi.src = 'imagenes/producto-carpa-tipi-real.jpg';
+            assets.logo.src = 'imagenes/logo-alma-kids-pagina.webp';
+
+            // Generador de música de fondo alegre con Web Audio API
+            let audioCtx = null;
+            let bgMusicGain = null;
+            let isMusicPlaying = false;
+
+            function initBackgroundMusic() {
+                try {
+                    const AudioContext = window.AudioContext || window.webkitAudioContext;
+                    if (!AudioContext) return;
+                    audioCtx = new AudioContext();
+                    bgMusicGain = audioCtx.createGain();
+                    bgMusicGain.gain.value = 0.12; // Música suave de fondo
+                    bgMusicGain.connect(audioCtx.destination);
+                } catch(e) {
+                    console.log('Web Audio no disponible:', e);
+                }
+            }
+
+            // Reproducir acordes felices periódicos
+            function playChord(time) {
+                if (!audioCtx || !isPlaying) return;
+                const chords = [
+                    [261.63, 329.63, 392.00], // C
+                    [293.66, 369.99, 440.00], // D
+                    [329.63, 392.00, 493.88], // Em
+                    [349.23, 440.00, 523.25]  // F
+                ];
+                const chord = chords[Math.floor(time * 1.5) % chords.length];
+                chord.forEach(freq => {
+                    const osc = audioCtx.createOscillator();
+                    const noteGain = audioCtx.createGain();
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+                    noteGain.gain.setValueAtTime(0.06, audioCtx.currentTime);
+                    noteGain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.5);
+                    osc.connect(noteGain);
+                    noteGain.connect(bgMusicGain);
+                    osc.start();
+                    osc.stop(audioCtx.currentTime + 0.5);
+                });
+            }
+
+            // Formatear tiempo mm:ss
+            function formatTime(sec) {
+                const m = Math.floor(sec / 60);
+                const s = Math.floor(sec % 60);
+                return `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+            }
+
+            // Renderizar un fotograma según el tiempo t (0 a 38.2)
+            function renderFrame(t) {
+                const W = canvas.width;  // 1080
+                const H = canvas.height; // 1920
+
+                // Fondo base
+                ctx.fillStyle = '#0b0b12';
+                ctx.fillRect(0, 0, W, H);
+
+                // =========================================================================
+                // ESCENA 1: EL MISTERIO (0.0s - 6.5s)
+                // "¿Te imaginas pasar dos meses enteros sin que suene el teléfono...?"
+                // =========================================================================
+                if (t < 6.5) {
+                    // Gradiente dramático oscuro
+                    const grad = ctx.createRadialGradient(W/2, H/2, 100, W/2, H/2, 900);
+                    grad.addColorStop(0, '#1f1524');
+                    grad.addColorStop(1, '#07060a');
+                    ctx.fillStyle = grad;
+                    ctx.fillRect(0, 0, W, H);
+
+                    // Ondas pulsantes de teléfono apagado
+                    const pulse = (Math.sin(t * 4) + 1) / 2;
+                    ctx.strokeStyle = `rgba(255, 107, 157, ${0.15 + pulse * 0.2})`;
+                    ctx.lineWidth = 4;
+                    ctx.beginPath();
+                    ctx.arc(W/2, H/2 - 100, 180 + pulse * 40, 0, Math.PI * 2);
+                    ctx.stroke();
+
+                    // Ícono de teléfono silenciado
+                    ctx.fillStyle = '#ff6b9d';
+                    ctx.beginPath();
+                    ctx.arc(W/2, H/2 - 100, 90, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    ctx.fillStyle = '#ffffff';
+                    ctx.font = '900 70px "Montserrat", sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.fillText('📞❌', W/2, H/2 - 75);
+
+                    // Textos grandes estilo TikTok
+                    drawTextWithOutline('¿POR QUÉ NADIE', W/2, H/2 + 160, 82, '#ffffff', '#000000', 14);
+                    drawTextWithOutline('NOS LLAMABA?', W/2, H/2 + 260, 88, '#ff6b9d', '#000000', 14);
+
+                    drawTextWithOutline('2 meses en silencio total...', W/2, H/2 + 400, 48, '#ffd166', '#000000', 10);
+                    drawTextWithOutline('Pensábamos que algo hacíamos mal 💔', W/2, H/2 + 470, 38, '#cccccc', '#000000', 8);
+                }
+
+                // =========================================================================
+                // ESCENA 2: LA PESADILLA DE GOOGLE MAPS (6.5s - 14.0s)
+                // "Ayer descubrimos la pesadilla: ¡Google Maps nos marcó CERRADO TEMPORALMENTE!"
+                // =========================================================================
+                else if (t < 14.0) {
+                    const sceneT = t - 6.5;
+
+                    // Fondo rojo oscuro de alerta
+                    const grad = ctx.createLinearGradient(0, 0, 0, H);
+                    grad.addColorStop(0, '#2d0a14');
+                    grad.addColorStop(1, '#0c0205');
+                    ctx.fillStyle = grad;
+                    ctx.fillRect(0, 0, W, H);
+
+                    // Título de impacto
+                    drawTextWithOutline('🚨 LA PESADILLA 🚨', W/2, 280, 72, '#ff4757', '#000000', 12);
+                    drawTextWithOutline('¡GOOGLE NOS DIO POR MUERTOS!', W/2, 380, 56, '#ffffff', '#000000', 10);
+
+                    // Pantallazo de Google Maps con Zoom In
+                    if (assets.maps.complete && assets.maps.naturalWidth > 0) {
+                        ctx.save();
+                        // Efecto zoom suave hacia el cartel rojo
+                        const scale = 1.0 + Math.min(sceneT * 0.08, 0.45);
+                        ctx.translate(W/2, 900);
+                        ctx.scale(scale, scale);
+                        ctx.drawImage(assets.maps, -460, -320, 920, 640);
+
+                        // Borde de foto estilo móvil
+                        ctx.strokeStyle = '#ff4757';
+                        ctx.lineWidth = 8;
+                        ctx.strokeRect(-460, -320, 920, 640);
+                        ctx.restore();
+                    }
+
+                    // Cartel rojo parpadeante de alerta
+                    const blink = Math.sin(sceneT * 6) > 0;
+                    ctx.fillStyle = blink ? 'rgba(235, 47, 47, 0.95)' : 'rgba(180, 20, 20, 0.9)';
+                    ctx.beginPath();
+                    ctx.roundRect(W/2 - 420, 1380, 840, 170, 30);
+                    ctx.fill();
+
+                    drawTextWithOutline('⚠️ CERRADO TEMPORALMENTE ⚠️', W/2, 1460, 48, '#ffffff', '#000000', 10);
+                    drawTextWithOutline('(¡Google pensó que no existíamos!)', W/2, 1520, 34, '#ffd166', '#000000', 6);
+                }
+
+                // =========================================================================
+                // ESCENA 3: LA EXPLICACIÓN (14.0s - 20.0s)
+                // "Como llevamos los juegos directo a tu casa y no tenemos vitrina a la calle..."
+                // =========================================================================
+                else if (t < 20.0) {
+                    const sceneT = t - 14.0;
+
+                    // Fondo pastel moderno
+                    ctx.fillStyle = '#16192b';
+                    ctx.fillRect(0, 0, W, H);
+
+                    drawTextWithOutline('¿QUÉ FUE LO QUE PASÓ?', W/2, 280, 68, '#4a90e2', '#000000', 12);
+
+                    // Ilustración de servicio a domicilio
+                    if (assets.packMaximo.complete) {
+                        ctx.save();
+                        ctx.beginPath();
+                        ctx.roundRect(W/2 - 420, 420, 840, 750, 40);
+                        ctx.clip();
+                        ctx.drawImage(assets.packMaximo, W/2 - 420, 420, 840, 750);
+                        ctx.restore();
+
+                        ctx.strokeStyle = '#4a90e2';
+                        ctx.lineWidth = 10;
+                        ctx.beginPath();
+                        ctx.roundRect(W/2 - 420, 420, 840, 750, 40);
+                        ctx.stroke();
+                    }
+
+                    // Explicación en texto grande
+                    drawTextWithOutline('¡Nosotros vamos a tu fiesta!', W/2, 1320, 64, '#ffffff', '#000000', 12);
+                    drawTextWithOutline('No tenemos local a la calle porque', W/2, 1420, 44, '#ffd166', '#000000', 8);
+                    drawTextWithOutline('llegamos directo a tu casa o parcela 🏡🚚', W/2, 1490, 44, '#ffffff', '#000000', 8);
+                    drawTextWithOutline('¡Y el robot de Google no lo entendió!', W/2, 1580, 40, '#ff6b9d', '#000000', 8);
+                }
+
+                // =========================================================================
+                // ESCENA 4: EL TRIUNFO Y LA REAPERTURA (20.0s - 27.5s)
+                // "¡Pero las pymes no nos rendimos jamás! Hoy estamos 100% ABIERTOS y más vivos que nunca."
+                // =========================================================================
+                else if (t < 27.5) {
+                    const sceneT = t - 20.0;
+
+                    // Fondo festivo degradado rosa a violeta
+                    const grad = ctx.createLinearGradient(0, 0, 0, H);
+                    grad.addColorStop(0, '#3a1c3e');
+                    grad.addColorStop(0.5, '#1e112a');
+                    grad.addColorStop(1, '#0c0714');
+                    ctx.fillStyle = grad;
+                    ctx.fillRect(0, 0, W, H);
+
+                    // Partículas de confeti animadas
+                    for (let i = 0; i < 40; i++) {
+                        const cx = (Math.sin(i * 99 + sceneT * 3) * 0.5 + 0.5) * W;
+                        const cy = ((i * 47 + sceneT * 350) % H);
+                        const colors = ['#ff6b9d', '#ffd166', '#25d366', '#4a90e2', '#ffffff'];
+                        ctx.fillStyle = colors[i % colors.length];
+                        ctx.fillRect(cx, cy, 18, 18);
+                    }
+
+                    drawTextWithOutline('¡UNA PYME FAMILIAR', W/2, 280, 68, '#ffd166', '#000000', 12);
+                    drawTextWithOutline('NO SE RINDE JAMÁS! 💪', W/2, 380, 72, '#ffffff', '#000000', 12);
+
+                    // Grid dinámico de juegos relucientes
+                    const imgToShow = (Math.floor(sceneT * 1.5) % 3 === 0) ? assets.packMaximo : 
+                                      (Math.floor(sceneT * 1.5) % 3 === 1) ? assets.setDuo : assets.castilloRosa;
+
+                    if (imgToShow && imgToShow.complete) {
+                        ctx.save();
+                        ctx.beginPath();
+                        ctx.roundRect(W/2 - 430, 480, 860, 800, 40);
+                        ctx.clip();
+                        ctx.drawImage(imgToShow, W/2 - 430, 480, 860, 800);
+                        ctx.restore();
+
+                        ctx.strokeStyle = '#25d366';
+                        ctx.lineWidth = 10;
+                        ctx.beginPath();
+                        ctx.roundRect(W/2 - 430, 480, 860, 800, 40);
+                        ctx.stroke();
+                    }
+
+                    // Sello verde brillante de ABIERTO
+                    ctx.fillStyle = '#25d366';
+                    ctx.beginPath();
+                    ctx.roundRect(W/2 - 430, 1370, 860, 180, 35);
+                    ctx.fill();
+
+                    drawTextWithOutline('✅ ¡ESTAMOS 100% ABIERTOS! ✅', W/2, 1450, 52, '#ffffff', '#000000', 10);
+                    drawTextWithOutline('¡Más vivos y equipados que nunca!', W/2, 1515, 36, '#0f381e', '#ffffff', 0);
+                }
+
+                // =========================================================================
+                // ESCENA 5: LA OFERTA Y LLAMADO A LA ACCIÓN (27.5s - 38.2s)
+                // "Y para celebrar que volvimos: Escribe MAPS al WhatsApp y llévate máquina de burbujas gratis!"
+                // =========================================================================
+                else {
+                    const sceneT = t - 27.5;
+
+                    // Fondo vibrante de celebración
+                    const grad = ctx.createLinearGradient(0, 0, 0, H);
+                    grad.addColorStop(0, '#ff6b9d');
+                    grad.addColorStop(0.3, '#30132b');
+                    grad.addColorStop(1, '#0e050d');
+                    ctx.fillStyle = grad;
+                    ctx.fillRect(0, 0, W, H);
+
+                    // Logo arriba
+                    if (assets.logo.complete) {
+                        ctx.drawImage(assets.logo, W/2 - 250, 180, 500, 218);
+                    }
+
+                    drawTextWithOutline('🎉 ¡CELEBREMOS JUNTOS! 🎉', W/2, 470, 64, '#ffd166', '#000000', 12);
+                    drawTextWithOutline('Para agradecer el cariño y apoyo:', W/2, 550, 42, '#ffffff', '#000000', 8);
+
+                    // Tarjeta dorada de promoción
+                    ctx.fillStyle = 'rgba(255, 209, 102, 0.15)';
+                    ctx.strokeStyle = '#ffd166';
+                    ctx.lineWidth = 6;
+                    ctx.beginPath();
+                    ctx.roundRect(W/2 - 440, 630, 880, 440, 36);
+                    ctx.fill();
+                    ctx.stroke();
+
+                    drawTextWithOutline('CÓDIGO SECRETO:', W/2, 720, 48, '#ffffff', '#000000', 8);
+                    
+                    // Botón de código MAPS
+                    ctx.fillStyle = '#ffffff';
+                    ctx.beginPath();
+                    ctx.roundRect(W/2 - 280, 770, 560, 120, 25);
+                    ctx.fill();
+
+                    drawTextWithOutline('✨ MAPS ✨', W/2, 855, 78, '#ff6b9d', '#000000', 0);
+
+                    drawTextWithOutline('🫧 MÁQUINA DE BURBUJAS GRATIS 🫧', W/2, 970, 40, '#ffd166', '#000000', 8);
+                    drawTextWithOutline('en tu arriendo de inflable o plaza blanda', W/2, 1030, 34, '#ffffff', '#000000', 6);
+
+                    // Llamado a la acción WhatsApp
+                    ctx.fillStyle = '#25d366';
+                    ctx.beginPath();
+                    ctx.roundRect(W/2 - 420, 1140, 840, 160, 35);
+                    ctx.fill();
+
+                    drawTextWithOutline('📲 COTIZA AL WHATSAPP', W/2, 1215, 52, '#ffffff', '#000000', 10);
+                    drawTextWithOutline('+56 9 6907 3306', W/2, 1275, 42, '#ffffff', '#000000', 8);
+
+                    drawTextWithOutline('Machalí · Rancagua · VI Región', W/2, 1370, 44, '#ffffff', '#000000', 8);
+                    drawTextWithOutline('Comparte y apoya a tu pyme local ❤️', W/2, 1440, 38, '#ff8fab', '#000000', 8);
+
+                    drawTextWithOutline('www.almakids.cl', W/2, 1550, 40, '#aaa', '#000000', 6);
+                }
+
+                // Barra de progreso inferior dentro del video
+                const progressRatio = Math.min(t / TOTAL_DURATION, 1.0);
+                ctx.fillStyle = '#ff6b9d';
+                ctx.fillRect(0, H - 25, W * progressRatio, 25);
+            }
+
+            // Función auxiliar para texto nítido con contorno negro estilo TikTok
+            function drawTextWithOutline(text, x, y, size, fill, stroke, strokeWidth) {
+                ctx.save();
+                ctx.font = `900 ${size}px "Montserrat", sans-serif`;
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+
+                if (strokeWidth > 0) {
+                    ctx.strokeStyle = stroke;
+                    ctx.lineWidth = strokeWidth;
+                    ctx.lineJoin = 'round';
+                    ctx.miterLimit = 2;
+                    ctx.strokeText(text, x, y);
+                }
+
+                ctx.fillStyle = fill;
+                ctx.fillText(text, x, y);
+                ctx.restore();
+            }
+
+            // Bucle de animación
+            function animLoop(timestamp) {
+                if (!isPlaying) return;
+
+                const currentAudioTime = audio.currentTime;
+                renderFrame(currentAudioTime);
+                playChord(currentAudioTime);
+
+                // Actualizar UI
+                const percent = Math.min((currentAudioTime / TOTAL_DURATION) * 100, 100);
+                progressFill.style.width = `${percent}%`;
+                currentTimeEl.textContent = formatTime(currentAudioTime);
+
+                if (audio.ended || currentAudioTime >= TOTAL_DURATION) {
+                    stopPlayback();
+                    return;
+                }
+
+                animFrameId = requestAnimationFrame(animLoop);
+            }
+
+            function startPlayback() {
+                if (!audioCtx) initBackgroundMusic();
+                if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+
+                audio.play().then(() => {
+                    isPlaying = true;
+                    playIcon.className = 'fas fa-pause';
+                    playText.textContent = 'Pausar';
+                    animFrameId = requestAnimationFrame(animLoop);
+                }).catch(err => {
+                    console.error('Error al reproducir audio:', err);
+                    isPlaying = true;
+                    animFrameId = requestAnimationFrame(animLoop);
+                });
+            }
+
+            function stopPlayback() {
+                isPlaying = false;
+                audio.pause();
+                playIcon.className = 'fas fa-play';
+                playText.textContent = 'Reproducir';
+                if (animFrameId) cancelAnimationFrame(animFrameId);
+            }
+
+            btnPlayPause.addEventListener('click', () => {
+                if (isPlaying) {
+                    stopPlayback();
+                } else {
+                    startPlayback();
+                }
+            });
+
+            btnRestart.addEventListener('click', () => {
+                stopPlayback();
+                audio.currentTime = 0;
+                progressFill.style.width = '0%';
+                currentTimeEl.textContent = '00:00';
+                renderFrame(0);
+            });
+
+            // Permitir hacer clic en la barra de progreso para saltar a cualquier segundo
+            const progressBar = document.getElementById('progressBar');
+            progressBar.addEventListener('click', (e) => {
+                const rect = progressBar.getBoundingClientRect();
+                const clickPos = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+                const targetTime = clickPos * TOTAL_DURATION;
+                audio.currentTime = targetTime;
+                renderFrame(targetTime);
+                progressFill.style.width = `${clickPos * 100}%`;
+                currentTimeEl.textContent = formatTime(targetTime);
+            });
+
+            // Función de Descarga del Video usando MediaRecorder en el navegador
+            btnDownload.addEventListener('click', () => {
+                btnDownload.disabled = true;
+                btnDownload.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Grabando Video...';
+                recordingStatus.style.display = 'block';
+
+                stopPlayback();
+                audio.currentTime = 0;
+
+                // Crear stream de canvas a 30 FPS
+                const canvasStream = canvas.captureStream(30);
+
+                // Mezclar audio de la locución en el stream
+                let combinedStream = canvasStream;
+                try {
+                    if (!audioCtx) initBackgroundMusic();
+                    const audioSource = audioCtx.createMediaElementSource(audio);
+                    const dest = audioCtx.createMediaStreamDestination();
+                    audioSource.connect(dest);
+                    audioSource.connect(audioCtx.destination);
+                    if (bgMusicGain) bgMusicGain.connect(dest);
+
+                    combinedStream = new MediaStream([
+                        ...canvasStream.getVideoTracks(),
+                        ...dest.stream.getAudioTracks()
+                    ]);
+                } catch(e) {
+                    console.log('Usando solo video stream:', e);
+                }
+
+                // Opciones de códec admitidas
+                let mimeType = 'video/webm;codecs=vp9';
+                if (!MediaRecorder.isTypeSupported(mimeType)) {
+                    mimeType = 'video/webm';
+                }
+
+                const recorder = new MediaRecorder(combinedStream, {
+                    mimeType: mimeType,
+                    videoBitsPerSecond: 6000000 // 6 Mbps alta calidad
+                });
+
+                const chunks = [];
+                recorder.ondataavailable = e => {
+                    if (e.data.size > 0) chunks.push(e.data);
+                };
+
+                recorder.onstop = () => {
+                    const blob = new Blob(chunks, { type: mimeType });
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'ALMA-Kids-Video-Regreso.webm';
+                    document.body.appendChild(a);
+                    a.click();
+                    setTimeout(() => {
+                        document.body.removeChild(a);
+                        window.URL.revokeObjectURL(url);
+                    }, 100);
+
+                    btnDownload.disabled = false;
+                    btnDownload.innerHTML = '<i class="fas fa-check"></i> ¡Video Descargado!';
+                    recordingStatus.style.display = 'none';
+                    setTimeout(() => {
+                        btnDownload.innerHTML = '<i class="fas fa-download"></i> Descargar Video para Redes';
+                    }, 4000);
+                };
+
+                recorder.start();
+                startPlayback();
+
+                // Detener al terminar el audio
+                const checkEnd = setInterval(() => {
+                    if (audio.ended || audio.currentTime >= TOTAL_DURATION) {
+                        clearInterval(checkEnd);
+                        stopPlayback();
+                        recorder.stop();
+                    }
+                }, 100);
+            });
+
+            // Exponer renderFrame para pruebas
+            window.renderFrameManually = renderFrame;
+
+            // Primer fotograma estático o según parámetro #t=
+            const hash = window.location.hash;
+            let initialTime = 0;
+            if (hash && hash.includes('t=')) {
+                initialTime = parseFloat(hash.split('t=')[1]) || 0;
+            }
+
+            assets.maps.onload = () => renderFrame(initialTime);
+            assets.logo.onload = () => renderFrame(initialTime);
+            setTimeout(() => {
+                renderFrame(initialTime);
+                if (initialTime > 0) {
+                    progressFill.style.width = `${(initialTime / TOTAL_DURATION) * 100}%`;
+                    currentTimeEl.textContent = formatTime(initialTime);
+                }
+            }, 300);
+
+        })();
+    </script>
+</body>
+</html>
