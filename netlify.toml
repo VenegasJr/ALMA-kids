@@ -43,8 +43,8 @@
 
 [[redirects]]
   from = "/servicios"
-  to = "/index.html#servicios"
-  status = 200
+  to = "/#catalogo"
+  status = 301
 
 [[redirects]]
   from = "/nosotros"
@@ -69,7 +69,7 @@
 # Redirects para SEO
 [[redirects]]
   from = "/juegos-inflables"
-  to = "/index.html#servicios"
+  to = "/juegos-inflables-ohiggins.html"
   status = 301
 
 [[redirects]]
@@ -79,7 +79,7 @@
 
 [[redirects]]
   from = "/castillos-inflables"
-  to = "/index.html#servicios"
+  to = "/#catalogo"
   status = 301
 
 [[redirects]]
