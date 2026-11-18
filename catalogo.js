@@ -15,12 +15,13 @@
     let currentSpace = 'todos';
 
     // Formateador de moneda chilena
-    function formatearPrecio(valor) {
-        return new Intl.NumberFormat('es-CL', {
+    function formatearPrecio(valor, precioDesde = false) {
+        const precio = new Intl.NumberFormat('es-CL', {
             style: 'currency',
             currency: 'CLP',
             maximumFractionDigits: 0
         }).format(valor);
+        return precioDesde ? 'Desde ' + precio : precio;
     }
 
     function formatearSuplemento(producto) {
@@ -35,7 +36,7 @@
     // Generar enlace directo a WhatsApp
     function generarLinkWhatsApp(producto, opciones = {}) {
         const telefono = '56969073306';
-        const precioFmt = formatearPrecio(producto.precio);
+        const precioFmt = formatearPrecio(producto.precio, producto.precioDesde);
 
         let personalizacionTexto = '';
         if (opciones && Object.keys(opciones).length > 0) {

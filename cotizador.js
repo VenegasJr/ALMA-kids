@@ -15,16 +15,17 @@
         { id: 'liquido_extra', nombre: 'Líquido para Burbujas (1 Litro)', precio: 6000 },
         { id: 'carpa_tipi', nombre: 'Carpa Tipi Decorativa Aesthetic', precio: 17000 },
         { id: 'cartel', nombre: 'Cartel de Bienvenida Personalizado (60×90 cm)', precio: 25000 },
-        { id: 'monitor', nombre: 'Supervisión Profesional por Monitor (4 hrs)', precio: 30000 },
+        { id: 'monitor', nombre: 'Supervisión Profesional por Monitor (4 hrs)', precio: 45000, precioDesde: true },
         { id: 'saltarin', nombre: 'Animalito Saltarín o Balancín adicional', precio: 16000 }
     ];
 
-    function formatearCLP(valor) {
-        return new Intl.NumberFormat('es-CL', {
+    function formatearCLP(valor, precioDesde = false) {
+        const precio = new Intl.NumberFormat('es-CL', {
             style: 'currency',
             currency: 'CLP',
             maximumFractionDigits: 0
         }).format(valor);
+        return precioDesde ? 'Desde ' + precio : precio;
     }
 
     function initCotizador() {
@@ -41,7 +42,7 @@
         // 1. Poblar juegos y sets base
         const productos = (window.CATALOGO_PRODUCTOS || []).filter(p => p.activo !== false);
         selectBase.innerHTML = productos.map(p => {
-            const precioFmt = formatearCLP(p.precio);
+            const precioFmt = formatearCLP(p.precio, p.precioDesde);
             return `<option value="${p.id}" data-precio="${p.precio}">${p.nombre} — ${precioFmt}</option>`;
         }).join('');
 
@@ -55,10 +56,10 @@
         addonsContainer.innerHTML = ADICIONALES.map(ad => `
             <label class="cotizador-addon-item" data-id="${ad.id}">
                 <div class="cotizador-addon-left">
-                    <input type="checkbox" id="addon_${ad.id}" data-precio="${ad.precio}" data-nombre="${ad.nombre}">
+                    <input type="checkbox" id="addon_${ad.id}" data-precio="${ad.precio}" data-nombre="${ad.nombre}" data-precio-desde="${ad.precioDesde === true}">
                     <span class="cotizador-addon-name">${ad.nombre}</span>
                 </div>
-                <span class="cotizador-addon-price">+ ${formatearCLP(ad.precio)}</span>
+                <span class="cotizador-addon-price">+ ${formatearCLP(ad.precio, ad.precioDesde)}</span>
             </label>
         `).join('');
 
@@ -80,7 +81,8 @@
                 const precio = parseInt(cb.getAttribute('data-precio') || '0', 10);
                 const nombre = cb.getAttribute('data-nombre');
                 sumaAdicionales += precio;
-                adicionalesElegidos.push({ nombre, precio });
+                const precioDesde = cb.dataset.precioDesde === 'true';
+                adicionalesElegidos.push({ nombre, precio, precioDesde });
             });
 
             // Resaltar tarjeta seleccionada
@@ -146,7 +148,8 @@
                 }
             }
 
-            totalAmountEl.textContent = formatearCLP(total);
+            const totalEsDesde = Boolean(productoBase?.precioDesde) || adicionalesElegidos.some(ad => ad.precioDesde);
+            totalAmountEl.textContent = formatearCLP(total, totalEsDesde);
             if (promoMsg) {
                 totalNotesEl.innerHTML = `<strong>${promoMsg}</strong><br>50% de abono al agendar y 50% previo a la instalación.`;
             } else {
@@ -156,7 +159,7 @@
             // Construir mensaje WhatsApp
             let textoAdicionales = '';
             if (adicionalesElegidos.length > 0) {
-                textoAdicionales = '\n➕ *Adicionales elegidos:*\n' + adicionalesElegidos.map(a => `   • ${a.nombre} (+${formatearCLP(a.precio)})`).join('\n');
+                textoAdicionales = '\n➕ *Adicionales elegidos:*\n' + adicionalesElegidos.map(a => `   • ${a.nombre} (+${formatearCLP(a.precio, a.precioDesde)})`).join('\n');
             }
 
             let promoTexto = '';
@@ -172,11 +175,11 @@
 
 Armé mi presupuesto en su cotizador web y me gustaría reservar:
 
-🎈 *Servicio Base:* ${baseNombre} (${formatearCLP(basePrecio)})${textoAdicionales}
+🎈 *Servicio Base:* ${baseNombre} (${formatearCLP(basePrecio, productoBase?.precioDesde)})${textoAdicionales}
 
 📍 *Comuna:* ${comuna}
 📅 *Fecha estimada:* ${fecha}
-💰 *Total estimado:* ${formatearCLP(total)}${promoTexto ? '\n' + promoTexto : ''}
+💰 *Total estimado:* ${formatearCLP(total, totalEsDesde)}${promoTexto ? '\n' + promoTexto : ''}
 
 ¿Tienen disponibilidad para esta fecha? ¡Muchas gracias! 💕`;
 
