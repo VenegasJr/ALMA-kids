@@ -378,7 +378,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <article class="card" style="animation-delay: ${index * 0.1}s">
             ${p.badge ? `<span class="badge">${p.badge}</span>` : ''}
             <div class="card-img" onclick="openImageZoom('${p.image}', '${p.name}')">
-                <img src="${p.image}" alt="${p.name}" onerror="this.src='imagenes/logo-alma-kids-oficial.png'">
+                <img src="${p.image}" alt="${p.name}" onerror="this.src='imagenes/logo-alma-kids-marca.jpeg'">
                 <div class="zoom-overlay">
                     <i class="fa-solid fa-search-plus"></i>
                     <span>Click para ampliar</span>

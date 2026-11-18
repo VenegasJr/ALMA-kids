@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Creador de Video Reel - ¡ALMA Kids volvió al mapa!</title>
-    <link rel="icon" type="image/webp" href="imagenes/logo-alma-kids-favicon.webp">
+    <link rel="icon" type="image/png" sizes="96x96" href="imagenes/ak-icono-96.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
@@ -260,6 +260,7 @@
             }
         }
     </style>
+  <link rel="stylesheet" href="marca-alma-kids.css?v=1">
 </head>
 <body>
 
@@ -369,7 +370,7 @@
             assets.castilloRosa.src = 'imagenes/castillo-rosa.png';
             assets.piscina.src = 'imagenes/producto-piscina-rosa-clean.jpg';
             assets.tipi.src = 'imagenes/producto-carpa-tipi-real.jpg';
-            assets.logo.src = 'imagenes/logo-alma-kids-pagina.webp';
+            assets.logo.src = 'imagenes/logo-alma-kids-marca.jpeg';
 
             // Generador de música de fondo alegre con Web Audio API
             let audioCtx = null;
@@ -621,8 +622,9 @@
                     ctx.fillRect(0, 0, W, H);
 
                     // Logo arriba
-                    if (assets.logo.complete) {
-                        ctx.drawImage(assets.logo, W/2 - 250, 180, 500, 218);
+                    if (assets.logo.naturalWidth) {
+                        const logoSize = 280;
+                        ctx.drawImage(assets.logo, (W - logoSize) / 2, 130, logoSize, logoSize);
                     }
 
                     drawTextWithOutline('🎉 ¡CELEBREMOS JUNTOS! 🎉', W/2, 470, 64, '#ffd166', '#000000', 12);

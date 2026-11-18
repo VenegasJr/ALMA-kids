@@ -1,0 +1,45 @@
+/* El archivo oficial es cuadrado. El encabezado encuadra sus márgenes blancos. */
+img.logo-header[src$="logo-alma-kids-marca.jpeg"],
+img.logo-image[src$="logo-alma-kids-marca.jpeg"] {
+  --ak-logo-height: 70px;
+  display: block;
+  width: calc(1.42 * var(--ak-logo-height)) !important;
+  height: var(--ak-logo-height) !important;
+  object-fit: cover !important;
+}
+
+.site-header .brand img[src$="logo-alma-kids-marca.jpeg"] {
+  display: block;
+  width: clamp(87px, 12vw, 116px);
+  height: auto;
+  aspect-ratio: 1.42;
+  object-fit: cover;
+}
+
+.ak-footer-logo {
+  display: block;
+  width: 108px !important;
+  height: 76px !important;
+  padding: 0;
+  object-fit: cover !important;
+  border-radius: .45rem;
+  margin-bottom: .5rem;
+}
+
+.site-footer .wrap .ak-footer-logo { margin: 0; }
+
+.header-logo-group img[src$="logo-alma-kids-marca.jpeg"] {
+  max-width: 140px;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  aspect-ratio: 1.42;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  img.logo-header[src$="logo-alma-kids-marca.jpeg"],
+  img.logo-image[src$="logo-alma-kids-marca.jpeg"] {
+    --ak-logo-height: 54px;
+  }
+}

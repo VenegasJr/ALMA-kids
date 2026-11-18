@@ -1,0 +1,230 @@
+/* Paleta y tratamiento visual de la portada de ALMA Kids. */
+.ak-coverage {
+  --ink: #25242a;
+  --muted: #5e5260;
+  --accent: #ad1457;
+  --surface: #fff9fc;
+  --line: #efdde6;
+  --pink: #e91e63;
+  --mint: #eefafa;
+  --shadow: 0 13px 36px rgba(85, 42, 66, .1);
+  background: #fff;
+}
+
+.ak-coverage .site-header { border-bottom-color: #f3e5ed; }
+.ak-coverage .site-header .wrap { min-height: 78px; }
+.ak-coverage .brand img {
+  width: clamp(105px, 13vw, 150px);
+  height: auto;
+  border-radius: 0;
+}
+.ak-coverage .site-header nav { gap: .2rem clamp(.45rem, 1.8vw, 1.55rem); }
+.ak-coverage .site-header nav a { color: var(--ink); text-decoration: none; }
+.ak-coverage .site-header nav a:hover { color: var(--accent); text-decoration: underline; }
+.ak-coverage .site-header nav a.nav-quote {
+  padding: .55rem .85rem;
+  border-radius: 999px;
+  background: #fae8f1;
+  color: var(--accent);
+}
+
+.ak-coverage main > .wrap:first-child {
+  width: 100%;
+  padding-inline: max(1rem, calc((100% - 1120px) / 2));
+  background:
+    radial-gradient(ellipse at 2% 18%, #fbd5e8 0, transparent 55%),
+    radial-gradient(ellipse at 94% 48%, #daf4f3 0, transparent 54%),
+    linear-gradient(128deg, #fff1f6, #fffdfa 55%, #eefafa);
+}
+.ak-coverage .breadcrumb { margin: 0; padding-top: 1.05rem; }
+.ak-coverage .hero {
+  min-height: 480px;
+  padding-block: clamp(1.6rem, 5vw, 3.7rem) clamp(2.3rem, 5vw, 4.35rem);
+}
+.ak-coverage .hero .eyebrow { color: var(--accent); font-weight: 700; }
+.ak-coverage h1 {
+  font-size: clamp(2.2rem, 5.1vw, 4.45rem);
+  line-height: 1.05;
+  letter-spacing: -.055em;
+  margin-bottom: 1.1rem;
+  text-wrap: balance;
+}
+.ak-coverage .region-title { color: var(--accent); }
+.ak-coverage .hero p:not(.eyebrow) { line-height: 1.65; }
+.ak-coverage .actions { margin-top: 1.5rem; }
+.ak-coverage .button {
+  border-radius: 999px;
+  gap: .45rem;
+  min-height: 47px;
+  padding-inline: 1.2rem;
+}
+.ak-coverage .button-primary {
+  border-color: transparent;
+  background: linear-gradient(115deg, #a81553, #c02c65);
+  box-shadow: 0 8px 18px #ad14572c;
+}
+.ak-coverage .button-primary:hover { background: #951049; }
+.ak-coverage .button-secondary { border-color: #de8fb2; }
+.ak-coverage .button-secondary:hover { background: #fff0f6; }
+
+.ak-coverage .hero-photo {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: .55rem;
+  background: #fff;
+  border-radius: 1.65rem;
+  box-shadow: var(--shadow);
+}
+.ak-coverage .hero-photo img { border-radius: 1.2rem; }
+.ak-coverage .hero-photo figcaption {
+  position: absolute;
+  bottom: .95rem;
+  right: .95rem;
+  padding: .42rem .7rem;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--ink);
+  font-size: .74rem;
+  font-weight: 600;
+}
+.ak-coverage .hero-mosaic {
+  display: grid;
+  grid-template-columns: 1.25fr .8fr;
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: .5rem;
+  aspect-ratio: 1.12;
+}
+.ak-coverage .hero-mosaic img {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  aspect-ratio: auto;
+}
+.ak-coverage .hero-mosaic img:first-child { grid-row: 1 / -1; }
+.ak-commune .hero-photo img { aspect-ratio: 5 / 4; }
+
+.ak-coverage .directory {
+  padding-block: clamp(2rem, 5vw, 4rem);
+  background: linear-gradient(180deg, #fff 0, #fff7fb 100%);
+}
+.ak-coverage .directory-heading h2 { margin-bottom: .6rem; }
+.ak-coverage .directory-heading p { margin-bottom: 0; }
+.ak-coverage .province-nav { margin-top: 1.15rem; gap: .45rem; }
+.ak-coverage .province-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 39px;
+  padding: .35rem .75rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: white;
+  text-decoration: none;
+  font-size: .84rem;
+}
+.ak-coverage .province-nav a:hover { background: #fff0f6; }
+.ak-coverage .province-grid {
+  grid-template-columns: 1.2fr 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+.ak-coverage .province {
+  --province-color: #974361;
+  --province-bg: #fae9f0;
+  padding: 0;
+  border-radius: 1.15rem;
+  border: 1px solid var(--line);
+  background: #fff;
+  box-shadow: 0 8px 25px #52263b0b;
+}
+.ak-coverage .province:first-child { grid-row: span 2; }
+.ak-coverage .province:nth-child(2) { --province-bg: #e8f7f4; --province-color: #276963; }
+.ak-coverage .province:nth-child(3) { --province-bg: #fff2e5; --province-color: #864b29; }
+.ak-coverage .province-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: .25rem .7rem;
+  padding: .85rem 1rem;
+  border-radius: calc(1.15rem - 1px) calc(1.15rem - 1px) 0 0;
+  background: var(--province-bg);
+}
+.ak-coverage .province-top h3 { color: var(--province-color); margin: 0; }
+.ak-coverage .province-top p { color: var(--province-color); font-size: .78rem; margin: 0; }
+.ak-coverage .commune-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .45rem;
+  padding: .75rem;
+}
+.ak-coverage .commune-links li { border: 0; }
+.ak-coverage .commune-links a {
+  position: relative;
+  height: 100%;
+  min-height: 44px;
+  padding: .44rem 1.35rem .44rem .58rem;
+  border: 1px solid #eee3ea;
+  border-radius: .55rem;
+  color: var(--ink);
+  font-size: .84rem;
+  font-weight: 600;
+  line-height: 1.26;
+  text-decoration: none;
+}
+.ak-coverage .commune-links a::after {
+  content: '';
+  position: absolute;
+  right: .59rem;
+  top: 50%;
+  width: .34rem;
+  height: .34rem;
+  border-top: 2px solid var(--province-color);
+  border-right: 2px solid var(--province-color);
+  transform: translateY(-50%) rotate(45deg);
+}
+.ak-coverage .commune-links a:hover,
+.ak-coverage .commune-links a:focus-visible { background: var(--province-bg); color: var(--province-color); }
+
+.ak-coverage .local-stories { background: #fff; }
+.ak-coverage .local-stories .split { align-items: stretch; }
+.ak-coverage .detail-card {
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 1.2rem;
+  padding: clamp(1rem, 3vw, 1.5rem);
+  box-shadow: 0 8px 25px #52263b0b;
+}
+.ak-coverage .detail-card h2 { font-size: clamp(1.35rem, 3vw, 1.9rem); }
+.ak-coverage .story-card { background: linear-gradient(155deg, #fff0f6, white 62%); }
+.ak-coverage .detail-card .checklist { margin-bottom: 0; }
+.ak-coverage .commune-info { background: linear-gradient(180deg, #fff, #fff7fb); }
+.ak-coverage .commune-info .split { gap: 1rem; align-items: stretch; }
+.ak-coverage .local-sectors { background: var(--mint); }
+.ak-coverage .quote { background: linear-gradient(125deg, #fbe6f0 0%, #fff6fa 58%, #eefafa); }
+.ak-coverage .quote .split { align-items: center; }
+.ak-coverage .quote-form {
+  border-radius: 1.25rem;
+  box-shadow: var(--shadow);
+}
+.ak-coverage .quote-form > p { margin-block: 1rem; }
+.ak-coverage .quote-form input, .ak-coverage .quote-form select { border-color: #ba9eae; border-radius: .6rem; }
+
+@media (max-width: 760px) {
+  .ak-coverage .site-header .wrap { min-height: 62px; }
+  .ak-coverage .hero { min-height: auto; gap: 1.4rem; }
+  .ak-coverage .hero-mosaic, .ak-commune .hero-photo img { aspect-ratio: 16 / 10; }
+}
+@media (max-width: 680px) {
+  .ak-coverage .province-grid { grid-template-columns: 1fr; }
+  .ak-coverage .province:first-child { grid-row: auto; }
+}
+@media (max-width: 440px) {
+  .ak-coverage .site-header .wrap { width: calc(100% - 1.2rem); gap: .1rem .5rem; }
+  .ak-coverage .site-header nav a { font-size: .76rem; }
+  .ak-coverage .site-header nav a.nav-quote { padding: .42rem .57rem; }
+  .ak-coverage .button { font-size: .82rem; padding-inline: .85rem; }
+  .ak-coverage .hero-photo { border-radius: 1.1rem; padding: .38rem; gap: .32rem; }
+  .ak-coverage .hero-photo img { border-radius: .78rem; }
+  .ak-coverage .hero-photo figcaption { right: .65rem; bottom: .65rem; }
+}

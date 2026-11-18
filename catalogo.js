@@ -118,7 +118,7 @@ Me encantó su catálogo y quisiera cotizar el siguiente servicio:
                 <article class="catalogo-card ${p.destacado ? 'destacado' : ''}" data-id="${p.id}" style="animation-delay: ${index * 0.05}s">
                     <div class="catalogo-card-media" onclick="window.abrirModalDetalles('${p.id}')" title="Click para ver fotos y medidas">
                         ${badgeHtml}
-                        <img src="${p.imagen}" alt="${altImagen(p)}" class="loaded" loading="lazy" decoding="async" onerror="this.src='imagenes/logo-alma-kids-oficial.png'">
+                        <img src="${p.imagen}" alt="${altImagen(p)}" class="loaded" loading="lazy" decoding="async" onerror="this.src='imagenes/logo-alma-kids-marca.jpeg'">
                         <div class="catalogo-card-zoom-hint">
                             <i class="fas fa-expand" aria-hidden="true"></i>
                             <span>Ver medidas y detalles</span>

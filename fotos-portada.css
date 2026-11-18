@@ -1,0 +1,194 @@
+.home-hero-v2-gallery.montaje-pastel,
+.ak-coverage .hero-mosaic.montaje-pastel {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: minmax(0, 1.65fr) minmax(0, 1fr);
+}
+
+.montaje-pastel .pastel-main {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  overflow: hidden;
+  min-width: 0;
+  min-height: 0;
+  border-radius: clamp(.65rem, 2vw, 1.35rem);
+}
+
+.home-hero-v2-gallery.montaje-pastel .pastel-main img,
+.ak-coverage .hero-mosaic.montaje-pastel .pastel-main img {
+  display: block;
+  width: 100%;
+  height: 100% !important;
+  border-radius: 0;
+  object-position: 50% 52%;
+  transform: scale(1.05);
+  transform-origin: right center;
+}
+
+.montaje-pastel .pastel-detail,
+.montaje-pastel .pastel-tipi {
+  grid-row: 2;
+  height: 100% !important;
+}
+
+.montaje-pastel .pastel-detail {
+  grid-column: 1;
+  object-position: 50% 60%;
+}
+
+.montaje-pastel .pastel-tipi {
+  grid-column: 2;
+  object-position: 50% 61%;
+}
+
+.home-hero-v2-media.pastel-media .home-hero-v2-badge {
+  padding: .55rem .75rem;
+  font-size: .85rem;
+}
+
+.home-hero-v2-media.pastel-media .home-hero-v2-badge-bottom {
+  flex-direction: row;
+  align-items: center;
+  gap: .4rem;
+  right: -.35rem;
+  bottom: -.65rem;
+}
+
+.about-montaje {
+  display: block;
+  width: min(100%, 420px);
+  margin-inline: auto;
+  border: 0;
+  border-radius: 24px;
+  padding: 0;
+  background: transparent;
+  box-shadow: 0 16px 36px #2d29261f;
+  cursor: zoom-in;
+}
+
+.about-montaje img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 7 / 8;
+  object-fit: cover;
+  object-position: center 65%;
+  border-radius: inherit;
+}
+
+.ak-coverage .regional-montaje {
+  display: grid;
+  gap: clamp(1rem, 3vw, 1.5rem);
+}
+
+.ak-coverage .regional-montaje-photo {
+  width: min(100%, 380px);
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid #eedce5;
+  border-radius: 1.2rem;
+  background: #fff8f6;
+}
+
+.ak-coverage .regional-montaje-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center 73%;
+}
+
+.ak-coverage .regional-montaje-photo figcaption {
+  margin: 0;
+  padding: .55rem .75rem;
+  text-align: center;
+  color: #5d4d57;
+  font-size: .82rem;
+}
+
+@media (min-width: 900px) {
+  .ak-coverage .regional-montaje {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: start;
+  }
+}
+
+.pilot-wedding-link {
+  display: inline-flex;
+  margin-top: 1rem;
+  color: #91204d;
+  font-weight: 700;
+  font-size: .9rem;
+  text-decoration: underline;
+  text-underline-offset: .24em;
+}
+
+.wedding-showcase {
+  scroll-margin-top: 110px;
+  padding: clamp(1.75rem, 5vw, 4rem) 0;
+}
+
+.wedding-panel {
+  display: grid;
+  grid-template-columns: minmax(0, .72fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(1.4rem, 7vw, 5rem);
+  padding: clamp(1rem, 4.5vw, 3.5rem);
+  border: 1px solid #eedce5;
+  border-radius: clamp(1rem, 3vw, 2rem);
+  background: radial-gradient(ellipse at 92% 70%, #e9f7f4, transparent 65%), linear-gradient(135deg, #fff0f6, #fffaf6);
+}
+
+.wedding-video {
+  width: min(100%, 238px);
+  margin: 0 auto;
+}
+
+.wedding-video video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 9 / 16;
+  object-fit: contain;
+  background: #30232a;
+  border: .32rem solid #fff;
+  border-radius: 1.05rem;
+  box-shadow: 0 14px 30px #46283d22;
+}
+
+.wedding-video figcaption {
+  margin: .55rem 0 0;
+  text-align: center;
+  color: #5d4d57;
+  font-size: .78rem;
+}
+
+.wedding-copy h2 {
+  color: #2c242b;
+  font-size: clamp(1.95rem, 5vw, 3.55rem);
+  line-height: 1.05;
+  letter-spacing: -.045em;
+  margin: .35rem 0 .85rem;
+}
+
+.wedding-copy p {
+  color: #5d4d57;
+  max-width: 42ch;
+  margin: 0 0 1.1rem;
+  line-height: 1.65;
+}
+
+.wedding-copy .btn-primary {
+  background: #a91553 !important;
+  color: #fff !important;
+}
+
+@media (max-width: 680px) {
+  .wedding-panel {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+  }
+
+  .wedding-copy { grid-row: 1; }
+  .wedding-video { width: min(90%, 230px); }
+}

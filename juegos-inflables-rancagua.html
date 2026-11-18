@@ -13,14 +13,14 @@
     <!-- Open Graph -->
     <meta property="og:title" content="ALMA Kids - Juegos Inflables Rancagua | Castillos Inflables">
     <meta property="og:description" content="ALMA Kids: Arriendo de juegos inflables en Rancagua. Castillos inflables pastel, plaza blanda, piscinas de pelotas. Cobertura directa Rancagua. Cotiza gratis.">
-    <meta property="og:image" content="https://www.almakids.cl/imagenes/Castillo-inflable-portadas.png">
+    <meta property="og:image" content="https://www.almakids.cl/imagenes/logo-alma-kids-marca.jpeg">
     <meta property="og:url" content="https://www.almakids.cl/juegos-inflables-rancagua.html">
     <link rel="canonical" href="https://www.almakids.cl/juegos-inflables-rancagua.html" />
     <link rel="alternate" hreflang="es-CL" href="https://www.almakids.cl/juegos-inflables-rancagua.html">
 
     <!-- Fonts y CSS -->
-    <link rel="icon" type="image/webp" href="imagenes/logo-alma-kids-favicon.webp">
-    <link rel="apple-touch-icon" href="imagenes/logo-alma-kids-pagina.webp">
+    <link rel="icon" type="image/png" sizes="96x96" href="imagenes/ak-icono-96.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="imagenes/ak-icono-180.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
@@ -98,6 +98,7 @@
       gtag('js', new Date());
       gtag('config', 'G-3KX626G1MB');
     </script>
+  <link rel="stylesheet" href="marca-alma-kids.css?v=1">
 </head>
 <body>
     <a class="skip-link" href="#main-content">Saltar al contenido</a>
@@ -107,7 +108,7 @@
         <div class="header-content">
             <!-- Logo -->
             <a class="navbar-brand" href="index.html">
-                <img src="imagenes/logo-alma-kids-oficial.png" alt="AlmaKids" class="logo-header">
+                <img src="imagenes/logo-alma-kids-marca.jpeg" alt="AlmaKids" class="logo-header">
             </a>
             
                 <!-- Navigation -->
@@ -375,36 +376,38 @@
                 </div>
                 
                 <div class="contact__form">
-                    <form class="form">
+                    <p><a id="cotizar-directo" href="https://wa.me/56969073306?text=Hola%2C%20ALMA%20Kids.%20Quiero%20cotizar%20un%20arriendo%20en%20Rancagua.">Escribir directamente por WhatsApp</a></p>
+                    <form class="form" data-quote hidden>
+                        <input type="hidden" name="comuna" value="Rancagua">
                         <div class="form__group">
                             <label for="name">Nombre Completo</label>
-                            <input type="text" id="name" name="name" required>
+                            <input type="text" id="name" name="nombre" autocomplete="name" maxlength="100" required>
                         </div>
                         <div class="form__group">
                             <label for="phone">Teléfono</label>
-                            <input type="tel" id="phone" name="phone" required>
+                            <input type="tel" id="phone" name="telefono" autocomplete="tel" maxlength="35" required>
                         </div>
                         <div class="form__group">
                             <label for="event-date">Fecha del Evento</label>
-                            <input type="date" id="event-date" name="event-date" required>
+                            <input type="date" id="event-date" name="fecha" required>
                         </div>
                         <div class="form__group">
                             <label for="location">Dirección en Rancagua</label>
-                            <input type="text" id="location" name="location" placeholder="Ej: Calle Estado 123, Rancagua" required>
+                            <input type="text" id="location" name="sector" maxlength="120" placeholder="Ej: Calle Estado 123, Rancagua" required>
                         </div>
                         <div class="form__group">
                             <label for="service">Tipo de Servicio</label>
-                            <select id="service" name="service" required>
+                            <select id="service" name="servicio" required>
                                 <option value="">Seleccionar servicio</option>
-                                <option value="castillo-inflable">Castillo Inflable</option>
-                                <option value="plaza-blanda">Plaza Blanda</option>
-                                <option value="combo-completo">Combo Completo</option>
-                                <option value="globos-metalizados">Globos Metalizados</option>
+                                <option value="Castillo inflable">Castillo Inflable</option>
+                                <option value="Plaza blanda">Plaza Blanda</option>
+                                <option value="Combo completo">Combo Completo</option>
+                                <option value="Globos metalizados">Globos Metalizados</option>
                             </select>
                         </div>
                         <div class="form__group">
                             <label for="message">Mensaje</label>
-                            <textarea id="message" name="message" rows="4" placeholder="Cuéntanos sobre tu evento..."></textarea>
+                            <textarea id="message" name="comentario" rows="4" maxlength="500" placeholder="Cuéntanos sobre tu evento..."></textarea>
                         </div>
                         <button type="submit" class="btn btn--primary btn--full">
                             <i class="fab fa-whatsapp"></i>
@@ -423,7 +426,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-info">
-                            <h3>ALMA Kids</h3>
+                            <h3><img class="ak-footer-logo" src="imagenes/logo-alma-kids-marca.jpeg" width="1254" height="1254" alt="Logo oficial de ALMA Kids" loading="lazy" decoding="async"></h3>
                       <p>Entretenciones Infantiles Ltda.</p>
                       <p class="footer-slogan">¡Donde los sueños se inflan y la diversión nunca termina!</p>
 
@@ -493,6 +496,7 @@
 
     <!-- Scripts -->
     <script src="script.js" defer></script>
+    <script src="cobertura-regional.js?v=comunas-2" defer></script>
     <!-- Barra de navegación móvil inferior -->
     <nav class="mobile-app-nav">
         <a href="https://wa.me/56969073306?text=Hola%20ALMA%20Kids..." target="_blank" class="mobile-nav-item whatsapp">

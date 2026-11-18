@@ -87,3 +87,29 @@ p:last-child { margin-bottom: 0; }
   .quote-fields { grid-template-columns: 1fr; }
   .site-header .wrap { padding-block: .5rem; }
 }
+
+.province-grid { align-items: start; }
+
+.commune-links {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.commune-links li + li { border-top: 1px solid var(--line); }
+.commune-links a {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  padding: .35rem .15rem;
+}
+
+.local-sectors {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: .8rem;
+  background: var(--surface);
+}
+.local-reference { font-size: .82rem; margin-top: .65rem; }
+.quote-fields input[readonly] { background: var(--surface); }
+.province-grid section { scroll-margin-top: 1rem; }
