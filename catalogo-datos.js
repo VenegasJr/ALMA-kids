@@ -146,7 +146,7 @@ window.CATALOGO_PRODUCTOS = [
         destacado: false,
         imagen: "imagenes/producto-set-duo-real.jpg",
         imagenModal: "imagenes/producto-set-duo-real.jpg",
-        altImagen: "Castillo inflable Grand-Peque y piscina de pelotas del Set Dúo",
+        altImagen: "Castillo inflable y piscina de pelotas del Set Dúo",
         duracion: "4 horas de uso continuo",
         medidasEspacio: "3.5m × 2.5m mínimo",
         edadesRecomendadas: "1 a 6 años",
