@@ -129,7 +129,7 @@ Me encantó su catálogo y quisiera cotizar el siguiente servicio:
                     <div class="catalogo-card-body">
                         <div class="catalogo-card-header">
                             <span class="catalogo-card-cat">${p.categoriaNombre}</span>
-                            <h3 class="catalogo-card-title">${p.nombre}</h3>
+                            <h3 class="catalogo-card-title"><a href="${p.pagina}">${p.nombre}</a></h3>
                         </div>
 
                         <div class="catalogo-card-chips">
@@ -156,6 +156,7 @@ Me encantó su catálogo y quisiera cotizar el siguiente servicio:
                             </div>
 
                             <div class="catalogo-card-actions">
+                                <a class="btn-catalogo-details" href="${p.pagina}">Ver ficha</a>
                                 <button type="button" class="btn-catalogo-details" onclick="window.abrirModalDetalles('${p.id}')">
                                     <i class="fas fa-info-circle"></i> Detalles
                                 </button>
@@ -347,6 +348,7 @@ Me encantó su catálogo y quisiera cotizar el siguiente servicio:
                     ` : ''}
 
                     <div class="catalogo-modal-cta">
+                        <a class="btn-modal-close-action" href="${producto.pagina}">Abrir ficha completa</a>
                         <a id="btnModalWspAction" href="${linkInicial}" target="_blank" rel="noopener noreferrer" class="btn-modal-wsp" data-catalogo-cotizar="${producto.id}">
                             <i class="fab fa-whatsapp"></i> Cotizar este juego por WhatsApp
                         </a>

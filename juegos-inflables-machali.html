@@ -32,65 +32,46 @@
     <link rel="stylesheet" href="modern-features.css">
     <link rel="stylesheet" href="site-upgrade.css?v=20261108-01">
 
-    <script type="application/ld+json">
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
     {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Inicio",
-          "item": "https://www.almakids.cl/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Juegos inflables Machalí",
-          "item": "https://www.almakids.cl/juegos-inflables-machali.html"
-        }
-      ]
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://www.almakids.cl/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Juegos inflables Machalí",
+      "item": "https://www.almakids.cl/juegos-inflables-machali.html"
     }
-    </script>
+  ]
+}</script>
     
     <!-- Schema Markup Local Machalí -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "@id": "https://www.almakids.cl/#servicio-machali",
-      "name": "ALMA Kids - Juegos Inflables y Plaza Blanda Machalí",
-      "alternateName": "Juegos Inflables Machalí ALMA Kids",
-      "serviceType": "Arriendo de castillos inflables premium, plaza blanda estética y animación infantil en Machalí",
-      "provider": {
-        "@type": "LocalBusiness",
-        "name": "ALMA Kids Entretenciones Infantiles Ltda.",
-        "image": "https://www.almakids.cl/imagenes/logo-alma-kids-marca.jpeg",
-        "telephone": "+56969073306",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Machalí",
-          "addressRegion": "Región de O'Higgins",
-          "addressCountry": "CL"
-        }
-      },
-      "areaServed": {
-        "@type": "City",
-        "name": "Machalí"
-      },
-      "offers": [
-        {
-          "@type": "Offer",
-          "price": "90000",
-          "priceCurrency": "CLP",
-          "availability": "https://schema.org/InStock",
-          "url": "https://www.almakids.cl/index.html#catalogo"
-        }
-      ],
-      "url": "https://www.almakids.cl/juegos-inflables-machali.html",
-      "description": "Base de operaciones en Machalí. Equipos limpios y sanitizados, estética chic y montaje puntual garantizado en toda la comuna."
-    }
-    </script>
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://www.almakids.cl/#servicio-machali",
+  "name": "ALMA Kids - Juegos Inflables y Plaza Blanda Machalí",
+  "alternateName": "Juegos Inflables Machalí ALMA Kids",
+  "serviceType": "Arriendo de castillos inflables premium, plaza blanda estética en Machalí",
+  "provider": {
+    "@id": "https://www.almakids.cl/#localbusiness"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Machalí"
+  },
+  "url": "https://www.almakids.cl/juegos-inflables-machali.html",
+  "description": "Base de operaciones en Machalí. Equipos limpios y sanitizados, estética chic y montaje puntual garantizado en toda la comuna.",
+  "hasOfferCatalog": {
+    "@id": "https://www.almakids.cl/#catalogo-servicios"
+  }
+}</script>
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KX626G1MB"></script>
@@ -316,5 +297,6 @@
     </footer>
 
     <script src="script.js" defer></script>
+<script src="/medicion-consultas.js?v=20261119-fichas01" defer></script>
 </body>
 </html>

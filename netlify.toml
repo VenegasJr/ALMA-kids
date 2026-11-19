@@ -2,8 +2,8 @@
 # Sitio web de entretenciones infantiles con PWA
 
 [build]
-  # Comando de build (vacío para sitio estático)
-  command = ""
+  # Regenera las fichas HTML y sus datos desde el catálogo oficial.
+  command = "node scripts/generar-fichas.mjs"
   
   # Directorio de publicación (raíz del proyecto)
   publish = "."
@@ -21,6 +21,30 @@
   directory = "netlify/functions"
 
 # Configuración de redirects
+[[redirects]]
+  from = "/index-temp.html"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/index-backup-original.html"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/index-piloto.html"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/index-piloto-2.html"
+  to = "/"
+  status = 301
+  force = true
+
 [[redirects]]
   from = "/eventos"
   to = "/eventos.html"
@@ -174,15 +198,15 @@
 
 # Configuración de deploy
 [context.production]
-  command = ""
+  command = "node scripts/generar-fichas.mjs"
   publish = "."
 
 [context.deploy-preview]
-  command = ""
+  command = "node scripts/generar-fichas.mjs"
   publish = "."
 
 [context.branch-deploy]
-  command = ""
+  command = "node scripts/generar-fichas.mjs"
   publish = "."
 
 # Configuración de plugins (opcional)

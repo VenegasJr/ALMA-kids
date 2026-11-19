@@ -200,7 +200,7 @@ window.CATALOGO_PRODUCTOS = [
         destacado: true,
         imagen: "imagenes/producto-castillo-grand-peque-real.jpg",
         imagenModal: "imagenes/producto-castillo-grand-peque-real.jpg",
-        duracion: "4 horas de uso continuo",
+        duracion: "3 horas de uso continuo",
         medidasEspacio: "Juego: 5.0m × 4.0m × 2.80m (Espacio mín: 6m × 6m)",
         edadesRecomendadas: "2 a 7 años",
         resumen: "El castillo más amplio e imponente. Blanco impoluto neutral, ideal para guirnaldas de globos, decoraciones chic y fotografías inolvidables.",
@@ -300,7 +300,7 @@ window.CATALOGO_PRODUCTOS = [
         destacado: false,
         imagen: "imagenes/portada-plaza-motricidad.webp",
         imagenModal: "imagenes/portada-plaza-motricidad.webp",
-        duracion: "4 horas de juego",
+        duracion: "3 horas de uso continuo",
         medidasEspacio: "2.0m × 1.5m",
         edadesRecomendadas: "1 a 4 años",
         resumen: "Favorece el gateo, equilibrio, coordinación y exploración segura de los más pequeños en un entorno 100% acolchado y lavable.",
@@ -349,7 +349,7 @@ window.CATALOGO_PRODUCTOS = [
         destacado: false,
         imagen: "imagenes/producto-carpa-tipi-real.jpg",
         imagenModal: "imagenes/producto-carpa-tipi-real.jpg",
-        duracion: "4 horas de uso",
+        duracion: "3 horas de uso continuo",
         medidasEspacio: "1.60m de altura × 1.20m de base",
         edadesRecomendadas: "1 a 6 años",
         resumen: "Rincón cálido de descanso, lectura o fotos aesthetic con estructura en madera natural, telas con estrellas, cojines y alfombra suave.",
@@ -367,12 +367,19 @@ window.CATALOGO_PRODUCTOS = [
         categoria: "adicionales",
         categoriaNombre: "Juegos Individuales",
         precio: 16000,
+        precioDesde: true,
+        etiquetaPrecio: "Precio desde",
+        variantes: [
+            { id: "caballo-saltarin-cafe", nombre: "Caballo saltarín café", precio: 16000 },
+            { id: "unicornio-balancin", nombre: "Unicornio balancín", precio: 18000 },
+            { id: "caballo-balancin-cafe", nombre: "Caballo balancín café", precio: 18000 }
+        ],
         badge: "🦄 DIVERSIÓN PURA",
         destacado: false,
         imagen: "imagenes/montaje-pastel-caballito.jpg",
         imagenModal: "imagenes/montaje-pastel-caballito.jpg",
         altImagen: "Caballito balancín de ALMA Kids en un montaje reciente con tatami rosa y blanco",
-        duracion: "4 horas de uso continuo",
+        duracion: "3 horas de uso continuo",
         medidasEspacio: "Compacto",
         edadesRecomendadas: "1 a 4 años",
         resumen: "Juguetes ergonómicos y seguros para estimular el equilibrio y la motricidad: Caballo saltarín café ($16.000), Unicornio balancín ($18.000) o Caballo balancín café ($18.000).",
@@ -389,6 +396,12 @@ window.CATALOGO_PRODUCTOS = [
         categoria: "adicionales",
         categoriaNombre: "Papelería & Deco",
         precio: 25000,
+        precioDesde: true,
+        variantes: [
+            { id: "cartel-bienvenida-pequeno", nombre: "Cartel de bienvenida pequeño", precio: 25000, medidasEspacio: "60 × 90 cm" },
+            { id: "cartel-bienvenida-mediano", nombre: "Cartel de bienvenida mediano", precio: 35000, medidasEspacio: "80 × 120 cm" },
+            { id: "cartel-bienvenida-grande", nombre: "Cartel de bienvenida grande", precio: 45000, medidasEspacio: "100 × 150 cm" }
+        ],
         etiquetaPrecio: "Precio desde",
         badge: "🎨 PERSONALIZADO",
         destacado: false,
@@ -434,6 +447,19 @@ window.CATALOGO_PRODUCTOS = [
         requisitos: "Coordinar con anticipación a la fecha del evento."
     }
 ];
+
+// Las fichas HTML, el catálogo y el cotizador usan esta misma información.
+// Los mínimos de instalación que contradicen el tamaño del inflable requieren revisión.
+for (const producto of window.CATALOGO_PRODUCTOS) {
+    producto.pagina = `/juegos/${producto.id}`;
+    if (['castillo-rosa', 'castillo-peque', 'pack-maximo', 'set-alma-magic', 'set-duo'].includes(producto.id)) {
+        const medidasJuego = producto.medidasEspacio.match(/^Juego: (.+?) \(/)?.[1];
+        producto.medidasEspacio = medidasJuego
+            ? `Juego: ${medidasJuego}. Instalación: por confirmar con fotos y medidas.`
+            : 'Por confirmar con fotos y medidas';
+        producto.requisitos = producto.requisitos.replace('Espacio limpio y nivelado de 2.5x2.5m.', 'Superficie limpia y nivelada.');
+    }
+}
 
 // Hacer disponible globalmente en todos los contextos
 if (typeof window !== 'undefined') {

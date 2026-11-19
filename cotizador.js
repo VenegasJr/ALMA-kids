@@ -13,10 +13,12 @@
     const ADICIONALES = [
         { id: 'burbujas', nombre: 'Máquina de Burbujas (Solo arriendo 3 hrs)', precio: 16000 },
         { id: 'liquido_extra', nombre: 'Líquido para Burbujas (1 Litro)', precio: 6000 },
-        { id: 'carpa_tipi', nombre: 'Carpa Tipi Decorativa Aesthetic', precio: 17000 },
+        { id: 'carpa_tipi', nombre: 'Carpa Tipi Decorativa (3 horas)', precio: 17000 },
         { id: 'cartel', nombre: 'Cartel de Bienvenida Personalizado (60×90 cm)', precio: 25000 },
         { id: 'monitor', nombre: 'Supervisión Profesional por Monitor (4 hrs)', precio: 45000, precioDesde: true },
-        { id: 'saltarin', nombre: 'Animalito Saltarín o Balancín adicional', precio: 16000 }
+        { id: 'saltarin', nombre: 'Caballo saltarín café (3 horas)', precio: 16000 },
+        { id: 'unicornio_balancin', nombre: 'Unicornio balancín (3 horas)', precio: 18000 },
+        { id: 'caballo_balancin', nombre: 'Caballo balancín café (3 horas)', precio: 18000 }
     ];
 
     function formatearCLP(valor, precioDesde = false) {
@@ -43,7 +45,7 @@
         const productos = (window.CATALOGO_PRODUCTOS || []).filter(p => p.activo !== false);
         selectBase.innerHTML = productos.map(p => {
             const precioFmt = formatearCLP(p.precio, p.precioDesde);
-            return `<option value="${p.id}" data-precio="${p.precio}">${p.nombre} — ${precioFmt}</option>`;
+            return `<option value="${p.id}" data-precio="${p.precio}">${p.nombre} — ${precioFmt} · ${p.duracion}</option>`;
         }).join('');
 
         // Preseleccionar Set Máximo por defecto
@@ -175,7 +177,8 @@
 
 Armé mi presupuesto en su cotizador web y me gustaría reservar:
 
-🎈 *Servicio Base:* ${baseNombre} (${formatearCLP(basePrecio, productoBase?.precioDesde)})${textoAdicionales}
+🎈 *Servicio Base:* ${baseNombre} (${formatearCLP(basePrecio, productoBase?.precioDesde)})
+⏱️ *Duración del servicio base:* ${productoBase?.duracion || 'Por confirmar'}${textoAdicionales}
 
 📍 *Comuna:* ${comuna}
 📅 *Fecha estimada:* ${fecha}

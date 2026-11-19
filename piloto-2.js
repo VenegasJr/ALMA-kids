@@ -9,20 +9,6 @@
         { id: 'pack-maximo', label: 'Montaje completo', title: 'Set Máximo' }
     ];
 
-    // Estas fichas anuncian un ancho de instalación menor al de un inflable incluido.
-    const pendingSpace = 'Por confirmar con fotos y medidas';
-    for (const id of ['castillo-rosa', 'castillo-peque', 'pack-maximo', 'set-alma-magic', 'set-duo']) {
-        const product = byId.get(id);
-        if (!product) continue;
-        const hasConflictingSize = product.medidasEspacio.includes('Espacio mín: 2.5m × 2.5m')
-            || product.medidasEspacio === '3.5m × 2.5m mínimo';
-        if (!hasConflictingSize) continue;
-
-        const equipmentSize = product.medidasEspacio.match(/^Juego: (.+?) \(/)?.[1];
-        product.medidasEspacio = equipmentSize ? `Juego: ${equipmentSize}. Instalación: ${pendingSpace}.` : pendingSpace;
-        product.requisitos = product.requisitos.replace('Espacio limpio y nivelado de 2.5x2.5m.', 'Superficie limpia y nivelada.');
-    }
-
     const price = new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP' });
     const section = document.getElementById('destacados');
     const grid = section.querySelector('.pilot-featured-grid');
@@ -116,7 +102,7 @@
         const priceLabel = selectedProduct?.etiquetaPrecio?.toLowerCase() || 'valor de referencia';
         const extra = selectedProduct?.suplemento;
         const service = selectedProduct
-            ? `Quiero cotizar ${selectedProduct.nombre} (${priceLabel}: ${price.format(selectedProduct.precio)}).`
+            ? `Quiero cotizar ${selectedProduct.nombre} (${priceLabel}: ${price.format(selectedProduct.precio)}; ${selectedProduct.duracion}).`
             : 'Quiero cotizar juegos para mi celebración.';
         const personalizacion = window.obtenerPersonalizacionModal?.(selectedProduct?.id) || '';
         const promo = window.obtenerPromoParaWhatsApp?.() || '';
@@ -131,6 +117,7 @@
         ].filter(Boolean).join('\n');
         const link = new URL(whatsapp.href);
         link.searchParams.set('text', message);
+        window.almaRegistrarConsulta?.(selectedProduct?.id || 'general');
         window.open(link.href, '_blank', 'noopener,noreferrer');
         dialog.close();
     });
