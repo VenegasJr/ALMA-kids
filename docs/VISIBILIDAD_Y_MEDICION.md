@@ -30,6 +30,12 @@ En Analytics, consultar Adquisición de tráfico para las fuentes y el canal AI 
 
 Search Console mide consultas, clics, impresiones e indexación; Bing Webmaster Tools ofrece informes de citas en las superficies de IA compatibles. Son servicios externos: su propiedad y acceso deben estar verificados antes de enviar sitemaps o consultar informes.
 
+## Aviso de cambios a buscadores
+
+`indexnow-key.txt` es el archivo público de verificación de IndexNow. No es una contraseña de cuenta. No da acceso a Analytics, Google, GitHub ni Netlify. El script `python3 scripts/notificar-indexnow.py` valida el listado sin enviarlo. Usar `--enviar` después de comprobar la publicación para notificar las URL del sitemap a los buscadores participantes. La recepción del aviso no garantiza indexación, aparición ni posición.
+
+Documentación del protocolo: https://www.indexnow.org/documentation
+
 ## Comprobación editorial
 
 Usar consultas estables (por ejemplo, juegos para un cumpleaños de un año en Machalí) y anotar fecha, plataforma, respuesta y fuente citada. Una mención puntual no equivale a una posición permanente ni permite atribuir causalmente un cambio a una modificación del sitio.
