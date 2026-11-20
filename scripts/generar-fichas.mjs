@@ -18,7 +18,7 @@ const abs=s=>origin+'/'+s.replace(/^\//,'');
 const whatsapp=p=>'https://wa.me/56969073306?text='+encodeURIComponent(`¡Hola, ALMA Kids! Me interesa ${p.nombre}. Valor de referencia: ${price(p)}. ${p.duracion}. Quisiera consultar disponibilidad, traslado y espacio necesario.\nFecha:\nComuna:`);
 const business={
  '@type':['LocalBusiness','EntertainmentBusiness'],'@id':origin+'/#localbusiness',name:'ALMA Kids Entretenciones Infantiles Ltda.',alternateName:'ALMA Kids',
- url:origin+'/',telephone:'+56969073306',email:'info.almakids@gmail.com',image:abs('imagenes/logo-alma-kids-marca.jpeg'),logo:abs('imagenes/logo-alma-kids-marca.jpeg'),
+ url:origin+'/',telephone:'+56969073306',email:'info.almakids@gmail.com',image:['montaje-inflable-pastel-1280.jpg','portada-tipi-plaza-blanda.webp','montaje-pastel-caballito.jpg'].map(n=>abs('imagenes/'+n)),logo:abs('imagenes/logo-alma-kids-marca.jpeg'),
  description:'Arriendo de juegos inflables, plazas blandas y piscinas de pelotas en tonos neutros y pastel, con base en Machalí y atención en Rancagua y la Región de O’Higgins.',
  address:{'@type':'PostalAddress',addressLocality:'Machalí',addressRegion:'Región de O’Higgins',addressCountry:'CL'},
  areaServed:[{'@type':'City',name:'Machalí'},{'@type':'City',name:'Rancagua'},{'@type':'AdministrativeArea',name:'Región de O’Higgins'}],
@@ -109,3 +109,6 @@ const additions=[...expanded.map(page),'/elegir-juegos-infantiles'].map(url=>`  
 sitemap=sitemap.replace('</urlset>',additions+'\n</urlset>');
 await fs.writeFile(path.join(root,'sitemap.xml'),sitemap);
 console.log(JSON.stringify({catalogCards:products.length,servicePages:expanded.length,individualServices:expanded.filter(p=>!p.variantes).length,homeFAQs:homeFAQs.length,sitemapUrls:[...sitemap.matchAll(/<loc>/g)].length}));
+// Preserve photo metadata and image sitemap entries when catalog pages regenerate.
+const {optimizeImages}=await import('./optimizar-imagenes.mjs');
+await optimizeImages();

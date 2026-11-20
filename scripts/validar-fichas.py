@@ -60,8 +60,8 @@ faqs=next(g for g in graph if g.get('@type')=='FAQPage')['mainEntity']
 check(len(faqs)==6,'Seis preguntas estructuradas reflejan las seis preguntas visibles')
 for q in faqs:check(q['name']in home.visible(),'Pregunta estructurada presente en portada')
 guide=Page(root/'elegir-juegos-infantiles.html');check('cumpleaños de un año'in guide.visible(),'Guía responde una consulta real por edad')
-sitemap=E.fromstring((root/'sitemap.xml').read_text());urls=[n.text for n in sitemap.findall('.//{*}loc')]
-check(len(urls)==len(set(urls))==65,'65 URLs únicas en sitemap')
+sitemap=E.fromstring((root/'sitemap.xml').read_text());urls=[n.text for n in sitemap.findall('{*}url/{http://www.sitemaps.org/schemas/sitemap/0.9}loc')]
+check(len(urls)==len(set(urls))==66,'66 páginas públicas únicas en sitemap, separadas de sus imágenes')
 check(seen<=set(urls),'Todas las fichas en el sitemap')
 robots=(root/'robots.txt').read_text()
 for bot in ['Googlebot','Bingbot','OAI-SearchBot','PerplexityBot']:check(f'User-agent: {bot}'in robots,f'Acceso explícito para {bot}')
