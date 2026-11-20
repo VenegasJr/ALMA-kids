@@ -61,6 +61,11 @@
   status = 200
 
 [[redirects]]
+  from = "/empresas"
+  to = "/empresas.html"
+  status = 200
+
+[[redirects]]
   from = "/contacto"
   to = "/index.html#contacto"
   status = 200
