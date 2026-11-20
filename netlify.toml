@@ -229,3 +229,11 @@
 # Configuración de Large Media (opcional)
 # [media]
 #   enable_large_media_transforms = true
+
+# Las propuestas se comparten por enlace: sin indexación ni caché persistente.
+[[headers]]
+  for = "/propuestas/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow, noarchive"
+    Cache-Control = "private, no-store, max-age=0"
+    Referrer-Policy = "no-referrer"

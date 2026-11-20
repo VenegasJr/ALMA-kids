@@ -20,7 +20,6 @@
       `Empresa: ${get('empresa')}`, `Evento: ${get('tipo')}`, `Comuna: ${get('comuna')}`,
       `Fecha tentativa: ${formattedDate}`, `Duración: ${get('horas')}`,
       `Cantidad estimada de niños: ${get('ninos')}`, `Edades: ${get('edades')}`,
-      `Mínimo facturable informado: 50 niños. Base desde $8.000 netos por niño + IVA, según propuesta.`,
       `Set de interés: ${get('plan')}`,
       `Monitores: ${get('monitores')}`, 'Facturación: factura con IVA.',
       ...(get('detalles') ? [`Espacio y detalles: ${get('detalles')}`] : []), '',
