@@ -17,9 +17,10 @@ cuya web y teléfono coinciden con ALMA Kids:
 - Los enlaces de cada tarjeta abren la pestaña de opiniones de la ficha;
   no se presentan como enlaces directos a una opinión individual.
 - El botón para dejar una reseña abre el formulario oficial de Google.
-- El desplegable incorpora el iframe que proporcionó Google Maps mediante
-  «Compartir → Incorporar un mapa». La valoración dentro del iframe la sirve
-  Google; no está codificada en la web.
+- No se incorpora un mapa ni se presenta una dirección de atención al público:
+  ALMA Kids presta servicios a domicilio. El 21 de noviembre de 2026 se retiró
+  el iframe de Google Maps a solicitud del usuario. La sección y el bloque de
+  contacto aclaran el servicio a domicilio y conservan los enlaces a reseñas.
 - No se han activado APIs facturables, instalado widgets de terceros, contratado
   servicios, guardado credenciales ni añadido `AggregateRating` o `Review` al SEO.
 - La encuesta privada sigue disponible e independiente de las reseñas públicas,
