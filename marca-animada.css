@@ -1,0 +1,7 @@
+/* Presentación de marca: conserva los montajes reales como imagen principal. */
+#nosotros .alma-brand-animation{margin:1.25rem auto 0;max-width:360px;width:100%;background:#fdfbf7;border:1px solid #f3dfe6;border-radius:20px;overflow:hidden}
+#nosotros .alma-brand-animation-image{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:contain;border-radius:0;box-shadow:none}
+#nosotros .alma-brand-animation figcaption{display:flex;align-items:center;justify-content:space-between;gap:.75rem;padding:.85rem 1rem;border-top:1px solid #f3dfe6;color:#704554;font-size:.875rem;flex-wrap:wrap}
+.alma-brand-animation-toggle{font:inherit;font-weight:600;border:1px solid #cf326d;border-radius:999px;background:white;color:#a92559;padding:.6rem .85rem;min-height:44px;cursor:pointer}
+.alma-brand-animation-toggle:hover{background:#fff0f5}
+.alma-brand-animation-toggle:focus-visible{outline:3px solid #258fa7;outline-offset:3px}
