@@ -6,7 +6,7 @@ import {fileURLToPath} from 'node:url';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const origin='https://www.almakids.cl';
 const date='2026-11-22';
-const version='20261122-sets04';
+const version='20261122-modelos05';
 const context={window:{}};
 vm.runInNewContext(await fs.readFile(path.join(root,'catalogo-datos.js'),'utf8'),context);
 const products=JSON.parse(JSON.stringify(context.window.CATALOGO_PRODUCTOS)).filter(p=>p.activo!==false);
@@ -62,9 +62,12 @@ for(const p of products){
   expanded.push({...p,...v,variantes:undefined,precioDesde:false,etiquetaPrecio:'Valor arriendo',padre:p.id,
    resumen:isAnimal?`${v.nombre} para complementar la zona de juegos infantiles. Se arrienda por separado y está recomendado de 1 a 4 años.`:`Cartel de bienvenida personalizado de ${v.medidasEspacio}, con diseño temático, nombre y datos del festejado.`,
    incluye:isAnimal?[v.nombre+' limpio y sanitizado','Material suave y de alta resistencia','3 horas de uso']:['Cartel de bienvenida de '+v.medidasEspacio,'Diseño temático con nombre y datos del festejado','Confirmación previa del diseño y de los tiempos de entrega'],
-   // Do not use a photograph of a different animal to illustrate the selected model.
-   imagen:isAnimal&&v.id!=='caballo-balancin-cafe'?null:p.imagen,
-   altImagen:isAnimal?'Caballo balancín café en un montaje de ALMA Kids':p.altImagen
+   ...(isAnimal ? {
+    imagen:v.id==='caballo-saltarin-cafe'?'imagenes/caballo-saltarin-cafe-catalogo.webp':v.id==='unicornio-balancin'?'imagenes/saltarines-catalogo.webp':p.imagen,
+    altImagen:v.id==='caballo-saltarin-cafe'?'Caballo saltarín café de peluche, sin base de balancín, con marca ALMA Kids':v.id==='unicornio-balancin'?'Unicornio balancín blanco y lila sobre base de madera del catálogo ALMA Kids':'Caballo balancín café sobre base de madera en un montaje de ALMA Kids',
+    encuadre:v.id==='unicornio-balancin'?'derecha':undefined,
+    pieImagen:v.id==='unicornio-balancin'?'Unicornio balancín: imagen del modelo incluida en el catálogo ALMA Kids. Este arriendo corresponde solo al unicornio.':v.id==='caballo-saltarin-cafe'?'Caballo saltarín café del catálogo ALMA Kids. Este modelo no tiene base de balancín.':'Montaje de referencia. Esta ficha incluye solo el caballo balancín; los demás juegos se cotizan por separado.'
+   } : {imagen:p.imagen,altImagen:p.altImagen})
   });
  }
 }
@@ -73,7 +76,8 @@ expanded.push({id:'liquido-burbujas-1l',nombre:'Líquido para burbujas (1 litro)
 await fs.mkdir(path.join(root,'juegos'),{recursive:true});
 for(const p of expanded){
  const url=page(p),isIndividual=p.id==='castillo-grand-peque';
- const photo=p.imagen?`<figure class="ficha-photo"><img src="${h('/'+p.imagen)}" alt="${h(p.altImagen||p.nombre)}" width="1000" height="1000" fetchpriority="high" decoding="async"><figcaption>${h(p.variantes?'Montaje de referencia. Revisa las opciones que se detallan en esta ficha.':'Fotografía de referencia de ALMA Kids. Contrata los componentes indicados en la ficha; la decoración se cotiza por separado cuando corresponda.')}</figcaption></figure>`:`<div class="ficha-no-photo"><span class="eyebrow">${h(p.venta?'INSUMO POR LITRO':'MODELO INDIVIDUAL')}</span><p>${h(p.nombre)}</p><a href="${h(whatsapp(p))}">Consultar ${p.venta?'cantidad':'foto y disponibilidad de este modelo'}</a></div>`;
+ const productImage=`<img src="${h('/'+p.imagen)}" alt="${h(p.altImagen||p.nombre)}" width="1000" height="${p.encuadre?'550':'1000'}" fetchpriority="high" decoding="async">`;
+ const photo=p.imagen?`<figure class="ficha-photo">${p.encuadre==='derecha'?`<div class="ficha-photo-encuadre" data-modelo="unicornio-balancin">${productImage}</div>`:productImage}<figcaption>${h(p.pieImagen||(p.variantes?'Montaje de referencia. Revisa las opciones que se detallan en esta ficha.':'Fotografía de referencia de ALMA Kids. Contrata los componentes indicados en la ficha; la decoración se cotiza por separado cuando corresponda.'))}</figcaption></figure>`:`<div class="ficha-no-photo"><span class="eyebrow">${h(p.venta?'INSUMO POR LITRO':'MODELO INDIVIDUAL')}</span><p>${h(p.nombre)}</p><a href="${h(whatsapp(p))}">Consultar ${p.venta?'cantidad':'foto y disponibilidad de este modelo'}</a></div>`;
  const variants=p.variantes?`<section class="ficha-section"><h2>Opciones y precios</h2><div class="ficha-table-wrap"><table><thead><tr><th scope="col">Opción</th><th scope="col">Valor CLP</th><th scope="col">Ficha</th></tr></thead><tbody>${p.variantes.map(v=>`<tr><th scope="row">${h(v.nombre)}${v.medidasEspacio?' · '+h(v.medidasEspacio):''}</th><td>${h(price(v))}</td><td><a href="${page(v)}">Ver opción</a></td></tr>`).join('')}</tbody></table></div></section>`:'';
  const faqs=[['¿Cuál es la duración y qué está incluido?',`${h(p.duracion)}. ${p.venta?'Se vende el líquido por litro; la máquina se arrienda por separado.':'Los componentes incluidos se detallan en esta ficha. La instalación y el retiro no descuentan tiempo de uso.'}`],['¿Cómo consulto disponibilidad?',`Escríbenos por WhatsApp con fecha, comuna y servicio. ${p.venta?'Coordinamos cantidad y entrega.':'Envía fotos, video y medidas para revisar el espacio antes de confirmar.'}`]];
  const choices=[];
