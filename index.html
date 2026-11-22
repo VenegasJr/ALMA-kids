@@ -86,9 +86,9 @@
     <!-- Mejoras 2026: calidad, accesibilidad y feedback -->
     <link rel="stylesheet" href="site-upgrade.css?v=20261106-imgfix">
     <!-- ESTILOS AESTHETIC & CATÁLOGO DINÁMICO & PROMOCIONES -->
-    <link rel="stylesheet" href="catalogo-aesthetic.css?v=20261122-consultas06">
+    <link rel="stylesheet" href="catalogo-aesthetic.css?v=20261122-horarios07">
     <!-- PILOTO 2: DESTACADOS, MODAL DE COTIZACIÓN Y OPTIMIZACIONES -->
-    <link rel="stylesheet" href="piloto-2.css?v=20261122-consultas06">
+    <link rel="stylesheet" href="piloto-2.css?v=20261122-horarios07">
 <!-- Favicon y PWA -->
     <link rel="icon" type="image/png" sizes="96x96" href="imagenes/ak-icono-96.png">
     <link rel="shortcut icon" type="image/png" sizes="96x96" href="imagenes/ak-icono-96.png">
@@ -215,7 +215,7 @@
             "Sunday"
           ],
           "opens": "08:00",
-          "closes": "20:00"
+          "closes": "23:00"
         }
       ],
       "sameAs": [
@@ -1268,7 +1268,7 @@
           "name": "¿Cuánto dura el servicio y cuánto demora el montaje?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "La duración depende del servicio contratado: los sets y packs incluyen 4 horas; el castillo GRAND-PEQUE individual, la máquina de burbujas, el tipi, la motricidad y los saltarines o balancines individuales incluyen 3 horas. La piscina individual incluye 3 horas. Los castillos ROSA y PEQUE incluyen 4 horas. El tiempo se cuenta desde que los equipos quedan operativos; instalación y retiro no se descuentan. El montaje tarda aproximadamente 50 a 60 minutos, según el servicio y las condiciones del lugar."
+            "text": "La duración depende del servicio contratado: los sets y packs incluyen 4 horas; el castillo GRAND-PEQUE individual, la máquina de burbujas, el tipi, la motricidad y los saltarines o balancines individuales incluyen 3 horas. La piscina individual incluye 3 horas. Los castillos ROSA y PEQUE incluyen 4 horas. El tiempo se cuenta desde que los equipos quedan operativos; instalación y retiro no se descuentan. El retiro comienza como máximo a las 20:00. Para 4 horas completas, el inicio debe ser hasta las 16:00; para 3 horas, hasta las 17:00. Consultas y reservas: lunes a domingo de 08:00 a 23:00. El montaje tarda aproximadamente 50 a 60 minutos, según el servicio y las condiciones del lugar."
           }
         }
       ]
@@ -1739,8 +1739,9 @@
                                 <input type="date" id="cotizadorFechaInput" class="cotizador-input">
                             </label>
                             <label class="cotizador-field">Hora de inicio (opcional)
-                                <input type="time" id="cotizadorHoraInput" class="cotizador-input">
+                                <input type="time" id="cotizadorHoraInput" class="cotizador-input" aria-describedby="cotizadorHorarioAyuda">
                             </label>
+                            <p id="cotizadorHorarioAyuda" class="cotizador-horario" role="status" aria-live="polite"></p>
                         </div>
                     </div>
 
@@ -2355,7 +2356,7 @@
                     </button>
                     <div class="faq-accordion-body">
                         <div class="faq-accordion-body-inner">
-                            La duración depende del servicio contratado: los sets y packs incluyen 4 horas; el castillo GRAND-PEQUE individual, la máquina de burbujas, el tipi, la motricidad y los saltarines o balancines individuales incluyen 3 horas. La piscina individual incluye 3 horas. Los castillos ROSA y PEQUE incluyen 4 horas. El tiempo se cuenta desde que los equipos quedan operativos; instalación y retiro no se descuentan. El montaje tarda aproximadamente 50 a 60 minutos, según el servicio y las condiciones del lugar.
+                            La duración depende del servicio contratado: los sets y packs incluyen 4 horas; el castillo GRAND-PEQUE individual, la máquina de burbujas, el tipi, la motricidad y los saltarines o balancines individuales incluyen 3 horas. La piscina individual incluye 3 horas. Los castillos ROSA y PEQUE incluyen 4 horas. El tiempo se cuenta desde que los equipos quedan operativos; instalación y retiro no se descuentan. El retiro comienza como máximo a las 20:00. Para 4 horas completas, el inicio debe ser hasta las 16:00; para 3 horas, hasta las 17:00. Consultas y reservas: lunes a domingo de 08:00 a 23:00. El montaje tarda aproximadamente 50 a 60 minutos, según el servicio y las condiciones del lugar.
                         </div>
                     </div>
                 </div>
@@ -2443,7 +2444,7 @@
 
                         <div class="contact-hub-detail">
                             <span class="contact-hub-detail-icon"><i class="fas fa-clock" aria-hidden="true"></i></span>
-                            <span><small>Horario de atención</small><strong>Lunes a domingo</strong><em>08:00 a 20:00 horas</em></span>
+                            <span><small>Consultas y reservas</small><strong>Lunes a domingo</strong><em>08:00 a 23:00 horas</em><em>Retiro: comienza hasta las 20:00</em></span>
                         </div>
                     </div>
 
@@ -2606,11 +2607,12 @@
     <!-- CATÁLOGO EDITABLE & MOTOR DINÁMICO & PROMOCIONES -->
     <script src="catalogo-datos.js?v=20261122-sets04"></script>
     <script src="promociones.js?v=20261107-6h01"></script>
-    <script src="catalogo.js?v=20261122-consultas06"></script>
-    <script src="cotizador.js?v=20261122-consultas06"></script>
+    <script src="catalogo.js?v=20261122-horarios07"></script>
+    <script src="horarios.js?v=20261122-horarios07"></script>
+    <script src="cotizador.js?v=20261122-horarios07"></script>
     <script src="faq-accordion.js?v=20261107-02"></script>
     <!-- PILOTO 2: LÓGICA DE DESTACADOS Y DIALOG DE COTIZACIÓN -->
-    <script src="piloto-2.js?v=20261122-consultas06" defer></script>
+    <script src="piloto-2.js?v=20261122-horarios07" defer></script>
     <script src="floating-action-button.js" defer></script>
     <!-- MODERN FEATURES 2025 -->
     <script src="modern-features.js" defer></script>
@@ -2984,7 +2986,7 @@
                     <input id="pilot-commune" name="comuna" type="text" placeholder="Ej. Machalí" maxlength="70" required>
                 </label>
                 <label for="pilot-time">Hora de inicio (opcional)
-                    <input id="pilot-time" name="hora" type="time">
+                    <input id="pilot-time" name="hora" type="time" aria-describedby="pilot-horario-ayuda">
                 </label>
                 <label id="pilot-pool-field" for="pilot-pool" hidden>Piscina de espuma DÚO · sin recargo
                     <select id="pilot-pool" name="piscina">
@@ -2994,6 +2996,7 @@
                     </select>
                 </label>
             </div>
+            <p id="pilot-horario-ayuda" class="pilot-quote-note" role="status" aria-live="polite"></p>
             <p class="pilot-quote-note">Si tienes fotos y medidas del espacio, puedes agregarlas al chat.</p>
             <button type="submit" class="pilot-quote-button">Abrir WhatsApp</button>
         </form>

@@ -2247,3 +2247,8 @@ img {
 .insta-overlay * {
     pointer-events: none !important;
 }
+
+/* Horarios del servicio, separados de la atención de consultas. */
+.cotizador-horario { margin: 0; font-size: .9rem; line-height: 1.5; color: #603f50; }
+.cotizador-horario[data-invalido="true"] { color: #9b244c; font-weight: 600; }
+#cotizadorBtnWsp[aria-disabled="true"] { opacity: .65; }

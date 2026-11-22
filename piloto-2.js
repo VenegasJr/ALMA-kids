@@ -52,12 +52,21 @@
     const commune = form.elements.comuna;
     const startTime = form.elements.hora;
     const pool = form.elements.piscina;
+    const horarioAyuda = document.getElementById('pilot-horario-ayuda');
+    const horarios = window.ALMA_HORARIOS;
     const poolField = document.getElementById('pilot-pool-field');
     const productLabel = dialog.querySelector('.pilot-quote-product');
     const extraLabel = dialog.querySelector('.pilot-quote-extra');
     const whatsapp = document.querySelector('.home-hero-v2-actions [data-pilot-quote]');
     let selectedProduct;
     let previousOverflow;
+    function revisarHorario() {
+        const revision = horarios.revisar(startTime?.value, horarios.duracion(selectedProduct?.duracion));
+        if (startTime) { startTime.max = revision.maximo; startTime.setCustomValidity(revision.error); }
+        if (horarioAyuda) horarioAyuda.textContent = revision.error || revision.ayuda;
+        return revision.valido;
+    }
+    startTime?.addEventListener('input', revisarHorario);
 
     dialog.querySelector('.pilot-quote-close').addEventListener('click', () => dialog.close());
     dialog.addEventListener('keydown', event => {
@@ -87,6 +96,7 @@
         extraLabel.textContent = extra ? `Opcional · ${extra.nombre}: ${price.format(extra.precio)}` : '';
         extraLabel.hidden = !extra;
         if (poolField) poolField.hidden = selectedProduct?.id !== 'set-duo';
+        revisarHorario();
         date.min = new Intl.DateTimeFormat('sv-SE', { timeZone: 'America/Santiago' }).format(new Date());
         previousOverflow = document.body.style.overflow;
         dialog.showModal();
@@ -102,6 +112,7 @@
             return;
         }
 
+        if (!revisarHorario()) { startTime.reportValidity(); return; }
         const eventDate = date.value.split('-').reverse().join('/');
         const priceLabel = selectedProduct?.etiquetaPrecio?.toLowerCase() || 'valor de referencia';
         const extra = selectedProduct?.suplemento;

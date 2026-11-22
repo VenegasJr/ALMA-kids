@@ -10,7 +10,7 @@ class Element {
  constructor(value=''){this.value=value;this.hidden=false;this.listeners={};this.dataset={};this.classList={add(){},remove(){}};}
  addEventListener(name,fn){this.listeners[name]=fn;}
  setAttribute(name,value){this[name]=value;}
- setCustomValidity(value){this.validityMessage=value;}
+ setCustomValidity(value){this.validityMessage=value;this.validationMessage=value;}
  reportValidity(){this.validityReported=true;}
 }
 class Select extends Element {
@@ -32,11 +32,13 @@ class Addons extends Element {
 }
 async function simulator(products){
  const elements={cotizadorBaseSelect:new Select(),cotizadorAddonsList:new Addons()};
- for(const id of ['cotizadorFechaInput','cotizadorHoraInput','cotizadorPiscinaField','cotizadorPiscinaSelect','cotizadorComunaSelect','cotizadorTotalAmount','cotizadorTotalNotes','cotizadorBtnWsp'])elements[id]=new Element();
+ for(const id of ['cotizadorHorarioAyuda','cotizadorFechaInput','cotizadorHoraInput','cotizadorPiscinaField','cotizadorPiscinaSelect','cotizadorComunaSelect','cotizadorTotalAmount','cotizadorTotalNotes','cotizadorBtnWsp'])elements[id]=new Element();
  elements.cotizadorComunaSelect.value='Rengo';
  const listeners={};
  const document={readyState:'loading',getElementById:id=>elements[id],addEventListener:(n,fn)=>listeners[n]=fn};
- vm.runInNewContext(await read('cotizador.js'),{window:{CATALOGO_PRODUCTOS:products},document,Intl,Date,encodeURIComponent,localStorage:{getItem:()=>null},setTimeout});
+ const window={CATALOGO_PRODUCTOS:products};
+  vm.runInNewContext(await read('horarios.js'),{window});
+  vm.runInNewContext(await read('cotizador.js'),{window,document,Intl,Date,encodeURIComponent,localStorage:{getItem:()=>null},setTimeout});
  listeners.DOMContentLoaded();
  return {elements,recalculate:()=>elements.cotizadorBaseSelect.listeners.change(),message:()=>new URL(elements.cotizadorBtnWsp.href).searchParams.get('text')};
 }
@@ -77,7 +79,9 @@ const dialog=get('pilot-quote-dialog');dialog.querySelector=()=>new Element();di
 const form=get('pilot-quote-form');form.elements={fecha:new Element('2026-12-10'),comuna:new Element('Machalí'),hora:new Element('15:30'),piscina:new Element('Mini (1,10 × 1,10 × 0,35 m)')};
 const hero=new Element();hero.href='https://wa.me/56969073306?text=Hola';
 const doc={getElementById:get,querySelector:()=>hero,body:{style:{}},addEventListener:(name,fn)=>listeners[name]=fn};
-vm.runInNewContext(await read('piloto-2.js'),{window:{CATALOGO_PRODUCTOS:catalog,open:url=>opened.push(url),obtenerPersonalizacionModal:()=> 'Tatami: Rosa/Blanco'},document:doc,Intl,Date,URL});
+const pilotWindow={CATALOGO_PRODUCTOS:catalog,open:url=>opened.push(url),obtenerPersonalizacionModal:()=> 'Tatami: Rosa/Blanco'};
+vm.runInNewContext(await read('horarios.js'),{window:pilotWindow});
+vm.runInNewContext(await read('piloto-2.js'),{window:pilotWindow,document:doc,Intl,Date,URL});
 const choose=id=>listeners.click({button:0,target:{closest:()=>({dataset:{catalogoCotizar:id}})},preventDefault(){}});
 const submit=()=>form.listeners.submit({preventDefault(){}});
 choose('set-duo');assert.equal(get('pilot-pool-field').hidden,false);submit();
@@ -91,4 +95,25 @@ assert(message.includes('100.000'));
 const count=opened.length;form.elements.comuna.value='  ';submit();
 assert.equal(opened.length,count,'No debe abrir WhatsApp con una comuna vacía');
 assert(form.elements.comuna.validityReported);
+// Fronteras del horario: nunca se envían solicitudes con horas incompatibles.
+form.elements.comuna.value='Machalí';
+for(const [id,limit,late]of [['set-duo','16:00','16:01'],['castillo-grand-peque','17:00','17:01']]){
+ choose(id);form.elements.hora.value=limit;submit();
+ const accepted=opened.length;
+ form.elements.hora.value=late;submit();assert.equal(opened.length,accepted);
+ assert(form.elements.hora.validityMessage.includes(limit));
+ assert.equal(form.elements.hora.value,late,'Conservar la hora para corregirla');
+}
+monitor.checked=false;
+for(const [id,limit,late]of [['set-duo','16:00','16:01'],['castillo-grand-peque','17:00','17:01']]){
+ e.cotizadorBaseSelect.value=id;e.cotizadorHoraInput.value=limit;sim.recalculate();
+ assert(e.cotizadorBtnWsp.href.startsWith('https://wa.me/'));
+ e.cotizadorHoraInput.value=late;sim.recalculate();assert.equal(e.cotizadorBtnWsp.href,'#cotizadorHoraInput');
+ let blocked=false;e.cotizadorBtnWsp.listeners.click({preventDefault(){blocked=true;}});assert(blocked);
+}
+e.cotizadorHoraInput.value='17:00';monitor.checked=true;sim.recalculate();
+assert.equal(e.cotizadorHoraInput.max,'16:00','Un monitor de 4 horas amplía la duración a respetar');
+e.cotizadorHoraInput.value='';sim.recalculate();assert(e.cotizadorBtnWsp.href.startsWith('https://wa.me/'));
+assert(!pilotWindow.ALMA_HORARIOS.revisar('23:00',3).valido);
+assert(!pilotWindow.ALMA_HORARIOS.revisar('25:00',3).valido);
 console.log('Cotizaciones verificadas: precios del catálogo, totales, fecha, hora, comuna, elección DÚO, campos opcionales y ausencia de datos de prueba enviados.');

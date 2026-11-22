@@ -35,6 +35,8 @@
         const addonsContainer = document.getElementById('cotizadorAddonsList');
         const inputFecha = document.getElementById('cotizadorFechaInput');
         const inputHora = document.getElementById('cotizadorHoraInput');
+        const horarioAyuda = document.getElementById('cotizadorHorarioAyuda');
+        const horarios = window.ALMA_HORARIOS;
         const piscinaField = document.getElementById('cotizadorPiscinaField');
         const selectPiscina = document.getElementById('cotizadorPiscinaSelect');
         const selectComuna = document.getElementById('cotizadorComunaSelect');
@@ -51,7 +53,7 @@
             const producto = opciones.find(p => p.id === ad.producto);
             const tarifa = ad.suplemento ? producto?.suplemento : producto;
             return tarifa && Number.isFinite(tarifa.precio)
-                ? { ...ad, precio: tarifa.precio, precioDesde: tarifa.precioDesde === true }
+                ? { ...ad, precio: tarifa.precio, precioDesde: tarifa.precioDesde === true, horas: ad.suplemento ? 0 : horarios.duracion(producto.duracion) }
                 : null;
         }).filter(Boolean);
         selectBase.innerHTML = productos.map(p => {
@@ -95,9 +97,10 @@
             checkboxes.forEach(cb => {
                 const precio = parseInt(cb.getAttribute('data-precio') || '0', 10);
                 const nombre = cb.getAttribute('data-nombre');
+                const horas = adicionales.find(ad => `addon_${ad.id}` === cb.id)?.horas || 0;
                 sumaAdicionales += precio;
                 const precioDesde = cb.dataset.precioDesde === 'true';
-                adicionalesElegidos.push({ nombre, precio, precioDesde });
+                adicionalesElegidos.push({ nombre, precio, precioDesde, horas });
             });
 
             // Resaltar tarjeta seleccionada
@@ -116,6 +119,11 @@
             const comuna = selectComuna ? selectComuna.value : 'Machalí';
             const fecha = inputFecha?.value ? inputFecha.value.split('-').reverse().join('/') : 'Por definir';
             const hora = inputHora?.value || 'Por definir';
+            const horas = Math.max(horarios.duracion(productoBase?.duracion), ...adicionalesElegidos.map(ad => ad.horas));
+            const revision = horarios.revisar(inputHora?.value, horas);
+            if (inputHora) { inputHora.max = revision.maximo; inputHora.setCustomValidity(revision.error); }
+            if (horarioAyuda) { horarioAyuda.textContent = revision.error || revision.ayuda; horarioAyuda.dataset.invalido = String(!revision.valido); }
+            btnWsp.setAttribute('aria-disabled', String(!revision.valido));
             const piscina = esDuo ? (selectPiscina?.value || 'Por elegir: grande o mini, sin recargo') : '';
 
             const esMachaliRancagua = ['machalí', 'machali', 'rancagua'].includes(comuna.toLowerCase().trim());
@@ -203,13 +211,17 @@ Armé esta combinación en su cotizador web y quisiera consultar disponibilidad:
 
 ¿Tienen disponibilidad para esta fecha? ¡Muchas gracias! 💕`;
 
-            btnWsp.href = `https://wa.me/56969073306?text=${encodeURIComponent(mensaje)}`;
+            btnWsp.href = revision.valido ? `https://wa.me/56969073306?text=${encodeURIComponent(mensaje)}` : '#cotizadorHoraInput';
         }
 
+        btnWsp.addEventListener('click', event => {
+            recalcular();
+            if (inputHora?.validationMessage) { event.preventDefault(); inputHora.reportValidity(); }
+        });
         selectBase.addEventListener('change', recalcular);
         addonsContainer.addEventListener('change', recalcular);
         if (inputFecha) inputFecha.addEventListener('change', recalcular);
-        if (inputHora) inputHora.addEventListener('change', recalcular);
+        if (inputHora) { inputHora.addEventListener('change', recalcular); inputHora.addEventListener('input', recalcular); }
         if (selectPiscina) selectPiscina.addEventListener('change', recalcular);
         if (selectComuna) selectComuna.addEventListener('change', recalcular);
 
