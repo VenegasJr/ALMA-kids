@@ -2,8 +2,8 @@
  * =========================================================================
  * 🏷️ ALMA KIDS - CATÁLOGO OFICIAL 2026 DE PRODUCTOS Y PRECIOS
  * =========================================================================
- * Sincronizado 100% con el diseño oficial de Canva:
- * https://www.canva.com/design/DAG161rnq4Y/lAAt-2ca7zx2ZlUqGP6LKw
+ * Referencia de medidas y presentación: catálogo revisado en Canva.
+ * https://www.canva.com/design/DAHbTtu4ESU/bq-FxufrSAM4QiD2EAfIxw/edit
  * 
  * 📝 ¿CÓMO EDITAR UN PRECIO O PAUSAR UN PRODUCTO?
  * 1. Busca el producto en la lista.
@@ -30,11 +30,11 @@ window.CATALOGO_PRODUCTOS = [
         imagenModal: "imagenes/set-grand-peque-catalogo.webp",
         altImagen: "Castillo, carpa tipi, piscina y motricidad del set Grand-Peque",
         duracion: "4 horas de uso continuo",
-        medidasEspacio: "6.0m × 6.0m mínimo (Castillo: 5.0m × 4.0m × 2.80m)",
+        medidasEspacio: "Castillo: 5.00m × 4.00m × 2.83m. Instalación: por confirmar con fotos y medidas.",
         edadesRecomendadas: "2 a 7 años",
         resumen: "El set más grande, majestuoso y fotografiable de ALMA Kids. Combina el imponente Castillo Grand-Peque blanco con plaza blanda completa, motricidad, saltarines, tipi y máquina de burbujas.",
         incluye: [
-            "1. Castillo Inflable 'GRAND-PEQUE' (5.0m × 4.0m × 2.80m)",
+            "1. Castillo Inflable 'GRAND-PEQUE' (5.00m × 4.00m × 2.83m)",
             "2. Piscina blanca de espuma con pelotas (1.50m × 1.50m × 0.40m)",
             "3. Set de Motricidad sensorial (Escala + túnel + cuña)",
             "4. Saltarín o Balancín Unicornio",
@@ -47,7 +47,7 @@ window.CATALOGO_PRODUCTOS = [
             "11. Rincón zapatero para mantener el orden",
             "12. Montaje y retiro puntual a cargo del equipo"
         ],
-        requisitos: "Superficie amplia nivelada de 6x6m limpia y seca. Conexión eléctrica a ≤10m. No incluye decoración."
+        requisitos: "Superficie limpia, seca y nivelada. Revisamos el montaje completo, los accesos, anclajes, soplador y cableado antes de confirmar. Conexión eléctrica a ≤10m. No incluye decoración."
     },
     {
         id: "pack-maximo",
@@ -61,11 +61,11 @@ window.CATALOGO_PRODUCTOS = [
         imagen: "imagenes/producto-pack-maximo-real.jpg",
         imagenModal: "imagenes/producto-pack-maximo-real.jpg",
         duracion: "4 horas de uso continuo",
-        medidasEspacio: "3.5m × 2.5m mínimo",
+        medidasEspacio: "Distribución e instalación: por confirmar con fotos y medidas.",
         edadesRecomendadas: "1 a 6 años",
         resumen: "La experiencia favorita de las familias: incluye 12 componentes premium combinando castillo inflable con piscina, piscina de espuma independiente, motricidad, saltarines, tipi y burbujas.",
         incluye: [
-            "1. Castillo Inflable 'ROSA' o 'PEQUE' con piscina incluida (2.8m × 2.53m × 2.30m)",
+            "1. Castillo con piscina integrada a elección: ROSA (2.80m × 2.50m × 2.26m) o PEQUE (2.74m × 2.74m × 2.13m)",
             "2. Piscina blanca de espuma con pelotas (1.50m × 1.50m × 0.40m)",
             "3. Set de Motricidad sensorial (Escala + túnel + cuña)",
             "4. Saltarín o Balancín Unicornio (a elección)",
@@ -92,7 +92,7 @@ window.CATALOGO_PRODUCTOS = [
         imagenModal: "imagenes/set-alma-magic-catalogo.webp",
         altImagen: "Montaje del set ALMA Magic con castillo, piscina y motricidad",
         duracion: "4 horas de uso continuo",
-        medidasEspacio: "3.5m × 2.5m mínimo",
+        medidasEspacio: "Distribución e instalación: por confirmar con fotos y medidas.",
         edadesRecomendadas: "1 a 6 años",
         resumen: "Diversión mágica con castillo inflable 'PEQUE' con piscina integrada, piscina blanca de espuma independiente, motricidad suave sensorial, saltarines y tatami extendido.",
         incluye: [
@@ -119,7 +119,7 @@ window.CATALOGO_PRODUCTOS = [
         imagenModal: "imagenes/portada-tipi-plaza-blanda.webp",
         altImagen: "Montaje del set ALMA Active con piscina, motricidad y carpa tipi",
         duracion: "4 horas de uso continuo",
-        medidasEspacio: "3.5m × 2.5m mínimo",
+        medidasEspacio: "Distribución e instalación: por confirmar con fotos y medidas.",
         edadesRecomendadas: "6 meses a 5 años",
         resumen: "El set sensorial más completo sin necesidad de turbina eléctrica: piscina de pelotas blanca, set de motricidad, saltarines, carpa tipi con cojines y alfombra tatami.",
         incluye: [
@@ -148,7 +148,7 @@ window.CATALOGO_PRODUCTOS = [
         imagenModal: "imagenes/producto-set-duo-real.jpg",
         altImagen: "Castillo inflable y piscina de pelotas del Set Dúo",
         duracion: "4 horas de uso continuo",
-        medidasEspacio: "3.5m × 2.5m mínimo",
+        medidasEspacio: "Distribución e instalación: por confirmar con fotos y medidas.",
         edadesRecomendadas: "1 a 6 años",
         resumen: "La combinación clásica más cotizada: Castillo inflable a elección ('PEQUE' o 'ROSA') con piscina integrada más una piscina de espuma blanca independiente con tatami y zapatero.",
         incluye: [
@@ -172,7 +172,7 @@ window.CATALOGO_PRODUCTOS = [
         imagen: "imagenes/producto-set-mini-play-real.jpg",
         imagenModal: "imagenes/producto-set-mini-play-real.jpg",
         duracion: "4 horas de uso continuo",
-        medidasEspacio: "2.5m × 2.5m mínimo",
+        medidasEspacio: "Distribución e instalación: por confirmar con fotos y medidas.",
         edadesRecomendadas: "6 meses a 3 años",
         resumen: "Diseñado especialmente para cumpleaños de 1 a 3 años y baby showers: piscina blanca de espuma, motricidad sensorial, cojines y alfombra tatami acolchada de 8.64m².",
         incluye: [
@@ -184,7 +184,7 @@ window.CATALOGO_PRODUCTOS = [
             "6. Alfombra suave (Celeste, Gris o Rosa)",
             "7. Montaje y retiro de los juegos"
         ],
-        requisitos: "Espacio de 2.5m × 2.5m limpio y nivelado. No requiere electricidad. No incluye decoración."
+        requisitos: "Superficie limpia, seca y nivelada. La distribución completa se confirma con fotos y medidas. No requiere electricidad. No incluye decoración."
     },
 
     // -------------------------------------------------------------------------
@@ -201,17 +201,17 @@ window.CATALOGO_PRODUCTOS = [
         imagen: "imagenes/producto-castillo-grand-peque-real.jpg",
         imagenModal: "imagenes/producto-castillo-grand-peque-real.jpg",
         duracion: "3 horas de uso continuo",
-        medidasEspacio: "Juego: 5.0m × 4.0m × 2.80m (Espacio mín: 6m × 6m)",
+        medidasEspacio: "Juego: 5.00m × 4.00m × 2.83m. Instalación: por confirmar con fotos y medidas.",
         edadesRecomendadas: "2 a 7 años",
         resumen: "El castillo más amplio e imponente. Blanco impoluto neutral, ideal para guirnaldas de globos, decoraciones chic y fotografías inolvidables.",
         incluye: [
-            "1. Castillo Inflable 'GRAND-PEQUE' (5m × 4m × 2.80m)",
+            "1. Castillo Inflable 'GRAND-PEQUE' (5.00m × 4.00m × 2.83m)",
             "2. Turbina eléctrica de inflado continuo y silencioso",
             "3. Alfombra Tatami 4.32 m² incluida (Rosa/Blanco o Beige/Gris)",
             "4. Rincón zapatero",
             "5. Montaje y retiro puntual a cargo del equipo"
         ],
-        requisitos: "Conexión eléctrica de 220V a ≤10m. Superficie limpia, seca y nivelada de 6x6m. No incluye decoración."
+        requisitos: "Conexión eléctrica de 220V a ≤10m. Superficie limpia, seca y nivelada. Espacio para anclajes, soplador y cableado según manual y revisión del lugar. No incluye decoración."
     },
     {
         id: "castillo-rosa",
@@ -225,7 +225,7 @@ window.CATALOGO_PRODUCTOS = [
         imagenModal: "imagenes/castillo-rosa-montaje.jpg",
         altImagen: "Castillo ROSA blanco con rampa frontal y piscina lateral redondeada",
         duracion: "4 horas de uso continuo",
-        medidasEspacio: "Juego: 2.8m × 2.53m × 2.30m (Espacio mín: 2.5m × 2.5m)",
+        medidasEspacio: "Juego: 2.80m × 2.50m × 2.26m. Instalación: por confirmar con fotos y medidas.",
         edadesRecomendadas: "1 a 6 años",
         resumen: "El favorito de las niñas: diseño sofisticado en rosa pastel con piscina de pelotas integrada. Muy fotogénico y seguro para capturar recuerdos mágicos.",
         incluye: [
@@ -236,7 +236,7 @@ window.CATALOGO_PRODUCTOS = [
             "5. Rincón zapatero",
             "6. Montaje y retiro de castillo"
         ],
-        requisitos: "Punto de corriente a ≤10m. Espacio limpio y nivelado de 2.5x2.5m. No incluye decoración."
+        requisitos: "Punto de corriente a ≤10m. Superficie limpia, seca y nivelada. Instalación sujeta a revisión del espacio completo, anclajes, soplador y cableado. No incluye decoración."
     },
     {
         id: "castillo-peque",
@@ -250,18 +250,18 @@ window.CATALOGO_PRODUCTOS = [
         imagenModal: "imagenes/montaje-inflable-pastel-1280.jpg",
         altImagen: "Castillo PEQUE blanco con piscina lateral rectangular y globos pastel en un montaje reciente",
         duracion: "4 horas de uso continuo",
-        medidasEspacio: "Juego: 2.90m × 2.80m × 2.30m (Espacio mín: 2.5m × 2.5m)",
+        medidasEspacio: "Juego: 2.74m × 2.74m × 2.13m. Piscina integrada: 1.83m × 0.91m. Instalación por confirmar.",
         edadesRecomendadas: "1 a 6 años",
-        resumen: "Tonos neutros elegantes (blanco y beige) con piscina cuadrada integrada. Combina perfecto con cualquier paleta o temática de celebración.",
+        resumen: "Tonos neutros elegantes (blanco y beige) con piscina de pelotas integrada. Combina perfecto con cualquier paleta o temática de celebración.",
         incluye: [
-            "1. Castillo Inflable 'PEQUE' con piscina cuadrada incluida",
+            "1. Castillo Inflable 'PEQUE' con piscina integrada de 1.83m × 0.91m",
             "2. Pelotas a elección",
             "3. Turbina eléctrica y anclajes",
             "4. Alfombra Tatami 4.32 m² incluida (Rosa/Blanco o Beige/Gris)",
             "5. Rincón zapatero",
             "6. Montaje y retiro de castillo"
         ],
-        requisitos: "Punto de corriente a ≤10m. Superficie limpia y nivelada. No incluye decoración."
+        requisitos: "Punto de corriente a ≤10m. Superficie limpia, seca y nivelada. No incluye decoración."
     },
 
     // -------------------------------------------------------------------------
@@ -449,16 +449,9 @@ window.CATALOGO_PRODUCTOS = [
 ];
 
 // Las fichas HTML, el catálogo y el cotizador usan esta misma información.
-// Los mínimos de instalación que contradicen el tamaño del inflable requieren revisión.
+// Las dimensiones del juego no equivalen al espacio libre necesario para instalarlo.
 for (const producto of window.CATALOGO_PRODUCTOS) {
     producto.pagina = `/juegos/${producto.id}`;
-    if (['castillo-rosa', 'castillo-peque', 'pack-maximo', 'set-alma-magic', 'set-duo'].includes(producto.id)) {
-        const medidasJuego = producto.medidasEspacio.match(/^Juego: (.+?) \(/)?.[1];
-        producto.medidasEspacio = medidasJuego
-            ? `Juego: ${medidasJuego}. Instalación: por confirmar con fotos y medidas.`
-            : 'Por confirmar con fotos y medidas';
-        producto.requisitos = producto.requisitos.replace('Espacio limpio y nivelado de 2.5x2.5m.', 'Superficie limpia y nivelada.');
-    }
 }
 
 // Hacer disponible globalmente en todos los contextos

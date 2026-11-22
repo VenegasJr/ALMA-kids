@@ -5,8 +5,8 @@ import {fileURLToPath} from 'node:url';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const origin='https://www.almakids.cl';
-const date='2026-11-19';
-const version='20261119-fichas01';
+const date='2026-11-21';
+const version='20261121-catalogo02';
 const context={window:{}};
 vm.runInNewContext(await fs.readFile(path.join(root,'catalogo-datos.js'),'utf8'),context);
 const products=JSON.parse(JSON.stringify(context.window.CATALOGO_PRODUCTOS)).filter(p=>p.activo!==false);
