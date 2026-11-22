@@ -277,7 +277,7 @@ window.CATALOGO_PRODUCTOS = [
         destacado: false,
         imagen: "imagenes/producto-piscina-rosa-clean.jpg",
         imagenModal: "imagenes/producto-piscina-rosa-clean.jpg",
-        duracion: "4 horas de uso continuo",
+        duracion: "3 horas de uso continuo",
         medidasEspacio: "1.50m × 1.50m × 0.40m (Espacio mín: 2m × 2m)",
         edadesRecomendadas: "Desde 6 meses",
         resumen: "Transforma cualquier celebración en un espacio de diversión segura y encantadora con nuestra piscina de pelotas blanca de espuma suave de alta densidad.",
@@ -366,11 +366,11 @@ window.CATALOGO_PRODUCTOS = [
         nombre: "Saltarines & Balancines Infantiles",
         categoria: "adicionales",
         categoriaNombre: "Juegos Individuales",
-        precio: 16000,
+        precio: 17000,
         precioDesde: true,
         etiquetaPrecio: "Precio desde",
         variantes: [
-            { id: "caballo-saltarin-cafe", nombre: "Caballo saltarín café", precio: 16000 },
+            { id: "caballo-saltarin-cafe", nombre: "Caballo saltarín café", precio: 17000 },
             { id: "unicornio-balancin", nombre: "Unicornio balancín", precio: 18000 },
             { id: "caballo-balancin-cafe", nombre: "Caballo balancín café", precio: 18000 }
         ],
@@ -382,7 +382,7 @@ window.CATALOGO_PRODUCTOS = [
         duracion: "3 horas de uso continuo",
         medidasEspacio: "Compacto",
         edadesRecomendadas: "1 a 4 años",
-        resumen: "Juguetes ergonómicos y seguros para estimular el equilibrio y la motricidad: Caballo saltarín café ($16.000), Unicornio balancín ($18.000) o Caballo balancín café ($18.000).",
+        resumen: "Juguetes ergonómicos y seguros para estimular el equilibrio y la motricidad: Caballo saltarín café ($17.000), Unicornio balancín ($18.000) o Caballo balancín café ($18.000).",
         incluye: [
             "Saltarín o Balancín a elección limpio y sanitizado",
             "Material suave y de alta resistencia",
