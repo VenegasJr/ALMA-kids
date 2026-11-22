@@ -50,6 +50,9 @@
     const form = document.getElementById('pilot-quote-form');
     const date = form.elements.fecha;
     const commune = form.elements.comuna;
+    const startTime = form.elements.hora;
+    const pool = form.elements.piscina;
+    const poolField = document.getElementById('pilot-pool-field');
     const productLabel = dialog.querySelector('.pilot-quote-product');
     const extraLabel = dialog.querySelector('.pilot-quote-extra');
     const whatsapp = document.querySelector('.home-hero-v2-actions [data-pilot-quote]');
@@ -83,6 +86,7 @@
         const extra = selectedProduct?.suplemento;
         extraLabel.textContent = extra ? `Opcional · ${extra.nombre}: ${price.format(extra.precio)}` : '';
         extraLabel.hidden = !extra;
+        if (poolField) poolField.hidden = selectedProduct?.id !== 'set-duo';
         date.min = new Intl.DateTimeFormat('sv-SE', { timeZone: 'America/Santiago' }).format(new Date());
         previousOverflow = document.body.style.overflow;
         dialog.showModal();
@@ -110,6 +114,8 @@
             `¡Hola, ALMA Kids! ${service}`,
             `Fecha: ${eventDate}`,
             `Comuna: ${communeName}`,
+            `Hora de inicio: ${startTime?.value || 'Por definir'}`,
+            selectedProduct?.id === 'set-duo' ? `Piscina de espuma DÚO: ${pool?.value || 'Por elegir: grande o mini, sin recargo'}` : '',
             extra ? `Opcional: ${extra.nombre} por ${price.format(extra.precio)}.` : '',
             personalizacion ? personalizacion.trim() : '',
             '¿Tienen disponibilidad para esa fecha?',

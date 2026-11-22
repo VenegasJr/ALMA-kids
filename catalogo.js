@@ -67,6 +67,7 @@ Me encantó su catálogo y quisiera cotizar el siguiente servicio:
 
 📅 *Fecha de mi evento:* 
 📍 *Comuna:* 
+🕒 *Hora de inicio:* ${producto.id === 'set-duo' ? '\n🏊 *Piscina de espuma DÚO (grande o mini, sin recargo):* ' : ''}
 
 ¿Tienen disponibilidad para esa fecha? ¡Muchas gracias! 💕`;
 

@@ -2059,6 +2059,8 @@ img[loading="eager"] {
     outline: none;
     box-sizing: border-box;
 }
+.cotizador-field{display:grid;gap:6px;font-size:.9rem;font-weight:600;margin-top:10px}
+.cotizador-field[hidden]{display:none}
 
 .cotizador-addons-list {
     display: flex;

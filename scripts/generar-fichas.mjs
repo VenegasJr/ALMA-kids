@@ -6,7 +6,7 @@ import {fileURLToPath} from 'node:url';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const origin='https://www.almakids.cl';
 const date='2026-11-22';
-const version='20261122-modelos05';
+const version='20261122-consultas06';
 const context={window:{}};
 vm.runInNewContext(await fs.readFile(path.join(root,'catalogo-datos.js'),'utf8'),context);
 const products=JSON.parse(JSON.stringify(context.window.CATALOGO_PRODUCTOS)).filter(p=>p.activo!==false);
@@ -15,7 +15,7 @@ const plain=v=>String(v).replace(/<[^>]*>/g,' ').replaceAll('&amp;','&').replace
 const price=p=>(p.precioDesde?'Desde ':'')+new Intl.NumberFormat('es-CL',{style:'currency',currency:'CLP',maximumFractionDigits:0}).format(p.precio);
 const page=p=>`/juegos/${p.id}`;
 const abs=s=>origin+'/'+s.replace(/^\//,'');
-const whatsapp=p=>'https://wa.me/56969073306?text='+encodeURIComponent(`¡Hola, ALMA Kids! Me interesa ${p.nombre}. Valor de referencia: ${price(p)}. ${p.duracion}. Quisiera consultar disponibilidad, traslado y espacio necesario.\nFecha:\nComuna:`);
+const whatsapp=p=>'https://wa.me/56969073306?text='+encodeURIComponent(`¡Hola, ALMA Kids! Me interesa ${p.nombre}. Valor de referencia: ${price(p)}. ${p.duracion}. Quisiera consultar disponibilidad, traslado y espacio necesario.\nFecha:\nComuna:\nHora de inicio:${p.id==='set-duo'?'\nPiscina de espuma DÚO (grande o mini, sin recargo):':''}`);
 const business={
  '@type':['LocalBusiness','EntertainmentBusiness'],'@id':origin+'/#localbusiness',name:'ALMA Kids Entretenciones Infantiles Ltda.',alternateName:'ALMA Kids',
  url:origin+'/',telephone:'+56969073306',email:'info.almakids@gmail.com',image:['montaje-inflable-pastel-1280.jpg','portada-tipi-plaza-blanda.webp','montaje-pastel-caballito.jpg'].map(n=>abs('imagenes/'+n)),logo:abs('imagenes/logo-alma-kids-marca.jpeg'),
