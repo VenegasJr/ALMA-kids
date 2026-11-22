@@ -5,8 +5,8 @@ import {fileURLToPath} from 'node:url';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const origin='https://www.almakids.cl';
-const date='2026-11-21';
-const version='20261121-catalogo02';
+const date='2026-11-22';
+const version='20261122-sets04';
 const context={window:{}};
 vm.runInNewContext(await fs.readFile(path.join(root,'catalogo-datos.js'),'utf8'),context);
 const products=JSON.parse(JSON.stringify(context.window.CATALOGO_PRODUCTOS)).filter(p=>p.activo!==false);
@@ -45,11 +45,13 @@ function faqMarkup(faqs){return `<section class="ficha-section"><h2>Antes de res
 function faqSchema(faqs){return {'@type':'FAQPage',mainEntity:faqs.map(([q,a])=>({'@type':'Question',name:q,acceptedAnswer:{'@type':'Answer',text:plain(a)}}))};}
 const guideFaqs=[
  ['¿Qué juegos puedo arrendar para un cumpleaños de un año?',`La piscina de pelotas de espuma está recomendada desde los 6 meses. El <a href="${page(products.find(p=>p.id==='pack-alma-mini-play'))}">set ALMA Mini Play</a> se recomienda de 6 meses a 3 años y ALMA Active, de 6 meses a 5 años. La elección depende de la edad, las capacidades de los niños y el espacio. Siempre se requiere supervisión adulta.`],
- ['¿Qué juego cabe en mi casa o en un espacio de 3 × 3 metros?',`La piscina blanca indica un espacio mínimo de 2 × 2 m y Mini Play, de 2,5 × 2,5 m. No basta con comparar el ancho: debemos revisar fotos, video, medidas, acceso y superficie. El espacio de los inflables ROSA y PEQUE se confirma con esa revisión. No confirmamos una instalación solo por el tamaño indicado en esta consulta.`],
- ['¿Qué diferencia hay entre el castillo GRAND-PEQUE y el set completo?',`El <a href="/juegos/castillo-grand-peque">castillo individual</a> cuesta $90.000 e incluye 3 horas de uso. El <a href="/juegos/pack-grand-peque">set GRAND-PEQUE</a> cuesta $210.000 e incluye 4 horas, junto con piscina de espuma, motricidad, tipi y los demás componentes indicados en su ficha. Ambos requieren un espacio de 6 × 6 m y conexión eléctrica.`],
+ ['¿Qué juego cabe en mi casa o en un espacio de 3 × 3 metros?',`Debemos revisar fotos, video, medidas, acceso y superficie antes de confirmar. El tamaño del juego no equivale al espacio libre necesario: también revisamos la distribución completa y las separaciones indicadas por el fabricante. Un set con tatami de 8,64 m² necesita espacio para su montaje y circulación; no confirmamos que quepa solo por el ancho indicado en la consulta.`],
+ ['¿Qué diferencia hay entre el castillo GRAND-PEQUE y el set completo?',`El <a href="/juegos/castillo-grand-peque">castillo individual</a> cuesta $90.000 e incluye 3 horas de uso. El <a href="/juegos/pack-grand-peque">set GRAND-PEQUE</a> cuesta $210.000 e incluye 4 horas, junto con piscina de espuma, motricidad, tipi y los demás componentes indicados en su ficha. El castillo mide 5,00 × 4,00 × 2,83 m. El espacio del montaje completo se valida con fotos y medidas, incluidos accesos, anclajes, soplador y cableado. Ambos necesitan conexión eléctrica.`],
  ['¿Los precios incluyen traslado en Machalí y Rancagua?',`El traslado es gratuito en Machalí y Rancagua al contratar un set o pack completo. Para juegos individuales y otras comunas, se cotiza según la dirección y los accesos. Confirma el valor total antes de reservar.`],
- ['¿Todos los juegos duran cuatro horas?',`La duración depende del servicio: los sets y packs incluyen 4 horas; el castillo GRAND-PEQUE individual, la máquina de burbujas, el tipi, la motricidad y los saltarines o balancines individuales incluyen 3 horas. Los castillos ROSA y PEQUE y la piscina individual incluyen 4 horas. Revisa la ficha del servicio; montaje y retiro no se descuentan del tiempo contratado.`],
+ ['¿Todos los juegos duran cuatro horas?',`La duración depende del servicio: los sets y packs incluyen 4 horas; el castillo GRAND-PEQUE individual, la máquina de burbujas, el tipi, la motricidad y los saltarines o balancines individuales incluyen 3 horas. La piscina individual incluye 3 horas. Los castillos ROSA y PEQUE incluyen 4 horas. Revisa la ficha del servicio; montaje y retiro no se descuentan del tiempo contratado.`],
  ['¿La máquina de burbujas incluye el líquido?',`El arriendo individual de la máquina cuesta $16.000 por 3 horas. El líquido se vende por separado a $6.000 por litro. Los sets Máximo y GRAND-PEQUE incluyen la máquina y 700 ml de líquido, según sus fichas.`],
+ ['¿El set MINI PLAY incluye carpa tipi?',`Sí. El set ALMA Mini Play cuesta $100.000 por 4 horas e incluye carpa tipi, un cojín y una alfombra a elección, además de piscina, motricidad, tatami y zapatero. No hay un recargo por el tipi.`],
+ ['¿Qué piscina incluye el set DÚO?',`DÚO cuesta $120.000 por 4 horas e incluye una piscina de espuma a elección: grande (1,50 × 1,50 × 0,40 m) o mini (1,10 × 1,10 × 0,35 m), sin cambiar el valor del set. La elección se acuerda al reservar y queda indicada en el contrato.`],
  ['¿Cómo se confirma una reserva?',`Primero revisamos la fecha, comuna, servicio y antecedentes del espacio. La confirmación requiere la validación técnica, aceptación de la cotización, abono del 50% y aceptación o firma del contrato. El saldo se paga antes de la instalación. Las condiciones se informan antes de confirmar.`]
 ];
 const expanded=[];

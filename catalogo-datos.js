@@ -150,10 +150,10 @@ window.CATALOGO_PRODUCTOS = [
         duracion: "4 horas de uso continuo",
         medidasEspacio: "Distribución e instalación: por confirmar con fotos y medidas.",
         edadesRecomendadas: "1 a 6 años",
-        resumen: "La combinación clásica más cotizada: Castillo inflable a elección ('PEQUE' o 'ROSA') con piscina integrada más una piscina de espuma blanca independiente con tatami y zapatero.",
+        resumen: "Castillo inflable a elección (PEQUE o ROSA) con piscina integrada, más una piscina de espuma independiente a elegir: grande o mini, sin recargo. Incluye tatami y zapatero.",
         incluye: [
             "1. Castillo Inflable modelo 'PEQUE' o 'ROSA' con piscina incluida",
-            "2. Piscina de pelotas de espuma blanca (1.50m × 1.50m × 0.40m)",
+            "2. Una piscina de espuma a elección, sin recargo: grande (1.50m × 1.50m × 0.40m) o mini (1.10m × 1.10m × 0.35m)",
             "3. Alfombra Tatami 4.32 m² incluida (Rosa/Blanco o Beige/Gris)",
             "4. Rincón zapatero",
             "5. Montaje y retiro de los juegos incluidos"
@@ -174,15 +174,16 @@ window.CATALOGO_PRODUCTOS = [
         duracion: "4 horas de uso continuo",
         medidasEspacio: "Distribución e instalación: por confirmar con fotos y medidas.",
         edadesRecomendadas: "6 meses a 3 años",
-        resumen: "Diseñado especialmente para cumpleaños de 1 a 3 años y baby showers: piscina blanca de espuma, motricidad sensorial, cojines y alfombra tatami acolchada de 8.64m².",
+        resumen: "Piscina blanca de espuma, motricidad sensorial, carpa tipi con un cojín y una alfombra a elección, más tatami de 8.64 m². El tipi está incluido en los $100.000 del set.",
         incluye: [
             "1. Set de Motricidad sensorial (Escala + túnel + cuña)",
             "2. Piscina blanca de espuma con pelotas (1.50m × 1.50m × 0.40m)",
             "3. Alfombra Tatami 8.64 m² incluida (Rosa/Blanco o Beige/Gris)",
             "4. Rincón zapatero",
-            "5. Cojines decorativos (01 und, 02 a elección)",
-            "6. Alfombra suave (Celeste, Gris o Rosa)",
-            "7. Montaje y retiro de los juegos"
+            "5. Carpa tipi incluida",
+            "6. Un cojín para tipi a elección",
+            "7. Una alfombra para tipi a elección (Celeste, Gris o Rosa)",
+            "8. Montaje y retiro de los juegos"
         ],
         requisitos: "Superficie limpia, seca y nivelada. La distribución completa se confirma con fotos y medidas. No requiere electricidad. No incluye decoración."
     },
