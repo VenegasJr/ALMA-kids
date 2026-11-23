@@ -65,6 +65,37 @@ tbody tr:last-child>*{border-bottom:0}
 .ficha-copyright{grid-column:1/-1;padding-top:1rem;border-top:1px solid var(--line)}
 @media(max-width:760px){.ficha-header{padding:.8rem 1.25rem;gap:1rem}.ficha-header img{width:64px;height:64px}.ficha-header nav{gap:.5rem 1rem;justify-content:flex-end}.ficha-header nav a{font-size:.875rem}main{padding:0 1.25rem 2rem}.ficha-breadcrumb{font-size:.875rem;padding:1.25rem 0}.ficha-hero,.ficha-detail-grid{grid-template-columns:1fr;gap:1.5rem}.ficha-photo{position:static}.ficha-photo img{max-height:460px}.ficha-price{font-size:1.8rem}.ficha-footer{padding:2rem 1.25rem 1rem;grid-template-columns:1fr 1fr;gap:1.5rem}.ficha-footer>div:first-child{grid-column:1/-1}.ficha-footer>div:first-child img{float:left;margin-right:1rem}.ficha-text-link{margin-left:0;display:block}.ficha-guide-hero{padding-top:2.5rem}.ficha-no-photo{min-height:280px;padding:2rem}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.principal-hero{display:grid;grid-template-columns:1.05fr 1fr;align-items:center;gap:3rem;padding:1rem 0 3rem}
+.principal-hero figure{margin:0}
+.principal-hero img{width:100%;height:auto;max-height:520px;object-fit:cover;aspect-ratio:4/3;border-radius:var(--radius)}
+.principal-actions{display:flex;gap:1rem 1.5rem;flex-wrap:wrap;align-items:center;margin-top:1.8rem}
+.principal-shortcuts{display:flex;flex-wrap:wrap;gap:.75rem;padding:1rem 0 2rem}
+.principal-shortcuts a{padding:.65rem 1rem;border:1px solid var(--line);border-radius:999px;text-decoration:none;font-weight:600}
+.principal-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem;margin-top:1.5rem}
+.principal-card{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;background:#fff}
+.principal-card-photo{display:block;background:var(--pale)}
+.principal-card-photo img{width:100%;height:auto;aspect-ratio:4/3;object-fit:contain}
+.principal-card>div{padding:1.4rem;display:flex;flex-direction:column;flex:1}
+.principal-card h3{font-size:1.15rem;line-height:1.35;margin:0 0 .8rem}
+.principal-card h3 a{color:var(--ink);text-decoration:none}
+.principal-card p{font-size:.94rem;color:var(--muted)}
+.principal-card .principal-price{color:var(--pink);font-size:1.25rem;font-weight:700;margin-top:auto}
+.principal-price span{display:block;color:var(--muted);font-size:.88rem;font-weight:400}
+.principal-card-link{font-size:.9rem;font-weight:700}
+.principal-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem;list-style:none;padding:0!important;margin-top:1.5rem}
+.principal-steps li{padding:1.5rem;border:1px solid var(--line);border-radius:var(--radius)}
+.principal-steps span{color:var(--pink);font-size:1.6rem;font-weight:700}
+.principal-steps h3{margin:.6rem 0}
+.principal-steps p{font-size:.95rem;margin-bottom:0;color:var(--muted)}
+.principal-split,.principal-contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem}
+.principal-contact-grid article{padding:2rem;background:var(--pale);border-radius:var(--radius)}
+.principal-contact-grid article:nth-child(2){background:var(--blue)}
+.principal-contact-grid h3{font-size:1.35rem;margin-top:0}
+.principal-phone{display:block;font-size:1.5rem;font-weight:700;margin:1rem 0;overflow-wrap:anywhere}
+.principal-social,.principal-links nav{display:flex;gap:.75rem 1.5rem;flex-wrap:wrap}
+@media(max-width:960px){.principal-cards,.principal-steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){.principal-hero{grid-template-columns:1fr;gap:1.5rem;padding-bottom:2rem}.principal-hero img{max-height:350px}.principal-hero h1{font-size:2.3rem}.principal-split,.principal-contact-grid{grid-template-columns:1fr;gap:1.5rem}.principal-contact-grid article{padding:1.5rem}.principal-steps{grid-template-columns:1fr}.principal-shortcuts{gap:.5rem}.principal-shortcuts a{font-size:.875rem}.principal-actions{align-items:flex-start;flex-direction:column}}
+@media(max-width:520px){.principal-cards{grid-template-columns:1fr}}
 @media(max-width:760px){
  .ficha-hero{gap:1rem}
  .ficha-summary{display:contents}

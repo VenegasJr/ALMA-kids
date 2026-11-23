@@ -61,7 +61,7 @@ check(len(faqs)==6,'Seis preguntas estructuradas reflejan las seis preguntas vis
 for q in faqs:check(q['name']in home.visible(),'Pregunta estructurada presente en portada')
 guide=Page(root/'elegir-juegos-infantiles.html');check('cumpleaños de un año'in guide.visible(),'Guía responde una consulta real por edad')
 sitemap=E.fromstring((root/'sitemap.xml').read_text());urls=[n.text for n in sitemap.findall('{*}url/{http://www.sitemaps.org/schemas/sitemap/0.9}loc')]
-check(len(urls)==len(set(urls))==66,'66 páginas públicas únicas en sitemap, separadas de sus imágenes')
+check(len(urls)==len(set(urls))==69,'69 páginas públicas únicas en sitemap, separadas de sus imágenes')
 check(seen<=set(urls),'Todas las fichas en el sitemap')
 robots=(root/'robots.txt').read_text()
 for bot in ['Googlebot','Bingbot','OAI-SearchBot','PerplexityBot']:check(f'User-agent: {bot}'in robots,f'Acceso explícito para {bot}')

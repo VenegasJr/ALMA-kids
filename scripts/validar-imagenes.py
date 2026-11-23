@@ -36,7 +36,7 @@ for item in tree.findall(f'{{{S}}}url'):
         assert met['og:image:alt']==photo['caption']and len(photo['caption'])>10
         assert 'max-image-preview:large'in met.get('robots','')
         count+=1
-assert len(urls)==len(set(urls))==66
+assert len(urls)==len(set(urls))==69
 assert count>=55 and len(photos)>=16
 for name in ['index.html','juegos-inflables-rancagua.html']:
     text=(ROOT/name).read_text();assert '"primaryImageOfPage"'in text

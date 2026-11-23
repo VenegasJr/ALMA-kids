@@ -5,8 +5,8 @@ import {fileURLToPath} from 'node:url';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const origin='https://www.almakids.cl';
-const date='2026-11-22';
-const version='20261122-horarios07';
+const date='2026-11-23';
+const version='20261123-navegacion08';
 const context={window:{}};
 vm.runInNewContext(await fs.readFile(path.join(root,'catalogo-datos.js'),'utf8'),context);
 const products=JSON.parse(JSON.stringify(context.window.CATALOGO_PRODUCTOS)).filter(p=>p.activo!==false);
@@ -37,8 +37,8 @@ function service(p){
  };
 }
 const json=graph=>`<script type="application/ld+json" id="alma-datos-servicios">${JSON.stringify({'@context':'https://schema.org','@graph':graph},null,2).replaceAll('<','\\u003c')}</script>`;
-const header=`<a class="skip-link" href="#contenido">Saltar al contenido</a><header class="ficha-header"><a href="/" aria-label="ALMA Kids, inicio"><img src="/imagenes/logo-alma-kids-marca.jpeg" width="1254" height="1254" alt="ALMA Kids"></a><nav aria-label="Navegación principal"><a href="/#catalogo">Juegos y precios</a><a href="/elegir-juegos-infantiles">Cómo elegir</a><a href="/faq">Preguntas frecuentes</a></nav></header>`;
-const footer=`<footer class="ficha-footer"><div><img src="/imagenes/logo-alma-kids-marca.jpeg" width="1254" height="1254" alt="ALMA Kids" loading="lazy"><p>Entretenciones Infantiles Ltda.<br>Base en Machalí · Región de O’Higgins</p></div><div><h2>Conversemos</h2><a href="https://wa.me/56969073306">WhatsApp +56 9 6907 3306</a><a href="mailto:info.almakids@gmail.com">info.almakids@gmail.com</a><p>Consultas y reservas · Lunes a domingo · 08:00 a 23:00<br>Inicio del retiro de juegos: hasta las 20:00</p></div><div><h2>Información útil</h2><a href="/juegos-inflables-ohiggins">Cobertura y traslados</a><a href="/calidad">Calidad y seguridad</a><a href="/feedback">Evaluar el servicio</a><a href="/privacidad">Privacidad</a></div><p class="ficha-copyright">© 2026 ALMA Kids Entretenciones Infantiles Ltda.</p></footer>`;
+const header=`<a class="skip-link" href="#contenido">Saltar al contenido</a><header class="ficha-header"><a href="/" aria-label="ALMA Kids, inicio"><img src="/imagenes/logo-alma-kids-marca.jpeg" width="1254" height="1254" alt="ALMA Kids"></a><nav aria-label="Navegación principal"><a href="/servicios">Juegos y sets</a><a href="/como-reservar">Cómo reservar</a><a href="/empresas">Empresas</a><a href="/faq.html">Preguntas frecuentes</a><a href="/contacto">Contacto</a></nav></header>`;
+const footer=`<footer class="ficha-footer"><div><img src="/imagenes/logo-alma-kids-marca.jpeg" width="1254" height="1254" alt="ALMA Kids" loading="lazy"><p>Entretenciones Infantiles Ltda.<br>Base en Machalí · Región de O’Higgins</p></div><div><h2>Conversemos</h2><a href="/contacto">Contacto y reservas</a><a href="https://wa.me/56969073306">WhatsApp +56 9 6907 3306</a><a href="mailto:info.almakids@gmail.com">info.almakids@gmail.com</a><p>Consultas y reservas · Lunes a domingo · 08:00 a 23:00<br>Inicio del retiro de juegos: hasta las 20:00</p></div><div><h2>Información útil</h2><a href="/servicios">Juegos y sets</a><a href="/como-reservar">Cómo reservar</a><a href="/elegir-juegos-infantiles">Cómo elegir</a><a href="/empresas">Eventos para empresas</a><a href="/faq.html">Preguntas frecuentes</a><a href="/juegos-inflables-ohiggins">Cobertura y traslados</a><a href="/calidad">Calidad y seguridad</a><a href="/feedback">Evaluar el servicio</a><a href="/privacidad">Privacidad</a></div><p class="ficha-copyright">© 2026 ALMA Kids Entretenciones Infantiles Ltda.</p></footer>`;
 function document(title,description,url,body,graph,image){return `<!DOCTYPE html>
 <html lang="es-CL"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${h(title)} | ALMA Kids</title><meta name="description" content="${h(description)}"><meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="${origin+url}"><meta property="og:type" content="website"><meta property="og:locale" content="es_CL"><meta property="og:title" content="${h(title)} | ALMA Kids"><meta property="og:description" content="${h(description)}"><meta property="og:url" content="${origin+url}"><meta property="og:image" content="${abs(image||'imagenes/logo-alma-kids-marca.jpeg')}"><link rel="icon" type="image/png" href="/imagenes/ak-icono-96.png"><link rel="stylesheet" href="/fichas-juegos.css?v=${version}">${json(graph)}<script src="/medicion-consultas.js?v=${version}" defer></script></head><body class="ficha-page">${header}<main id="contenido">${body}</main>${footer}</body></html>\n`;}
 function faqMarkup(faqs){return `<section class="ficha-section"><h2>Antes de reservar</h2><div class="ficha-faq">${faqs.map(([q,a])=>`<details><summary>${h(q)}</summary><p>${a}</p></details>`).join('')}</div></section>`;}
@@ -113,12 +113,14 @@ await fs.writeFile(path.join(root,'index.html'),home);
 
 // Preserve existing indexed URLs and add every new, internally linked service page.
 let sitemap=await fs.readFile(path.join(root,'sitemap.xml'),'utf8');
-sitemap=sitemap.replace(/\s*<url><loc>https:\/\/www\.almakids\.cl\/(?:juegos\/[^<]+|elegir-juegos-infantiles)<\/loc>[\s\S]*?<\/url>/g,'');
+sitemap=sitemap.replace(/\s*<url><loc>https:\/\/www\.almakids\.cl\/(?:juegos\/[^<]+|elegir-juegos-infantiles|servicios|como-reservar|contacto)<\/loc>[\s\S]*?<\/url>/g,'');
 for(const url of ['/', '/faq.html']){const escaped=(origin+url).replace(/[.*+?^${}()|[\]\\]/g,'\\$&');sitemap=sitemap.replace(new RegExp(`(<loc>${escaped}</loc><lastmod>)[^<]+`),`$1${date}`);}
-const additions=[...expanded.map(page),'/elegir-juegos-infantiles'].map(url=>`  <url><loc>${origin+url}</loc><lastmod>${date}</lastmod></url>`).join('\n');
+const additions=[...expanded.map(page),'/elegir-juegos-infantiles','/servicios','/como-reservar','/contacto'].map(url=>`  <url><loc>${origin+url}</loc><lastmod>${date}</lastmod></url>`).join('\n');
 sitemap=sitemap.replace('</urlset>',additions+'\n</urlset>');
 await fs.writeFile(path.join(root,'sitemap.xml'),sitemap);
 console.log(JSON.stringify({catalogCards:products.length,servicePages:expanded.length,individualServices:expanded.filter(p=>!p.variantes).length,homeFAQs:homeFAQs.length,sitemapUrls:[...sitemap.matchAll(/<loc>/g)].length}));
+const {buildMainPages}=await import('./generar-paginas-principales.mjs');
+await buildMainPages({root,origin,products,business,renderPage:document,price,whatsapp,escape:h});
 // Preserve photo metadata and image sitemap entries when catalog pages regenerate.
 const {optimizeImages}=await import('./optimizar-imagenes.mjs');
 await optimizeImages();

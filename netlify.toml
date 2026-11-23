@@ -67,13 +67,18 @@
 
 [[redirects]]
   from = "/contacto"
-  to = "/index.html#contacto"
+  to = "/contacto.html"
   status = 200
 
 [[redirects]]
   from = "/servicios"
-  to = "/#catalogo"
-  status = 301
+  to = "/servicios.html"
+  status = 200
+
+[[redirects]]
+  from = "/como-reservar"
+  to = "/como-reservar.html"
+  status = 200
 
 [[redirects]]
   from = "/nosotros"
